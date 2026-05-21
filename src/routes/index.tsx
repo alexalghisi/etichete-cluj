@@ -28,44 +28,41 @@ function Index() {
   return (
     <PageLayout>
       {/* HERO */}
-      <section className="gradient-hero relative overflow-hidden text-primary-foreground">
-        <div className="absolute inset-0 opacity-20" style={{ backgroundImage: "radial-gradient(circle at 15% 20%, white 0%, transparent 40%), radial-gradient(circle at 85% 80%, white 0%, transparent 40%)" }} />
-        <div className="relative mx-auto grid max-w-7xl gap-10 px-4 py-16 md:grid-cols-2 md:px-6 md:py-24">
-          <div className="flex flex-col justify-center">
+      <section className="relative overflow-hidden text-white">
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: "url('/images/hero-collage.jpg')" }}
+          aria-hidden="true"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/55 to-black/25" aria-hidden="true" />
+        <div className="relative mx-auto max-w-7xl px-4 py-24 md:px-6 md:py-36 lg:py-44">
+          <div className="max-w-2xl">
             <span className="inline-flex w-fit items-center gap-2 rounded-full bg-white/15 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider backdrop-blur">
               <Sparkles className="h-3.5 w-3.5" /> Cluj-Napoca · din 1993
             </span>
-            <h1 className="mt-5 text-4xl font-bold leading-tight md:text-6xl">
-              Producător etichete textile <span className="text-white/90">personalizate</span>
+            <h1 className="mt-5 text-4xl font-bold leading-[1.05] md:text-6xl lg:text-7xl">
+              Producător etichete textile <span className="text-primary">personalizate</span>
             </h1>
-            <p className="mt-5 max-w-xl text-lg text-primary-foreground/90">
+            <p className="mt-6 max-w-xl text-lg text-white/90 md:text-xl">
               Etichete țesute, imprimate și embosate pentru haine, încălțăminte, marochinărie, mobilier și articole tehnice — fabricate în Cluj-Napoca, livrate în toată România.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
-              <Link to="/contact" className="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-semibold text-primary-deep shadow-elegant transition hover:scale-[1.02]">
+              <Link to="/contact" className="inline-flex items-center gap-2 rounded-full bg-primary px-7 py-3.5 text-sm font-semibold text-primary-foreground shadow-elegant transition hover:scale-[1.02]">
                 Cere o ofertă <ArrowRight className="h-4 w-4" />
               </Link>
-              <a href="tel:+40747264832" className="inline-flex items-center gap-2 rounded-full border border-white/40 px-6 py-3 text-sm font-semibold text-white hover:bg-white/10">
+              <a href="tel:+40747264832" className="inline-flex items-center gap-2 rounded-full border border-white/40 bg-white/5 px-7 py-3.5 text-sm font-semibold text-white backdrop-blur hover:bg-white/15">
                 <Phone className="h-4 w-4" /> 0747 264 832
               </a>
             </div>
-            <div className="mt-10 flex flex-wrap gap-x-8 gap-y-3 text-sm text-primary-foreground/85">
-              <span className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4" /> 30+ ani experiență</span>
-              <span className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4" /> Rezistente la spălare</span>
-              <span className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4" /> Livrare națională</span>
+            <div className="mt-10 flex flex-wrap gap-x-8 gap-y-3 text-sm text-white/85">
+              <span className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-primary" /> 30+ ani experiență</span>
+              <span className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-primary" /> Rezistente la spălare</span>
+              <span className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-primary" /> Livrare națională</span>
             </div>
-          </div>
-          <div className="relative">
-            <div className="absolute -inset-4 rounded-3xl bg-white/10 blur-2xl" />
-            <img
-              src="/images/hero-labels.webp"
-              alt="Etichete textile personalizate pentru haine produse de ETICHETT PROD Cluj-Napoca"
-              className="relative w-full rounded-2xl object-cover shadow-2xl"
-              width={1200} height={800}
-            />
           </div>
         </div>
       </section>
+
 
       {/* TRUST STRIP */}
       <section className="border-y border-border bg-secondary/40">

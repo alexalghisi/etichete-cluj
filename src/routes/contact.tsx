@@ -1,5 +1,4 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useState } from "react";
 import { PageLayout, PageHero } from "@/components/PageLayout";
 import { MapPin, Phone, Mail } from "lucide-react";
 
@@ -17,9 +16,9 @@ export const Route = createFileRoute("/contact")({
   }),
 });
 
+const MAILTO = "mailto:etichettprod@yahoo.com?subject=Cerere%20oferta%20etichete%20textile&body=Buna%20ziua%2C%0A%0ADoresc%20o%20oferta%20pentru%20etichete%20textile.%0A%0ADetalii%3A%0A-%20Tip%20eticheta%20(tesuta%2Fimprimata%2Fcompozitie)%3A%0A-%20Dimensiuni%3A%0A-%20Cantitate%3A%0A-%20Material%2Fculori%3A%0A%0AMultumesc!";
+
 function Contact() {
-  const [form, setForm] = useState({ name: "", email: "", message: "" });
-  const mailto = `mailto:etichettprod@yahoo.com?subject=${encodeURIComponent("Cerere ofertă etichete textile - " + (form.name || ""))}&body=${encodeURIComponent(form.message + "\n\n— " + form.name + " (" + form.email + ")")}`;
   return (
     <PageLayout>
       <PageHero eyebrow="Contact" title="Hai să discutăm despre etichetele tale" subtitle="Trimite-ne grafica sau dezvoltăm una împreună. Stabilim toate detaliile, iar după finalizarea comenzii ridici etichetele de la sediu sau le trimitem prin curier." />
@@ -42,28 +41,22 @@ function Contact() {
               />
             </div>
           </div>
-          <form
-            onSubmit={(e) => { e.preventDefault(); window.location.href = mailto; }}
-            className="rounded-2xl border border-border bg-card p-6 md:p-8 shadow-elegant"
-          >
-            <h2 className="text-2xl font-bold">Scrie-ne mesajul tău</h2>
-            <p className="mt-2 text-sm text-muted-foreground">Răspundem în cel mai scurt timp.</p>
-            <div className="mt-6 space-y-4">
-              <label className="block">
-                <span className="text-sm font-medium">Nume</span>
-                <input required value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} className="mt-1 w-full rounded-lg border border-input bg-background px-4 py-2.5 outline-none focus:border-primary focus:ring-2 focus:ring-primary/20" />
-              </label>
-              <label className="block">
-                <span className="text-sm font-medium">Email</span>
-                <input required type="email" value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} className="mt-1 w-full rounded-lg border border-input bg-background px-4 py-2.5 outline-none focus:border-primary focus:ring-2 focus:ring-primary/20" />
-              </label>
-              <label className="block">
-                <span className="text-sm font-medium">Mesaj</span>
-                <textarea required rows={5} value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} className="mt-1 w-full rounded-lg border border-input bg-background px-4 py-2.5 outline-none focus:border-primary focus:ring-2 focus:ring-primary/20" />
-              </label>
-              <button type="submit" className="w-full rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground hover:opacity-90">Trimite mesajul</button>
+          <div className="rounded-2xl border border-border bg-card p-6 md:p-8 shadow-elegant">
+            <h2 className="text-2xl font-bold">Trimite-ne un email</h2>
+            <p className="mt-2 text-sm text-muted-foreground">
+              Apasă butonul de mai jos pentru a deschide aplicația ta de email cu adresa noastră deja completată. Scrie-ne despre cantitate, dimensiuni, material și atașează grafica (dacă o ai).
+            </p>
+            <a
+              href={MAILTO}
+              className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground hover:opacity-90"
+            >
+              <Mail className="h-4 w-4" /> Trimite email la etichettprod@yahoo.com
+            </a>
+            <div className="mt-6 rounded-lg bg-secondary/50 p-4 text-sm text-muted-foreground">
+              <p className="font-medium text-foreground">Preferi telefonul?</p>
+              <p className="mt-1">Sună-ne direct la <a href="tel:+40747264832" className="font-semibold text-primary hover:underline">0747 264 832</a> — răspundem rapid în timpul programului.</p>
             </div>
-          </form>
+          </div>
         </div>
       </section>
     </PageLayout>

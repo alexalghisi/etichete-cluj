@@ -187,7 +187,45 @@ function Contact() {
             ))}
           </div>
         </div>
+
+        <div className="mt-16 grid gap-8 md:grid-cols-2">
+          <article>
+            <h2 className="text-2xl font-bold">Etichete Cluj-Napoca — producție locală</h2>
+            <p className="mt-3 text-muted-foreground">
+              Atelierul nostru este în <strong>Cluj-Napoca</strong>, pe Str. Uzinei Electrice nr. 9, lângă zona industrială. Lucrăm cu branduri din <strong>Mănăștur</strong>, <strong>Mărăști</strong>, <strong>Gheorgheni</strong>, <strong>Zorilor</strong>, <strong>Centru</strong>, <strong>Bună Ziua</strong> și <strong>Iris</strong>. Ridici personal sau livrăm prin curier oriunde în oraș, în 24–48h pentru comenzile standard de <em>etichete țesute Cluj-Napoca</em> și <em>etichete imprimate Cluj-Napoca</em>.
+            </p>
+          </article>
+          <article>
+            <h2 className="text-2xl font-bold">Etichete Cluj — județul Cluj și împrejurimi</h2>
+            <p className="mt-3 text-muted-foreground">
+              Livrăm <strong>etichete textile în județul Cluj</strong>: <strong>Florești</strong>, <strong>Apahida</strong>, <strong>Baciu</strong>, <strong>Gilău</strong>, <strong>Turda</strong>, <strong>Câmpia Turzii</strong>, <strong>Dej</strong>, <strong>Gherla</strong> și <strong>Huedin</strong>. Indiferent dacă ai un atelier de croitorie, un brand de streetwear sau o fabrică, găsești la noi <em>etichete personalizate Cluj</em>, <em>etichete de compoziție Cluj</em> și <em>etichete cu logo</em> pentru îmbrăcăminte, încălțăminte și marochinărie.
+            </p>
+          </article>
+          <article>
+            <h2 className="text-2xl font-bold">Etichete textile pentru haine — țesute, imprimate, compoziție</h2>
+            <p className="mt-3 text-muted-foreground">
+              Acoperim tot ce înseamnă <strong>etichete pentru haine</strong>: <em>etichete țesute damasc</em>, <em>etichete satin imprimate</em>, <em>etichete nylon</em>, <em>etichete bumbac organic</em>, <em>etichete de compoziție conforme UE</em> în mai multe limbi, <em>etichete autoadezive</em> și <em>etichete carton</em> tip hangtag. Cantități de la 100 bucăți la zeci de mii.
+            </p>
+          </article>
+          <article>
+            <h2 className="text-2xl font-bold">Producător etichete în România — livrare națională</h2>
+            <p className="mt-3 text-muted-foreground">
+              Suntem <strong>producător etichete textile</strong> cu sediul în Cluj, dar livrăm în toată țara: <em>etichete București</em>, <em>etichete Timișoara</em>, <em>etichete Oradea</em>, <em>etichete Sibiu</em>, <em>etichete Brașov</em>, <em>etichete Iași</em>. Curier 24–48h pentru reordonări și fișiere validate.
+            </p>
+          </article>
+        </div>
+
+        <div className="mt-12 rounded-2xl border border-border p-6 md:p-8">
+          <h2 className="text-xl font-bold">Întrebări frecvente despre etichete Cluj</h2>
+          <dl className="mt-4 space-y-4 text-sm text-muted-foreground">
+            <div><dt className="font-semibold text-foreground">Care este cantitatea minimă pentru etichete țesute în Cluj?</dt><dd>Producem de la 100 de bucăți per model, pentru ca și brandurile mici să poată comanda etichete personalizate.</dd></div>
+            <div><dt className="font-semibold text-foreground">Cât durează producția unei comenzi de etichete textile?</dt><dd>Între 3 și 7 zile lucrătoare pentru comenzi standard. Pentru urgențe în Cluj-Napoca putem livra și în 48h.</dd></div>
+            <div><dt className="font-semibold text-foreground">Faceți și etichete de compoziție în mai multe limbi?</dt><dd>Da — RO/EN/DE/FR/IT, conforme cu reglementările UE pentru îmbrăcăminte și textile.</dd></div>
+          </dl>
+        </div>
       </section>
     </PageLayout>
   );
 }
+
+

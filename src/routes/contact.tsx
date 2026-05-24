@@ -139,8 +139,6 @@ function Contact() {
 
             <a
               href={WHATSAPP}
-              target="_blank"
-              rel="noopener noreferrer"
               className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#25D366] px-6 py-3 text-sm font-semibold text-white hover:opacity-90"
             >
               <MessageCircle className="h-4 w-4" /> Scrie-ne pe WhatsApp

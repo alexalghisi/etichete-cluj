@@ -54,6 +54,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "keywords", content: "etichete, etichete cluj, etichete cluj-napoca, etichete textile, etichete personalizate, etichete haine, etichete haine personalizate, etichete pentru haine, etichete tesute, etichete imprimate, etichete satina, etichete satin, etichete carton, etichete nylon, etichete autoadezive, etichete autocolante, etichete autocolante personalizate, etichete termoadezive, etichete termoadezive pentru haine, simboluri etichete haine, etichete haine copii, etichete de compozitie, imprimanta etichete, imprimanta etichete autoadezive, producator etichete" },
       { name: "author", content: "ETICHETT PROD" },
       { name: "robots", content: "index, follow" },
+      { name: "google-site-verification", content: "-IlzVC_G80Q0f_I369W_7IEDLQfUTcpsbjnHwQNxfOc" },
       { property: "og:type", content: "website" },
       { property: "og:site_name", content: "ETICHETT PROD" },
       { property: "og:locale", content: "ro_RO" },

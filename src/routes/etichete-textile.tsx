@@ -6,11 +6,11 @@ export const Route = createFileRoute("/etichete-textile")({
   component: EticheteTextile,
   head: () => ({
     meta: [
-      { title: "Etichete textile — țesute, imprimate | ETICHETT PROD" },
+      { title: "Etichete textile — țesute & imprimate Cluj | ETICHETT" },
       { name: "description", content: "Etichete textile pentru haine și branduri: țesute, imprimate, satin, nylon, carton, termoadezive, de compoziție. Producător Cluj-Napoca." },
       { name: "keywords", content: "etichete textile, etichete textile haine, etichete textile personalizate, etichete textile cluj, etichete textile tesute, etichete textile imprimate, etichete textile satin, etichete textile nylon" },
-      { property: "og:title", content: "Etichete textile — țesute, imprimate, personalizate" },
-      { property: "og:description", content: "Gamă completă de etichete textile pentru branduri, ateliere și producători de îmbrăcăminte." },
+      { property: "og:title", content: "Etichete textile — țesute & imprimate Cluj | ETICHETT" },
+      { property: "og:description", content: "Gamă completă de etichete textile pentru branduri, ateliere și producători de îmbrăcăminte din Cluj-Napoca și România." },
       { property: "og:url", content: "https://etichetetextile.ro/etichete-textile" },
       { property: "og:image", content: "https://etichetetextile.ro/images/hero-labels.webp" },
     ],

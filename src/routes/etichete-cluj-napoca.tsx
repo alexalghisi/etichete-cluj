@@ -6,10 +6,10 @@ export const Route = createFileRoute("/etichete-cluj-napoca")({
   component: EticheteClujNapoca,
   head: () => ({
     meta: [
-      { title: "Etichete Cluj-Napoca — etichete textile | ETICHETT PROD" },
-      { name: "description", content: "Etichete Cluj-Napoca: producător local din 1993 de etichete textile țesute, imprimate, satin, nylon, carton și termoadezive." },
+      { title: "Etichete Cluj-Napoca — producător textile | ETICHETT" },
+      { name: "description", content: "Etichete Cluj-Napoca: producător local din 1993 de etichete textile — țesute, imprimate, satin, nylon, termoadezive pentru branduri." },
       { name: "keywords", content: "etichete cluj-napoca, etichete textile cluj-napoca, etichete personalizate cluj-napoca, etichete haine cluj-napoca, producator etichete cluj-napoca, etichete tesute cluj-napoca" },
-      { property: "og:title", content: "Etichete Cluj-Napoca — Producător local | ETICHETT PROD" },
+      { property: "og:title", content: "Etichete Cluj-Napoca — producător textile | ETICHETT" },
       { property: "og:description", content: "Producător de etichete textile cu atelier în Cluj-Napoca. Etichete țesute, imprimate, satin, nylon, termoadezive pentru branduri." },
       { property: "og:url", content: "https://etichetetextile.ro/etichete-cluj-napoca" },
       { property: "og:image", content: "https://etichetetextile.ro/images/hero-labels.webp" },

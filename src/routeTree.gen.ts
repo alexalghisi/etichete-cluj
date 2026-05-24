@@ -12,6 +12,8 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as ProduseRouteImport } from './routes/produse'
 import { Route as GalerieRouteImport } from './routes/galerie'
+import { Route as EticheteTextileRouteImport } from './routes/etichete-textile'
+import { Route as EticheteClujNapocaRouteImport } from './routes/etichete-cluj-napoca'
 import { Route as EticheteClujRouteImport } from './routes/etichete-cluj'
 import { Route as DespreNoiRouteImport } from './routes/despre-noi'
 import { Route as ContactRouteImport } from './routes/contact'
@@ -30,6 +32,16 @@ const ProduseRoute = ProduseRouteImport.update({
 const GalerieRoute = GalerieRouteImport.update({
   id: '/galerie',
   path: '/galerie',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EticheteTextileRoute = EticheteTextileRouteImport.update({
+  id: '/etichete-textile',
+  path: '/etichete-textile',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EticheteClujNapocaRoute = EticheteClujNapocaRouteImport.update({
+  id: '/etichete-cluj-napoca',
+  path: '/etichete-cluj-napoca',
   getParentRoute: () => rootRouteImport,
 } as any)
 const EticheteClujRoute = EticheteClujRouteImport.update({
@@ -58,6 +70,8 @@ export interface FileRoutesByFullPath {
   '/contact': typeof ContactRoute
   '/despre-noi': typeof DespreNoiRoute
   '/etichete-cluj': typeof EticheteClujRoute
+  '/etichete-cluj-napoca': typeof EticheteClujNapocaRoute
+  '/etichete-textile': typeof EticheteTextileRoute
   '/galerie': typeof GalerieRoute
   '/produse': typeof ProduseRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
@@ -67,6 +81,8 @@ export interface FileRoutesByTo {
   '/contact': typeof ContactRoute
   '/despre-noi': typeof DespreNoiRoute
   '/etichete-cluj': typeof EticheteClujRoute
+  '/etichete-cluj-napoca': typeof EticheteClujNapocaRoute
+  '/etichete-textile': typeof EticheteTextileRoute
   '/galerie': typeof GalerieRoute
   '/produse': typeof ProduseRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
@@ -77,6 +93,8 @@ export interface FileRoutesById {
   '/contact': typeof ContactRoute
   '/despre-noi': typeof DespreNoiRoute
   '/etichete-cluj': typeof EticheteClujRoute
+  '/etichete-cluj-napoca': typeof EticheteClujNapocaRoute
+  '/etichete-textile': typeof EticheteTextileRoute
   '/galerie': typeof GalerieRoute
   '/produse': typeof ProduseRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
@@ -88,6 +106,8 @@ export interface FileRouteTypes {
     | '/contact'
     | '/despre-noi'
     | '/etichete-cluj'
+    | '/etichete-cluj-napoca'
+    | '/etichete-textile'
     | '/galerie'
     | '/produse'
     | '/sitemap.xml'
@@ -97,6 +117,8 @@ export interface FileRouteTypes {
     | '/contact'
     | '/despre-noi'
     | '/etichete-cluj'
+    | '/etichete-cluj-napoca'
+    | '/etichete-textile'
     | '/galerie'
     | '/produse'
     | '/sitemap.xml'
@@ -106,6 +128,8 @@ export interface FileRouteTypes {
     | '/contact'
     | '/despre-noi'
     | '/etichete-cluj'
+    | '/etichete-cluj-napoca'
+    | '/etichete-textile'
     | '/galerie'
     | '/produse'
     | '/sitemap.xml'
@@ -116,6 +140,8 @@ export interface RootRouteChildren {
   ContactRoute: typeof ContactRoute
   DespreNoiRoute: typeof DespreNoiRoute
   EticheteClujRoute: typeof EticheteClujRoute
+  EticheteClujNapocaRoute: typeof EticheteClujNapocaRoute
+  EticheteTextileRoute: typeof EticheteTextileRoute
   GalerieRoute: typeof GalerieRoute
   ProduseRoute: typeof ProduseRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
@@ -142,6 +168,20 @@ declare module '@tanstack/react-router' {
       path: '/galerie'
       fullPath: '/galerie'
       preLoaderRoute: typeof GalerieRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/etichete-textile': {
+      id: '/etichete-textile'
+      path: '/etichete-textile'
+      fullPath: '/etichete-textile'
+      preLoaderRoute: typeof EticheteTextileRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/etichete-cluj-napoca': {
+      id: '/etichete-cluj-napoca'
+      path: '/etichete-cluj-napoca'
+      fullPath: '/etichete-cluj-napoca'
+      preLoaderRoute: typeof EticheteClujNapocaRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/etichete-cluj': {
@@ -180,6 +220,8 @@ const rootRouteChildren: RootRouteChildren = {
   ContactRoute: ContactRoute,
   DespreNoiRoute: DespreNoiRoute,
   EticheteClujRoute: EticheteClujRoute,
+  EticheteClujNapocaRoute: EticheteClujNapocaRoute,
+  EticheteTextileRoute: EticheteTextileRoute,
   GalerieRoute: GalerieRoute,
   ProduseRoute: ProduseRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
@@ -187,3 +229,13 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}

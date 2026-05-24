@@ -17,7 +17,9 @@ export const Route = createFileRoute("/sitemap.xml")({
           { path: "/", changefreq: "weekly", priority: "1.0" },
           { path: "/despre-noi", changefreq: "monthly", priority: "0.7" },
           { path: "/produse", changefreq: "monthly", priority: "0.9" },
+          { path: "/etichete-textile", changefreq: "monthly", priority: "0.95" },
           { path: "/etichete-cluj", changefreq: "monthly", priority: "0.9" },
+          { path: "/etichete-cluj-napoca", changefreq: "monthly", priority: "0.95" },
           { path: "/galerie", changefreq: "monthly", priority: "0.6" },
           { path: "/contact", changefreq: "yearly", priority: "0.7" },
         ];

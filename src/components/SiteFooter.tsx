@@ -24,11 +24,11 @@ export function SiteFooter() {
         <div>
           <h3 className="text-sm font-semibold text-foreground">Produse</h3>
           <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
-            <li>Etichete textile personalizate</li>
-            <li>Etichete țesute</li>
-            <li>Etichete imprimate</li>
-            <li>Etichete de compoziție</li>
-            <li>Etichete pentru îmbrăcăminte</li>
+            <li><Link to="/etichete-textile" className="hover:text-primary">Etichete textile</Link></li>
+            <li><Link to="/etichete-cluj" className="hover:text-primary">Etichete Cluj</Link></li>
+            <li><Link to="/etichete-cluj-napoca" className="hover:text-primary">Etichete Cluj-Napoca</Link></li>
+            <li>Etichete țesute & imprimate</li>
+            <li>Etichete termoadezive</li>
             <li>Etichete autoadezive</li>
           </ul>
         </div>

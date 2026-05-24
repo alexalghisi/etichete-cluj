@@ -25,11 +25,12 @@ export function SiteFooter() {
           <h3 className="text-sm font-semibold text-foreground">Produse</h3>
           <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
             <li><Link to="/etichete-textile" className="hover:text-primary">Etichete textile</Link></li>
-            <li><Link to="/etichete-cluj" className="hover:text-primary">Etichete Cluj</Link></li>
+            <li><Link to="/etichete-personalizate" className="hover:text-primary">Etichete personalizate</Link></li>
+            <li><Link to="/etichete-tesute" className="hover:text-primary">Etichete țesute</Link></li>
+            <li><Link to="/etichete-satin" className="hover:text-primary">Etichete satin</Link></li>
+            <li><Link to="/etichete-carton" className="hover:text-primary">Etichete carton</Link></li>
+            <li><Link to="/etichete-autoadezive" className="hover:text-primary">Etichete autoadezive</Link></li>
             <li><Link to="/etichete-cluj-napoca" className="hover:text-primary">Etichete Cluj-Napoca</Link></li>
-            <li>Etichete țesute & imprimate</li>
-            <li>Etichete termoadezive</li>
-            <li>Etichete autoadezive</li>
           </ul>
         </div>
         <div>

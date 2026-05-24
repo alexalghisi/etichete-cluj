@@ -13,8 +13,13 @@ import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as ProduseRouteImport } from './routes/produse'
 import { Route as GalerieRouteImport } from './routes/galerie'
 import { Route as EticheteTextileRouteImport } from './routes/etichete-textile'
+import { Route as EticheteTesuteRouteImport } from './routes/etichete-tesute'
+import { Route as EticheteSatinRouteImport } from './routes/etichete-satin'
+import { Route as EtichetePersonalizateRouteImport } from './routes/etichete-personalizate'
 import { Route as EticheteClujNapocaRouteImport } from './routes/etichete-cluj-napoca'
 import { Route as EticheteClujRouteImport } from './routes/etichete-cluj'
+import { Route as EticheteCartonRouteImport } from './routes/etichete-carton'
+import { Route as EticheteAutoadeziveRouteImport } from './routes/etichete-autoadezive'
 import { Route as DespreNoiRouteImport } from './routes/despre-noi'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as IndexRouteImport } from './routes/index'
@@ -39,6 +44,21 @@ const EticheteTextileRoute = EticheteTextileRouteImport.update({
   path: '/etichete-textile',
   getParentRoute: () => rootRouteImport,
 } as any)
+const EticheteTesuteRoute = EticheteTesuteRouteImport.update({
+  id: '/etichete-tesute',
+  path: '/etichete-tesute',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EticheteSatinRoute = EticheteSatinRouteImport.update({
+  id: '/etichete-satin',
+  path: '/etichete-satin',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EtichetePersonalizateRoute = EtichetePersonalizateRouteImport.update({
+  id: '/etichete-personalizate',
+  path: '/etichete-personalizate',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const EticheteClujNapocaRoute = EticheteClujNapocaRouteImport.update({
   id: '/etichete-cluj-napoca',
   path: '/etichete-cluj-napoca',
@@ -47,6 +67,16 @@ const EticheteClujNapocaRoute = EticheteClujNapocaRouteImport.update({
 const EticheteClujRoute = EticheteClujRouteImport.update({
   id: '/etichete-cluj',
   path: '/etichete-cluj',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EticheteCartonRoute = EticheteCartonRouteImport.update({
+  id: '/etichete-carton',
+  path: '/etichete-carton',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EticheteAutoadeziveRoute = EticheteAutoadeziveRouteImport.update({
+  id: '/etichete-autoadezive',
+  path: '/etichete-autoadezive',
   getParentRoute: () => rootRouteImport,
 } as any)
 const DespreNoiRoute = DespreNoiRouteImport.update({
@@ -69,8 +99,13 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/contact': typeof ContactRoute
   '/despre-noi': typeof DespreNoiRoute
+  '/etichete-autoadezive': typeof EticheteAutoadeziveRoute
+  '/etichete-carton': typeof EticheteCartonRoute
   '/etichete-cluj': typeof EticheteClujRoute
   '/etichete-cluj-napoca': typeof EticheteClujNapocaRoute
+  '/etichete-personalizate': typeof EtichetePersonalizateRoute
+  '/etichete-satin': typeof EticheteSatinRoute
+  '/etichete-tesute': typeof EticheteTesuteRoute
   '/etichete-textile': typeof EticheteTextileRoute
   '/galerie': typeof GalerieRoute
   '/produse': typeof ProduseRoute
@@ -80,8 +115,13 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/contact': typeof ContactRoute
   '/despre-noi': typeof DespreNoiRoute
+  '/etichete-autoadezive': typeof EticheteAutoadeziveRoute
+  '/etichete-carton': typeof EticheteCartonRoute
   '/etichete-cluj': typeof EticheteClujRoute
   '/etichete-cluj-napoca': typeof EticheteClujNapocaRoute
+  '/etichete-personalizate': typeof EtichetePersonalizateRoute
+  '/etichete-satin': typeof EticheteSatinRoute
+  '/etichete-tesute': typeof EticheteTesuteRoute
   '/etichete-textile': typeof EticheteTextileRoute
   '/galerie': typeof GalerieRoute
   '/produse': typeof ProduseRoute
@@ -92,8 +132,13 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/contact': typeof ContactRoute
   '/despre-noi': typeof DespreNoiRoute
+  '/etichete-autoadezive': typeof EticheteAutoadeziveRoute
+  '/etichete-carton': typeof EticheteCartonRoute
   '/etichete-cluj': typeof EticheteClujRoute
   '/etichete-cluj-napoca': typeof EticheteClujNapocaRoute
+  '/etichete-personalizate': typeof EtichetePersonalizateRoute
+  '/etichete-satin': typeof EticheteSatinRoute
+  '/etichete-tesute': typeof EticheteTesuteRoute
   '/etichete-textile': typeof EticheteTextileRoute
   '/galerie': typeof GalerieRoute
   '/produse': typeof ProduseRoute
@@ -105,8 +150,13 @@ export interface FileRouteTypes {
     | '/'
     | '/contact'
     | '/despre-noi'
+    | '/etichete-autoadezive'
+    | '/etichete-carton'
     | '/etichete-cluj'
     | '/etichete-cluj-napoca'
+    | '/etichete-personalizate'
+    | '/etichete-satin'
+    | '/etichete-tesute'
     | '/etichete-textile'
     | '/galerie'
     | '/produse'
@@ -116,8 +166,13 @@ export interface FileRouteTypes {
     | '/'
     | '/contact'
     | '/despre-noi'
+    | '/etichete-autoadezive'
+    | '/etichete-carton'
     | '/etichete-cluj'
     | '/etichete-cluj-napoca'
+    | '/etichete-personalizate'
+    | '/etichete-satin'
+    | '/etichete-tesute'
     | '/etichete-textile'
     | '/galerie'
     | '/produse'
@@ -127,8 +182,13 @@ export interface FileRouteTypes {
     | '/'
     | '/contact'
     | '/despre-noi'
+    | '/etichete-autoadezive'
+    | '/etichete-carton'
     | '/etichete-cluj'
     | '/etichete-cluj-napoca'
+    | '/etichete-personalizate'
+    | '/etichete-satin'
+    | '/etichete-tesute'
     | '/etichete-textile'
     | '/galerie'
     | '/produse'
@@ -139,8 +199,13 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   ContactRoute: typeof ContactRoute
   DespreNoiRoute: typeof DespreNoiRoute
+  EticheteAutoadeziveRoute: typeof EticheteAutoadeziveRoute
+  EticheteCartonRoute: typeof EticheteCartonRoute
   EticheteClujRoute: typeof EticheteClujRoute
   EticheteClujNapocaRoute: typeof EticheteClujNapocaRoute
+  EtichetePersonalizateRoute: typeof EtichetePersonalizateRoute
+  EticheteSatinRoute: typeof EticheteSatinRoute
+  EticheteTesuteRoute: typeof EticheteTesuteRoute
   EticheteTextileRoute: typeof EticheteTextileRoute
   GalerieRoute: typeof GalerieRoute
   ProduseRoute: typeof ProduseRoute
@@ -177,6 +242,27 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof EticheteTextileRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/etichete-tesute': {
+      id: '/etichete-tesute'
+      path: '/etichete-tesute'
+      fullPath: '/etichete-tesute'
+      preLoaderRoute: typeof EticheteTesuteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/etichete-satin': {
+      id: '/etichete-satin'
+      path: '/etichete-satin'
+      fullPath: '/etichete-satin'
+      preLoaderRoute: typeof EticheteSatinRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/etichete-personalizate': {
+      id: '/etichete-personalizate'
+      path: '/etichete-personalizate'
+      fullPath: '/etichete-personalizate'
+      preLoaderRoute: typeof EtichetePersonalizateRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/etichete-cluj-napoca': {
       id: '/etichete-cluj-napoca'
       path: '/etichete-cluj-napoca'
@@ -189,6 +275,20 @@ declare module '@tanstack/react-router' {
       path: '/etichete-cluj'
       fullPath: '/etichete-cluj'
       preLoaderRoute: typeof EticheteClujRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/etichete-carton': {
+      id: '/etichete-carton'
+      path: '/etichete-carton'
+      fullPath: '/etichete-carton'
+      preLoaderRoute: typeof EticheteCartonRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/etichete-autoadezive': {
+      id: '/etichete-autoadezive'
+      path: '/etichete-autoadezive'
+      fullPath: '/etichete-autoadezive'
+      preLoaderRoute: typeof EticheteAutoadeziveRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/despre-noi': {
@@ -219,8 +319,13 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   ContactRoute: ContactRoute,
   DespreNoiRoute: DespreNoiRoute,
+  EticheteAutoadeziveRoute: EticheteAutoadeziveRoute,
+  EticheteCartonRoute: EticheteCartonRoute,
   EticheteClujRoute: EticheteClujRoute,
   EticheteClujNapocaRoute: EticheteClujNapocaRoute,
+  EtichetePersonalizateRoute: EtichetePersonalizateRoute,
+  EticheteSatinRoute: EticheteSatinRoute,
+  EticheteTesuteRoute: EticheteTesuteRoute,
   EticheteTextileRoute: EticheteTextileRoute,
   GalerieRoute: GalerieRoute,
   ProduseRoute: ProduseRoute,

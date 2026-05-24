@@ -1,0 +1,99 @@
+import { createFileRoute, Link } from "@tanstack/react-router";
+import { PageLayout, PageHero } from "@/components/PageLayout";
+import { ArrowRight, CheckCircle2 } from "lucide-react";
+
+export const Route = createFileRoute("/etichete-autoadezive")({
+  component: EticheteAutoadezive,
+  head: () => ({
+    meta: [
+      { title: "Etichete autoadezive personalizate pe role | ETICHETT" },
+      { name: "description", content: "Etichete autoadezive personalizate pe role pentru ambalaje, cosmetice, vinuri, borcane și produse. Imprimare HD, decupare la formă, livrare RO." },
+      { name: "keywords", content: "etichete autoadezive, etichete autoadezive personalizate, etichete autocolante, etichete autocolante personalizate, etichete pe role, etichete autoadezive cluj, imprimanta etichete autoadezive, etichete sticker" },
+      { property: "og:title", content: "Etichete autoadezive personalizate pe role | ETICHETT" },
+      { property: "og:description", content: "Etichete autoadezive imprimate HD pentru produsele tale — pe role, decupate la formă. Producător Cluj-Napoca." },
+      { property: "og:url", content: "https://etichetetextile.ro/etichete-autoadezive" },
+      { property: "og:image", content: "https://etichetetextile.ro/images/hero-labels.webp" },
+    ],
+    links: [{ rel: "canonical", href: "https://etichetetextile.ro/etichete-autoadezive" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            { "@type": "ListItem", position: 1, name: "Acasă", item: "https://etichetetextile.ro/" },
+            { "@type": "ListItem", position: 2, name: "Etichete autoadezive", item: "https://etichetetextile.ro/etichete-autoadezive" },
+          ],
+        }),
+      },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Product",
+          name: "Etichete autoadezive personalizate",
+          description: "Etichete autoadezive imprimate HD pe role, cu adeziv puternic sau detașabil, decupate la formă.",
+          brand: { "@type": "Brand", name: "ETICHETT PROD" },
+          image: "https://etichetetextile.ro/images/hero-labels.webp",
+          offers: { "@type": "AggregateOffer", priceCurrency: "RON", lowPrice: "0.05", availability: "https://schema.org/InStock" },
+        }),
+      },
+    ],
+  }),
+});
+
+const aplicatii = [
+  "Cosmetice & săpunuri handmade",
+  "Vinuri, băuturi, conserve, borcane",
+  "Cutii ambalaje și colete",
+  "Produse alimentare & catering",
+  "Textile, ambalaje haine",
+  "Industrial — coduri de bare, identificare",
+];
+
+function EticheteAutoadezive() {
+  return (
+    <PageLayout>
+      <PageHero
+        eyebrow="Categorie · Autoadezive"
+        title="Etichete autoadezive personalizate pe role"
+        subtitle="Etichete autoadezive (autocolante) imprimate HD pe role — pentru cosmetice, vinuri, borcane, ambalaje și produse handmade. Adeziv puternic sau detașabil, forme decupate."
+      />
+      <section className="mx-auto max-w-7xl px-4 py-16 md:px-6">
+        <nav aria-label="Breadcrumb" className="mb-6 text-sm text-muted-foreground">
+          <Link to="/" className="hover:text-primary">Acasă</Link> <span className="mx-2">/</span> <span className="text-foreground">Etichete autoadezive</span>
+        </nav>
+
+        <div className="grid gap-8 md:grid-cols-2">
+          <article>
+            <h2 className="text-2xl font-bold">Etichete autoadezive imprimate HD</h2>
+            <p className="mt-3 text-muted-foreground">
+              Realizăm <strong>etichete autoadezive personalizate</strong> pe role, în orice formă și dimensiune. Folosim hârtie albă, transparentă, metalizată sau cu textură, cu finisaje mate, lucioase sau cu lac selectiv. Alternativă profesională la <em>imprimanta de etichete autoadezive</em> de birou — calitate de tipografie, în serie.
+            </p>
+            <h3 className="mt-6 text-lg font-bold">Aplicații frecvente</h3>
+            <ul className="mt-3 grid gap-2 text-sm">
+              {aplicatii.map((a) => (
+                <li key={a} className="flex items-start gap-2"><CheckCircle2 className="mt-0.5 h-4 w-4 text-primary" /> {a}</li>
+              ))}
+            </ul>
+          </article>
+
+          <article className="rounded-2xl border border-border bg-card p-6">
+            <h2 className="text-xl font-bold">Caracteristici tehnice</h2>
+            <dl className="mt-4 grid gap-3 text-sm">
+              <div><dt className="font-semibold">Suport</dt><dd className="text-muted-foreground">Hârtie albă, transparentă, metalizată, kraft, sintetic</dd></div>
+              <div><dt className="font-semibold">Adeziv</dt><dd className="text-muted-foreground">Permanent, detașabil, congelare, anvelope</dd></div>
+              <div><dt className="font-semibold">Imprimare</dt><dd className="text-muted-foreground">CMYK + culori Pantone, până la HD foto</dd></div>
+              <div><dt className="font-semibold">Finisaj</dt><dd className="text-muted-foreground">Mat, lucios, lac selectiv, folio aur/argint</dd></div>
+              <div><dt className="font-semibold">Format</dt><dd className="text-muted-foreground">Role sau coli, formă rotundă/pătrată/decupată</dd></div>
+            </dl>
+            <Link to="/contact" className="mt-6 inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground">
+              Cere ofertă autoadezive <ArrowRight className="h-4 w-4" />
+            </Link>
+          </article>
+        </div>
+      </section>
+    </PageLayout>
+  );
+}

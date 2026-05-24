@@ -16,6 +16,7 @@ import { Route as EticheteTextileRouteImport } from './routes/etichete-textile'
 import { Route as EtichetePersonalizateRouteImport } from './routes/etichete-personalizate'
 import { Route as EticheteClujNapocaRouteImport } from './routes/etichete-cluj-napoca'
 import { Route as EticheteClujRouteImport } from './routes/etichete-cluj'
+import { Route as EticheteAutoadeziveRouteImport } from './routes/etichete-autoadezive'
 import { Route as DespreNoiRouteImport } from './routes/despre-noi'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as IndexRouteImport } from './routes/index'
@@ -55,6 +56,11 @@ const EticheteClujRoute = EticheteClujRouteImport.update({
   path: '/etichete-cluj',
   getParentRoute: () => rootRouteImport,
 } as any)
+const EticheteAutoadeziveRoute = EticheteAutoadeziveRouteImport.update({
+  id: '/etichete-autoadezive',
+  path: '/etichete-autoadezive',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const DespreNoiRoute = DespreNoiRouteImport.update({
   id: '/despre-noi',
   path: '/despre-noi',
@@ -75,6 +81,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/contact': typeof ContactRoute
   '/despre-noi': typeof DespreNoiRoute
+  '/etichete-autoadezive': typeof EticheteAutoadeziveRoute
   '/etichete-cluj': typeof EticheteClujRoute
   '/etichete-cluj-napoca': typeof EticheteClujNapocaRoute
   '/etichete-personalizate': typeof EtichetePersonalizateRoute
@@ -87,6 +94,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/contact': typeof ContactRoute
   '/despre-noi': typeof DespreNoiRoute
+  '/etichete-autoadezive': typeof EticheteAutoadeziveRoute
   '/etichete-cluj': typeof EticheteClujRoute
   '/etichete-cluj-napoca': typeof EticheteClujNapocaRoute
   '/etichete-personalizate': typeof EtichetePersonalizateRoute
@@ -100,6 +108,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/contact': typeof ContactRoute
   '/despre-noi': typeof DespreNoiRoute
+  '/etichete-autoadezive': typeof EticheteAutoadeziveRoute
   '/etichete-cluj': typeof EticheteClujRoute
   '/etichete-cluj-napoca': typeof EticheteClujNapocaRoute
   '/etichete-personalizate': typeof EtichetePersonalizateRoute
@@ -114,6 +123,7 @@ export interface FileRouteTypes {
     | '/'
     | '/contact'
     | '/despre-noi'
+    | '/etichete-autoadezive'
     | '/etichete-cluj'
     | '/etichete-cluj-napoca'
     | '/etichete-personalizate'
@@ -126,6 +136,7 @@ export interface FileRouteTypes {
     | '/'
     | '/contact'
     | '/despre-noi'
+    | '/etichete-autoadezive'
     | '/etichete-cluj'
     | '/etichete-cluj-napoca'
     | '/etichete-personalizate'
@@ -138,6 +149,7 @@ export interface FileRouteTypes {
     | '/'
     | '/contact'
     | '/despre-noi'
+    | '/etichete-autoadezive'
     | '/etichete-cluj'
     | '/etichete-cluj-napoca'
     | '/etichete-personalizate'
@@ -151,6 +163,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   ContactRoute: typeof ContactRoute
   DespreNoiRoute: typeof DespreNoiRoute
+  EticheteAutoadeziveRoute: typeof EticheteAutoadeziveRoute
   EticheteClujRoute: typeof EticheteClujRoute
   EticheteClujNapocaRoute: typeof EticheteClujNapocaRoute
   EtichetePersonalizateRoute: typeof EtichetePersonalizateRoute
@@ -211,6 +224,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof EticheteClujRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/etichete-autoadezive': {
+      id: '/etichete-autoadezive'
+      path: '/etichete-autoadezive'
+      fullPath: '/etichete-autoadezive'
+      preLoaderRoute: typeof EticheteAutoadeziveRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/despre-noi': {
       id: '/despre-noi'
       path: '/despre-noi'
@@ -239,6 +259,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   ContactRoute: ContactRoute,
   DespreNoiRoute: DespreNoiRoute,
+  EticheteAutoadeziveRoute: EticheteAutoadeziveRoute,
   EticheteClujRoute: EticheteClujRoute,
   EticheteClujNapocaRoute: EticheteClujNapocaRoute,
   EtichetePersonalizateRoute: EtichetePersonalizateRoute,

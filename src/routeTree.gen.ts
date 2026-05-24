@@ -13,6 +13,7 @@ import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as ProduseRouteImport } from './routes/produse'
 import { Route as GalerieRouteImport } from './routes/galerie'
 import { Route as EticheteTextileRouteImport } from './routes/etichete-textile'
+import { Route as EticheteSatinRouteImport } from './routes/etichete-satin'
 import { Route as EtichetePersonalizateRouteImport } from './routes/etichete-personalizate'
 import { Route as EticheteClujNapocaRouteImport } from './routes/etichete-cluj-napoca'
 import { Route as EticheteClujRouteImport } from './routes/etichete-cluj'
@@ -39,6 +40,11 @@ const GalerieRoute = GalerieRouteImport.update({
 const EticheteTextileRoute = EticheteTextileRouteImport.update({
   id: '/etichete-textile',
   path: '/etichete-textile',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EticheteSatinRoute = EticheteSatinRouteImport.update({
+  id: '/etichete-satin',
+  path: '/etichete-satin',
   getParentRoute: () => rootRouteImport,
 } as any)
 const EtichetePersonalizateRoute = EtichetePersonalizateRouteImport.update({
@@ -85,6 +91,7 @@ export interface FileRoutesByFullPath {
   '/etichete-cluj': typeof EticheteClujRoute
   '/etichete-cluj-napoca': typeof EticheteClujNapocaRoute
   '/etichete-personalizate': typeof EtichetePersonalizateRoute
+  '/etichete-satin': typeof EticheteSatinRoute
   '/etichete-textile': typeof EticheteTextileRoute
   '/galerie': typeof GalerieRoute
   '/produse': typeof ProduseRoute
@@ -98,6 +105,7 @@ export interface FileRoutesByTo {
   '/etichete-cluj': typeof EticheteClujRoute
   '/etichete-cluj-napoca': typeof EticheteClujNapocaRoute
   '/etichete-personalizate': typeof EtichetePersonalizateRoute
+  '/etichete-satin': typeof EticheteSatinRoute
   '/etichete-textile': typeof EticheteTextileRoute
   '/galerie': typeof GalerieRoute
   '/produse': typeof ProduseRoute
@@ -112,6 +120,7 @@ export interface FileRoutesById {
   '/etichete-cluj': typeof EticheteClujRoute
   '/etichete-cluj-napoca': typeof EticheteClujNapocaRoute
   '/etichete-personalizate': typeof EtichetePersonalizateRoute
+  '/etichete-satin': typeof EticheteSatinRoute
   '/etichete-textile': typeof EticheteTextileRoute
   '/galerie': typeof GalerieRoute
   '/produse': typeof ProduseRoute
@@ -127,6 +136,7 @@ export interface FileRouteTypes {
     | '/etichete-cluj'
     | '/etichete-cluj-napoca'
     | '/etichete-personalizate'
+    | '/etichete-satin'
     | '/etichete-textile'
     | '/galerie'
     | '/produse'
@@ -140,6 +150,7 @@ export interface FileRouteTypes {
     | '/etichete-cluj'
     | '/etichete-cluj-napoca'
     | '/etichete-personalizate'
+    | '/etichete-satin'
     | '/etichete-textile'
     | '/galerie'
     | '/produse'
@@ -153,6 +164,7 @@ export interface FileRouteTypes {
     | '/etichete-cluj'
     | '/etichete-cluj-napoca'
     | '/etichete-personalizate'
+    | '/etichete-satin'
     | '/etichete-textile'
     | '/galerie'
     | '/produse'
@@ -167,6 +179,7 @@ export interface RootRouteChildren {
   EticheteClujRoute: typeof EticheteClujRoute
   EticheteClujNapocaRoute: typeof EticheteClujNapocaRoute
   EtichetePersonalizateRoute: typeof EtichetePersonalizateRoute
+  EticheteSatinRoute: typeof EticheteSatinRoute
   EticheteTextileRoute: typeof EticheteTextileRoute
   GalerieRoute: typeof GalerieRoute
   ProduseRoute: typeof ProduseRoute
@@ -201,6 +214,13 @@ declare module '@tanstack/react-router' {
       path: '/etichete-textile'
       fullPath: '/etichete-textile'
       preLoaderRoute: typeof EticheteTextileRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/etichete-satin': {
+      id: '/etichete-satin'
+      path: '/etichete-satin'
+      fullPath: '/etichete-satin'
+      preLoaderRoute: typeof EticheteSatinRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/etichete-personalizate': {
@@ -263,6 +283,7 @@ const rootRouteChildren: RootRouteChildren = {
   EticheteClujRoute: EticheteClujRoute,
   EticheteClujNapocaRoute: EticheteClujNapocaRoute,
   EtichetePersonalizateRoute: EtichetePersonalizateRoute,
+  EticheteSatinRoute: EticheteSatinRoute,
   EticheteTextileRoute: EticheteTextileRoute,
   GalerieRoute: GalerieRoute,
   ProduseRoute: ProduseRoute,

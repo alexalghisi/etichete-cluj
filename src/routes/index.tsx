@@ -6,14 +6,31 @@ export const Route = createFileRoute("/")({
   component: Index,
   head: () => ({
     meta: [
-      { title: "Etichete textile personalizate Cluj-Napoca | ETICHETT PROD" },
-      { name: "description", content: "Producător etichete textile în Cluj-Napoca: etichete personalizate țesute, imprimate, de compoziție pentru haine, încălțăminte și branduri. 30+ ani experiență." },
+      { title: "Etichete | Etichete textile personalizate Cluj-Napoca — ETICHETT PROD" },
+      { name: "description", content: "Etichete personalizate, etichete textile, etichete haine, țesute, imprimate, satin, nylon, carton, autoadezive și termoadezive. Producător în Cluj-Napoca cu 30+ ani experiență." },
+      { name: "keywords", content: "etichete, etichete cluj, etichete cluj-napoca, etichete textile, etichete personalizate, etichete haine, etichete haine personalizate, etichete personalizate haine, etichete pentru haine, etichete tesute, etichete imprimate, etichete satina, etichete satin, etichete carton, etichete nylon, etichete autoadezive, etichete autocolante, etichete autocolante personalizate, etichete termoadezive, etichete termoadezive pentru haine, simboluri etichete haine, etichete haine copii, etichete de compozitie, imprimanta etichete, imprimanta etichete autoadezive, producator etichete, etichett prod" },
       { property: "og:title", content: "Etichete textile personalizate Cluj-Napoca | ETICHETT PROD" },
-      { property: "og:description", content: "Producător etichete textile Cluj. Etichete țesute, imprimate, personalizate pentru haine și branduri. Cere ofertă." },
-      { property: "og:url", content: "/" },
-      { property: "og:image", content: "/images/hero-labels.webp" },
+      { property: "og:description", content: "Producător etichete textile Cluj. Etichete țesute, imprimate, satin, nylon, carton, termoadezive, autoadezive pentru haine și branduri." },
+      { property: "og:url", content: "https://etichetetextile.ro/" },
+      { property: "og:image", content: "https://etichetetextile.ro/images/hero-labels.webp" },
     ],
-    links: [{ rel: "canonical", href: "/" }],
+    links: [{ rel: "canonical", href: "https://etichetetextile.ro/" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: [
+            { "@type": "Question", name: "Ce sunt etichetele textile?", acceptedAnswer: { "@type": "Answer", text: "Etichetele textile sunt etichete țesute sau imprimate aplicate pe haine, încălțăminte, marochinărie sau textile, folosite pentru brand, compoziție, mărime și instrucțiuni de spălare." } },
+            { "@type": "Question", name: "Unde găsesc etichete personalizate în Cluj?", acceptedAnswer: { "@type": "Answer", text: "ETICHETT PROD produce etichete personalizate în Cluj-Napoca din 1993 — etichete țesute, imprimate, satin, carton, autoadezive și termoadezive pentru haine." } },
+            { "@type": "Question", name: "Faceți etichete termoadezive pentru haine?", acceptedAnswer: { "@type": "Answer", text: "Da, realizăm etichete termoadezive (transfer termic) pentru haine, aplicabile cu presa termică, plus etichete autoadezive și etichete cusute clasice." } },
+            { "@type": "Question", name: "Care este cantitatea minimă pentru etichete haine personalizate?", acceptedAnswer: { "@type": "Answer", text: "Începem de la 100 de bucăți per model pentru etichete haine personalizate, astfel încât și brandurile mici să poată comanda." } },
+            { "@type": "Question", name: "Ce simboluri pot apărea pe etichetele de haine?", acceptedAnswer: { "@type": "Answer", text: "Includem simbolurile standard pentru spălare, uscare, călcare, înălbire și curățare chimică conform ISO 3758, plus compoziția materialului în mai multe limbi." } },
+          ],
+        }),
+      },
+    ],
   }),
 });
 

@@ -1,6 +1,13 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageLayout, PageHero } from "@/components/PageLayout";
 
+const galleryImages = [3, 4, 5, 6, 7, 8, 9, 10].map((n, index) => ({
+  id: n,
+  src: `/images/gallery/etichete-textile-${n}.jpg`,
+  absoluteSrc: `https://etichetetextile.ro/images/gallery/etichete-textile-${n}.jpg`,
+  alt: `Etichete textile personalizate — proiect ${index + 1} realizat de ETICHETT PROD Cluj`,
+}));
+
 export const Route = createFileRoute("/galerie")({
   component: Galerie,
   head: () => ({
@@ -22,10 +29,10 @@ export const Route = createFileRoute("/galerie")({
           name: "Galerie etichete textile ETICHETT PROD",
           url: "https://etichetetextile.ro/galerie",
           description: "Etichete textile personalizate produse de ETICHETT PROD în atelierul din Cluj-Napoca.",
-          image: [3, 4, 5, 6, 7, 8, 9, 10].map((n) => ({
+          image: galleryImages.map((image) => ({
             "@type": "ImageObject",
-            contentUrl: `https://etichetetextile.ro/images/gallery/etichete-textile-${n}.jpg`,
-            name: `Etichete textile personalizate — proiect ${n - 2}`,
+            contentUrl: image.absoluteSrc,
+            name: image.alt,
           })),
         }),
       },
@@ -33,19 +40,17 @@ export const Route = createFileRoute("/galerie")({
   }),
 });
 
-const images = [3, 4, 5, 6, 7, 8, 9, 10];
-
 function Galerie() {
   return (
     <PageLayout>
       <PageHero eyebrow="Galerie" title="Etichete textile realizate" subtitle="O selecție din proiectele noastre — etichete textile personalizate produse în atelierul ETICHETT PROD din Cluj-Napoca." />
       <section className="mx-auto max-w-7xl px-4 py-16 md:px-6">
         <div className="columns-1 gap-4 sm:columns-2 lg:columns-3 [&>*]:mb-4">
-          {images.map((n, i) => (
-            <figure key={n} className="break-inside-avoid overflow-hidden rounded-2xl border border-border bg-card transition hover:shadow-elegant">
+          {galleryImages.map((image) => (
+            <figure key={image.id} className="break-inside-avoid overflow-hidden rounded-2xl border border-border bg-card transition hover:shadow-elegant">
               <img
-                src={`/images/gallery/etichete-textile-${n}.jpg`}
-                alt={`Etichete textile personalizate — proiect ${i + 1} realizat de ETICHETT PROD Cluj`}
+                src={image.src}
+                alt={image.alt}
                 className="w-full object-cover transition-transform hover:scale-105"
                 loading="lazy"
               />

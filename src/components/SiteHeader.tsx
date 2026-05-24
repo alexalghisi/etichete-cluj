@@ -8,7 +8,7 @@ const nav = [
   { to: "/produse", label: "Produse" },
   { to: "/etichete-cluj", label: "Etichete Cluj" },
   { to: "/galerie", label: "Galerie" },
-  { to: "/contact", label: "Contact" },
+  
 ] as const;
 
 export function SiteHeader() {

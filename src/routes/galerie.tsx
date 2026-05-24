@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageLayout, PageHero } from "@/components/PageLayout";
 
-const galleryImages = [3, 4, 5, 6, 7, 8, 9, 10].map((n, index) => ({
+const galleryImages = Array.from({ length: 24 }, (_, i) => i + 1).map((n, index) => ({
   id: n,
   src: `/images/gallery/etichete-textile-${n}.jpg`,
   absoluteSrc: `https://etichetetextile.ro/images/gallery/etichete-textile-${n}.jpg`,

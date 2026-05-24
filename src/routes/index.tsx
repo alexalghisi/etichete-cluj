@@ -14,7 +14,10 @@ export const Route = createFileRoute("/")({
       { property: "og:url", content: "https://etichetetextile.ro/" },
       { property: "og:image", content: "https://etichetetextile.ro/images/hero-labels.webp" },
     ],
-    links: [{ rel: "canonical", href: "https://etichetetextile.ro/" }],
+    links: [
+      { rel: "canonical", href: "https://etichetetextile.ro/" },
+      { rel: "preload", as: "image", href: "/images/hero-collage.jpg", fetchpriority: "high" },
+    ],
     scripts: [
       {
         type: "application/ld+json",
@@ -71,7 +74,7 @@ function Index() {
                 <Phone className="h-4 w-4" /> 0747 264 832
               </a>
             </div>
-            <div className="mt-10 flex flex-wrap gap-x-8 gap-y-3 text-sm text-white/85">
+            <div className="mt-10 flex flex-wrap gap-x-8 gap-y-3 text-sm text-white">
               <span className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-primary" /> 30+ ani experiență</span>
               <span className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-primary" /> Rezistente la spălare</span>
               <span className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-primary" /> Livrare națională</span>
@@ -217,7 +220,7 @@ function Index() {
       <section className="mx-auto max-w-7xl px-4 pb-20 md:px-6">
         <div className="gradient-hero overflow-hidden rounded-3xl px-8 py-14 text-center text-primary-foreground shadow-elegant md:px-14 md:py-20">
           <h2 className="mx-auto max-w-2xl text-3xl font-bold md:text-4xl">Cere o ofertă personalizată pentru etichetele tale</h2>
-          <p className="mx-auto mt-4 max-w-xl text-primary-foreground/90">Trimite-ne grafica sau dezvoltăm una împreună. Stabilim toate detaliile și livrăm rapid.</p>
+          <p className="mx-auto mt-4 max-w-xl text-primary-foreground">Trimite-ne grafica sau dezvoltăm una împreună. Stabilim toate detaliile și livrăm rapid.</p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
             <Link to="/contact" className="rounded-full bg-white px-7 py-3 text-sm font-semibold text-primary-deep hover:scale-[1.02] transition">Cere ofertă</Link>
             <a href="mailto:etichettprod@yahoo.com" className="rounded-full border border-white/40 px-7 py-3 text-sm font-semibold hover:bg-white/10">etichettprod@yahoo.com</a>

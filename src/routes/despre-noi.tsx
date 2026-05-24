@@ -6,10 +6,10 @@ export const Route = createFileRoute("/despre-noi")({
   component: DespreNoi,
   head: () => ({
     meta: [
-      { title: "Despre noi — ETICHETT PROD, etichete textile din 1993" },
-      { name: "description", content: "ETICHETT PROD — peste 30 ani în producția de etichete textile pentru îmbrăcăminte, încălțăminte și marochinărie. Cluj-Napoca." },
-      { property: "og:title", content: "Despre ETICHETT PROD — Producător etichete textile Cluj" },
-      { property: "og:description", content: "Producător etichete textile din 1993, Cluj-Napoca. Etichete imprimate, țesute, de compoziție rezistente la spălare." },
+      { title: "Despre noi — Etichete textile Cluj din 1993 | ETICHETT" },
+      { name: "description", content: "ETICHETT PROD — producător de etichete textile în Cluj-Napoca din 1993. Etichete țesute, imprimate, de compoziție pentru haine și branduri." },
+      { property: "og:title", content: "Despre noi — Etichete textile Cluj din 1993 | ETICHETT" },
+      { property: "og:description", content: "Producător de etichete textile în Cluj-Napoca din 1993. Etichete imprimate, țesute, de compoziție rezistente la spălare." },
       { property: "og:url", content: "https://etichetetextile.ro/despre-noi" },
       { property: "og:image", content: "https://etichetetextile.ro/images/products/etichete-personalizate.jpg" },
     ],

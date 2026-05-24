@@ -12,10 +12,10 @@ export const Route = createFileRoute("/galerie")({
   component: Galerie,
   head: () => ({
     meta: [
-      { title: "Galerie etichete textile — proiecte | ETICHETT PROD" },
-      { name: "description", content: "Galerie cu etichete textile personalizate realizate de ETICHETT PROD: țesute, imprimate și pentru branduri din România." },
-      { property: "og:title", content: "Galerie etichete textile | ETICHETT PROD" },
-      { property: "og:description", content: "Vezi proiecte realizate: etichete textile personalizate pentru branduri." },
+      { title: "Galerie etichete textile — proiecte Cluj | ETICHETT" },
+      { name: "description", content: "Galerie etichete textile personalizate realizate de ETICHETT PROD în Cluj-Napoca: țesute, imprimate, pentru branduri și ateliere." },
+      { property: "og:title", content: "Galerie etichete textile — proiecte Cluj | ETICHETT" },
+      { property: "og:description", content: "Proiecte realizate: etichete textile personalizate țesute și imprimate pentru branduri de îmbrăcăminte." },
       { property: "og:url", content: "https://etichetetextile.ro/galerie" },
       { property: "og:image", content: "https://etichetetextile.ro/images/gallery/etichete-textile-3.jpg" },
     ],

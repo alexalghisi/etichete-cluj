@@ -180,6 +180,7 @@ function RootComponent() {
   return (
     <QueryClientProvider client={queryClient}>
       <Outlet />
+      <CookieConsent />
     </QueryClientProvider>
   );
 }

@@ -6,14 +6,33 @@ export const Route = createFileRoute("/despre-noi")({
   component: DespreNoi,
   head: () => ({
     meta: [
-      { title: "Despre noi — ETICHETT PROD, producător etichete textile din 1993" },
-      { name: "description", content: "ETICHETT PROD — peste 30 ani de experiență în producția de etichete textile pentru îmbrăcăminte, încălțăminte, marochinărie și mobilier. Cluj-Napoca." },
+      { title: "Despre noi — ETICHETT PROD, etichete textile din 1993" },
+      { name: "description", content: "ETICHETT PROD — peste 30 ani în producția de etichete textile pentru îmbrăcăminte, încălțăminte și marochinărie. Cluj-Napoca." },
       { property: "og:title", content: "Despre ETICHETT PROD — Producător etichete textile Cluj" },
       { property: "og:description", content: "Producător etichete textile din 1993, Cluj-Napoca. Etichete imprimate, țesute, de compoziție rezistente la spălare." },
-      { property: "og:url", content: "/despre-noi" },
-      { property: "og:image", content: "/images/products/etichete-personalizate.jpg" },
+      { property: "og:url", content: "https://etichetetextile.ro/despre-noi" },
+      { property: "og:image", content: "https://etichetetextile.ro/images/products/etichete-personalizate.jpg" },
     ],
-    links: [{ rel: "canonical", href: "/despre-noi" }],
+    links: [{ rel: "canonical", href: "https://etichetetextile.ro/despre-noi" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "AboutPage",
+          name: "Despre ETICHETT PROD",
+          url: "https://etichetetextile.ro/despre-noi",
+          description: "Producător de etichete textile din 1993, cu atelier în Cluj-Napoca.",
+          mainEntity: {
+            "@type": "Organization",
+            name: "ETICHETT PROD",
+            foundingDate: "1993",
+            url: "https://etichetetextile.ro/",
+            address: { "@type": "PostalAddress", streetAddress: "Str. Uzinei Electrice Nr. 9", addressLocality: "Cluj-Napoca", addressCountry: "RO" },
+          },
+        }),
+      },
+    ],
   }),
 });
 
@@ -38,7 +57,7 @@ function DespreNoi() {
           ].map((x) => (
             <div key={x.t} className="rounded-2xl border border-border bg-card p-6">
               <CheckCircle2 className="h-5 w-5 text-primary" />
-              <h3 className="mt-3 font-bold">{x.t}</h3>
+              <h2 className="mt-3 font-bold">{x.t}</h2>
               <p className="mt-1 text-sm text-muted-foreground">{x.d}</p>
             </div>
           ))}

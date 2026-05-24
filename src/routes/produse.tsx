@@ -6,14 +6,31 @@ export const Route = createFileRoute("/produse")({
   component: Produse,
   head: () => ({
     meta: [
-      { title: "Produse — Etichete țesute, imprimate, personalizate | ETICHETT PROD" },
-      { name: "description", content: "Gamă completă de etichete textile: țesute, imprimate, de compoziție, autoadezive, pentru branduri și haine. Producție în Cluj-Napoca, livrare națională." },
+      { title: "Produse — Etichete textile țesute & imprimate | ETICHETT PROD" },
+      { name: "description", content: "Gamă completă de etichete textile: țesute, imprimate, compoziție, autoadezive. Producție în Cluj-Napoca, livrare națională." },
       { property: "og:title", content: "Produse etichete textile — ETICHETT PROD Cluj" },
       { property: "og:description", content: "Etichete țesute, imprimate, de compoziție, autoadezive, pentru îmbrăcăminte și branduri." },
-      { property: "og:url", content: "/produse" },
-      { property: "og:image", content: "/images/products/etichete-tesute.jpg" },
+      { property: "og:url", content: "https://etichetetextile.ro/produse" },
+      { property: "og:image", content: "https://etichetetextile.ro/images/products/etichete-tesute.jpg" },
     ],
-    links: [{ rel: "canonical", href: "/produse" }],
+    links: [{ rel: "canonical", href: "https://etichetetextile.ro/produse" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "ItemList",
+          name: "Etichete textile — produse ETICHETT PROD",
+          itemListElement: [
+            { "@type": "ListItem", position: 1, item: { "@type": "Product", name: "Etichete țesute", image: "https://etichetetextile.ro/images/products/etichete-tesute.jpg", brand: "ETICHETT PROD" } },
+            { "@type": "ListItem", position: 2, item: { "@type": "Product", name: "Etichete imprimate", image: "https://etichetetextile.ro/images/products/etichete-imprimate.jpg", brand: "ETICHETT PROD" } },
+            { "@type": "ListItem", position: 3, item: { "@type": "Product", name: "Etichete personalizate pentru branduri", image: "https://etichetetextile.ro/images/products/etichete-personalizate.jpg", brand: "ETICHETT PROD" } },
+            { "@type": "ListItem", position: 4, item: { "@type": "Product", name: "Etichete de compoziție", image: "https://etichetetextile.ro/images/products/etichete-compozitie.jpg", brand: "ETICHETT PROD" } },
+            { "@type": "ListItem", position: 5, item: { "@type": "Product", name: "Etichete autoadezive & autocolante", image: "https://etichetetextile.ro/images/products/etichete-branduri.jpg", brand: "ETICHETT PROD" } },
+          ],
+        }),
+      },
+    ],
   }),
 });
 

@@ -6,8 +6,8 @@ export const Route = createFileRoute("/contact")({
   component: Contact,
   head: () => ({
     meta: [
-      { title: "Contact etichete Cluj-Napoca | ETICHETT PROD — ofertă etichete textile" },
-      { name: "description", content: "Cere ofertă pentru etichete textile în Cluj-Napoca: etichete țesute, imprimate, de compoziție și personalizate. WhatsApp, telefon 0747 264 832, email etichettprod@yahoo.com. Atelier Str. Uzinei Electrice 9, Cluj." },
+      { title: "Contact ETICHETT PROD — etichete textile Cluj-Napoca" },
+      { name: "description", content: "Cere ofertă pentru etichete textile în Cluj-Napoca: țesute, imprimate, compoziție, personalizate. WhatsApp, tel. 0747 264 832, email." },
       { name: "keywords", content: "etichete cluj, etichete cluj-napoca, etichete textile cluj, contact etichete, oferta etichete textile, etichete personalizate cluj, etichete tesute cluj, etichete imprimate cluj, etichete compozitie, producator etichete cluj, etichete haine cluj, etichett prod" },
       { property: "og:title", content: "Contact etichete Cluj-Napoca | ETICHETT PROD" },
       { property: "og:description", content: "Producător etichete textile în Cluj-Napoca. Cere ofertă rapid pe WhatsApp, telefon sau email." },

@@ -5,14 +5,31 @@ export const Route = createFileRoute("/galerie")({
   component: Galerie,
   head: () => ({
     meta: [
-      { title: "Galerie etichete textile — proiecte realizate | ETICHETT PROD" },
-      { name: "description", content: "Galerie cu etichete textile personalizate realizate de ETICHETT PROD: etichete țesute, imprimate și pentru branduri din România." },
+      { title: "Galerie etichete textile — proiecte | ETICHETT PROD" },
+      { name: "description", content: "Galerie cu etichete textile personalizate realizate de ETICHETT PROD: țesute, imprimate și pentru branduri din România." },
       { property: "og:title", content: "Galerie etichete textile | ETICHETT PROD" },
       { property: "og:description", content: "Vezi proiecte realizate: etichete textile personalizate pentru branduri." },
-      { property: "og:url", content: "/galerie" },
-      { property: "og:image", content: "/images/gallery/etichete-textile-3.jpg" },
+      { property: "og:url", content: "https://etichetetextile.ro/galerie" },
+      { property: "og:image", content: "https://etichetetextile.ro/images/gallery/etichete-textile-3.jpg" },
     ],
-    links: [{ rel: "canonical", href: "/galerie" }],
+    links: [{ rel: "canonical", href: "https://etichetetextile.ro/galerie" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "ImageGallery",
+          name: "Galerie etichete textile ETICHETT PROD",
+          url: "https://etichetetextile.ro/galerie",
+          description: "Etichete textile personalizate produse de ETICHETT PROD în atelierul din Cluj-Napoca.",
+          image: [3, 4, 5, 6, 7, 8, 9, 10].map((n) => ({
+            "@type": "ImageObject",
+            contentUrl: `https://etichetetextile.ro/images/gallery/etichete-textile-${n}.jpg`,
+            name: `Etichete textile personalizate — proiect ${n - 2}`,
+          })),
+        }),
+      },
+    ],
   }),
 });
 

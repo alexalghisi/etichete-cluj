@@ -95,9 +95,8 @@ export const Route = createFileRoute("/contact")({
 });
 
 const MAILTO = "mailto:etichettprod@yahoo.com?subject=Cerere%20oferta%20etichete%20textile&body=Buna%20ziua%2C%0A%0ADoresc%20o%20oferta%20pentru%20etichete%20textile.%0A%0ADetalii%3A%0A-%20Tip%20eticheta%20(tesuta%2Fimprimata%2Fcompozitie)%3A%0A-%20Dimensiuni%3A%0A-%20Cantitate%3A%0A-%20Material%2Fculori%3A%0A%0AMultumesc!";
-const WHATSAPP = "https://wa.me/40747264832?text=" + encodeURIComponent(
-  "Bună ziua! Doresc o ofertă pentru etichete textile (Cluj-Napoca).\n\n- Tip etichetă (țesută/imprimată/compoziție):\n- Dimensiuni:\n- Cantitate:\n- Material/culori:\n\nMulțumesc!"
-);
+const WHATSAPP_MESSAGE = "Buna ziua! V-am gasit pe https://etichetetextile.ro si as dori o oferta pentru etichete textile personalizate. Multumesc!";
+const WHATSAPP = `https://wa.me/40747264832?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`;
 
 function Contact() {
   return (

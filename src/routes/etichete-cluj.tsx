@@ -6,17 +6,31 @@ export const Route = createFileRoute("/etichete-cluj")({
   component: EticheteCluj,
   head: () => ({
     meta: [
-      { title: "Etichete Cluj-Napoca — Producător etichete textile local | ETICHETT PROD" },
-      { name: "description", content: "Etichete Cluj & etichete Cluj-Napoca: producător local de etichete textile personalizate, țesute și imprimate. Atelier în Cluj-Napoca, livrare națională." },
-      { name: "keywords", content: "etichete cluj, etichete cluj-napoca, etichete textile cluj, producator etichete cluj, etichete haine cluj, etichete personalizate cluj" },
-      { property: "og:title", content: "Etichete Cluj-Napoca — Producător local | ETICHETT PROD" },
+      { title: "Etichete Cluj — Producător etichete textile local | ETICHETT PROD" },
+      { name: "description", content: "Etichete Cluj: producător local de etichete textile personalizate, țesute, imprimate, satin, nylon, carton, autoadezive și termoadezive. Atelier în Cluj-Napoca, livrare națională." },
+      { name: "keywords", content: "etichete cluj, etichete textile cluj, producator etichete cluj, etichete haine cluj, etichete personalizate cluj, etichete tesute cluj, etichete imprimate cluj" },
+      { property: "og:title", content: "Etichete Cluj — Producător local | ETICHETT PROD" },
       { property: "og:description", content: "Producător de etichete textile în Cluj-Napoca. Etichete personalizate, țesute, imprimate pentru branduri locale și naționale." },
-      { property: "og:url", content: "/etichete-cluj" },
-      { property: "og:image", content: "/images/hero-labels.webp" },
+      { property: "og:url", content: "https://etichetetextile.ro/etichete-cluj" },
+      { property: "og:image", content: "https://etichetetextile.ro/images/hero-labels.webp" },
     ],
-    links: [{ rel: "canonical", href: "/etichete-cluj" }],
+    links: [{ rel: "canonical", href: "https://etichetetextile.ro/etichete-cluj" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            { "@type": "ListItem", position: 1, name: "Acasă", item: "https://etichetetextile.ro/" },
+            { "@type": "ListItem", position: 2, name: "Etichete Cluj", item: "https://etichetetextile.ro/etichete-cluj" },
+          ],
+        }),
+      },
+    ],
   }),
 });
+
 
 function EticheteCluj() {
   return (

@@ -14,7 +14,10 @@ export const Route = createFileRoute("/")({
       { property: "og:url", content: "https://etichetetextile.ro/" },
       { property: "og:image", content: "https://etichetetextile.ro/images/hero-labels.webp" },
     ],
-    links: [{ rel: "canonical", href: "https://etichetetextile.ro/" }],
+    links: [
+      { rel: "canonical", href: "https://etichetetextile.ro/" },
+      { rel: "preload", as: "image", href: "/images/hero-collage.jpg", fetchpriority: "high" },
+    ],
     scripts: [
       {
         type: "application/ld+json",

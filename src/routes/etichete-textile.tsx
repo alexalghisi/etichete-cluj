@@ -118,6 +118,16 @@ function EticheteTextile() {
           <Link to="/contact" className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground">Cere ofertă pentru etichete textile <ArrowRight className="h-4 w-4" /></Link>
         </div>
       </section>
+      <FaqSection
+        pageUrl="https://etichetetextile.ro/etichete-textile"
+        items={[
+          { q: "Ce sunt etichetele textile?", a: "Etichetele textile sunt etichete realizate din material textil (țesut sau imprimat) aplicate pe haine, încălțăminte sau marochinărie. Conțin brandul, mărimea, compoziția, simbolurile de spălare și țara de origine." },
+          { q: "Ce tipuri de etichete textile produceți?", a: "Țesute pe damasc/satin/taffeta, imprimate pe satin/nylon/bumbac, etichete de compoziție multilingve, termoadezive, autoadezive și hangtag-uri din carton." },
+          { q: "Sunt obligatorii etichetele textile pe haine?", a: "Da. Legislația UE impune ca orice articol de îmbrăcăminte să aibă etichetă cu compoziția fibrelor (Reg. 1007/2011) și simbolurile de îngrijire ISO 3758." },
+          { q: "Care e cantitatea minimă pentru etichete textile?", a: "Pornim de la 100 buc pentru imprimate și 500 buc pentru țesute. Pentru cantități mici recomandăm etichetele imprimate pe satin." },
+          { q: "Livrați etichete textile în toată România?", a: "Da. Suntem producător în Cluj-Napoca și livrăm prin curier în toată țara, în 24–48h de la finalizarea producției." },
+        ]}
+      />
     </PageLayout>
   );
 }

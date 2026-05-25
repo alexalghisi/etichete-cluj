@@ -70,6 +70,16 @@ function EticheteSatin() {
           <img src="/images/materials/satin.png" alt="Etichete satin personalizate" className="mx-auto h-72 w-72 object-contain" loading="lazy" />
         </div>
       </section>
+      <FaqSection
+        pageUrl="https://etichetetextile.ro/etichete-satin"
+        items={[
+          { q: "Ce sunt etichetele satin?", a: "Etichetele satin (sau satina) sunt etichete textile imprimate pe material satin — moi, lucioase, cu aspect perlat premium. Sunt cele mai folosite etichete pentru îmbrăcăminte." },
+          { q: "Etichetele satin se cos sau se aplică termic?", a: "Ambele variante sunt posibile. Etichetele satin clasice se cos pe ceafă sau lateral, iar versiunea termoadezivă se aplică cu presa termică, fără cusături." },
+          { q: "Pe etichetele satin pot pune compoziția în mai multe limbi?", a: "Da. Imprimăm față-verso, ceea ce permite compoziție multilingvă (RO/EN/DE/FR/IT) și simboluri ISO 3758 pentru spălare." },
+          { q: "Etichetele satin zgârie pielea?", a: "Nu. Satinul este un material moale, plăcut pe piele — folosit inclusiv pentru lenjerie, haine de copii și tricouri." },
+          { q: "Cât costă etichetele satin personalizate?", a: "Prețul pornește de la ~0,15 lei/buc și depinde de dimensiune, cantitate și complexitatea imprimării. Trimite-ne logoul pentru ofertă." },
+        ]}
+      />
     </PageLayout>
   );
 }

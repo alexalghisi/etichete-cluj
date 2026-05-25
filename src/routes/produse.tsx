@@ -88,6 +88,28 @@ function Produse() {
             </article>
           ))}
         </div>
+
+        <div className="mt-16 rounded-2xl border border-border bg-muted/30 p-6 md:p-8">
+          <h2 className="text-2xl font-bold">Explorează categoriile noastre</h2>
+          <p className="mt-2 text-sm text-muted-foreground">
+            Vezi pagini dedicate pentru fiecare tip de etichetă cu detalii tehnice, materiale și exemple:
+          </p>
+          <div className="mt-5 flex flex-wrap gap-2">
+            {[
+              ["Etichete personalizate", "/etichete-personalizate"],
+              ["Etichete textile", "/etichete-textile"],
+              ["Etichete țesute", "/etichete-tesute"],
+              ["Etichete satin", "/etichete-satin"],
+              ["Etichete carton (hangtag)", "/etichete-carton"],
+              ["Etichete autoadezive", "/etichete-autoadezive"],
+              ["Etichete Cluj-Napoca", "/etichete-cluj-napoca"],
+            ].map(([label, href]) => (
+              <Link key={href} to={href} className="rounded-full border border-border bg-card px-4 py-2 text-sm font-medium hover:border-primary hover:text-primary">
+                {label}
+              </Link>
+            ))}
+          </div>
+        </div>
       </section>
     </PageLayout>
   );

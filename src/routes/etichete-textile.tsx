@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageLayout, PageHero } from "@/components/PageLayout";
+import { FaqSection } from "@/components/FaqSection";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 
 export const Route = createFileRoute("/etichete-textile")({
@@ -49,14 +50,14 @@ export const Route = createFileRoute("/etichete-textile")({
   }),
 });
 
-const tipuri = [
-  { t: "Etichete țesute", d: "Pe damasc, satin sau taffeta, în mai multe culori, în role sau tăiate, pliate, pot fi autoadezive." },
+const tipuri: { t: string; d: string; href?: string }[] = [
+  { t: "Etichete țesute", d: "Pe damasc, satin sau taffeta, în mai multe culori, în role sau tăiate, pliate, pot fi autoadezive.", href: "/etichete-tesute" },
   { t: "Etichete imprimate", d: "Pe bumbac, poliester, poliamidă, satin — cu siglă sau compoziție, față-verso, multiple culori." },
-  { t: "Etichete satin", d: "Aspect perlat premium, rezistente la spălare, ideale pentru branduri de modă." },
+  { t: "Etichete satin", d: "Aspect perlat premium, rezistente la spălare, ideale pentru branduri de modă.", href: "/etichete-satin" },
   { t: "Etichete nylon", d: "Etichete subțiri, rezistente — folosite pentru îmbrăcăminte sport și tehnică." },
-  { t: "Etichete carton (hangtag)", d: "Carton premium pentru hangtag-uri cu brand, preț, cod de bare, țară de origine." },
+  { t: "Etichete carton (hangtag)", d: "Carton premium pentru hangtag-uri cu brand, preț, cod de bare, țară de origine.", href: "/etichete-carton" },
   { t: "Etichete termoadezive", d: "Aplicabile cu presa termică pe haine — fără cusături, finisaj plat." },
-  { t: "Etichete autoadezive", d: "Pe role, pentru ambalaje, produse, cosmetice, textile — adeziv puternic sau detașabil." },
+  { t: "Etichete autoadezive", d: "Pe role, pentru ambalaje, produse, cosmetice, textile — adeziv puternic sau detașabil.", href: "/etichete-autoadezive" },
   { t: "Etichete de compoziție", d: "În RO/EN/DE/FR/IT, cu simboluri ISO 3758 și procentele exacte ale fibrelor." },
 ];
 
@@ -78,8 +79,24 @@ function EticheteTextile() {
             <article key={x.t} className="rounded-2xl border border-border bg-card p-5">
               <h2 className="text-lg font-bold">{x.t}</h2>
               <p className="mt-2 text-sm text-muted-foreground">{x.d}</p>
+              {x.href && (
+                <Link to={x.href} className="mt-3 inline-flex text-sm font-semibold text-primary hover:underline">
+                  Detalii {x.t.toLowerCase()} →
+                </Link>
+              )}
             </article>
           ))}
+        </div>
+
+        <div className="mt-10 rounded-2xl border border-border bg-muted/30 p-6">
+          <h2 className="text-xl font-bold">Categorii înrudite</h2>
+          <p className="mt-2 text-sm text-muted-foreground">
+            Caută <Link to="/etichete-personalizate" className="font-semibold text-primary hover:underline">etichete personalizate</Link> cu logo,{" "}
+            <Link to="/etichete-tesute" className="font-semibold text-primary hover:underline">etichete țesute</Link> pe damasc,{" "}
+            <Link to="/etichete-satin" className="font-semibold text-primary hover:underline">etichete satin</Link> imprimate,{" "}
+            <Link to="/etichete-carton" className="font-semibold text-primary hover:underline">etichete carton (hangtag)</Link> sau{" "}
+            <Link to="/etichete-autoadezive" className="font-semibold text-primary hover:underline">etichete autoadezive</Link> pe role? Avem secțiuni dedicate pentru fiecare.
+          </p>
         </div>
 
         <div className="mt-12 grid gap-8 md:grid-cols-2">
@@ -101,6 +118,16 @@ function EticheteTextile() {
           <Link to="/contact" className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground">Cere ofertă pentru etichete textile <ArrowRight className="h-4 w-4" /></Link>
         </div>
       </section>
+      <FaqSection
+        pageUrl="https://etichetetextile.ro/etichete-textile"
+        items={[
+          { q: "Ce sunt etichetele textile?", a: "Etichetele textile sunt etichete realizate din material textil (țesut sau imprimat) aplicate pe haine, încălțăminte sau marochinărie. Conțin brandul, mărimea, compoziția, simbolurile de spălare și țara de origine." },
+          { q: "Ce tipuri de etichete textile produceți?", a: "Țesute pe damasc/satin/taffeta, imprimate pe satin/nylon/bumbac, etichete de compoziție multilingve, termoadezive, autoadezive și hangtag-uri din carton." },
+          { q: "Sunt obligatorii etichetele textile pe haine?", a: "Da. Legislația UE impune ca orice articol de îmbrăcăminte să aibă etichetă cu compoziția fibrelor (Reg. 1007/2011) și simbolurile de îngrijire ISO 3758." },
+          { q: "Care e cantitatea minimă pentru etichete textile?", a: "Pornim de la 100 buc pentru imprimate și 500 buc pentru țesute. Pentru cantități mici recomandăm etichetele imprimate pe satin." },
+          { q: "Livrați etichete textile în toată România?", a: "Da. Suntem producător în Cluj-Napoca și livrăm prin curier în toată țara, în 24–48h de la finalizarea producției." },
+        ]}
+      />
     </PageLayout>
   );
 }

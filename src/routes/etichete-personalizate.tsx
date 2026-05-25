@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageLayout, PageHero } from "@/components/PageLayout";
+import { FaqSection } from "@/components/FaqSection";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 
 export const Route = createFileRoute("/etichete-personalizate")({
@@ -99,6 +100,16 @@ function EtichetePersonalizate() {
           </article>
         </div>
       </section>
+      <FaqSection
+        pageUrl="https://etichetetextile.ro/etichete-personalizate"
+        items={[
+          { q: "Ce sunt etichetele personalizate?", a: "Etichetele personalizate sunt etichete realizate cu logo, text și design propriu — țesute, imprimate, din satin, carton sau autoadezive. Folosite de branduri pentru identitate vizuală, compoziție, mărime și informații legale." },
+          { q: "Care este cantitatea minimă pentru etichete personalizate?", a: "Producem etichete personalizate de la 100 de bucăți pentru majoritatea variantelor. Pentru etichete țesute pe damasc, comanda minimă recomandată este 500 buc." },
+          { q: "Cât costă etichetele personalizate?", a: "Prețul etichetelor personalizate depinde de tip (țesute, imprimate, satin, carton), cantitate, dimensiune și numărul de culori. Trimite-ne logoul și îți facem ofertă în 24h." },
+          { q: "În cât timp livrați etichete personalizate?", a: "Termenul standard este 5–10 zile lucrătoare de la aprobarea bunului de tipar. Pentru urgențe oferim regim accelerat (2–3 zile)." },
+          { q: "Etichetele personalizate rezistă la spălare?", a: "Da. Etichetele țesute și cele imprimate pe satin rezistă la spălare repetată la 60–90°C, fără decolorare sau deformare." },
+        ]}
+      />
     </PageLayout>
   );
 }

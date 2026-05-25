@@ -78,8 +78,24 @@ function EticheteTextile() {
             <article key={x.t} className="rounded-2xl border border-border bg-card p-5">
               <h2 className="text-lg font-bold">{x.t}</h2>
               <p className="mt-2 text-sm text-muted-foreground">{x.d}</p>
+              {x.href && (
+                <Link to={x.href} className="mt-3 inline-flex text-sm font-semibold text-primary hover:underline">
+                  Detalii {x.t.toLowerCase()} →
+                </Link>
+              )}
             </article>
           ))}
+        </div>
+
+        <div className="mt-10 rounded-2xl border border-border bg-muted/30 p-6">
+          <h2 className="text-xl font-bold">Categorii înrudite</h2>
+          <p className="mt-2 text-sm text-muted-foreground">
+            Caută <Link to="/etichete-personalizate" className="font-semibold text-primary hover:underline">etichete personalizate</Link> cu logo,{" "}
+            <Link to="/etichete-tesute" className="font-semibold text-primary hover:underline">etichete țesute</Link> pe damasc,{" "}
+            <Link to="/etichete-satin" className="font-semibold text-primary hover:underline">etichete satin</Link> imprimate,{" "}
+            <Link to="/etichete-carton" className="font-semibold text-primary hover:underline">etichete carton (hangtag)</Link> sau{" "}
+            <Link to="/etichete-autoadezive" className="font-semibold text-primary hover:underline">etichete autoadezive</Link> pe role? Avem secțiuni dedicate pentru fiecare.
+          </p>
         </div>
 
         <div className="mt-12 grid gap-8 md:grid-cols-2">

@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageLayout, PageHero } from "@/components/PageLayout";
+import { FaqSection } from "@/components/FaqSection";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 
 export const Route = createFileRoute("/etichete-tesute")({
@@ -82,6 +83,16 @@ function EticheteTesute() {
           <img src="/images/products/etichete-tesute.jpg" alt="Etichete țesute personalizate damasc satin" className="aspect-square w-full rounded-2xl object-cover" loading="lazy" />
         </div>
       </section>
+      <FaqSection
+        pageUrl="https://etichetetextile.ro/etichete-tesute"
+        items={[
+          { q: "Ce sunt etichetele țesute?", a: "Etichetele țesute sunt etichete textile la care logoul și textul sunt țesute direct în material (damasc, satin, taffeta) cu fire colorate — nu imprimate. Rezultă o textură premium și o durabilitate net superioară." },
+          { q: "Care e diferența între etichete țesute și etichete imprimate?", a: "Etichetele țesute au designul integrat în material (durabil, premium, cu textură). Etichetele imprimate au designul aplicat la suprafață pe satin/nylon (mai ieftin, ideal pentru text mult și fotografii)." },
+          { q: "Câte culori pot avea etichetele țesute?", a: "Standard până la 8 culori de fir per etichetă. Pentru gradient sau imagini fotografice recomandăm etichete imprimate." },
+          { q: "Care e cantitatea minimă pentru etichete țesute?", a: "Comanda minimă recomandată este 500 de bucăți, datorită setării războiului de țesut. Sub 500 buc, costul unitar crește semnificativ." },
+          { q: "Etichetele țesute rezistă la spălare?", a: "Da. Etichetele țesute pe damasc rezistă la spălare repetată la 90°C, călcare și uscător — fără decolorare." },
+        ]}
+      />
     </PageLayout>
   );
 }

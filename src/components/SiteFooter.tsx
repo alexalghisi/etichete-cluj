@@ -26,10 +26,15 @@ export function SiteFooter() {
           <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
             <li><Link to="/etichete-textile" className="hover:text-primary">Etichete textile</Link></li>
             <li><Link to="/etichete-personalizate" className="hover:text-primary">Etichete personalizate</Link></li>
+            <li><Link to="/etichete-haine" className="hover:text-primary">Etichete pentru haine</Link></li>
+            <li><Link to="/etichete-autocolante" className="hover:text-primary">Etichete autocolante</Link></li>
+            <li><Link to="/etichete-autoadezive" className="hover:text-primary">Etichete autoadezive</Link></li>
+            <li><Link to="/etichete-termoadezive" className="hover:text-primary">Etichete termoadezive</Link></li>
             <li><Link to="/etichete-tesute" className="hover:text-primary">Etichete țesute</Link></li>
             <li><Link to="/etichete-satin" className="hover:text-primary">Etichete satin</Link></li>
             <li><Link to="/etichete-carton" className="hover:text-primary">Etichete carton</Link></li>
-            <li><Link to="/etichete-autoadezive" className="hover:text-primary">Etichete autoadezive</Link></li>
+            <li><Link to="/etichete-haine-copii" className="hover:text-primary">Etichete haine copii</Link></li>
+            <li><Link to="/simboluri-etichete-haine" className="hover:text-primary">Simboluri etichete haine</Link></li>
             <li><Link to="/etichete-cluj-napoca" className="hover:text-primary">Etichete Cluj-Napoca</Link></li>
           </ul>
         </div>

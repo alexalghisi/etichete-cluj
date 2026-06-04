@@ -37,7 +37,7 @@ export const Route = createFileRoute("/etichete-personalizate")({
           description: "Etichete personalizate cu logo, text, compoziție și mărime — țesute, imprimate, satin, carton, autoadezive.",
           brand: { "@type": "Brand", name: "ETICHETT PROD" },
           image: "https://etichetetextile.ro/images/hero-labels.webp",
-          offers: { "@type": "AggregateOffer", priceCurrency: "RON", lowPrice: "0.10", offerCount: "8", availability: "https://schema.org/InStock" },
+          offers: { "@type": "AggregateOffer", priceCurrency: "RON", lowPrice: "0.10", highPrice: "2.00", offerCount: "8", availability: "https://schema.org/InStock" },
           aggregateRating: { "@type": "AggregateRating", ratingValue: "4.9", reviewCount: "87" },
         }),
       },

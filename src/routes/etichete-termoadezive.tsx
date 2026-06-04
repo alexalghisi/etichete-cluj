@@ -37,7 +37,7 @@ export const Route = createFileRoute("/etichete-termoadezive")({
           description: "Etichete termoadezive aplicate la presă termică, fără cusături, rezistente la spălare repetată.",
           brand: { "@type": "Brand", name: "ETICHETT PROD" },
           image: "https://etichetetextile.ro/images/hero-labels.webp",
-          offers: { "@type": "AggregateOffer", priceCurrency: "RON", lowPrice: "0.12", availability: "https://schema.org/InStock" },
+          offers: { "@type": "AggregateOffer", priceCurrency: "RON", lowPrice: "0.12", highPrice: "1.50", offerCount: "8", availability: "https://schema.org/InStock" },
         }),
       },
     ],

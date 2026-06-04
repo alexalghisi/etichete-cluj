@@ -37,7 +37,7 @@ export const Route = createFileRoute("/etichete-autocolante")({
           description: "Etichete autocolante imprimate HD pe role, cu adeziv permanent sau detașabil, decupate la formă.",
           brand: { "@type": "Brand", name: "ETICHETT PROD" },
           image: "https://etichetetextile.ro/images/hero-labels.webp",
-          offers: { "@type": "AggregateOffer", priceCurrency: "RON", lowPrice: "0.05", availability: "https://schema.org/InStock" },
+          offers: { "@type": "AggregateOffer", priceCurrency: "RON", lowPrice: "0.05", highPrice: "0.80", offerCount: "10", availability: "https://schema.org/InStock" },
           aggregateRating: { "@type": "AggregateRating", ratingValue: "4.9", reviewCount: "112" },
         }),
       },

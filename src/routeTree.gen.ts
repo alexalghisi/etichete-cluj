@@ -17,9 +17,12 @@ import { Route as EticheteTextileRouteImport } from './routes/etichete-textile'
 import { Route as EticheteTesuteRouteImport } from './routes/etichete-tesute'
 import { Route as EticheteTermoadeziveRouteImport } from './routes/etichete-termoadezive'
 import { Route as EticheteSatinRouteImport } from './routes/etichete-satin'
+import { Route as EticheteSatenRouteImport } from './routes/etichete-saten'
 import { Route as EtichetePersonalizateRouteImport } from './routes/etichete-personalizate'
+import { Route as EticheteNylonRouteImport } from './routes/etichete-nylon'
 import { Route as EticheteHaineCopiiRouteImport } from './routes/etichete-haine-copii'
 import { Route as EticheteHaineRouteImport } from './routes/etichete-haine'
+import { Route as EticheteCompozitieRouteImport } from './routes/etichete-compozitie'
 import { Route as EticheteClujNapocaRouteImport } from './routes/etichete-cluj-napoca'
 import { Route as EticheteClujRouteImport } from './routes/etichete-cluj'
 import { Route as EticheteCartonRouteImport } from './routes/etichete-carton'
@@ -70,9 +73,19 @@ const EticheteSatinRoute = EticheteSatinRouteImport.update({
   path: '/etichete-satin',
   getParentRoute: () => rootRouteImport,
 } as any)
+const EticheteSatenRoute = EticheteSatenRouteImport.update({
+  id: '/etichete-saten',
+  path: '/etichete-saten',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const EtichetePersonalizateRoute = EtichetePersonalizateRouteImport.update({
   id: '/etichete-personalizate',
   path: '/etichete-personalizate',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EticheteNylonRoute = EticheteNylonRouteImport.update({
+  id: '/etichete-nylon',
+  path: '/etichete-nylon',
   getParentRoute: () => rootRouteImport,
 } as any)
 const EticheteHaineCopiiRoute = EticheteHaineCopiiRouteImport.update({
@@ -83,6 +96,11 @@ const EticheteHaineCopiiRoute = EticheteHaineCopiiRouteImport.update({
 const EticheteHaineRoute = EticheteHaineRouteImport.update({
   id: '/etichete-haine',
   path: '/etichete-haine',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EticheteCompozitieRoute = EticheteCompozitieRouteImport.update({
+  id: '/etichete-compozitie',
+  path: '/etichete-compozitie',
   getParentRoute: () => rootRouteImport,
 } as any)
 const EticheteClujNapocaRoute = EticheteClujNapocaRouteImport.update({
@@ -141,9 +159,12 @@ export interface FileRoutesByFullPath {
   '/etichete-carton': typeof EticheteCartonRoute
   '/etichete-cluj': typeof EticheteClujRoute
   '/etichete-cluj-napoca': typeof EticheteClujNapocaRoute
+  '/etichete-compozitie': typeof EticheteCompozitieRoute
   '/etichete-haine': typeof EticheteHaineRoute
   '/etichete-haine-copii': typeof EticheteHaineCopiiRoute
+  '/etichete-nylon': typeof EticheteNylonRoute
   '/etichete-personalizate': typeof EtichetePersonalizateRoute
+  '/etichete-saten': typeof EticheteSatenRoute
   '/etichete-satin': typeof EticheteSatinRoute
   '/etichete-termoadezive': typeof EticheteTermoadeziveRoute
   '/etichete-tesute': typeof EticheteTesuteRoute
@@ -163,9 +184,12 @@ export interface FileRoutesByTo {
   '/etichete-carton': typeof EticheteCartonRoute
   '/etichete-cluj': typeof EticheteClujRoute
   '/etichete-cluj-napoca': typeof EticheteClujNapocaRoute
+  '/etichete-compozitie': typeof EticheteCompozitieRoute
   '/etichete-haine': typeof EticheteHaineRoute
   '/etichete-haine-copii': typeof EticheteHaineCopiiRoute
+  '/etichete-nylon': typeof EticheteNylonRoute
   '/etichete-personalizate': typeof EtichetePersonalizateRoute
+  '/etichete-saten': typeof EticheteSatenRoute
   '/etichete-satin': typeof EticheteSatinRoute
   '/etichete-termoadezive': typeof EticheteTermoadeziveRoute
   '/etichete-tesute': typeof EticheteTesuteRoute
@@ -186,9 +210,12 @@ export interface FileRoutesById {
   '/etichete-carton': typeof EticheteCartonRoute
   '/etichete-cluj': typeof EticheteClujRoute
   '/etichete-cluj-napoca': typeof EticheteClujNapocaRoute
+  '/etichete-compozitie': typeof EticheteCompozitieRoute
   '/etichete-haine': typeof EticheteHaineRoute
   '/etichete-haine-copii': typeof EticheteHaineCopiiRoute
+  '/etichete-nylon': typeof EticheteNylonRoute
   '/etichete-personalizate': typeof EtichetePersonalizateRoute
+  '/etichete-saten': typeof EticheteSatenRoute
   '/etichete-satin': typeof EticheteSatinRoute
   '/etichete-termoadezive': typeof EticheteTermoadeziveRoute
   '/etichete-tesute': typeof EticheteTesuteRoute
@@ -210,9 +237,12 @@ export interface FileRouteTypes {
     | '/etichete-carton'
     | '/etichete-cluj'
     | '/etichete-cluj-napoca'
+    | '/etichete-compozitie'
     | '/etichete-haine'
     | '/etichete-haine-copii'
+    | '/etichete-nylon'
     | '/etichete-personalizate'
+    | '/etichete-saten'
     | '/etichete-satin'
     | '/etichete-termoadezive'
     | '/etichete-tesute'
@@ -232,9 +262,12 @@ export interface FileRouteTypes {
     | '/etichete-carton'
     | '/etichete-cluj'
     | '/etichete-cluj-napoca'
+    | '/etichete-compozitie'
     | '/etichete-haine'
     | '/etichete-haine-copii'
+    | '/etichete-nylon'
     | '/etichete-personalizate'
+    | '/etichete-saten'
     | '/etichete-satin'
     | '/etichete-termoadezive'
     | '/etichete-tesute'
@@ -254,9 +287,12 @@ export interface FileRouteTypes {
     | '/etichete-carton'
     | '/etichete-cluj'
     | '/etichete-cluj-napoca'
+    | '/etichete-compozitie'
     | '/etichete-haine'
     | '/etichete-haine-copii'
+    | '/etichete-nylon'
     | '/etichete-personalizate'
+    | '/etichete-saten'
     | '/etichete-satin'
     | '/etichete-termoadezive'
     | '/etichete-tesute'
@@ -277,9 +313,12 @@ export interface RootRouteChildren {
   EticheteCartonRoute: typeof EticheteCartonRoute
   EticheteClujRoute: typeof EticheteClujRoute
   EticheteClujNapocaRoute: typeof EticheteClujNapocaRoute
+  EticheteCompozitieRoute: typeof EticheteCompozitieRoute
   EticheteHaineRoute: typeof EticheteHaineRoute
   EticheteHaineCopiiRoute: typeof EticheteHaineCopiiRoute
+  EticheteNylonRoute: typeof EticheteNylonRoute
   EtichetePersonalizateRoute: typeof EtichetePersonalizateRoute
+  EticheteSatenRoute: typeof EticheteSatenRoute
   EticheteSatinRoute: typeof EticheteSatinRoute
   EticheteTermoadeziveRoute: typeof EticheteTermoadeziveRoute
   EticheteTesuteRoute: typeof EticheteTesuteRoute
@@ -348,11 +387,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof EticheteSatinRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/etichete-saten': {
+      id: '/etichete-saten'
+      path: '/etichete-saten'
+      fullPath: '/etichete-saten'
+      preLoaderRoute: typeof EticheteSatenRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/etichete-personalizate': {
       id: '/etichete-personalizate'
       path: '/etichete-personalizate'
       fullPath: '/etichete-personalizate'
       preLoaderRoute: typeof EtichetePersonalizateRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/etichete-nylon': {
+      id: '/etichete-nylon'
+      path: '/etichete-nylon'
+      fullPath: '/etichete-nylon'
+      preLoaderRoute: typeof EticheteNylonRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/etichete-haine-copii': {
@@ -367,6 +420,13 @@ declare module '@tanstack/react-router' {
       path: '/etichete-haine'
       fullPath: '/etichete-haine'
       preLoaderRoute: typeof EticheteHaineRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/etichete-compozitie': {
+      id: '/etichete-compozitie'
+      path: '/etichete-compozitie'
+      fullPath: '/etichete-compozitie'
+      preLoaderRoute: typeof EticheteCompozitieRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/etichete-cluj-napoca': {
@@ -445,9 +505,12 @@ const rootRouteChildren: RootRouteChildren = {
   EticheteCartonRoute: EticheteCartonRoute,
   EticheteClujRoute: EticheteClujRoute,
   EticheteClujNapocaRoute: EticheteClujNapocaRoute,
+  EticheteCompozitieRoute: EticheteCompozitieRoute,
   EticheteHaineRoute: EticheteHaineRoute,
   EticheteHaineCopiiRoute: EticheteHaineCopiiRoute,
+  EticheteNylonRoute: EticheteNylonRoute,
   EtichetePersonalizateRoute: EtichetePersonalizateRoute,
+  EticheteSatenRoute: EticheteSatenRoute,
   EticheteSatinRoute: EticheteSatinRoute,
   EticheteTermoadeziveRoute: EticheteTermoadeziveRoute,
   EticheteTesuteRoute: EticheteTesuteRoute,

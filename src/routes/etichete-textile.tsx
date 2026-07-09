@@ -54,11 +54,11 @@ const tipuri: { t: string; d: string; href?: string }[] = [
   { t: "Etichete țesute", d: "Pe damasc, satin sau taffeta, în mai multe culori, în role sau tăiate, pliate, pot fi autoadezive.", href: "/etichete-tesute" },
   { t: "Etichete imprimate", d: "Pe bumbac, poliester, poliamidă, satin — cu siglă sau compoziție, față-verso, multiple culori." },
   { t: "Etichete satin", d: "Aspect perlat premium, rezistente la spălare, ideale pentru branduri de modă.", href: "/etichete-satin" },
-  { t: "Etichete nylon", d: "Etichete subțiri, rezistente — folosite pentru îmbrăcăminte sport și tehnică." },
+  { t: "Etichete nylon", d: "Subțiri, foarte rezistente — folosite pentru îmbrăcăminte sport, outdoor și tehnică.", href: "/etichete-nylon" },
   { t: "Etichete carton (hangtag)", d: "Carton premium pentru hangtag-uri cu brand, preț, cod de bare, țară de origine.", href: "/etichete-carton" },
-  { t: "Etichete termoadezive", d: "Aplicabile cu presa termică pe haine — fără cusături, finisaj plat." },
+  { t: "Etichete termoadezive", d: "Aplicabile cu presa termică pe haine — fără cusături, finisaj plat.", href: "/etichete-termoadezive" },
   { t: "Etichete autoadezive", d: "Pe role, pentru ambalaje, produse, cosmetice, textile — adeziv puternic sau detașabil.", href: "/etichete-autoadezive" },
-  { t: "Etichete de compoziție", d: "În RO/EN/DE/FR/IT, cu simboluri ISO 3758 și procentele exacte ale fibrelor." },
+  { t: "Etichete de compoziție", d: "În RO/EN/DE/FR/IT, cu simboluri ISO 3758 și procentele exacte ale fibrelor.", href: "/etichete-compozitie" },
 ];
 
 function EticheteTextile() {

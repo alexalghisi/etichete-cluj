@@ -28,7 +28,7 @@ export const Route = createFileRoute("/contact")({
           "@type": "LocalBusiness",
           "@id": "https://etichetetextile.ro/#business",
           name: "Etichett Prod",
-          legalName: "S.C. Etichett Prod S.R.L.",
+          legalName: "S.C. ETICHETT PROD S.R.L.",
           description: "Producător de etichete textile în Cluj-Napoca: etichete țesute, imprimate, de compoziție și personalizate pentru haine, încălțăminte, marochinărie și branduri. Peste 30 de ani experiență.",
           url: "https://etichetetextile.ro/",
           telephone: ["+40747264832", "+40264599966"],
@@ -113,7 +113,7 @@ function Contact() {
       <section className="mx-auto max-w-7xl px-4 py-16 md:px-6">
         <div className="grid gap-10 md:grid-cols-2">
           <div>
-            <h2 className="text-2xl font-bold">S.C. Etichett Prod S.R.L. — Cluj-Napoca</h2>
+            <h2 className="text-2xl font-bold">S.C. ETICHETT PROD S.R.L. — Cluj-Napoca</h2>
             <p className="mt-3 text-muted-foreground">
               Suntem unul dintre cei mai vechi producători de <strong>etichete textile în Cluj</strong> — peste 30 de ani de experiență în <strong>etichete țesute</strong>, <strong>etichete imprimate</strong>, <strong>etichete de compoziție</strong> și <strong>etichete personalizate</strong> pentru branduri de îmbrăcăminte, încălțăminte și marochinărie din Cluj-Napoca și din toată România.
             </p>

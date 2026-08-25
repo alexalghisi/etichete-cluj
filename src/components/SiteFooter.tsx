@@ -28,7 +28,7 @@ export function SiteFooter() {
             <li><Link to="/etichete-personalizate" className="hover:text-primary">Etichete personalizate</Link></li>
             <li><Link to="/etichete-haine" className="hover:text-primary">Etichete pentru haine</Link></li>
             <li><Link to="/etichete-autocolante" className="hover:text-primary">Etichete autocolante</Link></li>
-            <li><Link to="/etichete-autoadezive" className="hover:text-primary">Etichete autoadezive</Link></li>
+            <li><Link to="/etichete-autoadezive" className="hover:text-primary">Etichete adezive (autoadezive)</Link></li>
             <li><Link to="/etichete-termoadezive" className="hover:text-primary">Etichete termoadezive</Link></li>
             <li><Link to="/etichete-tesute" className="hover:text-primary">Etichete țesute</Link></li>
             <li><Link to="/etichete-satin" className="hover:text-primary">Etichete satin</Link></li>

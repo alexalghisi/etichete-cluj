@@ -7,11 +7,11 @@ export const Route = createFileRoute("/etichete-autoadezive")({
   component: EticheteAutoadezive,
   head: () => ({
     meta: [
-      { title: "Etichete autoadezive personalizate pe role | ETICHETT" },
-      { name: "description", content: "Etichete autoadezive personalizate pe role pentru ambalaje, cosmetice, vinuri, borcane și produse. Imprimare HD, decupare la formă, livrare RO." },
-      { name: "keywords", content: "etichete autoadezive, etichete autoadezive personalizate, etichete autocolante, etichete autocolante personalizate, etichete pe role, etichete autoadezive cluj, imprimanta etichete autoadezive, etichete sticker" },
-      { property: "og:title", content: "Etichete autoadezive personalizate pe role | ETICHETT" },
-      { property: "og:description", content: "Etichete autoadezive imprimate HD pentru produsele tale — pe role, decupate la formă. Producător Cluj-Napoca." },
+      { title: "Etichete adezive și autoadezive personalizate pe role" },
+      { name: "description", content: "Etichete adezive (autoadezive) personalizate pe role pentru ambalaje, cosmetice, vinuri, borcane și produse. Imprimare HD, decupare la formă, livrare RO." },
+      { name: "keywords", content: "etichete adezive, etichete adezive personalizate, etichete adezive pe role, etichete adezive cluj, etichete autoadezive, etichete autoadezive personalizate, etichete autocolante, etichete autocolante personalizate, etichete pe role, imprimanta etichete autoadezive, etichete sticker" },
+      { property: "og:title", content: "Etichete adezive și autoadezive personalizate pe role" },
+      { property: "og:description", content: "Etichete adezive imprimate HD pentru produsele tale — pe role, decupate la formă. Producător Cluj-Napoca." },
       { property: "og:url", content: "https://etichetetextile.ro/etichete-autoadezive" },
       { property: "og:image", content: "https://etichetetextile.ro/images/hero-labels.webp" },
     ],

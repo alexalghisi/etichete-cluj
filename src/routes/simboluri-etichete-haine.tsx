@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageLayout, PageHero } from "@/components/PageLayout";
 import { FaqSection } from "@/components/FaqSection";
 import { ArrowRight } from "lucide-react";
+import { CareSymbol, type CareSymbolProps } from "@/components/CareSymbol";
 
 export const Route = createFileRoute("/simboluri-etichete-haine")({
   component: SimboluriEticheteHaine,

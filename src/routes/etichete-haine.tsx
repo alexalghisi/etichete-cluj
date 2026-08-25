@@ -100,6 +100,20 @@ function EticheteHaine() {
           </article>
         </div>
       </section>
+      <ProductGallery
+        title="Galerie etichete pentru haine — exemple reale"
+        description="Etichete țesute, satin imprimat, compoziție și hangtag-uri produse în atelierul nostru din Cluj-Napoca."
+        images={[
+          { n: 1, alt: "Etichete țesute pentru haine cu logo brand" },
+          { n: 3, alt: "Etichete satin imprimate pentru haine" },
+          { n: 5, alt: "Etichete de compoziție cu simboluri de spălare" },
+          { n: 7, alt: "Etichete cu mărime cusute pe haine" },
+          { n: 9, alt: "Etichete personalizate pentru haine handmade" },
+          { n: 12, alt: "Etichete textile în rolă pentru producție haine" },
+          { n: 16, alt: "Etichete termoadezive pentru tricouri" },
+          { n: 20, alt: "Hangtag carton pentru haine cu logo" },
+        ]}
+      />
       <FaqSection
         pageUrl="https://etichetetextile.ro/etichete-haine"
         items={[

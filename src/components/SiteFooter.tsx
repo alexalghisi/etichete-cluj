@@ -50,7 +50,7 @@ export function SiteFooter() {
       </div>
       <div className="border-t border-border">
         <div className="mx-auto flex max-w-7xl flex-col gap-2 px-4 py-5 text-xs text-muted-foreground md:flex-row md:items-center md:justify-between md:px-6">
-          <p>© {new Date().getFullYear()} S.C. Etichett Prod S.R.L. Toate drepturile rezervate.</p>
+          <p>© {new Date().getFullYear()} S.C. ETICHETT PROD S.R.L. Toate drepturile rezervate.</p>
           <p>Producător etichete textile Cluj-Napoca • Livrare în toată România</p>
         </div>
       </div>

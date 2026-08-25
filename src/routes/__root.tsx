@@ -85,7 +85,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           "@type": "LocalBusiness",
           "@id": "https://etichetetextile.ro/#business",
           name: "Etichett Prod",
-          legalName: "S.C. Etichett Prod S.R.L.",
+          legalName: "S.C. ETICHETT PROD S.R.L.",
           description: "Producător de etichete textile personalizate din Cluj-Napoca: etichete țesute, imprimate, de compoziție pentru haine, încălțăminte, marochinărie și branduri.",
           url: "https://etichetetextile.ro/",
           telephone: ["+40747264832", "+40264599966"],

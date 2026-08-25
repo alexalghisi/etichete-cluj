@@ -1,14 +1,15 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageLayout, PageHero } from "@/components/PageLayout";
 import { FaqSection } from "@/components/FaqSection";
+import { ProductGallery } from "@/components/ProductGallery";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 
 export const Route = createFileRoute("/etichete-haine")({
   component: EticheteHaine,
   head: () => ({
     meta: [
-      { title: "Etichete pentru haine personalizate cu logo | ETICHETT" },
-      { name: "description", content: "Etichete pentru haine personalizate: țesute, satin, termoadezive, de compoziție și mărime. Cu logo, design propriu. Producător Cluj-Napoca, 30+ ani." },
+      { title: "Etichete haine personalizate cu logo — de la 100 buc | ETICHETT" },
+      { name: "description", content: "Etichete haine personalizate cu logo: țesute, satin, termoadezive, compoziție și mărime. Vezi galeria cu exemple reale. Producător Cluj-Napoca, 30+ ani." },
       { name: "keywords", content: "etichete haine, etichete pentru haine, etichete personalizate haine, etichete haine personalizate, etichete haine cu logo, etichete brand haine, etichete haine copii, etichete textile haine" },
       { property: "og:title", content: "Etichete pentru haine personalizate | ETICHETT" },
       { property: "og:description", content: "Etichete pentru haine cu logo, compoziție și mărime — țesute, satin, termoadezive. Producător Cluj." },
@@ -100,6 +101,20 @@ function EticheteHaine() {
           </article>
         </div>
       </section>
+      <ProductGallery
+        title="Galerie etichete pentru haine — exemple reale"
+        description="Etichete țesute, satin imprimat, compoziție și hangtag-uri produse în atelierul nostru din Cluj-Napoca."
+        images={[
+          { n: 1, alt: "Etichete țesute pentru haine cu logo brand" },
+          { n: 3, alt: "Etichete satin imprimate pentru haine" },
+          { n: 5, alt: "Etichete de compoziție cu simboluri de spălare" },
+          { n: 7, alt: "Etichete cu mărime cusute pe haine" },
+          { n: 9, alt: "Etichete personalizate pentru haine handmade" },
+          { n: 12, alt: "Etichete textile în rolă pentru producție haine" },
+          { n: 16, alt: "Etichete termoadezive pentru tricouri" },
+          { n: 20, alt: "Hangtag carton pentru haine cu logo" },
+        ]}
+      />
       <FaqSection
         pageUrl="https://etichetetextile.ro/etichete-haine"
         items={[

@@ -30,6 +30,7 @@ export const Route = createFileRoute("/")({
             { "@type": "Question", name: "Faceți etichete termoadezive pentru haine?", acceptedAnswer: { "@type": "Answer", text: "Da, realizăm etichete termoadezive (transfer termic) pentru haine, aplicabile cu presa termică, plus etichete autoadezive și etichete cusute clasice." } },
             { "@type": "Question", name: "Care este cantitatea minimă pentru etichete haine personalizate?", acceptedAnswer: { "@type": "Answer", text: "Începem de la 100 de bucăți per model pentru etichete haine personalizate, astfel încât și brandurile mici să poată comanda." } },
             { "@type": "Question", name: "Ce simboluri pot apărea pe etichetele de haine?", acceptedAnswer: { "@type": "Answer", text: "Includem simbolurile standard pentru spălare, uscare, călcare, înălbire și curățare chimică conform ISO 3758, plus compoziția materialului în mai multe limbi." } },
+            { "@type": "Question", name: "Produceți etichete adezive personalizate?", acceptedAnswer: { "@type": "Answer", text: "Da, producem etichete adezive (autoadezive) personalizate pe role, imprimate HD și decupate la formă, pentru ambalaje, cosmetice, borcane, vinuri și produse handmade." } },
           ],
         }),
       },

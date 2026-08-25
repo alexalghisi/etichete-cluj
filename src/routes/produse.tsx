@@ -7,7 +7,7 @@ export const Route = createFileRoute("/produse")({
   head: () => ({
     meta: [
       { title: "Etichete textile — produse țesute & imprimate Cluj" },
-      { name: "description", content: "Etichete pentru haine și branduri: țesute, imprimate, de compoziție, autoadezive, termoadezive. Producție Cluj-Napoca, livrare națională." },
+      { name: "description", content: "Etichete pentru haine și branduri: țesute, imprimate, de compoziție, adezive, termoadezive. Producție Cluj-Napoca, livrare națională." },
       { property: "og:title", content: "Etichete textile — produse țesute & imprimate Cluj" },
       { property: "og:description", content: "Gamă completă de etichete: țesute, imprimate, de compoziție, autoadezive pentru îmbrăcăminte și branduri. Producător Cluj-Napoca." },
       { property: "og:url", content: "https://etichetetextile.ro/produse" },
@@ -56,7 +56,7 @@ const products = [
     features: ["Conforme cu reglementările", "Multiple limbi", "Simboluri de spălare", "Rezistente la temperaturi ridicate"],
   },
   {
-    title: "Etichete autoadezive & autocolante",
+    title: "Etichete adezive (autoadezive) & autocolante",
     img: "/images/products/etichete-branduri.jpg",
     features: ["Aplicare rapidă", "Suport flexibil pentru diverse materiale", "Imprimare HD", "Adeziv rezistent"],
   },
@@ -101,7 +101,7 @@ function Produse() {
               ["Etichete țesute", "/etichete-tesute"],
               ["Etichete satin", "/etichete-satin"],
               ["Etichete carton (hangtag)", "/etichete-carton"],
-              ["Etichete autoadezive", "/etichete-autoadezive"],
+              ["Etichete adezive", "/etichete-autoadezive"],
               ["Etichete Cluj-Napoca", "/etichete-cluj-napoca"],
             ].map(([label, href]) => (
               <Link key={href} to={href} className="rounded-full border border-border bg-card px-4 py-2 text-sm font-medium hover:border-primary hover:text-primary">

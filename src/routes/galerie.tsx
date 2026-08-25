@@ -5,7 +5,7 @@ const galleryImages = Array.from({ length: 24 }, (_, i) => i + 1).map((n, index)
   id: n,
   src: `/images/gallery/etichete-textile-${n}.jpg`,
   absoluteSrc: `https://etichetetextile.ro/images/gallery/etichete-textile-${n}.jpg`,
-  alt: `Etichete textile personalizate — proiect ${index + 1} realizat de ETICHETT PROD Cluj`,
+  alt: `Etichete textile personalizate — proiect ${index + 1} realizat de Etichett Prod Cluj`,
 }));
 
 export const Route = createFileRoute("/galerie")({
@@ -13,7 +13,7 @@ export const Route = createFileRoute("/galerie")({
   head: () => ({
     meta: [
       { title: "Galerie etichete textile — proiecte Cluj | ETICHETT" },
-      { name: "description", content: "Galerie etichete textile personalizate realizate de ETICHETT PROD în Cluj-Napoca: țesute, imprimate, pentru branduri și ateliere." },
+      { name: "description", content: "Galerie etichete textile personalizate realizate de Etichett Prod în Cluj-Napoca: țesute, imprimate, pentru branduri și ateliere." },
       { property: "og:title", content: "Galerie etichete textile — proiecte Cluj | ETICHETT" },
       { property: "og:description", content: "Proiecte realizate: etichete textile personalizate țesute și imprimate pentru branduri de îmbrăcăminte." },
       { property: "og:url", content: "https://etichetetextile.ro/galerie" },
@@ -26,9 +26,9 @@ export const Route = createFileRoute("/galerie")({
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "ImageGallery",
-          name: "Galerie etichete textile ETICHETT PROD",
+          name: "Galerie etichete textile Etichett Prod",
           url: "https://etichetetextile.ro/galerie",
-          description: "Etichete textile personalizate produse de ETICHETT PROD în atelierul din Cluj-Napoca.",
+          description: "Etichete textile personalizate produse de Etichett Prod în atelierul din Cluj-Napoca.",
           image: galleryImages.map((image) => ({
             "@type": "ImageObject",
             contentUrl: image.absoluteSrc,
@@ -43,7 +43,7 @@ export const Route = createFileRoute("/galerie")({
 function Galerie() {
   return (
     <PageLayout>
-      <PageHero eyebrow="Galerie" title="Etichete textile realizate" subtitle="O selecție din proiectele noastre — etichete textile personalizate produse în atelierul ETICHETT PROD din Cluj-Napoca." />
+      <PageHero eyebrow="Galerie" title="Etichete textile realizate" subtitle="O selecție din proiectele noastre — etichete textile personalizate produse în atelierul Etichett Prod din Cluj-Napoca." />
       <section className="mx-auto max-w-7xl px-4 py-16 md:px-6">
         <div className="columns-1 gap-4 sm:columns-2 lg:columns-3 [&>*]:mb-4">
           {galleryImages.map((image) => (

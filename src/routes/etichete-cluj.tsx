@@ -94,7 +94,7 @@ function EticheteCluj() {
             </div>
             <div className="overflow-hidden rounded-2xl border border-border">
               <iframe
-                title="Locație ETICHETT PROD Cluj-Napoca"
+                title="Locație Etichett Prod Cluj-Napoca"
                 src="https://maps.google.com/maps?q=Strada+Uzinei+Electrice+9+Cluj-Napoca&z=15&output=embed"
                 className="h-64 w-full"
                 loading="lazy"

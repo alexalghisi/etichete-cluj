@@ -67,7 +67,7 @@ function EticheteTextile() {
       <PageHero
         eyebrow="Categorie · Etichete textile"
         title="Etichete textile pentru haine, încălțăminte & branduri"
-        subtitle="Toată gama de etichete textile produsă la ETICHETT PROD — țesute, imprimate, satin, nylon, carton, termoadezive, autoadezive și de compoziție."
+        subtitle="Toată gama de etichete textile produsă la Etichett Prod — țesute, imprimate, satin, nylon, carton, termoadezive, autoadezive și de compoziție."
       />
       <section className="mx-auto max-w-7xl px-4 py-16 md:px-6">
         <nav aria-label="Breadcrumb" className="mb-6 text-sm text-muted-foreground">

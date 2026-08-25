@@ -103,10 +103,11 @@ function SimboluriEticheteHaine() {
             <section key={g.titlu}>
               <h2 className="text-xl font-bold md:text-2xl">{g.titlu}</h2>
               <ul className="mt-4 divide-y divide-border rounded-2xl border border-border bg-card">
-                {g.items.map(([s, d]) => (
-                  <li key={s} className="grid gap-1 p-4 md:grid-cols-[1fr_2fr] md:items-center md:gap-6">
-                    <span className="font-semibold text-foreground">{s}</span>
-                    <span className="text-sm text-muted-foreground">{d}</span>
+                {g.items.map((it) => (
+                  <li key={it.nume} className="grid items-center gap-3 p-4 md:grid-cols-[auto_1fr_2fr] md:gap-6">
+                    <CareSymbol {...it.icon} />
+                    <span className="font-semibold text-foreground">{it.nume}</span>
+                    <span className="text-sm text-muted-foreground">{it.desc}</span>
                   </li>
                 ))}
               </ul>

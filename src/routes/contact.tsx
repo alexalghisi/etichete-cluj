@@ -6,17 +6,17 @@ export const Route = createFileRoute("/contact")({
   component: Contact,
   head: () => ({
     meta: [
-      { title: "Contact — Etichete textile Cluj-Napoca | ETICHETT PROD" },
+      { title: "Contact — Etichete textile Cluj-Napoca | Etichett Prod" },
       { name: "description", content: "Cere ofertă pentru etichete textile în Cluj-Napoca: țesute, imprimate, personalizate. WhatsApp, tel. 0747 264 832, email rapid." },
       { name: "keywords", content: "etichete cluj, etichete cluj-napoca, etichete textile cluj, contact etichete, oferta etichete textile, etichete personalizate cluj, etichete tesute cluj, etichete imprimate cluj, etichete compozitie, producator etichete cluj, etichete haine cluj, etichett prod" },
-      { property: "og:title", content: "Contact — Etichete textile Cluj-Napoca | ETICHETT PROD" },
+      { property: "og:title", content: "Contact — Etichete textile Cluj-Napoca | Etichett Prod" },
       { property: "og:description", content: "Producător de etichete textile în Cluj-Napoca. Cere ofertă rapid pe WhatsApp, telefon sau email." },
       { property: "og:url", content: "https://etichetetextile.ro/contact" },
       { property: "og:type", content: "website" },
       { property: "og:image", content: "https://etichetetextile.ro/images/hero-labels.webp" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:image", content: "https://etichetetextile.ro/images/hero-labels.webp" },
-      { name: "twitter:title", content: "Contact ETICHETT PROD — etichete textile Cluj" },
+      { name: "twitter:title", content: "Contact Etichett Prod — etichete textile Cluj" },
       { name: "twitter:description", content: "Cere ofertă pentru etichete textile personalizate în Cluj-Napoca." },
     ],
     links: [{ rel: "canonical", href: "https://etichetetextile.ro/contact" }],
@@ -27,7 +27,7 @@ export const Route = createFileRoute("/contact")({
           "@context": "https://schema.org",
           "@type": "LocalBusiness",
           "@id": "https://etichetetextile.ro/#business",
-          name: "ETICHETT PROD",
+          name: "Etichett Prod",
           legalName: "S.C. ETICHETT PROD S.R.L.",
           description: "Producător de etichete textile în Cluj-Napoca: etichete țesute, imprimate, de compoziție și personalizate pentru haine, încălțăminte, marochinărie și branduri. Peste 30 de ani experiență.",
           url: "https://etichetetextile.ro/",
@@ -107,7 +107,7 @@ function Contact() {
       <PageHero
         eyebrow="Contact etichete Cluj-Napoca"
         title="Cere ofertă pentru etichete textile în Cluj"
-        subtitle="ETICHETT PROD — producător de etichete țesute, imprimate, de compoziție și personalizate în Cluj-Napoca. Răspundem rapid pe WhatsApp, telefon sau email."
+        subtitle="Etichett Prod — producător de etichete țesute, imprimate, de compoziție și personalizate în Cluj-Napoca. Răspundem rapid pe WhatsApp, telefon sau email."
       />
 
       <section className="mx-auto max-w-7xl px-4 py-16 md:px-6">
@@ -126,7 +126,7 @@ function Contact() {
             </ul>
             <div className="mt-8 overflow-hidden rounded-2xl border border-border">
               <iframe
-                title="Hartă ETICHETT PROD — etichete textile Cluj-Napoca"
+                title="Hartă Etichett Prod — etichete textile Cluj-Napoca"
                 src="https://maps.google.com/maps?q=Strada+Uzinei+Electrice+9+Cluj-Napoca&z=15&output=embed"
                 className="h-72 w-full"
                 loading="lazy"
@@ -170,7 +170,7 @@ function Contact() {
         </div>
 
         <div className="mt-16 grid gap-6 rounded-2xl border border-border bg-secondary/40 p-6 md:p-10">
-          <h2 className="text-2xl font-bold">De ce ETICHETT PROD pentru etichete în Cluj-Napoca?</h2>
+          <h2 className="text-2xl font-bold">De ce Etichett Prod pentru etichete în Cluj-Napoca?</h2>
           <p className="text-muted-foreground">
             Căutarea pentru <em>„etichete Cluj”</em>, <em>„etichete Cluj-Napoca”</em> sau <em>„etichete textile”</em> duce de obicei la noi pentru un motiv simplu: producem local, cu utilaje proprii, și livrăm exact ce ai nevoie — fie că vorbim de <strong>etichete țesute pentru haine</strong>, <strong>etichete de compoziție conforme</strong>, <strong>etichete imprimate pe satin sau nylon</strong>, ori <strong>etichete personalizate cu logo</strong> pentru branduri mici și mari.
           </p>

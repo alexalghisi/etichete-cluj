@@ -89,7 +89,7 @@ export const Route = createFileRoute("/$")({
   },
   head: () => ({
     meta: [
-      { title: "Pagina nu a fost găsită — ETICHETT PROD" },
+      { title: "Pagina nu a fost găsită — Etichett Prod" },
       { name: "robots", content: "noindex, follow" },
     ],
   }),

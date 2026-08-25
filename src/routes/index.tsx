@@ -26,7 +26,7 @@ export const Route = createFileRoute("/")({
           "@type": "FAQPage",
           mainEntity: [
             { "@type": "Question", name: "Ce sunt etichetele textile?", acceptedAnswer: { "@type": "Answer", text: "Etichetele textile sunt etichete țesute sau imprimate aplicate pe haine, încălțăminte, marochinărie sau textile, folosite pentru brand, compoziție, mărime și instrucțiuni de spălare." } },
-            { "@type": "Question", name: "Unde găsesc etichete personalizate în Cluj?", acceptedAnswer: { "@type": "Answer", text: "ETICHETT PROD produce etichete personalizate în Cluj-Napoca din 1993 — etichete țesute, imprimate, satin, carton, autoadezive și termoadezive pentru haine." } },
+            { "@type": "Question", name: "Unde găsesc etichete personalizate în Cluj?", acceptedAnswer: { "@type": "Answer", text: "Etichett Prod produce etichete personalizate în Cluj-Napoca din 1993 — etichete țesute, imprimate, satin, carton, autoadezive și termoadezive pentru haine." } },
             { "@type": "Question", name: "Faceți etichete termoadezive pentru haine?", acceptedAnswer: { "@type": "Answer", text: "Da, realizăm etichete termoadezive (transfer termic) pentru haine, aplicabile cu presa termică, plus etichete autoadezive și etichete cusute clasice." } },
             { "@type": "Question", name: "Care este cantitatea minimă pentru etichete haine personalizate?", acceptedAnswer: { "@type": "Answer", text: "Începem de la 100 de bucăți per model pentru etichete haine personalizate, astfel încât și brandurile mici să poată comanda." } },
             { "@type": "Question", name: "Ce simboluri pot apărea pe etichetele de haine?", acceptedAnswer: { "@type": "Answer", text: "Includem simbolurile standard pentru spălare, uscare, călcare, înălbire și curățare chimică conform ISO 3758, plus compoziția materialului în mai multe limbi." } },
@@ -109,10 +109,10 @@ function Index() {
       <section className="mx-auto max-w-7xl px-4 py-20 md:px-6">
         <div className="grid gap-12 md:grid-cols-2 md:items-center">
           <div>
-            <p className="text-sm font-semibold uppercase tracking-widest text-primary">Despre ETICHETT PROD</p>
+            <p className="text-sm font-semibold uppercase tracking-widest text-primary">Despre Etichett Prod</p>
             <h2 className="mt-3 text-3xl font-bold md:text-4xl">Etichete textile pentru branduri care contează</h2>
             <p className="mt-5 text-muted-foreground">
-              <strong>ETICHETT PROD</strong> este un producător de etichete textile înființat în <strong>1993</strong>, specializat în <strong>etichete textile personalizate</strong> pentru îmbrăcăminte, încălțăminte, marochinărie, mobilier și articole tehnice.
+              <strong>Etichett Prod</strong> este un producător de etichete textile înființat în <strong>1993</strong>, specializat în <strong>etichete textile personalizate</strong> pentru îmbrăcăminte, încălțăminte, marochinărie, mobilier și articole tehnice.
             </p>
             <p className="mt-4 text-muted-foreground">
               Cu peste 30 de ani de experiență, oferim soluții complete — de la design și simulare grafică, până la produsul final livrat la tine.
@@ -210,7 +210,7 @@ function Index() {
           <article>
             <h2 className="text-2xl font-bold">Etichete Cluj & Cluj-Napoca — primul producător local</h2>
             <p className="mt-3 text-muted-foreground">
-              Când cauți <strong>etichete Cluj</strong> sau <strong>etichete Cluj-Napoca</strong>, ETICHETT PROD este alegerea naturală — atelier propriu pe Str. Uzinei Electrice nr. 9, peste 30 de ani de experiență, ridicare personală sau livrare prin curier în <em>Florești, Apahida, Baciu, Gilău, Turda, Dej, Gherla, Huedin</em> și toată România (București, Timișoara, Oradea, Sibiu, Brașov, Iași).
+              Când cauți <strong>etichete Cluj</strong> sau <strong>etichete Cluj-Napoca</strong>, Etichett Prod este alegerea naturală — atelier propriu pe Str. Uzinei Electrice nr. 9, peste 30 de ani de experiență, ridicare personală sau livrare prin curier în <em>Florești, Apahida, Baciu, Gilău, Turda, Dej, Gherla, Huedin</em> și toată România (București, Timișoara, Oradea, Sibiu, Brașov, Iași).
             </p>
           </article>
         </div>

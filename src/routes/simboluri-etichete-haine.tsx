@@ -31,50 +31,53 @@ export const Route = createFileRoute("/simboluri-etichete-haine")({
   }),
 });
 
-const grupuri = [
+const grupuri: {
+  titlu: string;
+  items: { nume: string; desc: string; icon: CareSymbolProps }[];
+}[] = [
   {
     titlu: "Spălare (lighean cu apă)",
     items: [
-      ["Lighean cu cifră (30°, 40°, 60°, 90°)", "Spălare la temperatura indicată"],
-      ["Lighean cu mână", "Spălare doar manuală"],
-      ["Lighean cu o linie sub el", "Program delicat — centrifugare redusă"],
-      ["Lighean cu două linii", "Program foarte delicat (lână)"],
-      ["Lighean tăiat cu X", "Nu se spală — doar curățare chimică"],
+      { nume: "Lighean cu cifră (30°, 40°, 60°, 90°)", desc: "Spălare la temperatura indicată", icon: { shape: "basin", text: "30", label: "Lighean cu cifra 30 — spălare la 30°C" } },
+      { nume: "Lighean cu mână", desc: "Spălare doar manuală", icon: { shape: "basin", hand: true, label: "Lighean cu mână — spălare manuală" } },
+      { nume: "Lighean cu o linie sub el", desc: "Program delicat — centrifugare redusă", icon: { shape: "basin", bars: 1, label: "Lighean cu o linie — program delicat" } },
+      { nume: "Lighean cu două linii", desc: "Program foarte delicat (lână)", icon: { shape: "basin", bars: 2, label: "Lighean cu două linii — program foarte delicat" } },
+      { nume: "Lighean tăiat cu X", desc: "Nu se spală — doar curățare chimică", icon: { shape: "basin", crossed: true, label: "Lighean tăiat — nu se spală" } },
     ],
   },
   {
     titlu: "Înălbire (triunghi)",
     items: [
-      ["Triunghi gol", "Permite înălbire cu clor sau oxigen"],
-      ["Triunghi cu două linii diagonale", "Doar înălbitor pe bază de oxigen (fără clor)"],
-      ["Triunghi tăiat cu X", "Nu se înălbește"],
+      { nume: "Triunghi gol", desc: "Permite înălbire cu clor sau oxigen", icon: { shape: "triangle", label: "Triunghi gol — se poate înălbi" } },
+      { nume: "Triunghi cu două linii diagonale", desc: "Doar înălbitor pe bază de oxigen (fără clor)", icon: { shape: "triangle", stripes: true, label: "Triunghi cu linii — doar înălbitor pe bază de oxigen" } },
+      { nume: "Triunghi tăiat cu X", desc: "Nu se înălbește", icon: { shape: "triangle", crossed: true, label: "Triunghi tăiat — nu se înălbește" } },
     ],
   },
   {
     titlu: "Uscare (pătrat)",
     items: [
-      ["Pătrat cu cerc", "Permite uscare în uscător"],
-      ["Pătrat cu cerc + un punct", "Uscător la temperatură joasă"],
-      ["Pătrat cu cerc + două puncte", "Uscător la temperatură normală"],
-      ["Pătrat cu cerc tăiat cu X", "Nu se usucă în uscător"],
-      ["Pătrat cu linie orizontală", "Uscare pe orizontală (pe suport plat)"],
-      ["Pătrat cu linie verticală", "Uscare pe verticală (pe umeraș)"],
+      { nume: "Pătrat cu cerc", desc: "Permite uscare în uscător", icon: { shape: "square", circleInSquare: true, label: "Pătrat cu cerc — uscare în uscător" } },
+      { nume: "Pătrat cu cerc + un punct", desc: "Uscător la temperatură joasă", icon: { shape: "square", circleInSquare: true, dots: 1, label: "Pătrat cu cerc și un punct — uscător la temperatură joasă" } },
+      { nume: "Pătrat cu cerc + două puncte", desc: "Uscător la temperatură normală", icon: { shape: "square", circleInSquare: true, dots: 2, label: "Pătrat cu cerc și două puncte — uscător la temperatură normală" } },
+      { nume: "Pătrat cu cerc tăiat cu X", desc: "Nu se usucă în uscător", icon: { shape: "square", circleInSquare: true, crossed: true, label: "Pătrat cu cerc tăiat — nu se usucă în uscător" } },
+      { nume: "Pătrat cu linie orizontală", desc: "Uscare pe orizontală (pe suport plat)", icon: { shape: "square", dryLine: "horizontal", label: "Pătrat cu linie orizontală — uscare pe orizontală" } },
+      { nume: "Pătrat cu linie verticală", desc: "Uscare pe verticală (pe umeraș)", icon: { shape: "square", dryLine: "vertical", label: "Pătrat cu linie verticală — uscare pe verticală" } },
     ],
   },
   {
     titlu: "Călcare (fier de călcat)",
     items: [
-      ["Fier cu un punct", "Călcat la temperatură joasă (max 110°C) — sintetice"],
-      ["Fier cu două puncte", "Călcat la temperatură medie (max 150°C) — lână, mătase"],
-      ["Fier cu trei puncte", "Călcat la temperatură mare (max 200°C) — bumbac, in"],
-      ["Fier tăiat cu X", "Nu se calcă"],
+      { nume: "Fier cu un punct", desc: "Călcat la temperatură joasă (max 110°C) — sintetice", icon: { shape: "iron", dots: 1, label: "Fier cu un punct — călcat la temperatură joasă" } },
+      { nume: "Fier cu două puncte", desc: "Călcat la temperatură medie (max 150°C) — lână, mătase", icon: { shape: "iron", dots: 2, label: "Fier cu două puncte — călcat la temperatură medie" } },
+      { nume: "Fier cu trei puncte", desc: "Călcat la temperatură mare (max 200°C) — bumbac, in", icon: { shape: "iron", dots: 3, label: "Fier cu trei puncte — călcat la temperatură mare" } },
+      { nume: "Fier tăiat cu X", desc: "Nu se calcă", icon: { shape: "iron", crossed: true, label: "Fier tăiat — nu se calcă" } },
     ],
   },
   {
     titlu: "Curățare chimică (cerc)",
     items: [
-      ["Cerc cu literă (P, F, W)", "Curățare chimică profesională cu solvent specific"],
-      ["Cerc tăiat cu X", "Nu se curăță chimic"],
+      { nume: "Cerc cu literă (P, F, W)", desc: "Curățare chimică profesională cu solvent specific", icon: { shape: "circle", text: "P", label: "Cerc cu litera P — curățare chimică profesională" } },
+      { nume: "Cerc tăiat cu X", desc: "Nu se curăță chimic", icon: { shape: "circle", crossed: true, label: "Cerc tăiat — nu se curăță chimic" } },
     ],
   },
 ];

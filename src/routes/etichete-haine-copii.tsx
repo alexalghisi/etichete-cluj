@@ -91,6 +91,18 @@ function EticheteHaineCopii() {
           </article>
         </div>
       </section>
+      <ProductGallery
+        title="Galerie etichete pentru haine de copii"
+        description="Exemple de etichete cu nume, termoadezive și cusute, produse în atelierul nostru."
+        images={[
+          { n: 2, alt: "Etichete cu nume pentru hainele copiilor" },
+          { n: 6, alt: "Etichete termoadezive pentru haine de copii" },
+          { n: 11, alt: "Etichete textile cusute pe haine de copii" },
+          { n: 14, alt: "Etichete personalizate cu nume și telefon pentru grădiniță" },
+          { n: 18, alt: "Etichete țesute colorate pentru îmbrăcăminte copii" },
+          { n: 22, alt: "Rolă de etichete textile pentru haine copii" },
+        ]}
+      />
       <FaqSection
         pageUrl="https://etichetetextile.ro/etichete-haine-copii"
         items={[

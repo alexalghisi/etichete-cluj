@@ -36,7 +36,7 @@ export const Route = createFileRoute("/etichete-haine-copii")({
           "@type": "Product",
           name: "Etichete pentru haine copii cu nume",
           description: "Etichete textile cu numele copilului — termoadezive sau cusute, rezistente la spălare.",
-          brand: { "@type": "Brand", name: "ETICHETT PROD" },
+          brand: { "@type": "Brand", name: "Etichett Prod" },
           offers: { "@type": "AggregateOffer", priceCurrency: "RON", lowPrice: "0.40", highPrice: "1.50", offerCount: "5", availability: "https://schema.org/InStock" },
         }),
       },

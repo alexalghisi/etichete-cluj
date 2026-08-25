@@ -35,7 +35,7 @@ export const Route = createFileRoute("/etichete-autoadezive")({
           "@type": "Product",
           name: "Etichete adezive (autoadezive) personalizate",
           description: "Etichete adezive imprimate HD pe role, cu adeziv puternic sau detașabil, decupate la formă.",
-          brand: { "@type": "Brand", name: "ETICHETT PROD" },
+          brand: { "@type": "Brand", name: "Etichett Prod" },
           image: "https://etichetetextile.ro/images/hero-labels.webp",
           offers: { "@type": "AggregateOffer", priceCurrency: "RON", lowPrice: "0.05", highPrice: "0.80", offerCount: "10", availability: "https://schema.org/InStock" },
         }),

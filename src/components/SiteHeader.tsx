@@ -17,8 +17,8 @@ export function SiteHeader() {
   return (
     <header className="sticky top-0 z-50 border-b border-border/60 bg-background/85 backdrop-blur-md">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 md:px-6">
-        <Link to="/" className="flex items-center gap-2" aria-label="ETICHETT PROD — Acasă">
-          <img src="/images/logo.png" alt="ETICHETT PROD - producător etichete textile Cluj" className="h-8 w-auto md:h-9" />
+        <Link to="/" className="flex items-center gap-2" aria-label="Etichett Prod — Acasă">
+          <img src="/images/logo.png" alt="Etichett Prod - producător etichete textile Cluj" className="h-8 w-auto md:h-9" />
         </Link>
         <nav className="hidden items-center gap-7 md:flex" aria-label="Navigație principală">
           {nav.map((i) => (

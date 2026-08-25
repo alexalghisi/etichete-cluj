@@ -35,7 +35,7 @@ export const Route = createFileRoute("/etichete-personalizate")({
           "@type": "Product",
           name: "Etichete personalizate",
           description: "Etichete personalizate cu logo, text, compoziție și mărime — țesute, imprimate, satin, carton, autoadezive.",
-          brand: { "@type": "Brand", name: "ETICHETT PROD" },
+          brand: { "@type": "Brand", name: "Etichett Prod" },
           image: "https://etichetetextile.ro/images/hero-labels.webp",
           offers: { "@type": "AggregateOffer", priceCurrency: "RON", lowPrice: "0.10", highPrice: "2.00", offerCount: "8", availability: "https://schema.org/InStock" },
           aggregateRating: { "@type": "AggregateRating", ratingValue: "4.9", reviewCount: "87" },
@@ -69,7 +69,7 @@ function EtichetePersonalizate() {
 
         <div className="grid gap-8 md:grid-cols-2 md:items-start">
           <article>
-            <h2 className="text-2xl font-bold">De ce etichete personalizate ETICHETT PROD?</h2>
+            <h2 className="text-2xl font-bold">De ce etichete personalizate Etichett Prod?</h2>
             <p className="mt-3 text-muted-foreground">
               Producem <strong>etichete personalizate</strong> de peste 30 de ani pentru sute de branduri românești. Indiferent dacă ai nevoie de <em>etichete personalizate pentru haine</em>, cosmetice, vinuri, mobilier sau articole handmade, le realizăm exact pe forma, materialul și culorile dorite.
             </p>

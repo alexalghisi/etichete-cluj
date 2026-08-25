@@ -35,7 +35,7 @@ export const Route = createFileRoute("/etichete-tesute")({
           "@type": "Product",
           name: "Etichete țesute personalizate",
           description: "Etichete țesute pe damasc, satin sau taffeta — finisaj premium pentru îmbrăcăminte și accesorii.",
-          brand: { "@type": "Brand", name: "ETICHETT PROD" },
+          brand: { "@type": "Brand", name: "Etichett Prod" },
           image: "https://etichetetextile.ro/images/products/etichete-tesute.jpg",
           offers: { "@type": "AggregateOffer", priceCurrency: "RON", lowPrice: "0.20", highPrice: "1.20", offerCount: "6", availability: "https://schema.org/InStock" },
         }),

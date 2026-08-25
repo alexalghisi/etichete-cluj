@@ -36,7 +36,7 @@ export const Route = createFileRoute("/etichete-haine")({
           "@type": "Product",
           name: "Etichete pentru haine personalizate",
           description: "Etichete pentru haine cu logo: țesute, satin, termoadezive, de compoziție și mărime.",
-          brand: { "@type": "Brand", name: "ETICHETT PROD" },
+          brand: { "@type": "Brand", name: "Etichett Prod" },
           image: "https://etichetetextile.ro/images/hero-labels.webp",
           offers: { "@type": "AggregateOffer", priceCurrency: "RON", lowPrice: "0.10", highPrice: "2.00", offerCount: "12", availability: "https://schema.org/InStock" },
           aggregateRating: { "@type": "AggregateRating", ratingValue: "4.9", reviewCount: "143" },

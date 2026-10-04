@@ -1,3 +1,5 @@
+import { getSeoOverride } from "@/lib/seo-overrides.functions";
+import { applySeo } from "@/lib/seo-head";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageLayout, PageHero } from "@/components/PageLayout";
 import { FaqSection } from "@/components/FaqSection";
@@ -5,8 +7,9 @@ import { ProductGallery } from "@/components/ProductGallery";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 
 export const Route = createFileRoute("/etichete-haine")({
+  loader: () => getSeoOverride({ data: { path: "/etichete-haine" } }),
   component: EticheteHaine,
-  head: () => ({
+  head: ({ loaderData }) => applySeo({
     meta: [
       { title: "Etichete haine personalizate cu logo — de la 100 buc | ETICHETT" },
       { name: "description", content: "Etichete haine personalizate cu logo: țesute, satin, termoadezive, compoziție și mărime. Vezi galeria cu exemple reale. Producător Cluj-Napoca, 30+ ani." },
@@ -43,7 +46,7 @@ export const Route = createFileRoute("/etichete-haine")({
         }),
       },
     ],
-  }),
+  }, loaderData),
 });
 
 function EticheteHaine() {

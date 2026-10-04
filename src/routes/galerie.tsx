@@ -1,3 +1,5 @@
+import { getSeoOverride } from "@/lib/seo-overrides.functions";
+import { applySeo } from "@/lib/seo-head";
 import { createFileRoute } from "@tanstack/react-router";
 import { PageLayout, PageHero } from "@/components/PageLayout";
 
@@ -9,8 +11,9 @@ const galleryImages = Array.from({ length: 24 }, (_, i) => i + 1).map((n, index)
 }));
 
 export const Route = createFileRoute("/galerie")({
+  loader: () => getSeoOverride({ data: { path: "/galerie" } }),
   component: Galerie,
-  head: () => ({
+  head: ({ loaderData }) => applySeo({
     meta: [
       { title: "Galerie etichete textile — proiecte Cluj | ETICHETT" },
       { name: "description", content: "Galerie etichete textile personalizate realizate de Etichett Prod în Cluj-Napoca: țesute, imprimate, pentru branduri și ateliere." },
@@ -37,7 +40,7 @@ export const Route = createFileRoute("/galerie")({
         }),
       },
     ],
-  }),
+  }, loaderData),
 });
 
 function Galerie() {

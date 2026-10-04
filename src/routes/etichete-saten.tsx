@@ -1,11 +1,14 @@
+import { getSeoOverride } from "@/lib/seo-overrides.functions";
+import { applySeo } from "@/lib/seo-head";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageLayout, PageHero } from "@/components/PageLayout";
 import { FaqSection } from "@/components/FaqSection";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 
 export const Route = createFileRoute("/etichete-saten")({
+  loader: () => getSeoOverride({ data: { path: "/etichete-saten" } }),
   component: EticheteSaten,
-  head: () => ({
+  head: ({ loaderData }) => applySeo({
     meta: [
       { title: "Etichete saten (satin) imprimate — moi & premium | ETICHETT" },
       { name: "description", content: "Etichete saten personalizate — imprimate HD, moi, cu aspect perlat premium. Rezistente la spălare. Producător etichete textile Cluj-Napoca." },
@@ -29,7 +32,7 @@ export const Route = createFileRoute("/etichete-saten")({
         }),
       },
     ],
-  }),
+  }, loaderData),
 });
 
 function EticheteSaten() {

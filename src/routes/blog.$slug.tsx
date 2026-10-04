@@ -47,8 +47,30 @@ export const Route = createFileRoute("/blog/$slug")({
   component: BlogPostPage,
 });
 
+const PRODUCT_MAP: [RegExp, string, string][] = [
+  [/copii/i, "/etichete-haine-copii", "Etichete haine copii"],
+  [/simbol|intretinere|întreținere/i, "/simboluri-etichete-haine", "Simboluri etichete haine"],
+  [/compozi/i, "/etichete-compozitie", "Etichete de compoziție"],
+  [/termo/i, "/etichete-termoadezive", "Etichete termoadezive"],
+  [/autocolant/i, "/etichete-autocolante", "Etichete autocolante"],
+  [/adeziv/i, "/etichete-autoadezive", "Etichete adezive"],
+  [/carton|hangtag/i, "/etichete-carton", "Etichete carton"],
+  [/nylon/i, "/etichete-nylon", "Etichete nylon"],
+  [/satin|saten/i, "/etichete-satin", "Etichete satin"],
+  [/tesut|țesut/i, "/etichete-tesute", "Etichete țesute"],
+  [/haine/i, "/etichete-haine", "Etichete haine"],
+  [/personaliz|logo|brand/i, "/etichete-personalizate", "Etichete personalizate"],
+  [/cluj/i, "/etichete-cluj-napoca", "Etichete Cluj-Napoca"],
+];
+function productFor(p: { keyword: string | null; title: string; slug: string }) {
+  const hay = `${p.keyword ?? ""} ${p.title} ${p.slug}`;
+  const m = PRODUCT_MAP.find(([re]) => re.test(hay));
+  return m ? { to: m[1], label: m[2] } : { to: "/etichete-textile", label: "Etichete textile" };
+}
+
 function BlogPostPage() {
   const { post } = Route.useLoaderData();
+  const prod = productFor(post);
   return (
     <PageLayout>
       <article className="mx-auto max-w-3xl px-4 py-12 md:px-6 md:py-16">
@@ -77,6 +99,9 @@ function BlogPostPage() {
             <Link to="/contact" className="rounded-lg bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground hover:opacity-90">
               Cere ofertă
             </Link>
+            <a href={prod.to} className="rounded-lg border border-primary px-5 py-2.5 text-sm font-semibold text-primary hover:bg-accent">
+              Vezi {prod.label.toLowerCase()} →
+            </a>
             <Link to="/produse" className="rounded-lg border border-border px-5 py-2.5 text-sm font-semibold hover:bg-accent">
               Vezi produsele
             </Link>

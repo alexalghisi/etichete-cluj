@@ -18,6 +18,7 @@ export function SiteFooter() {
             <li><Link to="/produse" className="hover:text-primary">Produse</Link></li>
             <li><Link to="/etichete-cluj" className="hover:text-primary">Etichete Cluj</Link></li>
             <li><Link to="/galerie" className="hover:text-primary">Galerie</Link></li>
+            <li><Link to="/blog" className="hover:text-primary">Blog</Link></li>
             <li><Link to="/contact" className="hover:text-primary">Contact</Link></li>
           </ul>
         </div>

@@ -12,9 +12,15 @@ export const Route = createFileRoute("/api/public/hooks/seo-daily")({
         if (!token || !expected || token.length !== expected.length || !timingSafeEqual(Buffer.from(token), Buffer.from(expected))) {
           return new Response("Unauthorized", { status: 401 });
         }
-        const { runDailySeo } = await import("@/lib/seo-engine.server");
+        const { runDailySeo, generateDailyBlogPost } = await import("@/lib/seo-engine.server");
         const result = await runDailySeo(supabaseAdmin as never);
-        return Response.json(result);
+        let blog: unknown = null;
+        try {
+          blog = await generateDailyBlogPost(supabaseAdmin as never);
+        } catch (e) {
+          blog = { error: (e as Error).message };
+        }
+        return Response.json({ ...result, blog });
       },
     },
   },

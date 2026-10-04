@@ -32,6 +32,7 @@ import { Route as DespreNoiRouteImport } from './routes/despre-noi'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as SplatRouteImport } from './routes/$'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AdminSeoRouteImport } from './routes/admin.seo'
 import { Route as ApiPublicHooksSeoDailyRouteImport } from './routes/api/public/hooks/seo-daily'
 
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
@@ -149,6 +150,11 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AdminSeoRoute = AdminSeoRouteImport.update({
+  id: '/admin/seo',
+  path: '/admin/seo',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ApiPublicHooksSeoDailyRoute = ApiPublicHooksSeoDailyRouteImport.update({
   id: '/api/public/hooks/seo-daily',
   path: '/api/public/hooks/seo-daily',
@@ -179,6 +185,7 @@ export interface FileRoutesByFullPath {
   '/produse': typeof ProduseRoute
   '/simboluri-etichete-haine': typeof SimboluriEticheteHaineRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/admin/seo': typeof AdminSeoRoute
   '/api/public/hooks/seo-daily': typeof ApiPublicHooksSeoDailyRoute
 }
 export interface FileRoutesByTo {
@@ -205,6 +212,7 @@ export interface FileRoutesByTo {
   '/produse': typeof ProduseRoute
   '/simboluri-etichete-haine': typeof SimboluriEticheteHaineRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/admin/seo': typeof AdminSeoRoute
   '/api/public/hooks/seo-daily': typeof ApiPublicHooksSeoDailyRoute
 }
 export interface FileRoutesById {
@@ -232,6 +240,7 @@ export interface FileRoutesById {
   '/produse': typeof ProduseRoute
   '/simboluri-etichete-haine': typeof SimboluriEticheteHaineRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/admin/seo': typeof AdminSeoRoute
   '/api/public/hooks/seo-daily': typeof ApiPublicHooksSeoDailyRoute
 }
 export interface FileRouteTypes {
@@ -260,6 +269,7 @@ export interface FileRouteTypes {
     | '/produse'
     | '/simboluri-etichete-haine'
     | '/sitemap.xml'
+    | '/admin/seo'
     | '/api/public/hooks/seo-daily'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -286,6 +296,7 @@ export interface FileRouteTypes {
     | '/produse'
     | '/simboluri-etichete-haine'
     | '/sitemap.xml'
+    | '/admin/seo'
     | '/api/public/hooks/seo-daily'
   id:
     | '__root__'
@@ -312,6 +323,7 @@ export interface FileRouteTypes {
     | '/produse'
     | '/simboluri-etichete-haine'
     | '/sitemap.xml'
+    | '/admin/seo'
     | '/api/public/hooks/seo-daily'
   fileRoutesById: FileRoutesById
 }
@@ -339,6 +351,7 @@ export interface RootRouteChildren {
   ProduseRoute: typeof ProduseRoute
   SimboluriEticheteHaineRoute: typeof SimboluriEticheteHaineRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  AdminSeoRoute: typeof AdminSeoRoute
   ApiPublicHooksSeoDailyRoute: typeof ApiPublicHooksSeoDailyRoute
 }
 
@@ -505,6 +518,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/admin/seo': {
+      id: '/admin/seo'
+      path: '/admin/seo'
+      fullPath: '/admin/seo'
+      preLoaderRoute: typeof AdminSeoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/public/hooks/seo-daily': {
       id: '/api/public/hooks/seo-daily'
       path: '/api/public/hooks/seo-daily'
@@ -539,6 +559,7 @@ const rootRouteChildren: RootRouteChildren = {
   ProduseRoute: ProduseRoute,
   SimboluriEticheteHaineRoute: SimboluriEticheteHaineRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
+  AdminSeoRoute: AdminSeoRoute,
   ApiPublicHooksSeoDailyRoute: ApiPublicHooksSeoDailyRoute,
 }
 export const routeTree = rootRouteImport

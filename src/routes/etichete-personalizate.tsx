@@ -1,6 +1,7 @@
 import { getSeoOverride } from "@/lib/seo-overrides.functions";
 import { applySeo } from "@/lib/seo-head";
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { LocalBusinessBlock } from "@/components/LocalBusinessBlock";
 import { PageLayout, PageHero } from "@/components/PageLayout";
 import { FaqSection } from "@/components/FaqSection";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
@@ -11,7 +12,7 @@ export const Route = createFileRoute("/etichete-personalizate")({
   head: ({ loaderData }) => applySeo({
     meta: [
       { title: "Etichete personalizate — pentru haine & branduri | ETICHETT" },
-      { name: "description", content: "Etichete personalizate cu logo și text: țesute, imprimate, satin, carton, autoadezive. Producător Cluj-Napoca, 30+ ani, livrare în toată România." },
+      { name: "description", content: "Etichete personalizate Cluj-Napoca cu logo: țesute, imprimate, satin, carton, autoadezive. Atelier local din 1993, livrare în toată România." },
       { name: "keywords", content: "etichete personalizate, etichete personalizate haine, etichete cu logo, etichete brand, etichete personalizate cluj, etichete personalizate textile, etichete personalizate online, etichete personalizate pret" },
       { property: "og:title", content: "Etichete personalizate — pentru haine & branduri | ETICHETT" },
       { property: "og:description", content: "Etichete personalizate cu logo, compoziție și mărime. Producător propriu în Cluj-Napoca." },
@@ -113,6 +114,7 @@ function EtichetePersonalizate() {
           { q: "Etichetele personalizate rezistă la spălare?", a: "Da. Etichetele țesute și cele imprimate pe satin rezistă la spălare repetată la 60–90°C, fără decolorare sau deformare." },
         ]}
       />
+      <LocalBusinessBlock keyword="Etichete personalizate Cluj-Napoca" />
     </PageLayout>
   );
 }

@@ -272,3 +272,72 @@ Returnează DOAR JSON valid (fără markdown) cu cheile:
     return { ok: false, error: msg, log };
   }
 }
+
+const BLOG_TOPICS = [
+  "cum alegi etichetele textile pentru brandul tău de îmbrăcăminte",
+  "etichete țesute vs etichete imprimate: ce alegi și când",
+  "simbolurile de întreținere ISO 3758 explicate pentru producători",
+  "cum comanzi etichete personalizate: ghid pas cu pas",
+  "etichete de compoziție: ce trebuie să conțină legal în UE",
+  "etichete pentru haine de copii: siguranță și materiale delicate",
+  "etichete autocolante: aplicații practice pentru ambalaje și produse",
+  "etichete termoadezive: avantaje și cum se aplică corect",
+  "cum crește valoarea percepută a produsului printr-o etichetă premium",
+  "etichete din satin: când sunt alegerea potrivită",
+  "etichete din carton (cartonat): design și utilizări pentru retail",
+  "greșeli frecvente la comandarea etichetelor și cum le eviți",
+  "etichete pentru branduri mici: tiraje mici, costuri inteligente",
+  "îngrijirea etichetelor: cum rezistă imprimeul la spălări repetate",
+  "etichete nylon și poliester pentru echipamente sport și outdoor",
+  "de ce producția locală de etichete în Cluj-Napoca e un avantaj",
+  "cum pregătești fișierul de design pentru etichete: sfaturi practice",
+  "tendințe în etichetarea produselor textile",
+  "etichete personalizate pentru evenimente, cadouri și ediții limitate",
+  "ghid de materiale pentru etichete: satin, bumbac, poliester, nylon, carton",
+];
+
+const BlogProposal = z.object({
+  slug: z.string().regex(/^[a-z0-9-]+$/).max(120),
+  title: z.string().min(20).max(110),
+  meta_description: z.string().min(80).max(160),
+  excerpt: z.string().min(80).max(300),
+  content: z.string().min(800),
+  keyword: z.string().max(80),
+});
+
+export async function generateDailyBlogPost(sb: Sb) {
+  const today = new Date().toISOString().slice(0, 10);
+  const { data: existingToday } = await sb.from("blog_posts").select("id").gte("published_at", `${today}T00:00:00Z`).limit(1);
+  if (existingToday?.length) return { skipped: "already published today" };
+
+  const { data: existing } = await sb.from("blog_posts").select("slug,title").limit(200);
+  const usedTitles = (existing ?? []).map((r: { title: string }) => r.title);
+  const usedSlugs = new Set((existing ?? []).map((r: { slug: string }) => r.slug));
+
+  const dayIdx = Math.floor(Date.now() / 86400_000);
+  const topic = BLOG_TOPICS[dayIdx % BLOG_TOPICS.length];
+
+  const prompt = `Ești redactor SEO senior pentru Etichett Prod, producător de etichete textile din Cluj-Napoca (din 1993). Site: ${SITE}.
+Scrie un articol de blog în română corectă, cu diacritice, pe tema: „${topic}".
+Public țintă: branduri de îmbrăcăminte, producători mici și medii, ateliere. Ton: practic, cald, expert. NU inventa prețuri exacte, termene sau certificări; vorbește general și onest. Menționează natural că Etichett Prod produce etichete în Cluj-Napoca din 1993 și oferă consultanță gratuită.
+Titluri de articole deja publicate (NU repeta tema): ${usedTitles.join(" | ") || "-"}
+Structura conținutului: 5-7 secțiuni cu <h2>, paragrafe <p>, eventual o listă. Conținut HTML curat, fără <h1>, fără tag-uri <html>/<body>. Lungime 900-1500 cuvinte. Include la final o secțiune <h2>Concluzie</h2>.
+Returnează DOAR JSON valid (fără markdown) cu cheile:
+{"slug": "url-friendly-romanesc-fara-diacritice", "title": "max 100 caractere, atractiv", "meta_description": "120-155 caractere", "excerpt": "1-2 fraze rezumat, max 280 caractere", "content": "HTML-ul articolului", "keyword": "keyword-ul principal țintit"}`;
+
+  const raw = await aiJson(prompt);
+  const parsed = BlogProposal.parse(JSON.parse(raw.replace(/^```(json)?|```$/g, "").trim()));
+  let slug = parsed.slug;
+  if (usedSlugs.has(slug)) slug = `${slug}-${today}`;
+  const { error } = await sb.from("blog_posts").insert({
+    slug,
+    title: parsed.title,
+    meta_description: parsed.meta_description,
+    excerpt: parsed.excerpt,
+    content: parsed.content,
+    keyword: parsed.keyword,
+    published: true,
+  });
+  if (error) throw new Error(`blog insert: ${error.message}`);
+  return { ok: true, slug, title: parsed.title };
+}

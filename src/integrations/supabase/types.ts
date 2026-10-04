@@ -14,6 +14,45 @@ export type Database = {
   }
   public: {
     Tables: {
+      blog_posts: {
+        Row: {
+          content: string
+          created_at: string
+          excerpt: string
+          id: string
+          keyword: string | null
+          meta_description: string
+          published: boolean
+          published_at: string
+          slug: string
+          title: string
+        }
+        Insert: {
+          content: string
+          created_at?: string
+          excerpt: string
+          id?: string
+          keyword?: string | null
+          meta_description: string
+          published?: boolean
+          published_at?: string
+          slug: string
+          title: string
+        }
+        Update: {
+          content?: string
+          created_at?: string
+          excerpt?: string
+          id?: string
+          keyword?: string | null
+          meta_description?: string
+          published?: boolean
+          published_at?: string
+          slug?: string
+          title?: string
+        }
+        Relationships: []
+      }
       seo_changes: {
         Row: {
           created_at: string

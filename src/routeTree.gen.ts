@@ -30,8 +30,10 @@ import { Route as EticheteAutocolanteRouteImport } from './routes/etichete-autoc
 import { Route as EticheteAutoadeziveRouteImport } from './routes/etichete-autoadezive'
 import { Route as DespreNoiRouteImport } from './routes/despre-noi'
 import { Route as ContactRouteImport } from './routes/contact'
+import { Route as BlogRouteImport } from './routes/blog'
 import { Route as SplatRouteImport } from './routes/$'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
 import { Route as AdminSeoRouteImport } from './routes/admin.seo'
 import { Route as ApiPublicHooksSeoDailyRouteImport } from './routes/api/public/hooks/seo-daily'
 
@@ -140,6 +142,11 @@ const ContactRoute = ContactRouteImport.update({
   path: '/contact',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BlogRoute = BlogRouteImport.update({
+  id: '/blog',
+  path: '/blog',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SplatRoute = SplatRouteImport.update({
   id: '/$',
   path: '/$',
@@ -149,6 +156,11 @@ const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
+} as any)
+const BlogSlugRoute = BlogSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => BlogRoute,
 } as any)
 const AdminSeoRoute = AdminSeoRouteImport.update({
   id: '/admin/seo',
@@ -164,6 +176,7 @@ const ApiPublicHooksSeoDailyRoute = ApiPublicHooksSeoDailyRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/$': typeof SplatRoute
+  '/blog': typeof BlogRouteWithChildren
   '/contact': typeof ContactRoute
   '/despre-noi': typeof DespreNoiRoute
   '/etichete-autoadezive': typeof EticheteAutoadeziveRoute
@@ -186,11 +199,13 @@ export interface FileRoutesByFullPath {
   '/simboluri-etichete-haine': typeof SimboluriEticheteHaineRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/admin/seo': typeof AdminSeoRoute
+  '/blog/$slug': typeof BlogSlugRoute
   '/api/public/hooks/seo-daily': typeof ApiPublicHooksSeoDailyRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/$': typeof SplatRoute
+  '/blog': typeof BlogRouteWithChildren
   '/contact': typeof ContactRoute
   '/despre-noi': typeof DespreNoiRoute
   '/etichete-autoadezive': typeof EticheteAutoadeziveRoute
@@ -213,12 +228,14 @@ export interface FileRoutesByTo {
   '/simboluri-etichete-haine': typeof SimboluriEticheteHaineRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/admin/seo': typeof AdminSeoRoute
+  '/blog/$slug': typeof BlogSlugRoute
   '/api/public/hooks/seo-daily': typeof ApiPublicHooksSeoDailyRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/$': typeof SplatRoute
+  '/blog': typeof BlogRouteWithChildren
   '/contact': typeof ContactRoute
   '/despre-noi': typeof DespreNoiRoute
   '/etichete-autoadezive': typeof EticheteAutoadeziveRoute
@@ -241,6 +258,7 @@ export interface FileRoutesById {
   '/simboluri-etichete-haine': typeof SimboluriEticheteHaineRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/admin/seo': typeof AdminSeoRoute
+  '/blog/$slug': typeof BlogSlugRoute
   '/api/public/hooks/seo-daily': typeof ApiPublicHooksSeoDailyRoute
 }
 export interface FileRouteTypes {
@@ -248,6 +266,7 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/$'
+    | '/blog'
     | '/contact'
     | '/despre-noi'
     | '/etichete-autoadezive'
@@ -270,11 +289,13 @@ export interface FileRouteTypes {
     | '/simboluri-etichete-haine'
     | '/sitemap.xml'
     | '/admin/seo'
+    | '/blog/$slug'
     | '/api/public/hooks/seo-daily'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/$'
+    | '/blog'
     | '/contact'
     | '/despre-noi'
     | '/etichete-autoadezive'
@@ -297,11 +318,13 @@ export interface FileRouteTypes {
     | '/simboluri-etichete-haine'
     | '/sitemap.xml'
     | '/admin/seo'
+    | '/blog/$slug'
     | '/api/public/hooks/seo-daily'
   id:
     | '__root__'
     | '/'
     | '/$'
+    | '/blog'
     | '/contact'
     | '/despre-noi'
     | '/etichete-autoadezive'
@@ -324,12 +347,14 @@ export interface FileRouteTypes {
     | '/simboluri-etichete-haine'
     | '/sitemap.xml'
     | '/admin/seo'
+    | '/blog/$slug'
     | '/api/public/hooks/seo-daily'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   SplatRoute: typeof SplatRoute
+  BlogRoute: typeof BlogRouteWithChildren
   ContactRoute: typeof ContactRoute
   DespreNoiRoute: typeof DespreNoiRoute
   EticheteAutoadeziveRoute: typeof EticheteAutoadeziveRoute
@@ -504,6 +529,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ContactRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/blog': {
+      id: '/blog'
+      path: '/blog'
+      fullPath: '/blog'
+      preLoaderRoute: typeof BlogRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/$': {
       id: '/$'
       path: '/$'
@@ -517,6 +549,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
+    }
+    '/blog/$slug': {
+      id: '/blog/$slug'
+      path: '/$slug'
+      fullPath: '/blog/$slug'
+      preLoaderRoute: typeof BlogSlugRouteImport
+      parentRoute: typeof BlogRoute
     }
     '/admin/seo': {
       id: '/admin/seo'
@@ -535,9 +574,20 @@ declare module '@tanstack/react-router' {
   }
 }
 
+interface BlogRouteChildren {
+  BlogSlugRoute: typeof BlogSlugRoute
+}
+
+const BlogRouteChildren: BlogRouteChildren = {
+  BlogSlugRoute: BlogSlugRoute,
+}
+
+const BlogRouteWithChildren = BlogRoute._addFileChildren(BlogRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   SplatRoute: SplatRoute,
+  BlogRoute: BlogRouteWithChildren,
   ContactRoute: ContactRoute,
   DespreNoiRoute: DespreNoiRoute,
   EticheteAutoadeziveRoute: EticheteAutoadeziveRoute,

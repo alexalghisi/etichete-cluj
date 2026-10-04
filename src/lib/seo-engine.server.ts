@@ -194,7 +194,9 @@ export async function runDailySeo(sb: Sb) {
       const before = c.metrics_before as { clicks: number; position: number } | null;
       await sb.from("seo_changes").update({ metrics_after: now }).eq("id", c.id);
       if (before && now && now.position > before.position + 3 && now.clicks < before.clicks) {
-        await sb.from("seo_overrides").update({ [c.field]: c.old_value, updated_at: new Date().toISOString() }).eq("path", c.path);
+        const restored = c.old_value ?? ((c.field === "faqs" || c.field === "links") ? [] : null);
+        const { error: revertErr } = await sb.from("seo_overrides").update({ [c.field]: restored, updated_at: new Date().toISOString() }).eq("path", c.path);
+        if (revertErr) { log.push(`Revenire eșuată ${c.path} ${c.field}: ${revertErr.message}`); continue; }
         await sb.from("seo_changes").update({ status: "auto_reverted" }).eq("id", c.id);
         log.push(`Revenire automată ${c.path} ${c.field}`);
       }

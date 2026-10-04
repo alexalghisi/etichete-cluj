@@ -256,7 +256,8 @@ Returnează DOAR JSON valid (fără markdown) cu cheile:
       if (links.length) next.links = links;
       if (!Object.keys(next).length) continue;
       for (const [field, value] of Object.entries(next)) {
-        await sb.from("seo_changes").insert({ path: p, field, old_value: o?.[field] ?? null, new_value: value, reason: parsed.reason, metrics_before: s ?? null });
+        const oldVal = o?.[field] ?? ((field === "faqs" || field === "links") ? [] : null);
+        await sb.from("seo_changes").insert({ path: p, field, old_value: oldVal, new_value: value, reason: parsed.reason, metrics_before: s ?? null });
       }
       await sb.from("seo_overrides").upsert({ path: p, ...next, active: true, last_changed_at: new Date().toISOString(), updated_at: new Date().toISOString() });
       for (const sug of parsed.suggestions) await sb.from("seo_suggestions").insert(sug);

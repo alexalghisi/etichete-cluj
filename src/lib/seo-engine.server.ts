@@ -119,11 +119,11 @@ const Proposal = z.object({
   title: z.string().min(20).max(65).nullable(),
   description: z.string().min(70).max(160).nullable(),
   h1: z.string().min(10).max(90).nullable(),
-  intro: z.string().max(900).nullable(),
-  faqs: z.array(z.object({ q: z.string().max(160), a: z.string().max(600) })).max(4),
-  links: z.array(z.object({ to: z.string(), label: z.string().max(60) })).max(4),
-  reason: z.string().max(500),
-  suggestions: z.array(z.object({ kind: z.string(), title: z.string(), details: z.string() })).max(3),
+  intro: z.string().transform((x) => x.slice(0, 1000)).nullable(),
+  faqs: z.array(z.object({ q: z.string().max(160), a: z.string().transform((x) => x.slice(0, 700)) })).transform((x) => x.slice(0, 3)),
+  links: z.array(z.object({ to: z.string(), label: z.string().max(80) })).transform((x) => x.slice(0, 3)),
+  reason: z.string().transform((x) => x.slice(0, 800)),
+  suggestions: z.array(z.object({ kind: z.string(), title: z.string(), details: z.string() })).transform((x) => x.slice(0, 2)),
 });
 
 type Sb = { from: (t: string) => any };

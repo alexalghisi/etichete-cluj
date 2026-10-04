@@ -206,6 +206,24 @@ export type Database = {
         }
         Relationships: []
       }
+      seo_settings: {
+        Row: {
+          cron_token: string
+          id: number
+          paused_reason: string | null
+        }
+        Insert: {
+          cron_token?: string
+          id?: number
+          paused_reason?: string | null
+        }
+        Update: {
+          cron_token?: string
+          id?: number
+          paused_reason?: string | null
+        }
+        Relationships: []
+      }
       seo_suggestions: {
         Row: {
           created_at: string

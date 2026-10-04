@@ -1,6 +1,7 @@
 import { getSeoOverride } from "@/lib/seo-overrides.functions";
 import { applySeo } from "@/lib/seo-head";
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { LocalBusinessBlock } from "@/components/LocalBusinessBlock";
 import { PageLayout, PageHero } from "@/components/PageLayout";
 import { MapPin, Phone, ArrowRight, CheckCircle2 } from "lucide-react";
 
@@ -88,6 +89,7 @@ function EticheteClujNapoca() {
           </aside>
         </div>
       </section>
+      <LocalBusinessBlock keyword="Etichete Cluj-Napoca" />
     </PageLayout>
   );
 }

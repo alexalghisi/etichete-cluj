@@ -14,16 +14,273 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      seo_changes: {
+        Row: {
+          created_at: string
+          field: string
+          id: string
+          metrics_after: Json | null
+          metrics_before: Json | null
+          new_value: Json | null
+          old_value: Json | null
+          path: string
+          reason: string | null
+          status: string
+        }
+        Insert: {
+          created_at?: string
+          field: string
+          id?: string
+          metrics_after?: Json | null
+          metrics_before?: Json | null
+          new_value?: Json | null
+          old_value?: Json | null
+          path: string
+          reason?: string | null
+          status?: string
+        }
+        Update: {
+          created_at?: string
+          field?: string
+          id?: string
+          metrics_after?: Json | null
+          metrics_before?: Json | null
+          new_value?: Json | null
+          old_value?: Json | null
+          path?: string
+          reason?: string | null
+          status?: string
+        }
+        Relationships: []
+      }
+      seo_competitors: {
+        Row: {
+          day: string
+          domain: string
+          id: string
+          keyword: string
+          position: number | null
+          url: string | null
+        }
+        Insert: {
+          day?: string
+          domain: string
+          id?: string
+          keyword: string
+          position?: number | null
+          url?: string | null
+        }
+        Update: {
+          day?: string
+          domain?: string
+          id?: string
+          keyword?: string
+          position?: number | null
+          url?: string | null
+        }
+        Relationships: []
+      }
+      seo_daily_metrics: {
+        Row: {
+          clicks: number
+          ctr: number
+          day: string
+          id: string
+          impressions: number
+          page: string
+          position: number
+          query: string
+        }
+        Insert: {
+          clicks?: number
+          ctr?: number
+          day: string
+          id?: string
+          impressions?: number
+          page: string
+          position?: number
+          query?: string
+        }
+        Update: {
+          clicks?: number
+          ctr?: number
+          day?: string
+          id?: string
+          impressions?: number
+          page?: string
+          position?: number
+          query?: string
+        }
+        Relationships: []
+      }
+      seo_job_runs: {
+        Row: {
+          error: string | null
+          finished_at: string | null
+          id: string
+          started_at: string
+          status: string
+          summary: string | null
+        }
+        Insert: {
+          error?: string | null
+          finished_at?: string | null
+          id?: string
+          started_at?: string
+          status?: string
+          summary?: string | null
+        }
+        Update: {
+          error?: string | null
+          finished_at?: string | null
+          id?: string
+          started_at?: string
+          status?: string
+          summary?: string | null
+        }
+        Relationships: []
+      }
+      seo_keywords: {
+        Row: {
+          difficulty: number | null
+          keyword: string
+          our_position: number | null
+          target_path: string | null
+          updated_at: string
+          volume: number | null
+        }
+        Insert: {
+          difficulty?: number | null
+          keyword: string
+          our_position?: number | null
+          target_path?: string | null
+          updated_at?: string
+          volume?: number | null
+        }
+        Update: {
+          difficulty?: number | null
+          keyword?: string
+          our_position?: number | null
+          target_path?: string | null
+          updated_at?: string
+          volume?: number | null
+        }
+        Relationships: []
+      }
+      seo_overrides: {
+        Row: {
+          active: boolean
+          description: string | null
+          faqs: Json
+          h1: string | null
+          intro: string | null
+          last_changed_at: string | null
+          links: Json
+          path: string
+          title: string | null
+          updated_at: string
+        }
+        Insert: {
+          active?: boolean
+          description?: string | null
+          faqs?: Json
+          h1?: string | null
+          intro?: string | null
+          last_changed_at?: string | null
+          links?: Json
+          path: string
+          title?: string | null
+          updated_at?: string
+        }
+        Update: {
+          active?: boolean
+          description?: string | null
+          faqs?: Json
+          h1?: string | null
+          intro?: string | null
+          last_changed_at?: string | null
+          links?: Json
+          path?: string
+          title?: string | null
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      seo_settings: {
+        Row: {
+          cron_token: string
+          id: number
+          paused_reason: string | null
+        }
+        Insert: {
+          cron_token?: string
+          id?: number
+          paused_reason?: string | null
+        }
+        Update: {
+          cron_token?: string
+          id?: number
+          paused_reason?: string | null
+        }
+        Relationships: []
+      }
+      seo_suggestions: {
+        Row: {
+          created_at: string
+          details: string | null
+          id: string
+          kind: string
+          title: string
+        }
+        Insert: {
+          created_at?: string
+          details?: string | null
+          id?: string
+          kind: string
+          title: string
+        }
+        Update: {
+          created_at?: string
+          details?: string | null
+          id?: string
+          kind?: string
+          title?: string
+        }
+        Relationships: []
+      }
+      user_roles: {
+        Row: {
+          id: string
+          role: Database["public"]["Enums"]["app_role"]
+          user_id: string
+        }
+        Insert: {
+          id?: string
+          role: Database["public"]["Enums"]["app_role"]
+          user_id: string
+        }
+        Update: {
+          id?: string
+          role?: Database["public"]["Enums"]["app_role"]
+          user_id?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      has_role: {
+        Args: {
+          _role: Database["public"]["Enums"]["app_role"]
+          _user_id: string
+        }
+        Returns: boolean
+      }
     }
     Enums: {
-      [_ in never]: never
+      app_role: "admin" | "user"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -150,6 +407,8 @@ export type CompositeTypes<
 
 export const Constants = {
   public: {
-    Enums: {},
+    Enums: {
+      app_role: ["admin", "user"],
+    },
   },
 } as const

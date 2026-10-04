@@ -1,11 +1,14 @@
+import { getSeoOverride } from "@/lib/seo-overrides.functions";
+import { applySeo } from "@/lib/seo-head";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageLayout, PageHero } from "@/components/PageLayout";
 import { FaqSection } from "@/components/FaqSection";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 
 export const Route = createFileRoute("/etichete-autocolante")({
+  loader: () => getSeoOverride({ data: { path: "/etichete-autocolante" } }),
   component: EticheteAutocolante,
-  head: () => ({
+  head: ({ loaderData }) => applySeo({
     meta: [
       { title: "Etichete autocolante personalizate pe role | ETICHETT" },
       { name: "description", content: "Etichete autocolante personalizate imprimate HD pe role — pentru produse, cosmetice, vinuri, borcane și ambalaje. Producător Cluj, livrare RO." },
@@ -42,7 +45,7 @@ export const Route = createFileRoute("/etichete-autocolante")({
         }),
       },
     ],
-  }),
+  }, loaderData),
 });
 
 const aplicatii = [

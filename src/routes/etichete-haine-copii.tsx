@@ -1,3 +1,5 @@
+import { getSeoOverride } from "@/lib/seo-overrides.functions";
+import { applySeo } from "@/lib/seo-head";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageLayout, PageHero } from "@/components/PageLayout";
 import { FaqSection } from "@/components/FaqSection";
@@ -5,8 +7,9 @@ import { ProductGallery } from "@/components/ProductGallery";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 
 export const Route = createFileRoute("/etichete-haine-copii")({
+  loader: () => getSeoOverride({ data: { path: "/etichete-haine-copii" } }),
   component: EticheteHaineCopii,
-  head: () => ({
+  head: ({ loaderData }) => applySeo({
     meta: [
       { title: "Etichete pentru haine copii cu nume — grădiniță, școală | ETICHETT" },
       { name: "description", content: "Etichete pentru haine copii cu nume — pentru grădiniță, școală, tabere. Termoadezive sau cusute, rezistente la spălare. Producător Cluj-Napoca." },
@@ -41,7 +44,7 @@ export const Route = createFileRoute("/etichete-haine-copii")({
         }),
       },
     ],
-  }),
+  }, loaderData),
 });
 
 function EticheteHaineCopii() {

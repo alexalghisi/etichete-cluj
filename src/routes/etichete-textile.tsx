@@ -1,11 +1,14 @@
+import { getSeoOverride } from "@/lib/seo-overrides.functions";
+import { applySeo } from "@/lib/seo-head";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageLayout, PageHero } from "@/components/PageLayout";
 import { FaqSection } from "@/components/FaqSection";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 
 export const Route = createFileRoute("/etichete-textile")({
+  loader: () => getSeoOverride({ data: { path: "/etichete-textile" } }),
   component: EticheteTextile,
-  head: () => ({
+  head: ({ loaderData }) => applySeo({
     meta: [
       { title: "Etichete textile — țesute & imprimate Cluj | ETICHETT" },
       { name: "description", content: "Etichete textile pentru haine și branduri: țesute, imprimate, satin, nylon, carton, termoadezive, de compoziție. Producător Cluj-Napoca." },
@@ -47,7 +50,7 @@ export const Route = createFileRoute("/etichete-textile")({
         }),
       },
     ],
-  }),
+  }, loaderData),
 });
 
 const tipuri: { t: string; d: string; href?: string }[] = [

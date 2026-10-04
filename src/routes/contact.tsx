@@ -1,10 +1,13 @@
+import { getSeoOverride } from "@/lib/seo-overrides.functions";
+import { applySeo } from "@/lib/seo-head";
 import { createFileRoute } from "@tanstack/react-router";
 import { PageLayout, PageHero } from "@/components/PageLayout";
 import { MapPin, Phone, Mail, MessageCircle, Clock, CheckCircle2 } from "lucide-react";
 
 export const Route = createFileRoute("/contact")({
+  loader: () => getSeoOverride({ data: { path: "/contact" } }),
   component: Contact,
-  head: () => ({
+  head: ({ loaderData }) => applySeo({
     meta: [
       { title: "Contact — Etichete textile Cluj-Napoca | Etichett Prod" },
       { name: "description", content: "Cere ofertă pentru etichete textile în Cluj-Napoca: țesute, imprimate, personalizate. WhatsApp, tel. 0747 264 832, email rapid." },
@@ -92,7 +95,7 @@ export const Route = createFileRoute("/contact")({
         }),
       },
     ],
-  }),
+  }, loaderData),
 });
 
 const EMAIL_SUBJECT = "Cerere oferta etichete textile";

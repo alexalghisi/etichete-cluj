@@ -1,11 +1,14 @@
+import { getSeoOverride } from "@/lib/seo-overrides.functions";
+import { applySeo } from "@/lib/seo-head";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageLayout, PageHero } from "@/components/PageLayout";
 import { FaqSection } from "@/components/FaqSection";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 
 export const Route = createFileRoute("/etichete-carton")({
+  loader: () => getSeoOverride({ data: { path: "/etichete-carton" } }),
   component: EticheteCarton,
-  head: () => ({
+  head: ({ loaderData }) => applySeo({
     meta: [
       { title: "Etichete carton — hangtag personalizat haine | ETICHETT" },
       { name: "description", content: "Etichete carton (hangtag) personalizate pentru haine: brand, preț, cod de bare, țara de origine. Carton premium, finisaje variate. Producător Cluj." },
@@ -29,7 +32,7 @@ export const Route = createFileRoute("/etichete-carton")({
         }),
       },
     ],
-  }),
+  }, loaderData),
 });
 
 function EticheteCarton() {

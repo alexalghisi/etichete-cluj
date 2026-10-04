@@ -1,11 +1,14 @@
+import { getSeoOverride } from "@/lib/seo-overrides.functions";
+import { applySeo } from "@/lib/seo-head";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageLayout, PageHero } from "@/components/PageLayout";
 import { FaqSection } from "@/components/FaqSection";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 
 export const Route = createFileRoute("/etichete-nylon")({
+  loader: () => getSeoOverride({ data: { path: "/etichete-nylon" } }),
   component: EticheteNylon,
-  head: () => ({
+  head: ({ loaderData }) => applySeo({
     meta: [
       { title: "Etichete nylon — subțiri, rezistente pentru haine sport | ETICHETT" },
       { name: "description", content: "Etichete nylon (taffeta) — subțiri, ușoare și rezistente. Perfecte pentru îmbrăcăminte sport, tehnică, outdoor și lenjerie. Producător Cluj-Napoca." },
@@ -29,7 +32,7 @@ export const Route = createFileRoute("/etichete-nylon")({
         }),
       },
     ],
-  }),
+  }, loaderData),
 });
 
 function EticheteNylon() {

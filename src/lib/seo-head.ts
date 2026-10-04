@@ -1,13 +1,13 @@
 import type { SeoOverride } from "./seo-overrides.functions";
 
 type Meta = Record<string, unknown>;
-type Head = { meta?: Meta[]; links?: unknown[]; scripts?: { type?: string; children?: string }[] };
+type Head = { meta?: any[]; links?: any[]; scripts?: any[] };
 
 /** Applies the database SEO override (if any) on top of the route's static head. */
-export function applySeo(head: Head, loaderData: { seo: SeoOverride | null } | undefined): Head {
+export function applySeo<H extends Head>(head: H, loaderData: { seo: SeoOverride | null } | undefined): H {
   const seo = loaderData?.seo;
   if (!seo) return head;
-  const meta = (head.meta ?? []).map((m) => {
+  const meta = (head.meta ?? []).map((m: Meta) => {
     if (seo.title && ("title" in m || m["property"] === "og:title" || m["name"] === "twitter:title"))
       return "title" in m ? { title: seo.title } : { ...m, content: seo.title };
     if (seo.description && (m["name"] === "description" || m["property"] === "og:description" || m["name"] === "twitter:description"))

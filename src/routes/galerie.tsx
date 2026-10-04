@@ -3,11 +3,179 @@ import { applySeo } from "@/lib/seo-head";
 import { createFileRoute } from "@tanstack/react-router";
 import { PageLayout, PageHero } from "@/components/PageLayout";
 
-const galleryImages = Array.from({ length: 24 }, (_, i) => i + 1).map((n, index) => ({
-  id: n,
-  src: `/images/gallery/etichete-textile-${n}.jpg`,
-  absoluteSrc: `https://etichetetextile.ro/images/gallery/etichete-textile-${n}.jpg`,
-  alt: `Etichete textile personalizate — proiect ${index + 1} realizat de Etichett Prod Cluj`,
+const galleryImages = ([
+ {
+  "id": 1,
+  "file": "role-banda-satin-etichete-textile",
+  "alt": "Role de bandă satin și materiale pentru etichete textile în atelierul Etichett Prod Cluj",
+  "w": 1200,
+  "h": 900
+ },
+ {
+  "id": 2,
+  "file": "etichete-tesute-branduri-cluj",
+  "alt": "Etichete țesute personalizate pentru branduri — Neumarkt, Isara, Artimex",
+  "w": 1200,
+  "h": 900
+ },
+ {
+  "id": 3,
+  "file": "etichete-tesute-personalizate-logo",
+  "alt": "Etichete țesute personalizate cu logo, culori vii, producție Cluj-Napoca",
+  "w": 1200,
+  "h": 900
+ },
+ {
+  "id": 4,
+  "file": "etichete-compozitie-imprimate-satin",
+  "alt": "Etichete de compoziție imprimate pe satin cu simboluri de întreținere",
+  "w": 1200,
+  "h": 900
+ },
+ {
+  "id": 5,
+  "file": "etichete-imprimate-bumbac-logo",
+  "alt": "Etichete imprimate pe bumbac natur cu logo de brand",
+  "w": 1200,
+  "h": 900
+ },
+ {
+  "id": 6,
+  "file": "etichete-compozitie-cod-bare",
+  "alt": "Etichete de compoziție multilingve cu cod de bare și etichetă Bebi Fashion",
+  "w": 1200,
+  "h": 900
+ },
+ {
+  "id": 7,
+  "file": "etichete-bumbac-imprimate-branduri",
+  "alt": "Etichete imprimate pe bumbac pentru branduri românești de modă",
+  "w": 1200,
+  "h": 900
+ },
+ {
+  "id": 8,
+  "file": "etichete-satin-imprimate-haine",
+  "alt": "Etichete satin imprimate pentru haine, cu mărime și compoziție",
+  "w": 1200,
+  "h": 900
+ },
+ {
+  "id": 9,
+  "file": "etichete-textile-personalizate-color",
+  "alt": "Etichete textile personalizate imprimate color pentru firme",
+  "w": 1200,
+  "h": 900
+ },
+ {
+  "id": 10,
+  "file": "etichete-compozitie-instructiuni-spalare",
+  "alt": "Etichete de compoziție cu instrucțiuni de spălare, 100% bumbac",
+  "w": 1200,
+  "h": 900
+ },
+ {
+  "id": 11,
+  "file": "etichete-imprimate-logo-color",
+  "alt": "Etichete imprimate cu logo color pentru haine și accesorii",
+  "w": 1200,
+  "h": 900
+ },
+ {
+  "id": 12,
+  "file": "etichete-tesute-negre-auriu",
+  "alt": "Etichete țesute negre cu fir auriu pentru branduri premium",
+  "w": 1200,
+  "h": 900
+ },
+ {
+  "id": 13,
+  "file": "etichete-carton-hangtag-carisma",
+  "alt": "Etichetă carton hangtag imprimată color pentru brand de îmbrăcăminte",
+  "w": 900,
+  "h": 1200
+ },
+ {
+  "id": 14,
+  "file": "eticheta-carton-hangtag-alb",
+  "alt": "Etichetă carton hangtag albă cu logo imprimat",
+  "w": 900,
+  "h": 1200
+ },
+ {
+  "id": 15,
+  "file": "eticheta-carton-bebi-fashion",
+  "alt": "Etichetă carton personalizată Bebi Fashion pentru haine copii",
+  "w": 1200,
+  "h": 900
+ },
+ {
+  "id": 16,
+  "file": "eticheta-carton-geosim",
+  "alt": "Etichetă carton albă cu logo pentru brand de haine",
+  "w": 900,
+  "h": 1200
+ },
+ {
+  "id": 17,
+  "file": "eticheta-carton-rosie-amadeus",
+  "alt": "Etichetă carton roșie cu motiv tradițional românesc",
+  "w": 1200,
+  "h": 900
+ },
+ {
+  "id": 18,
+  "file": "eticheta-carton-neagra-folio-aur",
+  "alt": "Etichetă carton neagră cu logo în folio auriu",
+  "w": 1200,
+  "h": 900
+ },
+ {
+  "id": 19,
+  "file": "eticheta-piele-ecologica-karina",
+  "alt": "Etichetă din piele ecologică gravată pentru colecție de haine",
+  "w": 702,
+  "h": 592
+ },
+ {
+  "id": 20,
+  "file": "eticheta-piele-isara-gravata",
+  "alt": "Etichetă din piele gravată cu logo Isara",
+  "w": 1200,
+  "h": 900
+ },
+ {
+  "id": 21,
+  "file": "eticheta-piele-marsupi",
+  "alt": "Etichetă din piele ecologică cu logo imprimat",
+  "w": 1200,
+  "h": 900
+ },
+ {
+  "id": 22,
+  "file": "eticheta-piele-blugi-viorex",
+  "alt": "Etichetă din piele pentru blugi, gravată în relief",
+  "w": 1200,
+  "h": 900
+ },
+ {
+  "id": 23,
+  "file": "eticheta-piele-blugi-gentiles",
+  "alt": "Etichetă din piele pentru blugi Gentiles Jeans",
+  "w": 1200,
+  "h": 900
+ },
+ {
+  "id": 24,
+  "file": "etichete-piele-gravate-colectie",
+  "alt": "Colecție de etichete din piele gravate pentru blugi și genți",
+  "w": 1200,
+  "h": 900
+ }
+] as { id: number; file: string; alt: string; w: number; h: number }[]).map((g) => ({
+  ...g,
+  src: `/images/gallery/${g.file}.webp`,
+  absoluteSrc: `https://etichetetextile.ro/images/gallery/${g.file}.webp`,
 }));
 
 export const Route = createFileRoute("/galerie")({
@@ -20,7 +188,7 @@ export const Route = createFileRoute("/galerie")({
       { property: "og:title", content: "Galerie etichete textile — proiecte Cluj | ETICHETT" },
       { property: "og:description", content: "Proiecte realizate: etichete textile personalizate țesute și imprimate pentru branduri de îmbrăcăminte." },
       { property: "og:url", content: "https://etichetetextile.ro/galerie" },
-      { property: "og:image", content: "https://etichetetextile.ro/images/gallery/etichete-textile-3.jpg" },
+      { property: "og:image", content: "https://etichetetextile.ro/images/gallery/etichete-tesute-personalizate-logo.webp" },
     ],
     links: [{ rel: "canonical", href: "https://etichetetextile.ro/galerie" }],
     scripts: [
@@ -36,6 +204,9 @@ export const Route = createFileRoute("/galerie")({
             "@type": "ImageObject",
             contentUrl: image.absoluteSrc,
             name: image.alt,
+            caption: image.alt,
+            width: image.w,
+            height: image.h,
           })),
         }),
       },
@@ -54,9 +225,13 @@ function Galerie() {
               <img
                 src={image.src}
                 alt={image.alt}
-                className="w-full object-cover transition-transform hover:scale-105"
-                loading="lazy"
+                width={image.w}
+                height={image.h}
+                className="h-auto w-full object-cover transition-transform hover:scale-105"
+                loading={image.id <= 3 ? "eager" : "lazy"}
+                decoding="async"
               />
+              <figcaption className="px-4 py-3 text-sm text-muted-foreground">{image.alt}</figcaption>
             </figure>
           ))}
         </div>

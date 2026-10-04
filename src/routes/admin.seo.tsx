@@ -172,7 +172,90 @@ function Dashboard() {
           ))}
         </Card>
       </div>
+      <BlogAdmin />
+      <MessagesAdmin />
     </div>
+  );
+}
+
+function MessagesAdmin() {
+  const [rows, setRows] = useState<any[]>([]);
+  const load = useCallback(async () => {
+    const { data } = await db.from("contact_messages").select("*").order("created_at", { ascending: false }).limit(100);
+    setRows(data ?? []);
+  }, []);
+  useEffect(() => { load(); }, [load]);
+  const toggle = async (m: any) => { await db.from("contact_messages").update({ handled: !m.handled }).eq("id", m.id); load(); };
+  return (
+    <Card title={`Mesaje din formularul de contact (${rows.length})`}>
+      {rows.length === 0 && <p className="text-sm text-muted-foreground">Niciun mesaj încă.</p>}
+      {rows.map((m) => (
+        <div key={m.id} className={`border-b border-border py-3 text-sm ${m.handled ? "opacity-60" : ""}`}>
+          <div className="flex flex-wrap justify-between gap-2">
+            <span><b>{m.name}</b> · <a className="underline" href={`mailto:${m.email}`}>{m.email}</a>{m.phone && <> · <a className="underline" href={`tel:${m.phone}`}>{m.phone}</a></>} · {new Date(m.created_at).toLocaleString("ro-RO")}</span>
+            <button onClick={() => toggle(m)} className="rounded border border-border px-2 py-1 text-xs">{m.handled ? "Marchează nou" : "Rezolvat"}</button>
+          </div>
+          <p className="mt-1 whitespace-pre-wrap text-muted-foreground">{m.message}</p>
+        </div>
+      ))}
+    </Card>
+  );
+}
+
+function BlogAdmin() {
+  const [posts, setPosts] = useState<any[]>([]);
+  const [edit, setEdit] = useState<any>(null);
+  const [msg, setMsg] = useState("");
+  const load = useCallback(async () => {
+    const { data } = await db.from("blog_posts").select("*").order("published_at", { ascending: false }).limit(200);
+    setPosts(data ?? []);
+  }, []);
+  useEffect(() => { load(); }, [load]);
+  const save = async () => {
+    const { id, created_at, ...rest } = edit;
+    const q = id ? db.from("blog_posts").update(rest).eq("id", id) : db.from("blog_posts").insert(rest);
+    const { error } = await q;
+    setMsg(error ? `Eroare: ${error.message}` : "Salvat.");
+    if (!error) { setEdit(null); load(); }
+  };
+  const del = async (p: any) => { if (!confirm(`Ștergi „${p.title}”?`)) return; await db.from("blog_posts").delete().eq("id", p.id); load(); };
+  const inp = "w-full rounded-lg border border-input bg-background px-3 py-2 text-sm";
+  const field = (k: string, label: string, area = false, rows = 3) => (
+    <label className="block text-sm">{label}
+      {area ? <textarea rows={rows} className={inp} value={edit[k] ?? ""} onChange={(e) => setEdit({ ...edit, [k]: e.target.value })} />
+        : <input className={inp} value={edit[k] ?? ""} onChange={(e) => setEdit({ ...edit, [k]: e.target.value })} />}
+    </label>
+  );
+  return (
+    <Card title={`Blog — articole (${posts.length})`}>
+      <button onClick={() => { setMsg(""); setEdit({ slug: "", title: "", meta_description: "", excerpt: "", content: "<p></p>", keyword: "", published: true }); }} className="mb-3 rounded-lg bg-primary px-3 py-1.5 text-sm font-semibold text-primary-foreground">Articol nou</button>
+      {msg && <p className="mb-2 text-sm text-muted-foreground">{msg}</p>}
+      {edit && (
+        <div className="mb-4 space-y-3 rounded-xl border border-border p-4">
+          {field("title", "Titlu")}
+          {field("slug", "Adresă (slug, ex: cum-aleg-etichete)")}
+          {field("keyword", "Cuvânt cheie")}
+          {field("meta_description", "Descriere Google (max 160)", true, 2)}
+          {field("excerpt", "Rezumat", true, 2)}
+          {field("content", "Conținut (HTML: <h2>, <p>)", true, 14)}
+          <label className="flex items-center gap-2 text-sm"><input type="checkbox" checked={!!edit.published} onChange={(e) => setEdit({ ...edit, published: e.target.checked })} /> Publicat</label>
+          <div className="flex gap-2">
+            <button onClick={save} className="rounded-lg bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground">Salvează</button>
+            <button onClick={() => setEdit(null)} className="rounded-lg border border-border px-4 py-2 text-sm">Renunță</button>
+          </div>
+        </div>
+      )}
+      {posts.map((p) => (
+        <div key={p.id} className="flex flex-wrap items-center justify-between gap-2 border-b border-border py-2 text-sm">
+          <span><b>{p.title}</b> · {new Date(p.published_at).toLocaleDateString("ro-RO")} · {p.published ? "publicat" : <i>ascuns</i>}</span>
+          <span className="flex gap-2">
+            <a href={`/blog/${p.slug}`} target="_blank" rel="noopener" className="rounded border border-border px-2 py-1 text-xs">Vezi</a>
+            <button onClick={() => { setMsg(""); setEdit({ ...p }); }} className="rounded border border-border px-2 py-1 text-xs">Editează</button>
+            <button onClick={() => del(p)} className="rounded border border-border px-2 py-1 text-xs text-destructive">Șterge</button>
+          </span>
+        </div>
+      ))}
+    </Card>
   );
 }
 

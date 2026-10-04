@@ -3,6 +3,7 @@ import { applySeo } from "@/lib/seo-head";
 import { createFileRoute } from "@tanstack/react-router";
 import { PageLayout, PageHero } from "@/components/PageLayout";
 import { MapPin, Phone, Mail, MessageCircle, Clock, CheckCircle2 } from "lucide-react";
+import { ContactForm } from "@/components/ContactForm";
 
 export const Route = createFileRoute("/contact")({
   loader: () => getSeoOverride({ data: { path: "/contact" } }),
@@ -140,8 +141,11 @@ function Contact() {
           <div className="rounded-2xl border border-border bg-card p-6 md:p-8 shadow-elegant">
             <h2 className="text-2xl font-bold">Cere ofertă în 30 de secunde</h2>
             <p className="mt-2 text-sm text-muted-foreground">
-              Alege canalul preferat. Spune-ne tipul de etichetă (țesută, imprimată, compoziție), dimensiunile, cantitatea și materialul — îți răspundem cu preț și termen de livrare.
+              Completează formularul sau alege alt canal. Spune-ne tipul de etichetă, dimensiunile, cantitatea și materialul — îți răspundem cu preț și termen de livrare.
             </p>
+            <div className="mt-6"><ContactForm /></div>
+            <p className="mt-6 text-center text-xs uppercase tracking-wide text-muted-foreground">sau</p>
+
 
             <a
               href={WHATSAPP}

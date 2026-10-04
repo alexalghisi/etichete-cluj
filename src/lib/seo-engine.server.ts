@@ -55,7 +55,7 @@ async function semrush(path: string, params: Record<string, string>) {
   const qs = new URLSearchParams(params).toString();
   const r = await fetch(`${SEMRUSH}${path}?${qs}`, { headers: { Authorization: `Bearer ${k.lovable}`, "X-Connection-Api-Key": k.sem } });
   const text = await r.text();
-  if (text.includes("LIMIT EXCEEDED")) throw new PauseError("Semrush quota exhausted");
+  if (text.includes("LIMIT EXCEEDED")) { console.warn("Semrush quota exhausted — continuing without it"); return null; }
   if (!r.ok) { console.error("semrush", r.status, text); return null; }
   try {
     const j = JSON.parse(text) as { data?: { columnNames: string[]; rows: unknown[][] } };

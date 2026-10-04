@@ -9,142 +9,37 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as IndexRouteImport } from './routes/index'
-import { Route as SplatRouteImport } from './routes/$'
-import { Route as BlogRouteImport } from './routes/blog'
-import { Route as ContactRouteImport } from './routes/contact'
-import { Route as DespreNoiRouteImport } from './routes/despre-noi'
-import { Route as EticheteAutoadeziveRouteImport } from './routes/etichete-autoadezive'
-import { Route as EticheteAutocolanteRouteImport } from './routes/etichete-autocolante'
-import { Route as EticheteCartonRouteImport } from './routes/etichete-carton'
-import { Route as EticheteClujRouteImport } from './routes/etichete-cluj'
-import { Route as EticheteClujNapocaRouteImport } from './routes/etichete-cluj-napoca'
-import { Route as EticheteCompozitieRouteImport } from './routes/etichete-compozitie'
-import { Route as EticheteHaineRouteImport } from './routes/etichete-haine'
-import { Route as EticheteHaineCopiiRouteImport } from './routes/etichete-haine-copii'
-import { Route as EticheteNylonRouteImport } from './routes/etichete-nylon'
-import { Route as EtichetePersonalizateRouteImport } from './routes/etichete-personalizate'
-import { Route as EticheteSatenRouteImport } from './routes/etichete-saten'
-import { Route as EticheteSatinRouteImport } from './routes/etichete-satin'
-import { Route as EticheteTermoadeziveRouteImport } from './routes/etichete-termoadezive'
-import { Route as EticheteTesuteRouteImport } from './routes/etichete-tesute'
-import { Route as EticheteTextileRouteImport } from './routes/etichete-textile'
-import { Route as GalerieRouteImport } from './routes/galerie'
-import { Route as ProduseRouteImport } from './routes/produse'
-import { Route as SimboluriEticheteHaineRouteImport } from './routes/simboluri-etichete-haine'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
-import { Route as AdminSeoRouteImport } from './routes/admin.seo'
+import { Route as SimboluriEticheteHaineRouteImport } from './routes/simboluri-etichete-haine'
+import { Route as ProduseRouteImport } from './routes/produse'
+import { Route as GalerieRouteImport } from './routes/galerie'
+import { Route as EticheteTextileRouteImport } from './routes/etichete-textile'
+import { Route as EticheteTesuteRouteImport } from './routes/etichete-tesute'
+import { Route as EticheteTermoadeziveRouteImport } from './routes/etichete-termoadezive'
+import { Route as EticheteSatinRouteImport } from './routes/etichete-satin'
+import { Route as EticheteSatenRouteImport } from './routes/etichete-saten'
+import { Route as EtichetePersonalizateRouteImport } from './routes/etichete-personalizate'
+import { Route as EticheteNylonRouteImport } from './routes/etichete-nylon'
+import { Route as EticheteHaineCopiiRouteImport } from './routes/etichete-haine-copii'
+import { Route as EticheteHaineRouteImport } from './routes/etichete-haine'
+import { Route as EticheteCompozitieRouteImport } from './routes/etichete-compozitie'
+import { Route as EticheteClujNapocaRouteImport } from './routes/etichete-cluj-napoca'
+import { Route as EticheteClujRouteImport } from './routes/etichete-cluj'
+import { Route as EticheteCartonRouteImport } from './routes/etichete-carton'
+import { Route as EticheteAutocolanteRouteImport } from './routes/etichete-autocolante'
+import { Route as EticheteAutoadeziveRouteImport } from './routes/etichete-autoadezive'
+import { Route as DespreNoiRouteImport } from './routes/despre-noi'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as BlogRouteImport } from './routes/blog'
+import { Route as SplatRouteImport } from './routes/$'
+import { Route as IndexRouteImport } from './routes/index'
 import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
+import { Route as AdminSeoRouteImport } from './routes/admin.seo'
 import { Route as ApiPublicHooksSeoDailyRouteImport } from './routes/api/public/hooks/seo-daily'
 
-const IndexRoute = IndexRouteImport.update({
-  id: '/',
-  path: '/',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const SplatRoute = SplatRouteImport.update({
-  id: '/$',
-  path: '/$',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const BlogRoute = BlogRouteImport.update({
-  id: '/blog',
-  path: '/blog',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ContactRoute = ContactRouteImport.update({
-  id: '/contact',
-  path: '/contact',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const DespreNoiRoute = DespreNoiRouteImport.update({
-  id: '/despre-noi',
-  path: '/despre-noi',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const EticheteAutoadeziveRoute = EticheteAutoadeziveRouteImport.update({
-  id: '/etichete-autoadezive',
-  path: '/etichete-autoadezive',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const EticheteAutocolanteRoute = EticheteAutocolanteRouteImport.update({
-  id: '/etichete-autocolante',
-  path: '/etichete-autocolante',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const EticheteCartonRoute = EticheteCartonRouteImport.update({
-  id: '/etichete-carton',
-  path: '/etichete-carton',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const EticheteClujRoute = EticheteClujRouteImport.update({
-  id: '/etichete-cluj',
-  path: '/etichete-cluj',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const EticheteClujNapocaRoute = EticheteClujNapocaRouteImport.update({
-  id: '/etichete-cluj-napoca',
-  path: '/etichete-cluj-napoca',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const EticheteCompozitieRoute = EticheteCompozitieRouteImport.update({
-  id: '/etichete-compozitie',
-  path: '/etichete-compozitie',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const EticheteHaineRoute = EticheteHaineRouteImport.update({
-  id: '/etichete-haine',
-  path: '/etichete-haine',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const EticheteHaineCopiiRoute = EticheteHaineCopiiRouteImport.update({
-  id: '/etichete-haine-copii',
-  path: '/etichete-haine-copii',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const EticheteNylonRoute = EticheteNylonRouteImport.update({
-  id: '/etichete-nylon',
-  path: '/etichete-nylon',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const EtichetePersonalizateRoute = EtichetePersonalizateRouteImport.update({
-  id: '/etichete-personalizate',
-  path: '/etichete-personalizate',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const EticheteSatenRoute = EticheteSatenRouteImport.update({
-  id: '/etichete-saten',
-  path: '/etichete-saten',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const EticheteSatinRoute = EticheteSatinRouteImport.update({
-  id: '/etichete-satin',
-  path: '/etichete-satin',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const EticheteTermoadeziveRoute = EticheteTermoadeziveRouteImport.update({
-  id: '/etichete-termoadezive',
-  path: '/etichete-termoadezive',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const EticheteTesuteRoute = EticheteTesuteRouteImport.update({
-  id: '/etichete-tesute',
-  path: '/etichete-tesute',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const EticheteTextileRoute = EticheteTextileRouteImport.update({
-  id: '/etichete-textile',
-  path: '/etichete-textile',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const GalerieRoute = GalerieRouteImport.update({
-  id: '/galerie',
-  path: '/galerie',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ProduseRoute = ProduseRouteImport.update({
-  id: '/produse',
-  path: '/produse',
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
   getParentRoute: () => rootRouteImport,
 } as any)
 const SimboluriEticheteHaineRoute = SimboluriEticheteHaineRouteImport.update({
@@ -152,20 +47,125 @@ const SimboluriEticheteHaineRoute = SimboluriEticheteHaineRouteImport.update({
   path: '/simboluri-etichete-haine',
   getParentRoute: () => rootRouteImport,
 } as any)
-const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
-  id: '/sitemap.xml',
-  path: '/sitemap.xml',
+const ProduseRoute = ProduseRouteImport.update({
+  id: '/produse',
+  path: '/produse',
   getParentRoute: () => rootRouteImport,
 } as any)
-const AdminSeoRoute = AdminSeoRouteImport.update({
-  id: '/admin/seo',
-  path: '/admin/seo',
+const GalerieRoute = GalerieRouteImport.update({
+  id: '/galerie',
+  path: '/galerie',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EticheteTextileRoute = EticheteTextileRouteImport.update({
+  id: '/etichete-textile',
+  path: '/etichete-textile',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EticheteTesuteRoute = EticheteTesuteRouteImport.update({
+  id: '/etichete-tesute',
+  path: '/etichete-tesute',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EticheteTermoadeziveRoute = EticheteTermoadeziveRouteImport.update({
+  id: '/etichete-termoadezive',
+  path: '/etichete-termoadezive',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EticheteSatinRoute = EticheteSatinRouteImport.update({
+  id: '/etichete-satin',
+  path: '/etichete-satin',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EticheteSatenRoute = EticheteSatenRouteImport.update({
+  id: '/etichete-saten',
+  path: '/etichete-saten',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EtichetePersonalizateRoute = EtichetePersonalizateRouteImport.update({
+  id: '/etichete-personalizate',
+  path: '/etichete-personalizate',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EticheteNylonRoute = EticheteNylonRouteImport.update({
+  id: '/etichete-nylon',
+  path: '/etichete-nylon',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EticheteHaineCopiiRoute = EticheteHaineCopiiRouteImport.update({
+  id: '/etichete-haine-copii',
+  path: '/etichete-haine-copii',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EticheteHaineRoute = EticheteHaineRouteImport.update({
+  id: '/etichete-haine',
+  path: '/etichete-haine',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EticheteCompozitieRoute = EticheteCompozitieRouteImport.update({
+  id: '/etichete-compozitie',
+  path: '/etichete-compozitie',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EticheteClujNapocaRoute = EticheteClujNapocaRouteImport.update({
+  id: '/etichete-cluj-napoca',
+  path: '/etichete-cluj-napoca',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EticheteClujRoute = EticheteClujRouteImport.update({
+  id: '/etichete-cluj',
+  path: '/etichete-cluj',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EticheteCartonRoute = EticheteCartonRouteImport.update({
+  id: '/etichete-carton',
+  path: '/etichete-carton',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EticheteAutocolanteRoute = EticheteAutocolanteRouteImport.update({
+  id: '/etichete-autocolante',
+  path: '/etichete-autocolante',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EticheteAutoadeziveRoute = EticheteAutoadeziveRouteImport.update({
+  id: '/etichete-autoadezive',
+  path: '/etichete-autoadezive',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DespreNoiRoute = DespreNoiRouteImport.update({
+  id: '/despre-noi',
+  path: '/despre-noi',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BlogRoute = BlogRouteImport.update({
+  id: '/blog',
+  path: '/blog',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SplatRoute = SplatRouteImport.update({
+  id: '/$',
+  path: '/$',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const IndexRoute = IndexRouteImport.update({
+  id: '/',
+  path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const BlogSlugRoute = BlogSlugRouteImport.update({
   id: '/$slug',
   path: '/$slug',
   getParentRoute: () => BlogRoute,
+} as any)
+const AdminSeoRoute = AdminSeoRouteImport.update({
+  id: '/admin/seo',
+  path: '/admin/seo',
+  getParentRoute: () => rootRouteImport,
 } as any)
 const ApiPublicHooksSeoDailyRoute = ApiPublicHooksSeoDailyRouteImport.update({
   id: '/api/public/hooks/seo-daily',
@@ -382,158 +382,11 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/': {
-      id: '/'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof IndexRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/$': {
-      id: '/$'
-      path: '/$'
-      fullPath: '/$'
-      preLoaderRoute: typeof SplatRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/blog': {
-      id: '/blog'
-      path: '/blog'
-      fullPath: '/blog'
-      preLoaderRoute: typeof BlogRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/contact': {
-      id: '/contact'
-      path: '/contact'
-      fullPath: '/contact'
-      preLoaderRoute: typeof ContactRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/despre-noi': {
-      id: '/despre-noi'
-      path: '/despre-noi'
-      fullPath: '/despre-noi'
-      preLoaderRoute: typeof DespreNoiRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/etichete-autoadezive': {
-      id: '/etichete-autoadezive'
-      path: '/etichete-autoadezive'
-      fullPath: '/etichete-autoadezive'
-      preLoaderRoute: typeof EticheteAutoadeziveRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/etichete-autocolante': {
-      id: '/etichete-autocolante'
-      path: '/etichete-autocolante'
-      fullPath: '/etichete-autocolante'
-      preLoaderRoute: typeof EticheteAutocolanteRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/etichete-carton': {
-      id: '/etichete-carton'
-      path: '/etichete-carton'
-      fullPath: '/etichete-carton'
-      preLoaderRoute: typeof EticheteCartonRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/etichete-cluj': {
-      id: '/etichete-cluj'
-      path: '/etichete-cluj'
-      fullPath: '/etichete-cluj'
-      preLoaderRoute: typeof EticheteClujRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/etichete-cluj-napoca': {
-      id: '/etichete-cluj-napoca'
-      path: '/etichete-cluj-napoca'
-      fullPath: '/etichete-cluj-napoca'
-      preLoaderRoute: typeof EticheteClujNapocaRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/etichete-compozitie': {
-      id: '/etichete-compozitie'
-      path: '/etichete-compozitie'
-      fullPath: '/etichete-compozitie'
-      preLoaderRoute: typeof EticheteCompozitieRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/etichete-haine': {
-      id: '/etichete-haine'
-      path: '/etichete-haine'
-      fullPath: '/etichete-haine'
-      preLoaderRoute: typeof EticheteHaineRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/etichete-haine-copii': {
-      id: '/etichete-haine-copii'
-      path: '/etichete-haine-copii'
-      fullPath: '/etichete-haine-copii'
-      preLoaderRoute: typeof EticheteHaineCopiiRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/etichete-nylon': {
-      id: '/etichete-nylon'
-      path: '/etichete-nylon'
-      fullPath: '/etichete-nylon'
-      preLoaderRoute: typeof EticheteNylonRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/etichete-personalizate': {
-      id: '/etichete-personalizate'
-      path: '/etichete-personalizate'
-      fullPath: '/etichete-personalizate'
-      preLoaderRoute: typeof EtichetePersonalizateRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/etichete-saten': {
-      id: '/etichete-saten'
-      path: '/etichete-saten'
-      fullPath: '/etichete-saten'
-      preLoaderRoute: typeof EticheteSatenRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/etichete-satin': {
-      id: '/etichete-satin'
-      path: '/etichete-satin'
-      fullPath: '/etichete-satin'
-      preLoaderRoute: typeof EticheteSatinRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/etichete-termoadezive': {
-      id: '/etichete-termoadezive'
-      path: '/etichete-termoadezive'
-      fullPath: '/etichete-termoadezive'
-      preLoaderRoute: typeof EticheteTermoadeziveRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/etichete-tesute': {
-      id: '/etichete-tesute'
-      path: '/etichete-tesute'
-      fullPath: '/etichete-tesute'
-      preLoaderRoute: typeof EticheteTesuteRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/etichete-textile': {
-      id: '/etichete-textile'
-      path: '/etichete-textile'
-      fullPath: '/etichete-textile'
-      preLoaderRoute: typeof EticheteTextileRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/galerie': {
-      id: '/galerie'
-      path: '/galerie'
-      fullPath: '/galerie'
-      preLoaderRoute: typeof GalerieRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/produse': {
-      id: '/produse'
-      path: '/produse'
-      fullPath: '/produse'
-      preLoaderRoute: typeof ProduseRouteImport
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/simboluri-etichete-haine': {
@@ -543,18 +396,158 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SimboluriEticheteHaineRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/sitemap.xml': {
-      id: '/sitemap.xml'
-      path: '/sitemap.xml'
-      fullPath: '/sitemap.xml'
-      preLoaderRoute: typeof SitemapDotxmlRouteImport
+    '/produse': {
+      id: '/produse'
+      path: '/produse'
+      fullPath: '/produse'
+      preLoaderRoute: typeof ProduseRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/admin/seo': {
-      id: '/admin/seo'
-      path: '/admin/seo'
-      fullPath: '/admin/seo'
-      preLoaderRoute: typeof AdminSeoRouteImport
+    '/galerie': {
+      id: '/galerie'
+      path: '/galerie'
+      fullPath: '/galerie'
+      preLoaderRoute: typeof GalerieRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/etichete-textile': {
+      id: '/etichete-textile'
+      path: '/etichete-textile'
+      fullPath: '/etichete-textile'
+      preLoaderRoute: typeof EticheteTextileRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/etichete-tesute': {
+      id: '/etichete-tesute'
+      path: '/etichete-tesute'
+      fullPath: '/etichete-tesute'
+      preLoaderRoute: typeof EticheteTesuteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/etichete-termoadezive': {
+      id: '/etichete-termoadezive'
+      path: '/etichete-termoadezive'
+      fullPath: '/etichete-termoadezive'
+      preLoaderRoute: typeof EticheteTermoadeziveRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/etichete-satin': {
+      id: '/etichete-satin'
+      path: '/etichete-satin'
+      fullPath: '/etichete-satin'
+      preLoaderRoute: typeof EticheteSatinRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/etichete-saten': {
+      id: '/etichete-saten'
+      path: '/etichete-saten'
+      fullPath: '/etichete-saten'
+      preLoaderRoute: typeof EticheteSatenRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/etichete-personalizate': {
+      id: '/etichete-personalizate'
+      path: '/etichete-personalizate'
+      fullPath: '/etichete-personalizate'
+      preLoaderRoute: typeof EtichetePersonalizateRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/etichete-nylon': {
+      id: '/etichete-nylon'
+      path: '/etichete-nylon'
+      fullPath: '/etichete-nylon'
+      preLoaderRoute: typeof EticheteNylonRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/etichete-haine-copii': {
+      id: '/etichete-haine-copii'
+      path: '/etichete-haine-copii'
+      fullPath: '/etichete-haine-copii'
+      preLoaderRoute: typeof EticheteHaineCopiiRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/etichete-haine': {
+      id: '/etichete-haine'
+      path: '/etichete-haine'
+      fullPath: '/etichete-haine'
+      preLoaderRoute: typeof EticheteHaineRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/etichete-compozitie': {
+      id: '/etichete-compozitie'
+      path: '/etichete-compozitie'
+      fullPath: '/etichete-compozitie'
+      preLoaderRoute: typeof EticheteCompozitieRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/etichete-cluj-napoca': {
+      id: '/etichete-cluj-napoca'
+      path: '/etichete-cluj-napoca'
+      fullPath: '/etichete-cluj-napoca'
+      preLoaderRoute: typeof EticheteClujNapocaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/etichete-cluj': {
+      id: '/etichete-cluj'
+      path: '/etichete-cluj'
+      fullPath: '/etichete-cluj'
+      preLoaderRoute: typeof EticheteClujRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/etichete-carton': {
+      id: '/etichete-carton'
+      path: '/etichete-carton'
+      fullPath: '/etichete-carton'
+      preLoaderRoute: typeof EticheteCartonRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/etichete-autocolante': {
+      id: '/etichete-autocolante'
+      path: '/etichete-autocolante'
+      fullPath: '/etichete-autocolante'
+      preLoaderRoute: typeof EticheteAutocolanteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/etichete-autoadezive': {
+      id: '/etichete-autoadezive'
+      path: '/etichete-autoadezive'
+      fullPath: '/etichete-autoadezive'
+      preLoaderRoute: typeof EticheteAutoadeziveRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/despre-noi': {
+      id: '/despre-noi'
+      path: '/despre-noi'
+      fullPath: '/despre-noi'
+      preLoaderRoute: typeof DespreNoiRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/blog': {
+      id: '/blog'
+      path: '/blog'
+      fullPath: '/blog'
+      preLoaderRoute: typeof BlogRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/$': {
+      id: '/$'
+      path: '/$'
+      fullPath: '/$'
+      preLoaderRoute: typeof SplatRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/': {
+      id: '/'
+      path: '/'
+      fullPath: '/'
+      preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/blog/$slug': {
@@ -563,6 +556,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/blog/$slug'
       preLoaderRoute: typeof BlogSlugRouteImport
       parentRoute: typeof BlogRoute
+    }
+    '/admin/seo': {
+      id: '/admin/seo'
+      path: '/admin/seo'
+      fullPath: '/admin/seo'
+      preLoaderRoute: typeof AdminSeoRouteImport
+      parentRoute: typeof rootRouteImport
     }
     '/api/public/hooks/seo-daily': {
       id: '/api/public/hooks/seo-daily'

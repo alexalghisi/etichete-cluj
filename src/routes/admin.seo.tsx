@@ -77,7 +77,9 @@ function Dashboard() {
   useEffect(() => { load(); }, [load]);
 
   const undo = async (c: any) => {
-    await db.from("seo_overrides").update({ [c.field]: c.old_value }).eq("path", c.path);
+    const restored = c.old_value ?? ((c.field === "faqs" || c.field === "links") ? [] : null);
+    const { error } = await db.from("seo_overrides").update({ [c.field]: restored, updated_at: new Date().toISOString() }).eq("path", c.path);
+    if (error) { alert(`Anularea a eșuat: ${error.message}`); return; }
     await db.from("seo_changes").update({ status: "reverted" }).eq("id", c.id);
     load();
   };

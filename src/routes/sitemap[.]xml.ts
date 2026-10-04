@@ -40,6 +40,15 @@ export const Route = createFileRoute("/sitemap.xml")({
         const urls = entries.map((e) =>
           `  <url>\n    <loc>${BASE_URL}${e.path}</loc>\n    <changefreq>${e.changefreq}</changefreq>\n    <priority>${e.priority}</priority>\n  </url>`
         );
+        try {
+          const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
+          const { data: posts } = await supabaseAdmin.from("blog_posts" as never).select("slug,published_at").eq("published", true);
+          for (const p of (posts as { slug: string; published_at: string }[] | null) ?? []) {
+            urls.push(`  <url>\n    <loc>${BASE_URL}/blog/${p.slug}</loc>\n    <lastmod>${p.published_at.slice(0, 10)}</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>0.7</priority>\n  </url>`);
+          }
+        } catch (e) {
+          console.error("sitemap blog posts failed", e);
+        }
         const xml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.join("\n")}\n</urlset>`;
         return new Response(xml, {
           headers: { "Content-Type": "application/xml", "Cache-Control": "public, max-age=3600" },

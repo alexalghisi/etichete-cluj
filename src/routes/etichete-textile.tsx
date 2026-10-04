@@ -1,6 +1,7 @@
 import { getSeoOverride } from "@/lib/seo-overrides.functions";
 import { applySeo } from "@/lib/seo-head";
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { LocalBusinessBlock } from "@/components/LocalBusinessBlock";
 import { PageLayout, PageHero } from "@/components/PageLayout";
 import { FaqSection } from "@/components/FaqSection";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
@@ -11,7 +12,7 @@ export const Route = createFileRoute("/etichete-textile")({
   head: ({ loaderData }) => applySeo({
     meta: [
       { title: "Etichete textile — țesute & imprimate Cluj | ETICHETT" },
-      { name: "description", content: "Etichete textile pentru haine și branduri: țesute, imprimate, satin, nylon, carton, termoadezive, de compoziție. Producător Cluj-Napoca." },
+      { name: "description", content: "Etichete textile Cluj-Napoca: țesute, imprimate, satin, nylon, carton, de compoziție. Atelier pe Str. Uzinei Electrice 9, Cluj-Napoca." },
       { name: "keywords", content: "etichete textile, etichete textile haine, etichete textile personalizate, etichete textile cluj, etichete textile tesute, etichete textile imprimate, etichete textile satin, etichete textile nylon" },
       { property: "og:title", content: "Etichete textile — țesute & imprimate Cluj | ETICHETT" },
       { property: "og:description", content: "Gamă completă de etichete textile pentru branduri, ateliere și producători de îmbrăcăminte din Cluj-Napoca și România." },
@@ -131,6 +132,7 @@ function EticheteTextile() {
           { q: "Livrați etichete textile în toată România?", a: "Da. Suntem producător în Cluj-Napoca și livrăm prin curier în toată țara, în 24–48h de la finalizarea producției." },
         ]}
       />
+      <LocalBusinessBlock keyword="Etichete textile Cluj-Napoca" />
     </PageLayout>
   );
 }

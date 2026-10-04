@@ -1,10 +1,13 @@
+import { getSeoOverride } from "@/lib/seo-overrides.functions";
+import { applySeo } from "@/lib/seo-head";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageLayout, PageHero } from "@/components/PageLayout";
 import { Check } from "lucide-react";
 
 export const Route = createFileRoute("/produse")({
+  loader: () => getSeoOverride({ data: { path: "/produse" } }),
   component: Produse,
-  head: () => ({
+  head: ({ loaderData }) => applySeo({
     meta: [
       { title: "Etichete textile — produse țesute & imprimate Cluj" },
       { name: "description", content: "Etichete pentru haine și branduri: țesute, imprimate, de compoziție, adezive, termoadezive. Producție Cluj-Napoca, livrare națională." },
@@ -31,7 +34,7 @@ export const Route = createFileRoute("/produse")({
         }),
       },
     ],
-  }),
+  }, loaderData),
 });
 
 const products = [

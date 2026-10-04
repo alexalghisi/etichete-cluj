@@ -1,11 +1,14 @@
+import { getSeoOverride } from "@/lib/seo-overrides.functions";
+import { applySeo } from "@/lib/seo-head";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageLayout, PageHero } from "@/components/PageLayout";
 import { FaqSection } from "@/components/FaqSection";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 
 export const Route = createFileRoute("/etichete-termoadezive")({
+  loader: () => getSeoOverride({ data: { path: "/etichete-termoadezive" } }),
   component: EticheteTermoadezive,
-  head: () => ({
+  head: ({ loaderData }) => applySeo({
     meta: [
       { title: "Etichete termoadezive pentru haine — fără cusături | ETICHETT" },
       { name: "description", content: "Etichete termoadezive pentru haine, tricouri și lenjerie — se aplică la presă termică, fără cusături. Rezistente la spălare 60°C. Producător Cluj." },
@@ -41,7 +44,7 @@ export const Route = createFileRoute("/etichete-termoadezive")({
         }),
       },
     ],
-  }),
+  }, loaderData),
 });
 
 function EticheteTermoadezive() {

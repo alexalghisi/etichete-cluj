@@ -1,10 +1,13 @@
+import { getSeoOverride } from "@/lib/seo-overrides.functions";
+import { applySeo } from "@/lib/seo-head";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageLayout, PageHero } from "@/components/PageLayout";
 import { MapPin, Phone, ArrowRight, CheckCircle2 } from "lucide-react";
 
 export const Route = createFileRoute("/etichete-cluj-napoca")({
+  loader: () => getSeoOverride({ data: { path: "/etichete-cluj-napoca" } }),
   component: EticheteClujNapoca,
-  head: () => ({
+  head: ({ loaderData }) => applySeo({
     meta: [
       { title: "Etichete Cluj-Napoca — producător textile | ETICHETT" },
       { name: "description", content: "Etichete Cluj-Napoca: producător local din 1993 de etichete textile — țesute, imprimate, satin, nylon, termoadezive pentru branduri." },
@@ -28,7 +31,7 @@ export const Route = createFileRoute("/etichete-cluj-napoca")({
         }),
       },
     ],
-  }),
+  }, loaderData),
 });
 
 function EticheteClujNapoca() {

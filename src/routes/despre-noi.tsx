@@ -1,10 +1,13 @@
+import { getSeoOverride } from "@/lib/seo-overrides.functions";
+import { applySeo } from "@/lib/seo-head";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageLayout, PageHero } from "@/components/PageLayout";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 
 export const Route = createFileRoute("/despre-noi")({
+  loader: () => getSeoOverride({ data: { path: "/despre-noi" } }),
   component: DespreNoi,
-  head: () => ({
+  head: ({ loaderData }) => applySeo({
     meta: [
       { title: "Despre noi — Etichete textile Cluj din 1993 | ETICHETT" },
       { name: "description", content: "Etichett Prod — producător de etichete textile în Cluj-Napoca din 1993. Etichete țesute, imprimate, de compoziție pentru haine și branduri." },
@@ -33,7 +36,7 @@ export const Route = createFileRoute("/despre-noi")({
         }),
       },
     ],
-  }),
+  }, loaderData),
 });
 
 function DespreNoi() {

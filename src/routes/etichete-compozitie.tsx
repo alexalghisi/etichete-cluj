@@ -1,11 +1,14 @@
+import { getSeoOverride } from "@/lib/seo-overrides.functions";
+import { applySeo } from "@/lib/seo-head";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageLayout, PageHero } from "@/components/PageLayout";
 import { FaqSection } from "@/components/FaqSection";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 
 export const Route = createFileRoute("/etichete-compozitie")({
+  loader: () => getSeoOverride({ data: { path: "/etichete-compozitie" } }),
   component: EticheteCompozitie,
-  head: () => ({
+  head: ({ loaderData }) => applySeo({
     meta: [
       { title: "Etichete de compoziție multilingve — RO/EN/DE/FR/IT | ETICHETT" },
       { name: "description", content: "Etichete de compoziție pentru haine — multilingve (RO/EN/DE/FR/IT), simboluri de spălare ISO 3758, conforme Reg. UE 1007/2011. Producător Cluj." },
@@ -29,7 +32,7 @@ export const Route = createFileRoute("/etichete-compozitie")({
         }),
       },
     ],
-  }),
+  }, loaderData),
 });
 
 function EticheteCompozitie() {

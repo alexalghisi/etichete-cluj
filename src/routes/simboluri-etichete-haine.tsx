@@ -1,3 +1,5 @@
+import { getSeoOverride } from "@/lib/seo-overrides.functions";
+import { applySeo } from "@/lib/seo-head";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageLayout, PageHero } from "@/components/PageLayout";
 import { FaqSection } from "@/components/FaqSection";
@@ -5,8 +7,9 @@ import { ArrowRight } from "lucide-react";
 import { CareSymbol, type CareSymbolProps } from "@/components/CareSymbol";
 
 export const Route = createFileRoute("/simboluri-etichete-haine")({
+  loader: () => getSeoOverride({ data: { path: "/simboluri-etichete-haine" } }),
   component: SimboluriEticheteHaine,
-  head: () => ({
+  head: ({ loaderData }) => applySeo({
     meta: [
       { title: "Simboluri etichete haine — ghid complet spălare & îngrijire" },
       { name: "description", content: "Ghid complet simboluri etichete haine: spălare, înălbire, uscare, călcare, curățare chimică. Explicații clare + etichete personalizate la comandă." },
@@ -29,7 +32,7 @@ export const Route = createFileRoute("/simboluri-etichete-haine")({
         }),
       },
     ],
-  }),
+  }, loaderData),
 });
 
 const grupuri: {

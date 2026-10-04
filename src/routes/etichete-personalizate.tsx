@@ -1,11 +1,14 @@
+import { getSeoOverride } from "@/lib/seo-overrides.functions";
+import { applySeo } from "@/lib/seo-head";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageLayout, PageHero } from "@/components/PageLayout";
 import { FaqSection } from "@/components/FaqSection";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 
 export const Route = createFileRoute("/etichete-personalizate")({
+  loader: () => getSeoOverride({ data: { path: "/etichete-personalizate" } }),
   component: EtichetePersonalizate,
-  head: () => ({
+  head: ({ loaderData }) => applySeo({
     meta: [
       { title: "Etichete personalizate — pentru haine & branduri | ETICHETT" },
       { name: "description", content: "Etichete personalizate cu logo și text: țesute, imprimate, satin, carton, autoadezive. Producător Cluj-Napoca, 30+ ani, livrare în toată România." },
@@ -42,7 +45,7 @@ export const Route = createFileRoute("/etichete-personalizate")({
         }),
       },
     ],
-  }),
+  }, loaderData),
 });
 
 const beneficii = [

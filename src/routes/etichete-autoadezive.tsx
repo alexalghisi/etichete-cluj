@@ -1,11 +1,14 @@
+import { getSeoOverride } from "@/lib/seo-overrides.functions";
+import { applySeo } from "@/lib/seo-head";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageLayout, PageHero } from "@/components/PageLayout";
 import { FaqSection } from "@/components/FaqSection";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 
 export const Route = createFileRoute("/etichete-autoadezive")({
+  loader: () => getSeoOverride({ data: { path: "/etichete-autoadezive" } }),
   component: EticheteAutoadezive,
-  head: () => ({
+  head: ({ loaderData }) => applySeo({
     meta: [
       { title: "Etichete adezive și autoadezive personalizate pe role" },
       { name: "description", content: "Etichete adezive (autoadezive) personalizate pe role pentru ambalaje, cosmetice, vinuri, borcane și produse. Imprimare HD, decupare la formă, livrare RO." },
@@ -41,7 +44,7 @@ export const Route = createFileRoute("/etichete-autoadezive")({
         }),
       },
     ],
-  }),
+  }, loaderData),
 });
 
 const aplicatii = [

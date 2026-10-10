@@ -20,6 +20,7 @@ export function CookieConsent() {
       // ignore
     }
     setVisible(false);
+    window.dispatchEvent(new Event("cookie-consent"));
   };
 
   if (!visible) return null;

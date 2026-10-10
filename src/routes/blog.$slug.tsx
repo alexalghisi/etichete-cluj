@@ -1,6 +1,7 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { PageLayout } from "@/components/PageLayout";
 import { getBlogPost } from "@/lib/blog.functions";
+import { AdNativeBanner } from "@/components/AdNativeBanner";
 
 const SITE = "https://etichetetextile.ro";
 
@@ -107,6 +108,7 @@ function BlogPostPage() {
             </Link>
           </div>
         </aside>
+        <AdNativeBanner />
       </article>
     </PageLayout>
   );

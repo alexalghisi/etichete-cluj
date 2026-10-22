@@ -1,3 +1,4 @@
+import { RouteError, RouteNotFound } from "@/components/RouteBoundary";
 import { getSeoOverride } from "@/lib/seo-overrides.functions";
 import { applySeo } from "@/lib/seo-head";
 import { createFileRoute } from "@tanstack/react-router";
@@ -179,13 +180,15 @@ const galleryImages = ([
 }));
 
 export const Route = createFileRoute("/galerie")({
+  errorComponent: RouteError,
+  notFoundComponent: RouteNotFound,
   loader: () => getSeoOverride({ data: { path: "/galerie" } }),
   component: Galerie,
   head: ({ loaderData }) => applySeo({
     meta: [
-      { title: "Galerie etichete textile — proiecte Cluj | ETICHETT" },
-      { name: "description", content: "Galerie etichete textile personalizate realizate de Etichett Prod în Cluj-Napoca: țesute, imprimate, pentru branduri și ateliere." },
-      { property: "og:title", content: "Galerie etichete textile — proiecte Cluj | ETICHETT" },
+      { title: "Galerie etichete textile — proiecte Cluj | Etichett Prod" },
+      { name: "description", content: "Vezi etichete textile țesute și imprimate, etichete de compoziție și hangtag-uri, realizate de Etichett Prod pentru branduri. Cere ofertă gratuită în 24h." },
+      { property: "og:title", content: "Galerie etichete textile — proiecte Cluj | Etichett Prod" },
       { property: "og:description", content: "Proiecte realizate: etichete textile personalizate țesute și imprimate pentru branduri de îmbrăcăminte." },
       { property: "og:url", content: "https://etichetetextile.ro/galerie" },
       { property: "og:image", content: "https://etichetetextile.ro/images/gallery/etichete-tesute-personalizate-logo.webp" },

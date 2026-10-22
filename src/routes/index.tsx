@@ -1,3 +1,4 @@
+import { RouteError, RouteNotFound } from "@/components/RouteBoundary";
 import { getSeoOverride } from "@/lib/seo-overrides.functions";
 import { applySeo } from "@/lib/seo-head";
 import { createFileRoute, Link } from "@tanstack/react-router";
@@ -5,12 +6,14 @@ import { PageLayout } from "@/components/PageLayout";
 import { CheckCircle2, Sparkles, Factory, Truck, Award, ArrowRight, Phone } from "lucide-react";
 
 export const Route = createFileRoute("/")({
+  errorComponent: RouteError,
+  notFoundComponent: RouteNotFound,
   loader: () => getSeoOverride({ data: { path: "/" } }),
   component: Index,
   head: ({ loaderData }) => applySeo({
     meta: [
       { title: "Etichete personalizate Cluj — textile, țesute, imprimate" },
-      { name: "description", content: "Etichete personalizate în Cluj-Napoca: etichete textile, țesute, imprimate, satin, carton și etichete adezive (autoadezive). Producător din 1993." },
+      { name: "description", content: "Etichete textile personalizate pentru haine, țesute și imprimate. Producător în Cluj-Napoca din 1993, livrare în România. Cere ofertă gratuită în 24h." },
       { name: "keywords", content: "etichete, etichete adezive, etichete adezive personalizate, etichete autoadezive, etichete adezive cluj, etichete cluj, etichete cluj-napoca, etichete textile, etichete personalizate, etichete haine, etichete haine personalizate, etichete personalizate haine, etichete pentru haine, etichete tesute, etichete imprimate, etichete satina, etichete satin, etichete carton, etichete nylon, etichete autocolante, etichete autocolante personalizate, etichete termoadezive, etichete termoadezive pentru haine, simboluri etichete haine, etichete haine copii, etichete de compozitie, imprimanta etichete, imprimanta etichete autoadezive, producator etichete, etichett prod" },
       { property: "og:title", content: "Etichete personalizate Cluj — textile, țesute, adezive" },
       { property: "og:description", content: "Etichete în Cluj: textile, țesute, imprimate, satin, carton, termoadezive și etichete adezive pentru haine și produse. Producător din 1993." },
@@ -65,7 +68,7 @@ function Index() {
               <Sparkles className="h-3.5 w-3.5" /> Cluj-Napoca · din 1993
             </span>
             <h1 className="mt-5 text-4xl font-bold leading-[1.05] md:text-6xl lg:text-7xl">
-              Producător etichete textile <span className="text-primary">personalizate</span>
+              Etichete textile <span className="text-primary">personalizate</span> — producător din Cluj-Napoca
             </h1>
             <p className="mt-6 max-w-xl text-lg text-white/90 md:text-xl">
               Etichete țesute, imprimate și embosate pentru haine, încălțăminte, marochinărie, mobilier și articole tehnice — fabricate în Cluj-Napoca, livrate în toată România.

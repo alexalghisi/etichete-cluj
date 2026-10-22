@@ -1,3 +1,4 @@
+import { protectedSeoField, seoDescription, brandTitle } from "./seo-policy";
 import { z } from "zod";
 
 const SITE = "https://etichetetextile.ro";
@@ -9,9 +10,9 @@ const COOLDOWN_DAYS = 14;
 
 export const PAGES = [
   "/", "/produse", "/galerie", "/despre-noi", "/contact", "/etichete-textile", "/etichete-personalizate",
-  "/etichete-tesute", "/etichete-satin", "/etichete-saten", "/etichete-carton", "/etichete-autoadezive",
+  "/etichete-tesute", "/etichete-satin", "/etichete-carton", "/etichete-autoadezive",
   "/etichete-autocolante", "/etichete-termoadezive", "/etichete-haine", "/etichete-haine-copii",
-  "/etichete-compozitie", "/etichete-nylon", "/etichete-cluj", "/etichete-cluj-napoca", "/simboluri-etichete-haine",
+  "/etichete-compozitie", "/etichete-nylon", "/etichete-cluj", "/simboluri-etichete-haine",
 ];
 const PRIORITY_KEYWORDS = [
   "etichete", "etichete cluj", "etichete textile", "etichete personalizate", "etichete autoadezive",
@@ -248,9 +249,9 @@ Returnează DOAR JSON valid (fără markdown) cu cheile:
       }
       const links = parsed.links.filter((l) => PAGES.includes(l.to) && l.to !== p);
       const next: Record<string, unknown> = {};
-      if (parsed.title) next.title = parsed.title;
-      if (parsed.description) next.description = parsed.description;
-      if (parsed.h1) next.h1 = parsed.h1;
+      if (parsed.title && !protectedSeoField(p, "title")) next.title = brandTitle(parsed.title);
+      if (parsed.description) next.description = seoDescription(parsed.description);
+      if (parsed.h1 && !protectedSeoField(p, "h1")) next.h1 = parsed.h1;
       if (parsed.intro) next.intro = parsed.intro;
       if (parsed.faqs.length) next.faqs = [...(o?.faqs ?? []), ...parsed.faqs].slice(-6);
       if (links.length) next.links = links;
@@ -324,6 +325,7 @@ export async function generateDailyBlogPost(sb: Sb) {
 Scrie un articol de blog în română corectă, cu diacritice, pe tema: „${topic}".
 Public țintă: branduri de îmbrăcăminte, producători mici și medii, ateliere. Ton: practic, cald, expert. NU inventa prețuri exacte, termene sau certificări; vorbește general și onest. Menționează natural că Etichett Prod produce etichete în Cluj-Napoca din 1993 și oferă consultanță gratuită.
 Titluri de articole deja publicate (NU repeta tema): ${usedTitles.join(" | ") || "-"}
+Include în paragrafe 2–3 linkuri contextuale către pagini relevante dintre: ${PAGES.filter((p) => p.startsWith("/etichete-")).join(", ")}. Nu folosi rute redirectate.
 Structura conținutului: 5-7 secțiuni cu <h2>, paragrafe <p>, eventual o listă. Conținut HTML curat, fără <h1>, fără tag-uri <html>/<body>. Lungime 900-1500 cuvinte. Include la final o secțiune <h2>Concluzie</h2>.
 Returnează DOAR JSON valid (fără markdown) cu cheile:
 {"slug": "url-friendly-romanesc-fara-diacritice", "title": "max 100 caractere, atractiv", "meta_description": "120-155 caractere", "excerpt": "1-2 fraze rezumat, max 280 caractere", "content": "HTML-ul articolului", "keyword": "keyword-ul principal țintit"}`;
@@ -335,7 +337,7 @@ Returnează DOAR JSON valid (fără markdown) cu cheile:
   const { error } = await sb.from("blog_posts").insert({
     slug,
     title: parsed.title,
-    meta_description: parsed.meta_description,
+    meta_description: seoDescription(parsed.meta_description),
     excerpt: parsed.excerpt,
     content: parsed.content,
     keyword: parsed.keyword,

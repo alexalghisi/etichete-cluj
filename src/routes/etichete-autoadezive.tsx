@@ -1,3 +1,4 @@
+import { RouteError, RouteNotFound } from "@/components/RouteBoundary";
 import { getSeoOverride } from "@/lib/seo-overrides.functions";
 import { applySeo } from "@/lib/seo-head";
 import { createFileRoute, Link } from "@tanstack/react-router";
@@ -6,12 +7,14 @@ import { FaqSection } from "@/components/FaqSection";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 
 export const Route = createFileRoute("/etichete-autoadezive")({
+  errorComponent: RouteError,
+  notFoundComponent: RouteNotFound,
   loader: () => getSeoOverride({ data: { path: "/etichete-autoadezive" } }),
   component: EticheteAutoadezive,
   head: ({ loaderData }) => applySeo({
     meta: [
-      { title: "Etichete adezive și autoadezive personalizate pe role" },
-      { name: "description", content: "Etichete adezive (autoadezive) personalizate pe role pentru ambalaje, cosmetice, vinuri, borcane și produse. Imprimare HD, decupare la formă, livrare RO." },
+      { title: "Etichete adezive și autoadezive personalizate pe role | Etichett Prod" },
+      { name: "description", content: "Etichete adezive și autoadezive personalizate pe role, pentru ambalaje, cosmetice și produse. Forme și finisaje adaptate. Cere ofertă gratuită în 24h." },
       { name: "keywords", content: "etichete adezive, etichete adezive personalizate, etichete adezive pe role, etichete adezive cluj, etichete autoadezive, etichete autoadezive personalizate, etichete autocolante, etichete autocolante personalizate, etichete pe role, imprimanta etichete autoadezive, etichete sticker" },
       { property: "og:title", content: "Etichete adezive și autoadezive personalizate pe role" },
       { property: "og:description", content: "Etichete adezive imprimate HD pentru produsele tale — pe role, decupate la formă. Producător Cluj-Napoca." },
@@ -35,12 +38,11 @@ export const Route = createFileRoute("/etichete-autoadezive")({
         type: "application/ld+json",
         children: JSON.stringify({
           "@context": "https://schema.org",
-          "@type": "Product",
+          "@type": "Service",
           name: "Etichete adezive (autoadezive) personalizate",
           description: "Etichete adezive imprimate HD pe role, cu adeziv puternic sau detașabil, decupate la formă.",
-          brand: { "@type": "Brand", name: "Etichett Prod" },
+          serviceType: "Producție etichete personalizate", provider: { "@id": "https://etichetetextile.ro/#business" }, areaServed: [{ "@type": "Country", name: "România" }, { "@type": "City", name: "Cluj-Napoca" }],
           image: "https://etichetetextile.ro/images/hero-labels.webp",
-          offers: { "@type": "AggregateOffer", priceCurrency: "RON", lowPrice: "0.05", highPrice: "0.80", offerCount: "10", availability: "https://schema.org/InStock" },
         }),
       },
     ],
@@ -75,6 +77,7 @@ function EticheteAutoadezive() {
             <p className="mt-3 text-muted-foreground">
               Realizăm <strong>etichete adezive personalizate</strong> (numite și <strong>etichete autoadezive</strong> sau autocolante) pe role, în orice formă și dimensiune. Folosim hârtie albă, transparentă, metalizată sau cu textură, cu finisaje mate, lucioase sau cu lac selectiv. Alternativă profesională la <em>imprimanta de etichete autoadezive</em> de birou — calitate de tipografie, în serie.
             </p>
+            <p className="mt-4 text-muted-foreground">Pentru identitatea brandului poți alege <Link to="/etichete-tesute" className="font-semibold text-primary hover:underline">etichete țesute</Link>; pentru aplicare fără cusături, <Link to="/etichete-termoadezive" className="font-semibold text-primary hover:underline">etichete termoadezive pentru haine</Link>. Consultă și ghidul <Link to="/simboluri-etichete-haine" className="font-semibold text-primary hover:underline">simboluri etichete haine</Link> pentru instrucțiunile de îngrijire.</p>
             <h3 className="mt-6 text-lg font-bold">Aplicații frecvente</h3>
             <ul className="mt-3 grid gap-2 text-sm">
               {aplicatii.map((a) => (

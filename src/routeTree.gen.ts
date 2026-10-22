@@ -34,6 +34,7 @@ import { Route as ProduseRouteImport } from './routes/produse'
 import { Route as SimboluriEticheteHaineRouteImport } from './routes/simboluri-etichete-haine'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as AdminSeoRouteImport } from './routes/admin.seo'
+import { Route as BlogIndexRouteImport } from './routes/blog.index'
 import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
 import { Route as ApiPublicHooksSeoDailyRouteImport } from './routes/api/public/hooks/seo-daily'
 
@@ -162,6 +163,11 @@ const AdminSeoRoute = AdminSeoRouteImport.update({
   path: '/admin/seo',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BlogIndexRoute = BlogIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => BlogRoute,
+} as any)
 const BlogSlugRoute = BlogSlugRouteImport.update({
   id: '/$slug',
   path: '/$slug',
@@ -200,12 +206,12 @@ export interface FileRoutesByFullPath {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/admin/seo': typeof AdminSeoRoute
   '/blog/$slug': typeof BlogSlugRoute
+  '/blog/': typeof BlogIndexRoute
   '/api/public/hooks/seo-daily': typeof ApiPublicHooksSeoDailyRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/$': typeof SplatRoute
-  '/blog': typeof BlogRouteWithChildren
   '/contact': typeof ContactRoute
   '/despre-noi': typeof DespreNoiRoute
   '/etichete-autoadezive': typeof EticheteAutoadeziveRoute
@@ -229,6 +235,7 @@ export interface FileRoutesByTo {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/admin/seo': typeof AdminSeoRoute
   '/blog/$slug': typeof BlogSlugRoute
+  '/blog': typeof BlogIndexRoute
   '/api/public/hooks/seo-daily': typeof ApiPublicHooksSeoDailyRoute
 }
 export interface FileRoutesById {
@@ -259,6 +266,7 @@ export interface FileRoutesById {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/admin/seo': typeof AdminSeoRoute
   '/blog/$slug': typeof BlogSlugRoute
+  '/blog/': typeof BlogIndexRoute
   '/api/public/hooks/seo-daily': typeof ApiPublicHooksSeoDailyRoute
 }
 export interface FileRouteTypes {
@@ -290,12 +298,12 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/admin/seo'
     | '/blog/$slug'
+    | '/blog/'
     | '/api/public/hooks/seo-daily'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/$'
-    | '/blog'
     | '/contact'
     | '/despre-noi'
     | '/etichete-autoadezive'
@@ -319,6 +327,7 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/admin/seo'
     | '/blog/$slug'
+    | '/blog'
     | '/api/public/hooks/seo-daily'
   id:
     | '__root__'
@@ -348,6 +357,7 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/admin/seo'
     | '/blog/$slug'
+    | '/blog/'
     | '/api/public/hooks/seo-daily'
   fileRoutesById: FileRoutesById
 }
@@ -557,6 +567,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminSeoRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/blog/': {
+      id: '/blog/'
+      path: '/'
+      fullPath: '/blog/'
+      preLoaderRoute: typeof BlogIndexRouteImport
+      parentRoute: typeof BlogRoute
+    }
     '/blog/$slug': {
       id: '/blog/$slug'
       path: '/$slug'
@@ -576,10 +593,12 @@ declare module '@tanstack/react-router' {
 
 interface BlogRouteChildren {
   BlogSlugRoute: typeof BlogSlugRoute
+  BlogIndexRoute: typeof BlogIndexRoute
 }
 
 const BlogRouteChildren: BlogRouteChildren = {
   BlogSlugRoute: BlogSlugRoute,
+  BlogIndexRoute: BlogIndexRoute,
 }
 
 const BlogRouteWithChildren = BlogRoute._addFileChildren(BlogRouteChildren)

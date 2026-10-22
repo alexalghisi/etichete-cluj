@@ -1,3 +1,4 @@
+import { RouteError, RouteNotFound } from "@/components/RouteBoundary";
 import { getSeoOverride } from "@/lib/seo-overrides.functions";
 import { applySeo } from "@/lib/seo-head";
 import { createFileRoute, Link } from "@tanstack/react-router";
@@ -7,12 +8,14 @@ import { ArrowRight } from "lucide-react";
 import { CareSymbol, type CareSymbolProps } from "@/components/CareSymbol";
 
 export const Route = createFileRoute("/simboluri-etichete-haine")({
+  errorComponent: RouteError,
+  notFoundComponent: RouteNotFound,
   loader: () => getSeoOverride({ data: { path: "/simboluri-etichete-haine" } }),
   component: SimboluriEticheteHaine,
   head: ({ loaderData }) => applySeo({
     meta: [
-      { title: "Simboluri etichete haine — ghid complet spălare & îngrijire" },
-      { name: "description", content: "Ghid complet simboluri etichete haine: spălare, înălbire, uscare, călcare, curățare chimică. Explicații clare + etichete personalizate la comandă." },
+      { title: "Simboluri etichete haine — ghid complet spălare & îngrijire | Etichett Prod" },
+      { name: "description", content: "Simboluri etichete haine explicate cu imagini: spălare, uscare și călcare conform ISO 3758. Etichete de compoziție. Cere ofertă gratuită în 24h." },
       { name: "keywords", content: "simboluri etichete haine, simboluri spalare haine, simboluri haine, semne etichete haine, simboluri ingrijire textile, etichete compozitie simboluri" },
       { property: "og:title", content: "Simboluri etichete haine — ghid complet" },
       { property: "og:description", content: "Ce înseamnă fiecare simbol de pe eticheta hainelor — spălare, uscare, călcare." },

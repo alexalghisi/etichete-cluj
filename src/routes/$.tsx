@@ -40,6 +40,7 @@ const REDIRECTS: Record<string, string> = {
 // Routes that exist in the app — used to detect trailing-slash hits we should
 // 301 to the canonical (no-slash) version.
 const KNOWN_ROUTES = new Set([
+  "cere-oferta", "generator-eticheta-compozitie", "etichete-bumbac", "embleme-tesute", "etichete-marime", "producator-etichete", "etichete-compozitie", "etichete-nylon", "blog",
   "despre-noi",
   "produse",
   "galerie",

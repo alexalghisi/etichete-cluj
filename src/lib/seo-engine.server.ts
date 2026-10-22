@@ -1,5 +1,6 @@
 import { protectedSeoField, seoDescription, brandTitle } from "./seo-policy";
 import { z } from "zod";
+import { BUSINESS, MINIMUM_SUMMARY, factualText, factualFaq } from './business-facts';
 
 const SITE = "https://etichetetextile.ro";
 const GSC = "https://connector-gateway.lovable.dev/google_search_console";
@@ -13,6 +14,7 @@ export const PAGES = [
   "/etichete-tesute", "/etichete-satin", "/etichete-carton", "/etichete-autoadezive",
   "/etichete-autocolante", "/etichete-termoadezive", "/etichete-haine", "/etichete-haine-copii",
   "/etichete-compozitie", "/etichete-nylon", "/etichete-cluj", "/simboluri-etichete-haine",
+  "/cere-oferta", "/generator-eticheta-compozitie", "/etichete-bumbac", "/embleme-tesute", "/etichete-marime", "/producator-etichete",
 ];
 const PRIORITY_KEYWORDS = [
   "etichete", "etichete cluj", "etichete textile", "etichete personalizate", "etichete autoadezive",
@@ -252,8 +254,8 @@ Returnează DOAR JSON valid (fără markdown) cu cheile:
       if (parsed.title && !protectedSeoField(p, "title")) next.title = brandTitle(parsed.title);
       if (parsed.description) next.description = seoDescription(parsed.description);
       if (parsed.h1 && !protectedSeoField(p, "h1")) next.h1 = parsed.h1;
-      if (parsed.intro) next.intro = parsed.intro;
-      if (parsed.faqs.length) next.faqs = [...(o?.faqs ?? []), ...parsed.faqs].slice(-6);
+      if (parsed.intro) next.intro = factualText(parsed.intro);
+      if (parsed.faqs.length) next.faqs = [...(o?.faqs ?? []), ...parsed.faqs].slice(-6).map(f=>({...f,a:factualFaq(f.q,f.a,p)}));
       if (links.length) next.links = links;
       if (!Object.keys(next).length) continue;
       for (const [field, value] of Object.entries(next)) {
@@ -321,7 +323,7 @@ export async function generateDailyBlogPost(sb: Sb) {
   const dayIdx = Math.floor(Date.now() / 86400_000);
   const topic = BLOG_TOPICS[dayIdx % BLOG_TOPICS.length];
 
-  const prompt = `Ești redactor SEO senior pentru Etichett Prod, producător de etichete textile din Cluj-Napoca (din 1993). Site: ${SITE}.
+  const prompt = `Ești redactor SEO senior pentru Etichett Prod. Fapte comerciale obligatorii: ${MINIMUM_SUMMARY} ${BUSINESS.production}. ${BUSINESS.urgent}. ${BUSINESS.price}. ${BUSINESS.address}, din ${BUSINESS.founded}. Nu inventa valori, rating, certificări sau prețuri. Regulamentul UE 1007/2011 privește compoziția, nu impune în general simboluri ISO 3758 sau originea. Site: ${SITE}.
 Scrie un articol de blog în română corectă, cu diacritice, pe tema: „${topic}".
 Public țintă: branduri de îmbrăcăminte, producători mici și medii, ateliere. Ton: practic, cald, expert. NU inventa prețuri exacte, termene sau certificări; vorbește general și onest. Menționează natural că Etichett Prod produce etichete în Cluj-Napoca din 1993 și oferă consultanță gratuită.
 Titluri de articole deja publicate (NU repeta tema): ${usedTitles.join(" | ") || "-"}
@@ -339,7 +341,7 @@ Returnează DOAR JSON valid (fără markdown) cu cheile:
     title: parsed.title,
     meta_description: seoDescription(parsed.meta_description),
     excerpt: parsed.excerpt,
-    content: parsed.content,
+    content: factualText(parsed.content),
     keyword: parsed.keyword,
     published: true,
   });

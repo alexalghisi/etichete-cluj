@@ -1,0 +1,10 @@
+import { useEffect,useState } from 'react';
+import { supabase } from '@/integrations/supabase/client';
+import { Button } from './ui/button';
+import { TYPE_NAMES,type LabelType } from '@/lib/business-facts';
+type Quote={id:string;name:string;email:string;created_at:string;logo_path:string|null;configuration:unknown};
+export function QuoteAdmin(){const [rows,setRows]=useState<Quote[]>([]);const [error,setError]=useState('');
+ useEffect(()=>{supabase.from('quote_requests').select('id,name,email,created_at,logo_path,configuration').order('created_at',{ascending:false}).limit(100).then(({data,error})=>{if(error)setError('Les offres ne peuvent pas être chargées.');else setRows(data??[]);});},[]);
+ const logo=async(path:string)=>{const {data,error}=await supabase.storage.from('quote-logos').download(path);if(error||!data){setError('Logoul nu poate fi descărcat.');return;}const url=URL.createObjectURL(data);const a=document.createElement('a');a.href=url;a.download=path.split('/').pop()??'logo';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);};
+ return <section className="rounded-2xl border border-border bg-card p-5"><h2 className="mb-3 font-bold">Cereri de ofertă ({rows.length})</h2>{error&&<p role="alert" className="text-destructive">{error}</p>}<div className="max-h-[480px] overflow-auto">{rows.map(r=>{const c=r.configuration&&typeof r.configuration==='object'?r.configuration as Record<string,unknown>:{};return <article className="border-b border-border py-4 text-sm" key={r.id}><h3 className="font-semibold">{r.name} · {r.id.slice(0,8)}</h3><p>{r.email} · {new Date(r.created_at).toLocaleString('ro-RO')}</p><p className="mt-2">{TYPE_NAMES[c.type as LabelType]??String(c.type??'')} · {String(c.width??'')} × {String(c.height??'')} mm · {String(c.quantity??'')} buc</p><pre className="mt-2 whitespace-pre-wrap break-words text-xs text-muted-foreground">{JSON.stringify(c,null,2)}</pre>{r.logo_path&&<Button variant="outline" className="mt-3" onClick={()=>{if(r.logo_path)void logo(r.logo_path);}}>Descarcă logo</Button>}</article>;})}</div></section>;
+}

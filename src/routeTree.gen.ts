@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as SplatRouteImport } from './routes/$'
 import { Route as BlogRouteImport } from './routes/blog'
+import { Route as CereOfertaRouteImport } from './routes/cere-oferta'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as DespreNoiRouteImport } from './routes/despre-noi'
 import { Route as EticheteAutoadeziveRouteImport } from './routes/etichete-autoadezive'
@@ -51,6 +52,11 @@ const SplatRoute = SplatRouteImport.update({
 const BlogRoute = BlogRouteImport.update({
   id: '/blog',
   path: '/blog',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CereOfertaRoute = CereOfertaRouteImport.update({
+  id: '/cere-oferta',
+  path: '/cere-oferta',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ContactRoute = ContactRouteImport.update({
@@ -183,6 +189,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/$': typeof SplatRoute
   '/blog': typeof BlogRouteWithChildren
+  '/cere-oferta': typeof CereOfertaRoute
   '/contact': typeof ContactRoute
   '/despre-noi': typeof DespreNoiRoute
   '/etichete-autoadezive': typeof EticheteAutoadeziveRoute
@@ -212,6 +219,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/$': typeof SplatRoute
+  '/cere-oferta': typeof CereOfertaRoute
   '/contact': typeof ContactRoute
   '/despre-noi': typeof DespreNoiRoute
   '/etichete-autoadezive': typeof EticheteAutoadeziveRoute
@@ -243,6 +251,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/$': typeof SplatRoute
   '/blog': typeof BlogRouteWithChildren
+  '/cere-oferta': typeof CereOfertaRoute
   '/contact': typeof ContactRoute
   '/despre-noi': typeof DespreNoiRoute
   '/etichete-autoadezive': typeof EticheteAutoadeziveRoute
@@ -275,6 +284,7 @@ export interface FileRouteTypes {
     | '/'
     | '/$'
     | '/blog'
+    | '/cere-oferta'
     | '/contact'
     | '/despre-noi'
     | '/etichete-autoadezive'
@@ -304,6 +314,7 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/$'
+    | '/cere-oferta'
     | '/contact'
     | '/despre-noi'
     | '/etichete-autoadezive'
@@ -334,6 +345,7 @@ export interface FileRouteTypes {
     | '/'
     | '/$'
     | '/blog'
+    | '/cere-oferta'
     | '/contact'
     | '/despre-noi'
     | '/etichete-autoadezive'
@@ -365,6 +377,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   SplatRoute: typeof SplatRoute
   BlogRoute: typeof BlogRouteWithChildren
+  CereOfertaRoute: typeof CereOfertaRoute
   ContactRoute: typeof ContactRoute
   DespreNoiRoute: typeof DespreNoiRoute
   EticheteAutoadeziveRoute: typeof EticheteAutoadeziveRoute
@@ -411,6 +424,13 @@ declare module '@tanstack/react-router' {
       path: '/blog'
       fullPath: '/blog'
       preLoaderRoute: typeof BlogRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cere-oferta': {
+      id: '/cere-oferta'
+      path: '/cere-oferta'
+      fullPath: '/cere-oferta'
+      preLoaderRoute: typeof CereOfertaRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/contact': {
@@ -607,6 +627,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   SplatRoute: SplatRoute,
   BlogRoute: BlogRouteWithChildren,
+  CereOfertaRoute: CereOfertaRoute,
   ContactRoute: ContactRoute,
   DespreNoiRoute: DespreNoiRoute,
   EticheteAutoadeziveRoute: EticheteAutoadeziveRoute,

@@ -14,7 +14,7 @@ export const Route = createFileRoute("/etichete-nylon")({
   head: ({ loaderData }) => applySeo({
     meta: [
       { title: "Etichete nylon — subțiri, rezistente pentru haine sport | Etichett Prod" },
-      { name: "description", content: "Etichete nylon (taffeta) — subțiri, ușoare și rezistente. Perfecte pentru îmbrăcăminte sport, tehnică, outdoor și lenjerie. Producător Cluj-Napoca." },
+      { name: "description", content: "Etichete nylon personalizate, subțiri și rezistente, pentru haine sport și outdoor. Imprimare față-verso și compoziție. Cere ofertă gratuită în 24h." },
       { name: "keywords", content: "etichete nylon, etichete nylon haine, etichete taffeta, etichete nylon sport, etichete nylon personalizate, etichete nylon cluj, etichete tehnice" },
       { property: "og:title", content: "Etichete nylon — subțiri, rezistente pentru haine sport | Etichett Prod" },
       { property: "og:description", content: "Etichete din nylon (taffeta) — subțiri, rezistente la spălare intensivă și transpirație. Ideale pentru sport și outdoor." },
@@ -57,6 +57,7 @@ function EticheteNylon() {
             <p className="mt-3 text-muted-foreground">
               <strong>Etichetele nylon</strong> (cunoscute și ca <em>taffeta</em>) sunt cele mai subțiri etichete textile imprimate. Nu adaugă volum, nu se șifonează și rezistă la spălări la 90°C, la clor moderat și la frecare — de aceea sunt preferate pentru <em>tricouri sport, echipamente de fitness, jachete outdoor, costume tehnice</em> și lenjerie.
             </p>
+            <p className="mt-4 text-muted-foreground">Pentru identitatea brandului poți alege <Link to="/etichete-tesute" className="font-semibold text-primary hover:underline">etichete țesute</Link>; pentru aplicare fără cusături, <Link to="/etichete-termoadezive" className="font-semibold text-primary hover:underline">etichete termoadezive pentru haine</Link>. Consultă și ghidul <Link to="/simboluri-etichete-haine" className="font-semibold text-primary hover:underline">simboluri etichete haine</Link> pentru instrucțiunile de îngrijire.</p>
             <ul className="mt-5 grid gap-2 text-sm">
               {[
                 "Foarte subțiri — invizibile prin materiale fine",

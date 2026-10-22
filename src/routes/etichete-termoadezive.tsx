@@ -14,7 +14,7 @@ export const Route = createFileRoute("/etichete-termoadezive")({
   head: ({ loaderData }) => applySeo({
     meta: [
       { title: "Etichete termoadezive pentru haine — fără cusături | Etichett Prod" },
-      { name: "description", content: "Etichete termoadezive pentru haine, tricouri și lenjerie — se aplică la presă termică, fără cusături. Rezistente la spălare 60°C. Producător Cluj." },
+      { name: "description", content: "Etichete termoadezive pentru haine, termocolante și stickere personalizate, aplicate fără cusături. Producție în Cluj-Napoca. Cere ofertă gratuită în 24h." },
       { name: "keywords", content: "etichete termoadezive, etichete termoadezive haine, etichete termoadezive pentru haine, etichete termocolante, etichete termotransfer, etichete fara cusaturi" },
       { property: "og:title", content: "Etichete termoadezive pentru haine | Etichett Prod" },
       { property: "og:description", content: "Etichete termoadezive premium, aplicate la presă termică — fără cusături." },
@@ -67,6 +67,7 @@ function EticheteTermoadezive() {
             <p className="mt-3 text-muted-foreground">
               <strong>Etichetele termoadezive</strong> sunt soluția modernă pentru branduri care vor un finisaj curat, fără cusături și fără iritații pe piele. Se aplică la prese termice (130–160°C, 10–15 sec) și aderă perfect pe bumbac, poliester și amestecuri.
             </p>
+            <p className="mt-4 text-muted-foreground">Pentru identitatea brandului poți alege <Link to="/etichete-tesute" className="font-semibold text-primary hover:underline">etichete țesute</Link>; pentru aplicare fără cusături, etichete termoadezive pentru haine. Consultă și ghidul <Link to="/simboluri-etichete-haine" className="font-semibold text-primary hover:underline">simboluri etichete haine</Link> pentru instrucțiunile de îngrijire.</p>
             <h3 className="mt-6 text-lg font-bold">Aplicații tipice</h3>
             <ul className="mt-3 grid gap-2 text-sm">
               {[

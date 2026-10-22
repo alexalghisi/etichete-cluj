@@ -14,7 +14,7 @@ export const Route = createFileRoute("/etichete-compozitie")({
   head: ({ loaderData }) => applySeo({
     meta: [
       { title: "Etichete de compoziție multilingve — RO/EN/DE/FR/IT | Etichett Prod" },
-      { name: "description", content: "Etichete de compoziție pentru haine — multilingve (RO/EN/DE/FR/IT), simboluri de spălare ISO 3758, conforme Reg. UE 1007/2011. Producător Cluj." },
+      { name: "description", content: "Etichete de compoziție pentru haine, cu fibre și simboluri ISO 3758, în RO/EN/DE/FR/IT. Imprimare față-verso pe satin sau. Cere ofertă gratuită în 24h." },
       { name: "keywords", content: "etichete compozitie, etichete de compozitie, etichete compozitie haine, etichete compozitie multilingve, etichete spalare, etichete iso 3758, etichete cluj" },
       { property: "og:title", content: "Etichete de compoziție multilingve — RO/EN/DE/FR/IT | Etichett Prod" },
       { property: "og:description", content: "Etichete de compoziție conforme UE, cu simboluri de spălare și fibre în mai multe limbi." },
@@ -57,6 +57,7 @@ function EticheteCompozitie() {
             <p className="mt-3 text-muted-foreground">
               <strong>Eticheta de compoziție</strong> este obligatorie pe orice produs textil vândut în UE. Aceasta trebuie să menționeze fibrele în ordine descrescătoare a procentelor, țara de origine, simbolurile de îngrijire și, opțional, instrucțiunile scrise.
             </p>
+            <p className="mt-4 text-muted-foreground">Pentru identitatea brandului poți alege <Link to="/etichete-tesute" className="font-semibold text-primary hover:underline">etichete țesute</Link>; pentru aplicare fără cusături, <Link to="/etichete-termoadezive" className="font-semibold text-primary hover:underline">etichete termoadezive pentru haine</Link>. Consultă și ghidul <Link to="/simboluri-etichete-haine" className="font-semibold text-primary hover:underline">simboluri etichete haine</Link> pentru instrucțiunile de îngrijire.</p>
             <ul className="mt-5 grid gap-2 text-sm">
               {[
                 "Procent exact al fibrelor (ex: 95% bumbac, 5% elastan)",

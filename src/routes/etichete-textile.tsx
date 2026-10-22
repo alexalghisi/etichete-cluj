@@ -15,7 +15,7 @@ export const Route = createFileRoute("/etichete-textile")({
   head: ({ loaderData }) => applySeo({
     meta: [
       { title: "Etichete textile — țesute & imprimate Cluj | Etichett Prod" },
-      { name: "description", content: "Etichete textile Cluj-Napoca: țesute, imprimate, satin, nylon, carton, de compoziție. Atelier pe Str. Uzinei Electrice 9, Cluj-Napoca." },
+      { name: "description", content: "Etichete textile țesute și imprimate pentru haine și branduri, din satin, nylon sau bumbac. Producător din Cluj-Napoca din. Cere ofertă gratuită în 24h." },
       { name: "keywords", content: "etichete textile, etichete textile haine, etichete textile personalizate, etichete textile cluj, etichete textile tesute, etichete textile imprimate, etichete textile satin, etichete textile nylon" },
       { property: "og:title", content: "Etichete textile — țesute & imprimate Cluj | Etichett Prod" },
       { property: "og:description", content: "Gamă completă de etichete textile pentru branduri, ateliere și producători de îmbrăcăminte din Cluj-Napoca și România." },
@@ -86,6 +86,7 @@ function EticheteTextile() {
             <article key={x.t} className="rounded-2xl border border-border bg-card p-5">
               <h2 className="text-lg font-bold">{x.t}</h2>
               <p className="mt-2 text-sm text-muted-foreground">{x.d}</p>
+            <p className="mt-4 text-muted-foreground">Pentru identitatea brandului poți alege <Link to="/etichete-tesute" className="font-semibold text-primary hover:underline">etichete țesute</Link>; pentru aplicare fără cusături, <Link to="/etichete-termoadezive" className="font-semibold text-primary hover:underline">etichete termoadezive pentru haine</Link>. Consultă și ghidul <Link to="/simboluri-etichete-haine" className="font-semibold text-primary hover:underline">simboluri etichete haine</Link> pentru instrucțiunile de îngrijire.</p>
               {x.href && (
                 <Link to={x.href} className="mt-3 inline-flex text-sm font-semibold text-primary hover:underline">
                   Detalii {x.t.toLowerCase()} →

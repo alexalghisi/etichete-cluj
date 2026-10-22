@@ -13,7 +13,7 @@ export const Route = createFileRoute("/")({
   head: ({ loaderData }) => applySeo({
     meta: [
       { title: "Etichete personalizate Cluj — textile, țesute, imprimate" },
-      { name: "description", content: "Etichete personalizate în Cluj-Napoca: etichete textile, țesute, imprimate, satin, carton și etichete adezive (autoadezive). Producător din 1993." },
+      { name: "description", content: "Etichete textile personalizate pentru haine, țesute și imprimate. Producător în Cluj-Napoca din 1993, livrare în România. Cere ofertă gratuită în 24h." },
       { name: "keywords", content: "etichete, etichete adezive, etichete adezive personalizate, etichete autoadezive, etichete adezive cluj, etichete cluj, etichete cluj-napoca, etichete textile, etichete personalizate, etichete haine, etichete haine personalizate, etichete personalizate haine, etichete pentru haine, etichete tesute, etichete imprimate, etichete satina, etichete satin, etichete carton, etichete nylon, etichete autocolante, etichete autocolante personalizate, etichete termoadezive, etichete termoadezive pentru haine, simboluri etichete haine, etichete haine copii, etichete de compozitie, imprimanta etichete, imprimanta etichete autoadezive, producator etichete, etichett prod" },
       { property: "og:title", content: "Etichete personalizate Cluj — textile, țesute, adezive" },
       { property: "og:description", content: "Etichete în Cluj: textile, țesute, imprimate, satin, carton, termoadezive și etichete adezive pentru haine și produse. Producător din 1993." },

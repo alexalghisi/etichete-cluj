@@ -15,7 +15,7 @@ export const Route = createFileRoute("/etichete-haine-copii")({
   head: ({ loaderData }) => applySeo({
     meta: [
       { title: "Etichete pentru haine copii cu nume — grădiniță, școală | Etichett Prod" },
-      { name: "description", content: "Etichete pentru haine copii cu nume — pentru grădiniță, școală, tabere. Termoadezive sau cusute, rezistente la spălare. Producător Cluj-Napoca." },
+      { name: "description", content: "Etichete cu nume pentru haine copii, grădiniță și școală: variante cusute sau termoadezive. Personalizare în Cluj-Napoca. Cere ofertă gratuită în 24h." },
       { name: "keywords", content: "etichete haine copii, etichete cu nume copii, etichete gradinita, etichete scoala, etichete haine copii personalizate, etichete textile copii" },
       { property: "og:title", content: "Etichete haine copii cu nume | Etichett Prod" },
       { property: "og:description", content: "Etichete personalizate cu numele copilului — pentru grădiniță, școală, tabere." },
@@ -67,6 +67,7 @@ function EticheteHaineCopii() {
             <p className="mt-3 text-muted-foreground">
               <strong>Etichetele pentru hainele copiilor</strong> sunt salvarea părinților cu copii la creșă, grădiniță, școală sau tabere. Producem etichete textile cu numele copilului — termoadezive (fără cusături, fără iritații) sau cusute clasic.
             </p>
+            <p className="mt-4 text-muted-foreground">Pentru identitatea brandului poți alege <Link to="/etichete-tesute" className="font-semibold text-primary hover:underline">etichete țesute</Link>; pentru aplicare fără cusături, <Link to="/etichete-termoadezive" className="font-semibold text-primary hover:underline">etichete termoadezive pentru haine</Link>. Consultă și ghidul <Link to="/simboluri-etichete-haine" className="font-semibold text-primary hover:underline">simboluri etichete haine</Link> pentru instrucțiunile de îngrijire.</p>
             <h3 className="mt-6 text-lg font-bold">Ideal pentru</h3>
             <ul className="mt-3 grid gap-2 text-sm">
               {[

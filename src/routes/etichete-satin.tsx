@@ -14,7 +14,7 @@ export const Route = createFileRoute("/etichete-satin")({
   head: ({ loaderData }) => applySeo({
     meta: [
       { title: "Etichete satin imprimate — finisaj premium | Etichett Prod" },
-      { name: "description", content: "Etichete satin (satină) imprimate HD pentru haine și branduri de modă. Aspect perlat, moi, rezistente la spălare. Producător Cluj-Napoca." },
+      { name: "description", content: "Etichete satin și saten personalizate, moi și cu aspect perlat, imprimate față-verso pentru haine, lenjerie și compoziție. Cere ofertă gratuită în 24h." },
       { name: "keywords", content: "etichete satin, etichete satina, etichete satinate, etichete satin imprimate, etichete satin personalizate, etichete satin haine, etichete satin cluj" },
       { property: "og:title", content: "Etichete satin imprimate — finisaj premium | Etichett Prod" },
       { property: "og:description", content: "Etichete satin moi, cu aspect perlat, rezistente la spălare — ideale pentru branduri de modă." },
@@ -57,6 +57,7 @@ function EticheteSatin() {
             <p className="mt-3 text-muted-foreground">
               <strong>Etichetele satin</strong> (numite și <em>etichete satina</em> sau <em>etichete satinate</em>) sunt cele mai folosite etichete textile imprimate. Materialul este moale, lucios, rezistent la spălare 60–90°C și nu zgârie pielea — ideal pentru <em>etichete haine copii</em>, lenjerie, tricouri, hanorace.
             </p>
+            <p className="mt-4 text-muted-foreground">Pentru identitatea brandului poți alege <Link to="/etichete-tesute" className="font-semibold text-primary hover:underline">etichete țesute</Link>; pentru aplicare fără cusături, <Link to="/etichete-termoadezive" className="font-semibold text-primary hover:underline">etichete termoadezive pentru haine</Link>. Consultă și ghidul <Link to="/simboluri-etichete-haine" className="font-semibold text-primary hover:underline">simboluri etichete haine</Link> pentru instrucțiunile de îngrijire.</p>
             <p className="mt-3 text-muted-foreground">„Saten” este forma folosită frecvent în limba română pentru satin — materialul textil moale, cu luciu perlat, folosit la etichetele premium pentru îmbrăcăminte. Imprimarea față-verso permite compoziția în RO/EN/DE/FR/IT pe aceeași etichetă.</p>
             <ul className="mt-5 grid gap-2 text-sm">
               {[

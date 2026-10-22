@@ -14,7 +14,7 @@ export const Route = createFileRoute("/contact")({
   head: ({ loaderData }) => applySeo({
     meta: [
       { title: "Contact — Etichete textile Cluj-Napoca | Etichett Prod" },
-      { name: "description", content: "Cere ofertă pentru etichete textile în Cluj-Napoca: țesute, imprimate, personalizate. WhatsApp, tel. 0747 264 832, email rapid." },
+      { name: "description", content: "Contact Etichett Prod pentru etichete textile personalizate: formular, WhatsApp, telefon și email. Atelier în Cluj-Napoca,. Cere ofertă gratuită în 24h." },
       { name: "keywords", content: "etichete cluj, etichete cluj-napoca, etichete textile cluj, contact etichete, oferta etichete textile, etichete personalizate cluj, etichete tesute cluj, etichete imprimate cluj, etichete compozitie, producator etichete cluj, etichete haine cluj, etichett prod" },
       { property: "og:title", content: "Contact — Etichete textile Cluj-Napoca | Etichett Prod" },
       { property: "og:description", content: "Producător de etichete textile în Cluj-Napoca. Cere ofertă rapid pe WhatsApp, telefon sau email." },

@@ -4,3 +4,9 @@
 - [x] Apply requested titles, H1, descriptions and contextual links.
 - [x] Repair sitemap timestamps, pagination and robots directives.
 - [x] Verify raw SSR HTML, redirects, sitemap and tests.
+- [ ] Centralize business facts and remove conflicting quantities, deadlines and prices.
+- [ ] Build quote wizard with private logo storage, saved requests and email notification.
+- [ ] Build multilingual composition generator, exports and quote handoff.
+- [ ] Add conversion controls, order steps and genuine review link.
+- [ ] Expand six pages and add four unique content pages.
+- [ ] Update internal links, sitemap and image/font performance; verify flows and tests.

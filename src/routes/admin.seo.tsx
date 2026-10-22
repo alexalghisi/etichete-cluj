@@ -4,6 +4,7 @@ import { useServerFn } from "@tanstack/react-start";
 import { supabase } from "@/integrations/supabase/client";
 import { runSeoNow } from "@/lib/seo-admin.functions";
 import type { Session } from "@supabase/supabase-js";
+import { QuoteAdmin } from '@/components/QuoteAdmin';
 
 export const Route = createFileRoute("/admin/seo")({
   component: AdminSeo,
@@ -174,6 +175,7 @@ function Dashboard() {
       </div>
       <BlogAdmin />
       <MessagesAdmin />
+      <QuoteAdmin />
     </div>
   );
 }

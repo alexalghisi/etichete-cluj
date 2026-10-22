@@ -73,6 +73,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" },
     ],
     scripts: [
+      { src: "https://www.googletagmanager.com/gtag/js?id=G-JR62EM794J", async: true },
+      { children: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}window.gtag=gtag;var c=null;try{c=localStorage.getItem("etichett-cookie-consent")}catch(e){}var g=c==="accepted"?"granted":"denied";gtag("consent","default",{ad_storage:g,analytics_storage:g,ad_user_data:g,ad_personalization:g,wait_for_update:500});gtag("js",new Date());gtag("config","G-JR62EM794J");window.addEventListener("cookie-consent",function(){var v="denied";try{v=localStorage.getItem("etichett-cookie-consent")==="accepted"?"granted":"denied"}catch(e){}gtag("consent","update",{ad_storage:v,analytics_storage:v,ad_user_data:v,ad_personalization:v});});` },
       {
         type: "application/ld+json",
         children: JSON.stringify({

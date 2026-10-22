@@ -1,5 +1,6 @@
 import { createServerFn } from "@tanstack/react-start";
 import { z } from "zod";
+import { factualText } from './business-facts';
 
 export type BlogPost = {
   slug: string;
@@ -27,7 +28,7 @@ export const getBlogPost = createServerFn({ method: "GET" })
       .eq("slug", data.slug).eq("published", true).maybeSingle();
     if (error) throw new Error("Article could not be read");
     if (!row) return { post: null, related: [] };
-    const post = row as BlogPost;
+    const post = { ...row, content: factualText(row.content), excerpt: factualText(row.excerpt) } as BlogPost;
     const all = await publishedPosts("slug,title,meta_description,excerpt,keyword,published_at,content_updated_at");
     const words = new Set(`${post.keyword ?? ""} ${post.title}`.toLowerCase().split(/\W+/).filter((w) => w.length > 3));
     const score = (p: Record<string, any>) => `${p.keyword ?? ""} ${p.title}`.toLowerCase().split(/\W+/).filter((w) => words.has(w)).length;

@@ -2,6 +2,8 @@ import { useState } from "react";
 import { useServerFn } from "@tanstack/react-start";
 import { CheckCircle2, Send } from "lucide-react";
 import { sendContactMessage } from "@/lib/contact.functions";
+import { trackConversion } from '@/lib/conversions';
+import { Button } from './ui/button';
 
 declare global { interface Window { gtag?: (...a: unknown[]) => void; dataLayer?: unknown[] } }
 
@@ -19,8 +21,7 @@ export function ContactForm() {
     try {
       await send({ data: f });
       setState("done");
-      window.dataLayer?.push({ event: "contact_form_submit" });
-      window.gtag?.("event", "generate_lead", { form: "contact" });
+      trackConversion('generate_lead', {form:'contact'});
     } catch (e2) {
       setErr((e2 as Error).message.includes("Mesajul") ? (e2 as Error).message : "Verifică datele introduse (nume, email valid, mesaj).");
       setState("idle");
@@ -45,9 +46,9 @@ export function ContactForm() {
       <label className="block text-sm">Mesaj *<textarea required minLength={5} maxLength={3000} rows={4} className={input} placeholder="Tip etichetă, dimensiuni, cantitate, material…" value={f.message} onChange={set("message")} /></label>
       <input tabIndex={-1} autoComplete="off" aria-hidden className="hidden" value={f.website} onChange={set("website")} />
       {err && <p className="text-sm text-destructive">{err}</p>}
-      <button disabled={state === "sending"} className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground hover:opacity-90 disabled:opacity-50">
+      <Button disabled={state === "sending"} className="inline-flex h-auto w-full items-center justify-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground hover:opacity-90 disabled:opacity-50">
         <Send className="h-4 w-4" /> {state === "sending" ? "Se trimite…" : "Trimite mesajul"}
-      </button>
+      </Button>
     </form>
   );
 }

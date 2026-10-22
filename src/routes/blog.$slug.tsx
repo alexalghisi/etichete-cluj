@@ -96,7 +96,7 @@ function BlogPostPage() {
             Producem etichete textile, țesute, satin, autocolante și de compoziție în Cluj-Napoca, din 1993. Consultanță gratuită.
           </p>
           <div className="mt-4 flex flex-wrap gap-3">
-            <Link to="/contact" className="rounded-lg bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground hover:opacity-90">
+            <Link to="/cere-oferta" className="rounded-lg bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground hover:opacity-90">
               Cere ofertă
             </Link>
             <Link to="/produse" className="rounded-lg border border-border px-5 py-2.5 text-sm font-semibold hover:bg-accent">
@@ -106,6 +106,7 @@ function BlogPostPage() {
         </aside>
         <AdNativeBanner />
       </article>
+      <div className="mx-auto max-w-7xl px-4 py-8 md:px-6"><Link to="/generator-eticheta-compozitie" className="font-semibold text-primary underline">Generator gratuit de etichete de compoziție și întreținere</Link></div>
     </PageLayout>
   );
 }

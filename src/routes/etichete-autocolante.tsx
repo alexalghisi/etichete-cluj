@@ -1,3 +1,4 @@
+import { BUSINESS, MINIMUM_SUMMARY, factualFaq } from "@/lib/business-facts";
 import { RouteError, RouteNotFound } from "@/components/RouteBoundary";
 import { getSeoOverride } from "@/lib/seo-overrides.functions";
 import { applySeo } from "@/lib/seo-head";
@@ -97,9 +98,9 @@ function EticheteAutocolante() {
               <div><dt className="font-semibold">Imprimare</dt><dd className="text-muted-foreground">CMYK + Pantone, calitate HD foto, până la 6 culori</dd></div>
               <div><dt className="font-semibold">Finisaj</dt><dd className="text-muted-foreground">Mat, lucios, lac selectiv, folio aur/argint, relief</dd></div>
               <div><dt className="font-semibold">Format</dt><dd className="text-muted-foreground">Role sau coli, formă rotundă/pătrată/decupată la cerere</dd></div>
-              <div><dt className="font-semibold">Cantitate minimă</dt><dd className="text-muted-foreground">De la 500 buc</dd></div>
+              <div><dt className="font-semibold">Cantitate minimă</dt><dd className="text-muted-foreground">{BUSINESS.minimum.stickers} buc</dd></div>
             </dl>
-            <Link to="/contact" className="mt-6 inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground">
+            <Link to="/cere-oferta" search={{tip:"autocolante"}} className="mt-6 inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground">
               Cere ofertă autocolante <ArrowRight className="h-4 w-4" />
             </Link>
           </article>
@@ -108,12 +109,12 @@ function EticheteAutocolante() {
       <FaqSection
         pageUrl="https://etichetetextile.ro/etichete-autocolante"
         items={[
-          { q: "Care este diferența între etichete autocolante și autoadezive?", a: "Sunt același produs — „autocolant” și „autoadeziv” se folosesc interschimbabil. Ambele se referă la etichete imprimate cu adeziv pe spate, livrate pe role sau coli." },
-          { q: "Care e cantitatea minimă pentru etichete autocolante personalizate?", a: "Producem etichete autocolante de la 500 de bucăți. Pentru cantități mari (peste 10.000) prețul scade semnificativ." },
-          { q: "Pe ce suprafețe se aplică etichetele autocolante?", a: "Pe sticlă, plastic, carton, metal, hârtie. Avem adezivi specializați pentru congelare, suprafețe umede sau anvelope." },
-          { q: "Pot avea etichete autocolante transparente?", a: "Da. Producem etichete autocolante pe folie transparentă (efect „no-label look”), folie albă, metalizată aur/argint sau hârtie kraft naturală." },
-          { q: "Cât costă etichetele autocolante personalizate?", a: "Prețul pleacă de la 0,05 RON/bucată și depinde de cantitate, dimensiune, material și finisaj. Trimite specificațiile pe contact și primești ofertă în 24h." },
-          { q: "Faceți etichete autocolante în Cluj?", a: "Da. Suntem producător de etichete autocolante în Cluj-Napoca cu peste 30 de ani experiență. Livrăm în toată România." },
+          { q: "Care este diferența între etichete autocolante și autoadezive?", a: factualFaq('Care este diferența între etichete autocolante și autoadezive?', 'Sunt același produs — „autocolant” și „autoadeziv” se folosesc interschimbabil. Ambele se referă la etichete imprimate cu adeziv pe spate, livrate pe role sau coli.', '/etichete-autocolante') },
+          { q: "Care e cantitatea minimă pentru etichete autocolante personalizate?", a: factualFaq('Care e cantitatea minimă pentru etichete autocolante personalizate?', 'Producem etichete autocolante de la 500 de bucăți. Pentru cantități mari (peste 10.000) prețul scade semnificativ.', '/etichete-autocolante') },
+          { q: "Pe ce suprafețe se aplică etichetele autocolante?", a: factualFaq('Pe ce suprafețe se aplică etichetele autocolante?', 'Pe sticlă, plastic, carton, metal, hârtie. Avem adezivi specializați pentru congelare, suprafețe umede sau anvelope.', '/etichete-autocolante') },
+          { q: "Pot avea etichete autocolante transparente?", a: factualFaq('Pot avea etichete autocolante transparente?', 'Da. Producem etichete autocolante pe folie transparentă (efect „no-label look”), folie albă, metalizată aur/argint sau hârtie kraft naturală.', '/etichete-autocolante') },
+          { q: "Cât costă etichetele autocolante personalizate?", a: factualFaq('Cât costă etichetele autocolante personalizate?', BUSINESS.price, '/etichete-autocolante') },
+          { q: "Faceți etichete autocolante în Cluj?", a: factualFaq('Faceți etichete autocolante în Cluj?', 'Da. Suntem producător de etichete autocolante în Cluj-Napoca cu peste 30 de ani experiență. Livrăm în toată România.', '/etichete-autocolante') },
         ]}
       />
     </PageLayout>

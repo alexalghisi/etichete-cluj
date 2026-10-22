@@ -1,3 +1,5 @@
+import { LabelGuide } from "@/components/LabelGuide";
+import { BUSINESS, MINIMUM_SUMMARY, factualFaq } from "@/lib/business-facts";
 import { RouteError, RouteNotFound } from "@/components/RouteBoundary";
 import { getSeoOverride } from "@/lib/seo-overrides.functions";
 import { applySeo } from "@/lib/seo-head";
@@ -81,7 +83,7 @@ function EticheteHaineCopii() {
                 <li key={a} className="flex items-start gap-2"><CheckCircle2 className="mt-0.5 h-4 w-4 text-primary" /> {a}</li>
               ))}
             </ul>
-            <Link to="/contact" className="mt-7 inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground">
+            <Link to="/cere-oferta" search={{tip:"copii"}} className="mt-7 inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground">
               Comandă etichete cu nume <ArrowRight className="h-4 w-4" />
             </Link>
           </article>
@@ -91,7 +93,7 @@ function EticheteHaineCopii() {
               <div><dt className="font-semibold">Termoadezive</dt><dd className="text-muted-foreground">Fără cusături, fără iritații — se aplică la fierul de călcat sau presă</dd></div>
               <div><dt className="font-semibold">Cusute</dt><dd className="text-muted-foreground">Etichete textile clasice, cusute pe gulerul interior</dd></div>
               <div><dt className="font-semibold">Personalizare</dt><dd className="text-muted-foreground">Nume, prenume, telefon de urgență, simboluri/iconițe</dd></div>
-              <div><dt className="font-semibold">Cantitate minimă</dt><dd className="text-muted-foreground">De la 50 buc cu același nume</dd></div>
+              <div><dt className="font-semibold">Cantitate minimă</dt><dd className="text-muted-foreground">{BUSINESS.minimum.children} buc/nume</dd></div>
               <div><dt className="font-semibold">Rezistență</dt><dd className="text-muted-foreground">Spălare 60°C, peste 50 de cicluri</dd></div>
             </dl>
           </article>
@@ -112,13 +114,14 @@ function EticheteHaineCopii() {
       <FaqSection
         pageUrl="https://etichetetextile.ro/etichete-haine-copii"
         items={[
-          { q: "Cum aplic etichetele termoadezive pe hainele copilului?", a: "Cu fierul de călcat la temperatură medie-mare (cotton, fără abur), prin apăsare fermă 15–20 de secunde printr-o pânză subțire. Verifică instrucțiunile incluse." },
-          { q: "Etichetele cu nume rezistă la spălare?", a: "Da, etichetele noastre rezistă la peste 50 de cicluri de spălare la 60°C, inclusiv în mașina de spălat și uscător." },
-          { q: "Care este cantitatea minimă?", a: "50 de bucăți cu același nume. Pentru frați putem combina două sau trei nume în aceeași comandă." },
-          { q: "Cât durează livrarea etichetelor pentru copii?", a: "5–7 zile lucrătoare de la confirmarea designului. Pentru începutul anului școlar recomandăm comanda în august." },
-          { q: "Pot pune și numărul de telefon pe etichetă?", a: "Da. Multe părinți aleg să includă numele copilului + un număr de telefon de urgență, util mai ales pentru tabere." },
+          { q: "Cum aplic etichetele termoadezive pe hainele copilului?", a: factualFaq('Cum aplic etichetele termoadezive pe hainele copilului?', 'Cu fierul de călcat la temperatură medie-mare (cotton, fără abur), prin apăsare fermă 15–20 de secunde printr-o pânză subțire. Verifică instrucțiunile incluse.', '/etichete-haine-copii') },
+          { q: "Etichetele cu nume rezistă la spălare?", a: factualFaq('Etichetele cu nume rezistă la spălare?', 'Da, etichetele noastre rezistă la peste 50 de cicluri de spălare la 60°C, inclusiv în mașina de spălat și uscător.', '/etichete-haine-copii') },
+          { q: "Care este cantitatea minimă?", a: factualFaq('Care este cantitatea minimă?', '50 de bucăți cu același nume. Pentru frați putem combina două sau trei nume în aceeași comandă.', '/etichete-haine-copii') },
+          { q: "Cât durează livrarea etichetelor pentru copii?", a: factualFaq('Cât durează livrarea etichetelor pentru copii?', '5–7 zile lucrătoare de la confirmarea designului. Pentru începutul anului școlar recomandăm comanda în august.', '/etichete-haine-copii') },
+          { q: "Pot pune și numărul de telefon pe etichetă?", a: factualFaq('Pot pune și numărul de telefon pe etichetă?', 'Da. Multe părinți aleg să includă numele copilului + un număr de telefon de urgență, util mai ales pentru tabere.', '/etichete-haine-copii') },
         ]}
       />
+      <LabelGuide topic="haine și textile" />
     </PageLayout>
   );
 }

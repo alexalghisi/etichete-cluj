@@ -1,3 +1,4 @@
+import { BUSINESS, MINIMUM_SUMMARY } from '@/lib/business-facts';
 import { RouteError, RouteNotFound } from "@/components/RouteBoundary";
 import { getSeoOverride } from "@/lib/seo-overrides.functions";
 import { applySeo } from "@/lib/seo-head";
@@ -38,16 +39,15 @@ export const Route = createFileRoute("/contact")({
           legalName: "S.C. ETICHETT PROD S.R.L.",
           description: "Producător de etichete textile în Cluj-Napoca: etichete țesute, imprimate, de compoziție și personalizate pentru haine, încălțăminte, marochinărie și branduri. Peste 30 de ani experiență.",
           url: "https://etichetetextile.ro/",
-          telephone: ["+40747264832", "+40264599966"],
-          email: "etichettprod@yahoo.com",
+          telephone: [BUSINESS.phoneHref.slice(4), BUSINESS.landlineHref.slice(4)],
+          email: BUSINESS.email,
           image: "https://etichetetextile.ro/images/hero-labels.webp",
           logo: "https://etichetetextile.ro/images/logo.png",
-          priceRange: "$$",
-          foundingDate: "1993",
+          foundingDate: String(BUSINESS.founded),
           address: {
             "@type": "PostalAddress",
-            streetAddress: "Str. Uzinei Electrice Nr. 9",
-            addressLocality: "Cluj-Napoca",
+            streetAddress: BUSINESS.street,
+            addressLocality: BUSINESS.city,
             addressRegion: "Cluj",
             postalCode: "400000",
             addressCountry: "RO",
@@ -198,7 +198,7 @@ function Contact() {
           <article>
             <h2 className="text-2xl font-bold">Etichete Cluj-Napoca — producție locală</h2>
             <p className="mt-3 text-muted-foreground">
-              Atelierul nostru este în <strong>Cluj-Napoca</strong>, pe Str. Uzinei Electrice nr. 9, lângă zona industrială. Lucrăm cu branduri din <strong>Mănăștur</strong>, <strong>Mărăști</strong>, <strong>Gheorgheni</strong>, <strong>Zorilor</strong>, <strong>Centru</strong>, <strong>Bună Ziua</strong> și <strong>Iris</strong>. Ridici personal sau livrăm prin curier oriunde în oraș, în 24–48h pentru comenzile standard de <em>etichete țesute Cluj-Napoca</em> și <em>etichete imprimate Cluj-Napoca</em>.
+              Atelierul nostru este în <strong>Cluj-Napoca</strong>, pe Str. Uzinei Electrice nr. 9, lângă zona industrială. Lucrăm cu branduri din <strong>Mănăștur</strong>, <strong>Mărăști</strong>, <strong>Gheorgheni</strong>, <strong>Zorilor</strong>, <strong>Centru</strong>, <strong>Bună Ziua</strong> și <strong>Iris</strong>. Ridici personal sau livrăm prin curier oriunde în oraș, după finalizarea producției pentru comenzile de <em>etichete țesute Cluj-Napoca</em> și <em>etichete imprimate Cluj-Napoca</em>.
             </p>
           </article>
           <article>
@@ -210,13 +210,13 @@ function Contact() {
           <article>
             <h2 className="text-2xl font-bold">Etichete textile pentru haine — țesute, imprimate, compoziție</h2>
             <p className="mt-3 text-muted-foreground">
-              Acoperim tot ce înseamnă <strong>etichete pentru haine</strong>: <em>etichete țesute damasc</em>, <em>etichete satin imprimate</em>, <em>etichete nylon</em>, <em>etichete bumbac organic</em>, <em>etichete de compoziție conforme UE</em> în mai multe limbi, <em>etichete autoadezive</em> și <em>etichete carton</em> tip hangtag. Cantități de la 100 bucăți la zeci de mii.
+              Acoperim tot ce înseamnă <strong>etichete pentru haine</strong>: <em>etichete țesute damasc</em>, <em>etichete satin imprimate</em>, <em>etichete nylon</em>, <em>etichete bumbac organic</em>, <em>etichete de compoziție conforme UE</em> în mai multe limbi, <em>etichete autoadezive</em> și <em>etichete carton</em> tip hangtag. {MINIMUM_SUMMARY}
             </p>
           </article>
           <article>
             <h2 className="text-2xl font-bold">Producător etichete în România — livrare națională</h2>
             <p className="mt-3 text-muted-foreground">
-              Suntem <strong>producător etichete textile</strong> cu sediul în Cluj, dar livrăm în toată țara: <em>etichete București</em>, <em>etichete Timișoara</em>, <em>etichete Oradea</em>, <em>etichete Sibiu</em>, <em>etichete Brașov</em>, <em>etichete Iași</em>. Curier 24–48h pentru reordonări și fișiere validate.
+              Suntem <strong>producător etichete textile</strong> cu sediul în Cluj și livrare în România. Termen standard: {BUSINESS.production}. {BUSINESS.urgent}.
             </p>
           </article>
         </div>
@@ -224,8 +224,8 @@ function Contact() {
         <div className="mt-12 rounded-2xl border border-border p-6 md:p-8">
           <h2 className="text-xl font-bold">Întrebări frecvente despre etichete Cluj</h2>
           <dl className="mt-4 space-y-4 text-sm text-muted-foreground">
-            <div><dt className="font-semibold text-foreground">Care este cantitatea minimă pentru etichete țesute în Cluj?</dt><dd>Producem de la 100 de bucăți per model, pentru ca și brandurile mici să poată comanda etichete personalizate.</dd></div>
-            <div><dt className="font-semibold text-foreground">Cât durează producția unei comenzi de etichete textile?</dt><dd>Între 3 și 7 zile lucrătoare pentru comenzi standard. Pentru urgențe în Cluj-Napoca putem livra și în 48h.</dd></div>
+            <div><dt className="font-semibold text-foreground">Care este cantitatea minimă pentru etichete țesute în Cluj?</dt><dd>{BUSINESS.minimum.woven} buc/model. {BUSINESS.price}.</dd></div>
+            <div><dt className="font-semibold text-foreground">Cât durează producția unei comenzi de etichete textile?</dt><dd>{BUSINESS.production}. {BUSINESS.urgent}.</dd></div>
             <div><dt className="font-semibold text-foreground">Faceți și etichete de compoziție în mai multe limbi?</dt><dd>Da — RO/EN/DE/FR/IT, conforme cu reglementările UE pentru îmbrăcăminte și textile.</dd></div>
           </dl>
         </div>

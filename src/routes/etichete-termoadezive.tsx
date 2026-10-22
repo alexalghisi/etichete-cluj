@@ -1,3 +1,5 @@
+import { LabelGuide } from "@/components/LabelGuide";
+import { BUSINESS, MINIMUM_SUMMARY, factualFaq } from "@/lib/business-facts";
 import { RouteError, RouteNotFound } from "@/components/RouteBoundary";
 import { getSeoOverride } from "@/lib/seo-overrides.functions";
 import { applySeo } from "@/lib/seo-head";
@@ -89,9 +91,9 @@ function EticheteTermoadezive() {
               <div><dt className="font-semibold">Suport textil</dt><dd className="text-muted-foreground">Bumbac, poliester, lycra, amestecuri</dd></div>
               <div><dt className="font-semibold">Rezistență spălare</dt><dd className="text-muted-foreground">60°C, peste 30 de cicluri fără decolorare</dd></div>
               <div><dt className="font-semibold">Imprimare</dt><dd className="text-muted-foreground">CMYK, Pantone, foil, reflectorizant</dd></div>
-              <div><dt className="font-semibold">Cantitate minimă</dt><dd className="text-muted-foreground">De la 100 buc</dd></div>
+              <div><dt className="font-semibold">Cantitate minimă</dt><dd className="text-muted-foreground">Tiraj confirmat în ofertă</dd></div>
             </dl>
-            <Link to="/contact" className="mt-6 inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground">
+            <Link to="/cere-oferta" search={{tip:"termoadezive"}} className="mt-6 inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground">
               Cere ofertă termoadezive <ArrowRight className="h-4 w-4" />
             </Link>
           </article>
@@ -100,13 +102,14 @@ function EticheteTermoadezive() {
       <FaqSection
         pageUrl="https://etichetetextile.ro/etichete-termoadezive"
         items={[
-          { q: "Ce sunt etichetele termoadezive?", a: "Etichetele termoadezive (termocolante) sunt etichete cu adeziv activat la căldură, care se aplică pe haine cu presa termică la 130–160°C. Înlocuiesc etichetele cusute și elimină disconfortul." },
-          { q: "Cum se aplică etichetele termoadezive?", a: "Cu presă termică la 130–160°C timp de 10–15 secunde, cu presiune medie. Pentru cantități mari recomandăm presă pneumatică pentru consistență." },
-          { q: "Rezistă etichetele termoadezive la spălare?", a: "Da. Etichetele noastre termoadezive rezistă la peste 30 de cicluri de spălare la 60°C fără decolorare sau dezlipire." },
-          { q: "Pe ce materiale se aplică etichetele termoadezive?", a: "Pe bumbac 100%, poliester, lycra și amestecuri. NU se aplică pe nylon pur, materiale tratate antiapă sau piele." },
-          { q: "Care e diferența între termoadezive și termotransfer?", a: "Termotransferul transferă cerneală pe textil (printing). Etichetele termoadezive sunt etichete prefabricate cu adeziv termic — un produs gata de lipit, nu o tehnică de imprimare." },
+          { q: "Ce sunt etichetele termoadezive?", a: factualFaq('Ce sunt etichetele termoadezive?', 'Etichetele termoadezive (termocolante) sunt etichete cu adeziv activat la căldură, care se aplică pe haine cu presa termică la 130–160°C. Înlocuiesc etichetele cusute și elimină disconfortul.', '/etichete-termoadezive') },
+          { q: "Cum se aplică etichetele termoadezive?", a: factualFaq('Cum se aplică etichetele termoadezive?', 'Cu presă termică la 130–160°C timp de 10–15 secunde, cu presiune medie. Pentru cantități mari recomandăm presă pneumatică pentru consistență.', '/etichete-termoadezive') },
+          { q: "Rezistă etichetele termoadezive la spălare?", a: factualFaq('Rezistă etichetele termoadezive la spălare?', 'Da. Etichetele noastre termoadezive rezistă la peste 30 de cicluri de spălare la 60°C fără decolorare sau dezlipire.', '/etichete-termoadezive') },
+          { q: "Pe ce materiale se aplică etichetele termoadezive?", a: factualFaq('Pe ce materiale se aplică etichetele termoadezive?', 'Pe bumbac 100%, poliester, lycra și amestecuri. NU se aplică pe nylon pur, materiale tratate antiapă sau piele.', '/etichete-termoadezive') },
+          { q: "Care e diferența între termoadezive și termotransfer?", a: factualFaq('Care e diferența între termoadezive și termotransfer?', 'Termotransferul transferă cerneală pe textil (printing). Etichetele termoadezive sunt etichete prefabricate cu adeziv termic — un produs gata de lipit, nu o tehnică de imprimare.', '/etichete-termoadezive') },
         ]}
       />
+      <LabelGuide topic="haine și textile" />
     </PageLayout>
   );
 }

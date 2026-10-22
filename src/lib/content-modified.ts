@@ -1,5 +1,11 @@
 /** Recorded significant page edits, not build time or sitemap generation time. */
 export const PAGE_CONTENT_MODIFIED: Record<string, string> = {
+  "/cere-oferta": "2026-10-22T01:23:36Z",
+  "/generator-eticheta-compozitie": "2026-10-22T01:23:36Z",
+  "/etichete-bumbac": "2026-10-22T01:23:36Z",
+  "/embleme-tesute": "2026-10-22T01:23:36Z",
+  "/etichete-marime": "2026-10-22T01:23:36Z",
+  "/producator-etichete": "2026-10-22T01:23:36Z",
   "/": "2026-10-22T01:10:58Z",
   "/blog": "2026-10-22T01:10:58Z",
   "/despre-noi": "2026-10-22T01:10:58Z",

@@ -1,6 +1,9 @@
 import { canonicalPath } from "./seo-policy";
 
 const PRODUCTS = [
+  { match:/bumbac|cotton/i, to:"/etichete-bumbac",label:"etichete textile bumbac" },
+  { match:/emblem|ecuson/i,to:"/embleme-tesute",label:"embleme țesute" },
+  { match:/mărime|marime/i,to:"/etichete-marime",label:"etichete de mărime" },
   { match: /copii|gradinita|grădiniță/i, to: "/etichete-haine-copii", label: "etichete cu nume pentru haine copii" },
   { match: /simbol|spalare|spălare|întreținere|intretinere/i, to: "/simboluri-etichete-haine", label: "simboluri etichete haine" },
   { match: /compozi/i, to: "/etichete-compozitie", label: "etichete de compoziție" },

@@ -10,6 +10,8 @@ import {
 
 import appCss from "../styles.css?url";
 import { CookieConsent } from "@/components/CookieConsent";
+import { ConversionControls } from '@/components/ConversionControls';
+import { BUSINESS } from '@/lib/business-facts';
 
 function NotFoundComponent() {
   return (
@@ -65,6 +67,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "icon", type: "image/png", sizes: "16x16", href: "/favicon-16x16.png?v=3" },
       { rel: "apple-touch-icon", sizes: "180x180", href: "/apple-touch-icon.png?v=3" },
       { rel: "manifest", href: "/site.webmanifest?v=3" },
+      { rel: "preload", as: "font", type: "font/ttf", crossOrigin: "anonymous", href: "https://fonts.gstatic.com/s/inter/v20/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuLyfMZg.ttf" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "" },
       { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" },
@@ -80,14 +83,13 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           legalName: "S.C. ETICHETT PROD S.R.L.",
           description: "Producător de etichete textile personalizate din Cluj-Napoca: etichete țesute, imprimate, de compoziție pentru haine, încălțăminte, marochinărie și branduri.",
           url: "https://etichetetextile.ro/",
-          telephone: ["+40747264832", "+40264599966"],
-          email: "etichettprod@yahoo.com",
-          foundingDate: "1993",
-          priceRange: "$$",
+          telephone: [BUSINESS.phoneHref.slice(4), BUSINESS.landlineHref.slice(4)],
+          email: BUSINESS.email,
+          foundingDate: String(BUSINESS.founded),
           address: {
             "@type": "PostalAddress",
-            streetAddress: "Str. Uzinei Electrice Nr. 9",
-            addressLocality: "Cluj-Napoca",
+            streetAddress: BUSINESS.street,
+            addressLocality: BUSINESS.city,
             addressRegion: "Cluj",
             postalCode: "400000",
             addressCountry: "RO",
@@ -144,6 +146,7 @@ function RootComponent() {
     <QueryClientProvider client={queryClient}>
       <Outlet />
       <CookieConsent />
+      <ConversionControls />
     </QueryClientProvider>
   );
 }

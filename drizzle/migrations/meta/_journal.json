@@ -8,6 +8,13 @@
       "when": 1792631357167,
       "tag": "0000_track_blog_content_modifications",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1792631765624,
+      "tag": "0001_quote_requests",
+      "breakpoints": true
     }
   ]
 }

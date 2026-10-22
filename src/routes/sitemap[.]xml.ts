@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import type {} from "@tanstack/react-start";
+import { PAGE_CONTENT_MODIFIED, latestContentDate } from "@/lib/content-modified";
 
 const BASE_URL = "https://etichetetextile.ro";
 
@@ -37,16 +38,18 @@ export const Route = createFileRoute("/sitemap.xml")({
         ];
         const { publicContentClient, publishedPosts } = await import("@/lib/blog-data.server");
         const escape = (s: string) => s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&apos;");
-        // Static content has no historical page-level timestamp. Only verified DB content changes qualify.
+        // Use recorded significant edits and DB timestamps, never a generation-time fallback.
         const { data: overrides, error } = await publicContentClient().from("seo_overrides")
           .select("path,last_changed_at").eq("active", true).not("last_changed_at", "is", null);
         if (error) throw new Error("Sitemap content timestamps could not be read");
-        const modified = new Map((overrides ?? []).map((r) => [r.path, r.last_changed_at as string]));
+        const modified = new Map(Object.entries(PAGE_CONTENT_MODIFIED));
+        for (const row of overrides ?? []) {
+          const date = latestContentDate(modified.get(row.path), row.last_changed_at);
+          if (date) modified.set(row.path, date);
+        }
         const posts = await publishedPosts("slug,published_at,content_updated_at");
-        if (posts.length) modified.set("/blog", posts.reduce((latest, p) => {
-          const date = p.content_updated_at ?? p.published_at;
-          return date > latest ? date : latest;
-        }, ""));
+        const blogDate = latestContentDate(modified.get("/blog"), ...posts.map((p) => p.content_updated_at ?? p.published_at));
+        if (blogDate) modified.set("/blog", blogDate);
         const urls = entries.map((e) =>
           `  <url>\n    <loc>${BASE_URL}${e.path}</loc>${modified.get(e.path) ? `\n    <lastmod>${escape(modified.get(e.path) ?? "")}</lastmod>` : ""}\n    <changefreq>${e.changefreq}</changefreq>\n    <priority>${e.priority}</priority>\n  </url>`
         );

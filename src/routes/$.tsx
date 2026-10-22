@@ -73,8 +73,10 @@ function resolveRedirect(splat: string): string | null {
 
   // Common WP suffixes: /something/feed, /something/amp, /something/page/2
   const base = clean.split("/")[0];
-  if (KNOWN_ROUTES.has(base)) return `/${base}`;
-  if (REDIRECTS[base]) return REDIRECTS[base];
+  if (/^[^/]+\/(?:feed|amp|page\/\d+)$/.test(clean)) {
+    if (KNOWN_ROUTES.has(base)) return `/${base}`;
+    if (REDIRECTS[base]) return REDIRECTS[base];
+  }
 
   return null;
 }
@@ -93,6 +95,11 @@ export const Route = createFileRoute("/$")({
     meta: [
       { title: "Pagina nu a fost găsită — Etichett Prod" },
       { name: "robots", content: "noindex, follow" },
+      { name: "description", content: "Pagina căutată nu există. Revino la Etichett Prod pentru etichete textile personalizate și informații despre produsele noastre." },
+      { property: "og:title", content: "Pagina nu a fost găsită — Etichett Prod" },
+      { property: "og:description", content: "Pagina căutată nu există. Descoperă produsele Etichett Prod." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary" },
     ],
   }),
   component: NotFoundPage,

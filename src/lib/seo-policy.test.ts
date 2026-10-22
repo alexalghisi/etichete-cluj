@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { canonicalPath, mergeFaqs, protectedSeoField } from "./seo-policy";
 import { relevantProducts, normalizeArticleLinks } from "./product-links";
+import { latestContentDate } from "./content-modified";
 
 describe("Canonical consolidation", () => {
   it("consolidates saten into satin", () => expect(canonicalPath("/etichete-saten/")).toBe("/etichete-satin"));
@@ -22,4 +23,8 @@ it("gives articles three unique relevant product destinations", () => {
 });
 it("normalizes legacy links in article content", () => {
   expect(normalizeArticleLinks('<a href="/etichete-saten">saten</a>')).toBe('<a href="/etichete-satin">saten</a>');
+});
+it("selects authoritative timestamps without inventing a fallback", () => {
+  expect(latestContentDate(null, undefined)).toBeUndefined();
+  expect(latestContentDate("2026-10-04T00:00:00Z", "2026-10-22T01:10:58Z")).toBe("2026-10-22T01:10:58Z");
 });

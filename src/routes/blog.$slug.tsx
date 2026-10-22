@@ -44,7 +44,8 @@ export const Route = createFileRoute("/blog/$slug")({
             description: post.meta_description,
             datePublished: post.published_at,
             dateModified: post.content_updated_at ?? post.published_at,
-            image: (() => { const image = post.content.match(/<img[^>]+src=["'](https:\/\/[^"']+)["']/i)?.[1]; return image; })(),
+            // Legacy text-only articles use the existing brand image visible in the header.
+            image: post.content.match(/<img[^>]+src=["'](https:\/\/[^"']+)["']/i)?.[1] ?? `${SITE}/images/logo.png`,
             inLanguage: "ro",
             author: { "@type": "Organization", name: "Etichett Prod", url: SITE },
             publisher: { "@type": "Organization", name: "Etichett Prod", url: SITE, logo: { "@type": "ImageObject", url: `${SITE}/images/logo.png` } },

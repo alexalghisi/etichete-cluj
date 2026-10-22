@@ -1,4 +1,5 @@
 import { BUSINESS, MINIMUM_SUMMARY, factualFaq } from "@/lib/business-facts";
+import { ProductGuide } from "@/components/ProductGuide";
 import { RouteError, RouteNotFound } from "@/components/RouteBoundary";
 import { getSeoOverride } from "@/lib/seo-overrides.functions";
 import { applySeo } from "@/lib/seo-head";
@@ -79,6 +80,7 @@ function EticheteSatin() {
           <img src="/images/materials/satin.png" alt="Etichete satin personalizate" className="mx-auto h-72 w-72 object-contain" loading="lazy" />
         </div>
       </section>
+      <ProductGuide slug="satin" />
       <FaqSection
         pageUrl="https://etichetetextile.ro/etichete-satin"
         items={[

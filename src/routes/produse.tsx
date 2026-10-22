@@ -12,8 +12,8 @@ export const Route = createFileRoute("/produse")({
   component: Produse,
   head: ({ loaderData }) => applySeo({
     meta: [
-      { title: "Etichete textile — produse țesute & imprimate Cluj" },
-      { name: "description", content: "Etichete pentru haine și branduri: țesute, imprimate, de compoziție, adezive, termoadezive. Producție Cluj-Napoca, livrare națională." },
+      { title: "Etichete textile — produse țesute & imprimate Cluj | Etichett Prod" },
+      { name: "description", content: "Etichete pentru haine și branduri: țesute, imprimate, de compoziție, carton și adezive. Producție în Cluj-Napoca, livrare. Cere ofertă gratuită în 24h." },
       { property: "og:title", content: "Etichete textile — produse țesute & imprimate Cluj" },
       { property: "og:description", content: "Gamă completă de etichete: țesute, imprimate, de compoziție, autoadezive pentru îmbrăcăminte și branduri. Producător Cluj-Napoca." },
       { property: "og:url", content: "https://etichetetextile.ro/produse" },

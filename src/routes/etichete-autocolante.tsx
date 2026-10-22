@@ -14,7 +14,7 @@ export const Route = createFileRoute("/etichete-autocolante")({
   head: ({ loaderData }) => applySeo({
     meta: [
       { title: "Etichete autocolante personalizate pe role | Etichett Prod" },
-      { name: "description", content: "Etichete autocolante personalizate imprimate HD pe role — pentru produse, cosmetice, vinuri, borcane și ambalaje. Producător Cluj, livrare RO." },
+      { name: "description", content: "Etichete autocolante personalizate pe role sau coli, cu imprimare HD pentru produse și ambalaje. Producție locală în. Cere ofertă gratuită în 24h." },
       { name: "keywords", content: "etichete autocolante, etichete autocolante personalizate, etichete autocolante pe role, etichete autocolante cluj, etichete autocolante ieftine, etichete autocolante online, etichete autocolante imprimate, imprimanta etichete autocolante" },
       { property: "og:title", content: "Etichete autocolante personalizate | Etichett Prod" },
       { property: "og:description", content: "Etichete autocolante personalizate pe role, imprimate HD — producător Cluj-Napoca." },
@@ -77,6 +77,7 @@ function EticheteAutocolante() {
             <p className="mt-3 text-muted-foreground">
               Producem <strong>etichete autocolante personalizate</strong> pe role, pe hârtie albă, transparentă, metalizată sau kraft, cu finisaje mat, lucios sau lac selectiv. Calitate de tipografie, în serie — fără limitele unei <em>imprimante de etichete autocolante</em> de birou.
             </p>
+            <p className="mt-4 text-muted-foreground">Pentru identitatea brandului poți alege <Link to="/etichete-tesute" className="font-semibold text-primary hover:underline">etichete țesute</Link>; pentru aplicare fără cusături, <Link to="/etichete-termoadezive" className="font-semibold text-primary hover:underline">etichete termoadezive pentru haine</Link>. Consultă și ghidul <Link to="/simboluri-etichete-haine" className="font-semibold text-primary hover:underline">simboluri etichete haine</Link> pentru instrucțiunile de îngrijire.</p>
             <h3 className="mt-6 text-lg font-bold">Aplicații frecvente</h3>
             <ul className="mt-3 grid gap-2 text-sm">
               {aplicatii.map((a) => (

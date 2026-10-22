@@ -13,7 +13,7 @@ export const Route = createFileRoute("/etichete-cluj")({
   head: ({ loaderData }) => applySeo({
     meta: [
       { title: "Etichete Cluj — producător etichete textile | Etichett Prod" },
-      { name: "description", content: "Etichete Cluj: producător local de etichete textile personalizate — țesute, imprimate, satin, nylon, carton. Atelier în Cluj-Napoca." },
+      { name: "description", content: "Etichete Cluj-Napoca: textile și personalizate, produse local din 1993. Atelier pe Str. Uzinei Electrice nr. 9, livrare în. Cere ofertă gratuită în 24h." },
       { name: "keywords", content: "etichete cluj, etichete textile cluj, producator etichete cluj, etichete haine cluj, etichete personalizate cluj, etichete tesute cluj, etichete imprimate cluj" },
       { property: "og:title", content: "Etichete Cluj — producător etichete textile | Etichett Prod" },
       { property: "og:description", content: "Producător de etichete textile în Cluj. Etichete personalizate, țesute, imprimate pentru branduri locale și naționale." },
@@ -51,6 +51,7 @@ function EticheteCluj() {
           <div className="md:col-span-2 space-y-6">
             <h2 className="text-3xl font-bold">De ce să alegi un producător de etichete din Cluj-Napoca</h2>
             <p className="text-muted-foreground">Lucrăm direct cu producătorii și brandurile locale din Cluj-Napoca și din împrejurimi. Discutăm față în față, putem prelua și preda comenzi la atelier, iar timpul de producție este semnificativ redus comparativ cu un furnizor extern.</p>
+            <p className="mt-4 text-muted-foreground">Pentru identitatea brandului poți alege <Link to="/etichete-tesute" className="font-semibold text-primary hover:underline">etichete țesute</Link>; pentru aplicare fără cusături, <Link to="/etichete-termoadezive" className="font-semibold text-primary hover:underline">etichete termoadezive pentru haine</Link>. Consultă și ghidul <Link to="/simboluri-etichete-haine" className="font-semibold text-primary hover:underline">simboluri etichete haine</Link> pentru instrucțiunile de îngrijire.</p>
             <p className="text-muted-foreground">Pentru branduri din toată țara, livrăm prin curier rapid în toată România.</p>
 
             <h2 className="text-2xl font-bold mt-10">Etichete pentru branduri din Cluj-Napoca și zona metropolitană</h2>

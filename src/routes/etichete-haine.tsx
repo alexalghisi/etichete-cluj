@@ -15,7 +15,7 @@ export const Route = createFileRoute("/etichete-haine")({
   head: ({ loaderData }) => applySeo({
     meta: [
       { title: "Etichete haine personalizate cu logo — de la 100 buc | Etichett Prod" },
-      { name: "description", content: "Etichete haine personalizate cu logo: țesute, satin, termoadezive, compoziție și mărime. Vezi galeria cu exemple reale. Producător Cluj-Napoca, 30+ ani." },
+      { name: "description", content: "Etichete haine personalizate cu logo, mărime și compoziție: țesute, satin sau termoadezive. Producător în Cluj-Napoca. Cere ofertă gratuită în 24h." },
       { name: "keywords", content: "etichete haine, etichete pentru haine, etichete personalizate haine, etichete haine personalizate, etichete haine cu logo, etichete brand haine, etichete haine copii, etichete textile haine" },
       { property: "og:title", content: "Etichete pentru haine personalizate | Etichett Prod" },
       { property: "og:description", content: "Etichete pentru haine cu logo, compoziție și mărime — țesute, satin, termoadezive. Producător Cluj." },
@@ -69,6 +69,7 @@ function EticheteHaine() {
             <p className="mt-3 text-muted-foreground">
               Realizăm <strong>etichete pentru haine</strong> cu logo, mărime, compoziție și instrucțiuni de spălare — pentru branduri de fashion, ateliere handmade, magazine de copii și companii cu uniforme. Alege tipul care se potrivește produsului tău.
             </p>
+            <p className="mt-4 text-muted-foreground">Pentru identitatea brandului poți alege <Link to="/etichete-tesute" className="font-semibold text-primary hover:underline">etichete țesute</Link>; pentru aplicare fără cusături, <Link to="/etichete-termoadezive" className="font-semibold text-primary hover:underline">etichete termoadezive pentru haine</Link>. Consultă și ghidul <Link to="/simboluri-etichete-haine" className="font-semibold text-primary hover:underline">simboluri etichete haine</Link> pentru instrucțiunile de îngrijire.</p>
             <ul className="mt-5 grid gap-2 text-sm">
               {[
                 "Etichete haine cu logo brodat sau țesut",

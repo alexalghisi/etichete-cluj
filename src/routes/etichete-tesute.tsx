@@ -14,7 +14,7 @@ export const Route = createFileRoute("/etichete-tesute")({
   head: ({ loaderData }) => applySeo({
     meta: [
       { title: "Etichete țesute pe damasc & satin — Cluj | Etichett Prod" },
-      { name: "description", content: "Etichete țesute personalizate pe damasc, satin sau taffeta — în role, tăiate sau pliate. Finisaj premium pentru branduri de haine. Producător Cluj-Napoca." },
+      { name: "description", content: "Etichete țesute personalizate pe damasc, satin și taffeta, în role, tăiate sau pliate. Logo și culori pentru brandurile de. Cere ofertă gratuită în 24h." },
       { name: "keywords", content: "etichete tesute, etichete tesute personalizate, etichete tesute haine, etichete tesute damasc, etichete tesute satin, etichete tesute cluj, etichete textile tesute" },
       { property: "og:title", content: "Etichete țesute pe damasc & satin — Cluj | Etichett Prod" },
       { property: "og:description", content: "Etichete țesute premium pentru îmbrăcăminte — damasc, satin, taffeta, în multiple culori." },
@@ -68,6 +68,7 @@ function EticheteTesute() {
             <p className="mt-3 text-muted-foreground">
               <strong>Etichetele țesute</strong> sunt cele mai apreciate etichete textile pentru branduri premium. Logoul este țesut direct în material, nu imprimat — rezultă o textură și o durabilitate net superioare. Producem <em>etichete țesute personalizate</em> pe damasc (cel mai folosit), satin (lucios) sau taffeta (subțire).
             </p>
+            <p className="mt-4 text-muted-foreground">Pentru identitatea brandului poți alege etichete țesute; pentru aplicare fără cusături, <Link to="/etichete-termoadezive" className="font-semibold text-primary hover:underline">etichete termoadezive pentru haine</Link>. Consultă și ghidul <Link to="/simboluri-etichete-haine" className="font-semibold text-primary hover:underline">simboluri etichete haine</Link> pentru instrucțiunile de îngrijire.</p>
             <h3 className="mt-6 text-lg font-bold">Variante de livrare</h3>
             <ul className="mt-3 grid gap-2 text-sm">
               {[

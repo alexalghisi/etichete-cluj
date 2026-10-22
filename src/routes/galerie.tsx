@@ -187,7 +187,7 @@ export const Route = createFileRoute("/galerie")({
   head: ({ loaderData }) => applySeo({
     meta: [
       { title: "Galerie etichete textile — proiecte Cluj | Etichett Prod" },
-      { name: "description", content: "Galerie etichete textile personalizate realizate de Etichett Prod în Cluj-Napoca: țesute, imprimate, pentru branduri și ateliere." },
+      { name: "description", content: "Vezi etichete textile țesute și imprimate, etichete de compoziție și hangtag-uri, realizate de Etichett Prod pentru branduri. Cere ofertă gratuită în 24h." },
       { property: "og:title", content: "Galerie etichete textile — proiecte Cluj | Etichett Prod" },
       { property: "og:description", content: "Proiecte realizate: etichete textile personalizate țesute și imprimate pentru branduri de îmbrăcăminte." },
       { property: "og:url", content: "https://etichetetextile.ro/galerie" },

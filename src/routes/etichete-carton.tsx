@@ -14,7 +14,7 @@ export const Route = createFileRoute("/etichete-carton")({
   head: ({ loaderData }) => applySeo({
     meta: [
       { title: "Etichete carton — hangtag personalizat haine | Etichett Prod" },
-      { name: "description", content: "Etichete carton (hangtag) personalizate pentru haine: brand, preț, cod de bare, țara de origine. Carton premium, finisaje variate. Producător Cluj." },
+      { name: "description", content: "Etichete carton personalizate și hangtag-uri pentru haine, cu logo, cod de bare și finisaje variate. Producător în. Cere ofertă gratuită în 24h." },
       { name: "keywords", content: "etichete carton, etichete carton personalizate, hangtag, hangtag personalizat, etichete carton haine, etichete carton cluj, etichete hartie carton" },
       { property: "og:title", content: "Etichete carton — hangtag personalizat haine | Etichett Prod" },
       { property: "og:description", content: "Hangtag-uri din carton premium pentru brandul tău — diverse forme, finisaje și grosimi." },
@@ -58,6 +58,7 @@ function EticheteCarton() {
             <p className="mt-3 text-muted-foreground">
               <strong>Etichetele carton</strong> (sau <em>hangtag-urile</em>) sunt indispensabile brandurilor de îmbrăcăminte. Le folosești pentru a comunica <em>marca, prețul, codul de bare, mărimea, țara de origine</em> și storytelling-ul produsului tău. Tipărim pe carton de 250–400 g/mp în diverse forme și finisaje.
             </p>
+            <p className="mt-4 text-muted-foreground">Pentru identitatea brandului poți alege <Link to="/etichete-tesute" className="font-semibold text-primary hover:underline">etichete țesute</Link>; pentru aplicare fără cusături, <Link to="/etichete-termoadezive" className="font-semibold text-primary hover:underline">etichete termoadezive pentru haine</Link>. Consultă și ghidul <Link to="/simboluri-etichete-haine" className="font-semibold text-primary hover:underline">simboluri etichete haine</Link> pentru instrucțiunile de îngrijire.</p>
             <h3 className="mt-6 text-lg font-bold">Opțiuni disponibile</h3>
             <ul className="mt-3 grid gap-2 text-sm">
               {[

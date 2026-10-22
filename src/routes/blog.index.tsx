@@ -12,7 +12,7 @@ export const Route = createFileRoute("/blog/")({
   head: ({ loaderData }) => applySeo({
     meta: [
       { title: "Blog Etichete Textile — Sfaturi, Ghiduri și Noutăți | Etichett Prod Cluj" },
-      { name: "description", content: "Articole practice despre etichete textile, etichete țesute, simboluri de spălare și tips pentru branduri de îmbrăcăminte. Ghiduri scrise de un producător din Cluj cu experiență din 1993." },
+      { name: "description", content: "Ghiduri despre etichete textile, țesute, satin și compoziție, scrise pentru branduri și producători. Descoperă sfaturile. Cere ofertă gratuită în 24h." },
       { name: "keywords", content: "blog etichete, etichete textile, etichete cluj, ghid etichete haine, simboluri spalare" },
       { property: "og:title", content: "Blog Etichete Textile — Sfaturi și Ghiduri | Etichett Prod" },
       { property: "og:description", content: "Articole practice despre etichete textile, țesute și personalizate, scrise de producătorul clujean Etichett Prod." },

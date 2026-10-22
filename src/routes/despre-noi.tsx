@@ -13,7 +13,7 @@ export const Route = createFileRoute("/despre-noi")({
   head: ({ loaderData }) => applySeo({
     meta: [
       { title: "Despre noi — Etichete textile Cluj din 1993 | Etichett Prod" },
-      { name: "description", content: "Etichett Prod — producător de etichete textile în Cluj-Napoca din 1993. Etichete țesute, imprimate, de compoziție pentru haine și branduri." },
+      { name: "description", content: "Etichett Prod produce etichete textile personalizate în Cluj-Napoca din 1993. Descoperă atelierul, materialele și soluțiile. Cere ofertă gratuită în 24h." },
       { property: "og:title", content: "Despre noi — Etichete textile Cluj din 1993 | Etichett Prod" },
       { property: "og:description", content: "Producător de etichete textile în Cluj-Napoca din 1993. Etichete imprimate, țesute, de compoziție rezistente la spălare." },
       { property: "og:url", content: "https://etichetetextile.ro/despre-noi" },

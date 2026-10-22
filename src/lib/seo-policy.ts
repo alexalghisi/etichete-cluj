@@ -23,6 +23,15 @@ export function protectedSeoField(path: string, field: string): boolean {
 export function brandTitle(title: string): string {
   return title.replace(/\bETICHETT(?: PROD)?\b|\bEtichett\b(?! Prod)/g, "Etichett Prod");
 }
+export function seoDescription(value: string): string {
+  const cta = "Cere ofertă gratuită în 24h";
+  if (value.length >= 140 && value.length <= 155 && value.includes(cta)) return value;
+  const words = value.replace(/Cere ofertă gratuită în 24h[.!]?/g, "").trim().replace(/[.!]+$/, "").split(/\s+/);
+  while (`${words.join(" ")}. ${cta}.`.length > 155 && words.length > 1) words.pop();
+  let description = `${words.join(" ")}. ${cta}.`;
+  if (description.length < 140) description = `${words.join(" ")}. Etichett Prod. ${cta}.`;
+  return description;
+}
 export function mergeFaqs<T extends { q: string; a: string }>(...groups: T[][]): T[] {
   const seen = new Set<string>();
   return groups.flat().filter((faq) => {

@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { canonicalPath, mergeFaqs, protectedSeoField } from "./seo-policy";
+import { canonicalPath, mergeFaqs, protectedSeoField, seoDescription } from "./seo-policy";
 import { relevantProducts, normalizeArticleLinks } from "./product-links";
 import { latestContentDate } from "./content-modified";
 
@@ -27,4 +27,10 @@ it("normalizes legacy links in article content", () => {
 it("selects authoritative timestamps without inventing a fallback", () => {
   expect(latestContentDate(null, undefined)).toBeUndefined();
   expect(latestContentDate("2026-10-04T00:00:00Z", "2026-10-22T01:10:58Z")).toBe("2026-10-22T01:10:58Z");
+});
+it("keeps meta descriptions within 140–155 characters with the requested CTA", () => {
+  const description = seoDescription("Ghid practic: cum alegi etichetele textile potrivite — țesute, satin sau imprimate — în funcție de țesătură, spălare și buget. Sfaturi de la un producător cu experiență din 1993.");
+  expect(description.length).toBeGreaterThanOrEqual(140);
+  expect(description.length).toBeLessThanOrEqual(155);
+  expect(description).toContain("Cere ofertă gratuită în 24h");
 });

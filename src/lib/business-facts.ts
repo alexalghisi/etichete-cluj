@@ -20,13 +20,13 @@ export function minimumFor(type: string): number | null {
 export const MINIMUM_SUMMARY = `Imprimate (satin, nylon, bumbac): ${BUSINESS.minimum.printed} buc; țesute: ${BUSINESS.minimum.woven} buc/model; copii: ${BUSINESS.minimum.children} buc/nume; autocolante: ${BUSINESS.minimum.stickers} buc. Pentru celelalte variante confirmăm tirajul în ofertă.`;
 /** Legacy CMS prose is normalized as well as source copy. */
 export function factualText(text: string): string {
-  return text.replace(/(?:de la|~|aproximativ)?\s*0[,.]\d+\s*(?:RON|lei)(?:\s*\/\s*(?:buc(?:ată)?\.?))?/gi, BUSINESS.price)
+  return text.split(BUSINESS.production).map(part => part.replace(/(?:de la|~|aproximativ)?\s*0[,.]\d+\s*(?:RON|lei)(?:\s*\/\s*(?:buc(?:ată)?\.?))?/gi, BUSINESS.price)
     .replace(/(?:\d+[––-]\d+|\d+)\s*(?:zile lucrătoare|zile|săptămâni)\s*(?:de la (?:aprobarea bunului de tipar|confirmarea designului))?/gi, BUSINESS.production)
-    .replace(/(?:regim accelerat|urgențe)\s*\([^)]*\)/gi, BUSINESS.urgent);
+    .replace(/(?:regim accelerat|urgențe)\s*\([^)]*\)/gi, BUSINESS.urgent)).join(BUSINESS.production);
 }
 export function factualFaq(q: string, a: string, path: string): string {
   if (/cantitat|comand.*minim/i.test(q)) {
-    const type = path.replace('/etichete-', ''); const minimum = minimumFor(type === 'haine-copii' ? 'copii' : type);
+    const type = path === '/embleme-tesute' ? 'tesute' : path.replace('/etichete-', ''); const minimum = minimumFor(type === 'haine-copii' ? 'copii' : type);
     return minimum ? `Cantitatea minimă este ${minimum} buc${type === 'tesute' ? '/model' : type === 'haine-copii' ? '/nume' : ''}. ${BUSINESS.price}.` : MINIMUM_SUMMARY;
   }
   if (/cât.*(?:cost|preț)|prețul/i.test(q)) return `${BUSINESS.price}. Oferta depinde de material, dimensiuni, cantitate și personalizare.`;

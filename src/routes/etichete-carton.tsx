@@ -83,7 +83,7 @@ function EticheteCarton() {
         pageUrl="https://etichetetextile.ro/etichete-carton"
         items={[
           { q: "Ce sunt etichetele din carton?", a: factualFaq('Ce sunt etichetele din carton?', 'Etichetele din carton (hangtag-uri) sunt etichete rigide din carton 250–400 g/mp, atașate cu șnur sau cleme pe haine și produse. Comunică brandul, prețul, codul de bare și mărimea.', '/etichete-carton') },
-          { q: "Ce grosime de carton recomandați pentru hangtag?", a: factualFaq('Ce grosime de carton recomandați pentru hangtag?', 'Pentru haine recomandăm 300–350 g/mp — suficient de rigid și cu aspect premium. Pentru produse de lux folosim carton 400 g/mp cu finisaje speciale (folio, relief).', '/etichete-carton') },
+          { q: "Ce grosime de carton recomandați pentru hangtag?", a: factualFaq('Ce grosime de carton recomandați pentru hangtag?', BUSINESS.price, '/etichete-carton') },
           { q: "Pot avea cod de bare pe eticheta de carton?", a: factualFaq('Pot avea cod de bare pe eticheta de carton?', 'Da. Generăm și tipărim coduri EAN-13, EAN-8 sau QR direct pe eticheta de carton, în serii unice sau identice.', '/etichete-carton') },
           { q: "Etichetele carton pot fi reciclate?", a: factualFaq('Etichetele carton pot fi reciclate?', 'Da. Oferim variante de carton reciclat 100% și kraft natural, pentru branduri eco-friendly.', '/etichete-carton') },
           { q: "Care este diferența între etichetă carton și hangtag?", a: factualFaq('Care este diferența între etichetă carton și hangtag?', 'Sunt același lucru — „hangtag” este termenul englezesc folosit în industria fashion pentru eticheta de carton atașată cu șnur.', '/etichete-carton') },

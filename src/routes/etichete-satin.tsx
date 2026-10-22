@@ -87,7 +87,7 @@ function EticheteSatin() {
           { q: "Etichetele satin se cos sau se aplică termic?", a: factualFaq('Etichetele satin se cos sau se aplică termic?', 'Ambele variante sunt posibile. Etichetele satin clasice se cos pe ceafă sau lateral, iar versiunea termoadezivă se aplică cu presa termică, fără cusături.', '/etichete-satin') },
           { q: "Pe etichetele satin pot pune compoziția în mai multe limbi?", a: factualFaq('Pe etichetele satin pot pune compoziția în mai multe limbi?', 'Da. Imprimăm față-verso, ceea ce permite compoziție multilingvă (RO/EN/DE/FR/IT) și simboluri ISO 3758 pentru spălare.', '/etichete-satin') },
           { q: "Etichetele satin zgârie pielea?", a: factualFaq('Etichetele satin zgârie pielea?', 'Nu. Satinul este un material moale, plăcut pe piele — folosit inclusiv pentru lenjerie, haine de copii și tricouri.', '/etichete-satin') },
-          { q: "Cât costă etichetele satin personalizate?", a: factualFaq('Cât costă etichetele satin personalizate?', 'Prețul pornește de la ~0,15 lei/buc și depinde de dimensiune, cantitate și complexitatea imprimării. Trimite-ne logoul pentru ofertă.', '/etichete-satin') },
+          { q: "Cât costă etichetele satin personalizate?", a: factualFaq('Cât costă etichetele satin personalizate?', BUSINESS.price, '/etichete-satin') },
         ]}
       />
     </PageLayout>

@@ -95,7 +95,7 @@ function EticheteNylon() {
           { q: "Rezistă la spălare la 90°C?", a: factualFaq('Rezistă la spălare la 90°C?', 'Da. Etichetele nylon rezistă la spălări repetate la 60–90°C fără decolorare, atâta vreme cât cernelurile sunt cele indicate pentru textile.', '/etichete-nylon') },
           { q: "Nylon sau satin pentru compoziție?", a: factualFaq('Nylon sau satin pentru compoziție?', 'Ambele sunt bune. Nylon = mai economic și mai subțire; satin = mai premium și mai plăcut pe piele. Pentru fashion recomandăm satin, pentru sport nylon.', '/etichete-nylon') },
           { q: "Etichetele nylon pot fi termoadezive?", a: factualFaq('Etichetele nylon pot fi termoadezive?', 'Da. Aplicăm nylonul cu adeziv pe spate, care se activează cu presa termică — util la echipamentele fără cusături.', '/etichete-nylon') },
-          { q: "Care este cantitatea minimă?", a: factualFaq('Care este cantitatea minimă?', 'Pornim de la 200 buc. pentru etichete nylon imprimate. Sub această cantitate recomandăm satinul.', '/etichete-nylon') },
+          { q: "Care este cantitatea minimă?", a: factualFaq('Care este cantitatea minimă?', BUSINESS.price, '/etichete-nylon') },
         ]}
       />
     </PageLayout>

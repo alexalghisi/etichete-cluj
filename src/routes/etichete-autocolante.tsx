@@ -113,7 +113,7 @@ function EticheteAutocolante() {
           { q: "Care e cantitatea minimă pentru etichete autocolante personalizate?", a: factualFaq('Care e cantitatea minimă pentru etichete autocolante personalizate?', 'Producem etichete autocolante de la 500 de bucăți. Pentru cantități mari (peste 10.000) prețul scade semnificativ.', '/etichete-autocolante') },
           { q: "Pe ce suprafețe se aplică etichetele autocolante?", a: factualFaq('Pe ce suprafețe se aplică etichetele autocolante?', 'Pe sticlă, plastic, carton, metal, hârtie. Avem adezivi specializați pentru congelare, suprafețe umede sau anvelope.', '/etichete-autocolante') },
           { q: "Pot avea etichete autocolante transparente?", a: factualFaq('Pot avea etichete autocolante transparente?', 'Da. Producem etichete autocolante pe folie transparentă (efect „no-label look”), folie albă, metalizată aur/argint sau hârtie kraft naturală.', '/etichete-autocolante') },
-          { q: "Cât costă etichetele autocolante personalizate?", a: factualFaq('Cât costă etichetele autocolante personalizate?', 'Prețul pleacă de la 0,05 RON/bucată și depinde de cantitate, dimensiune, material și finisaj. Trimite specificațiile pe contact și primești ofertă în 24h.', '/etichete-autocolante') },
+          { q: "Cât costă etichetele autocolante personalizate?", a: factualFaq('Cât costă etichetele autocolante personalizate?', BUSINESS.price, '/etichete-autocolante') },
           { q: "Faceți etichete autocolante în Cluj?", a: factualFaq('Faceți etichete autocolante în Cluj?', 'Da. Suntem producător de etichete autocolante în Cluj-Napoca cu peste 30 de ani experiență. Livrăm în toată România.', '/etichete-autocolante') },
         ]}
       />

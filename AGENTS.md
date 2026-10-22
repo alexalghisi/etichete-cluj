@@ -10,3 +10,5 @@
 - Business-facts is the authoritative source for commercial values; render-time FAQ and CMS normalization and daily SEO prompts must honor it to prevent conflicting claims.
 - Public quote submissions use validated server functions and private signed logo uploads; only admins can read quotes/files, and quote summaries also appear in the existing contact inbox.
 - Composition generator shares CareSymbol and typed fibre translations; exports must preserve physical SVG units and pass structured label data into the quote wizard.
+
+- QuoteAdmin uses admin-scoped browser reads and private blob downloads; original logo files are downloaded, never rendered as uploaded HTML or SVG.

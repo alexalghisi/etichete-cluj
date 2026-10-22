@@ -11,7 +11,6 @@ const REDIRECTS: Record<string, string> = {
   "etichete-mobilier": "/etichete-personalizate",
   "etichete-produse": "/produse",
   "panglici-personalizate": "/etichete-personalizate",
-  "producator-etichete": "/despre-noi",
 
   // Legacy city pages (we now consolidate Cluj presence)
   "etichete-timisoara": "/etichete-personalizate",

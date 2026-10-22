@@ -10,6 +10,8 @@ import {
 
 import appCss from "../styles.css?url";
 import { CookieConsent } from "@/components/CookieConsent";
+import { ConversionControls } from '@/components/ConversionControls';
+import { BUSINESS } from '@/lib/business-facts';
 
 function NotFoundComponent() {
   return (
@@ -80,14 +82,13 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           legalName: "S.C. ETICHETT PROD S.R.L.",
           description: "Producător de etichete textile personalizate din Cluj-Napoca: etichete țesute, imprimate, de compoziție pentru haine, încălțăminte, marochinărie și branduri.",
           url: "https://etichetetextile.ro/",
-          telephone: ["+40747264832", "+40264599966"],
-          email: "etichettprod@yahoo.com",
-          foundingDate: "1993",
-          priceRange: "$$",
+          telephone: [BUSINESS.phoneHref.slice(4), BUSINESS.landlineHref.slice(4)],
+          email: BUSINESS.email,
+          foundingDate: String(BUSINESS.founded),
           address: {
             "@type": "PostalAddress",
-            streetAddress: "Str. Uzinei Electrice Nr. 9",
-            addressLocality: "Cluj-Napoca",
+            streetAddress: BUSINESS.street,
+            addressLocality: BUSINESS.city,
             addressRegion: "Cluj",
             postalCode: "400000",
             addressCountry: "RO",
@@ -144,6 +145,7 @@ function RootComponent() {
     <QueryClientProvider client={queryClient}>
       <Outlet />
       <CookieConsent />
+      <ConversionControls />
     </QueryClientProvider>
   );
 }

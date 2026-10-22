@@ -82,3 +82,8 @@
     box-shadow: 0 10px 40px -10px color-mix(in oklab, var(--primary) 30%, transparent);
   }
 }
+
+.label-art { color: var(--foreground); max-width: none; }
+.label-art > g > g, .label-art svg { color: black; }
+.label-art svg { width: 48px; height: 48px; }
+@media (max-width: 767px) { body { padding-bottom: 64px; } }

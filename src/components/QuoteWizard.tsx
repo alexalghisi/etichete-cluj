@@ -1,0 +1,48 @@
+import { useEffect, useState } from "react";
+import { useServerFn } from "@tanstack/react-start";
+import { ArrowLeft, ArrowRight, CheckCircle2, Upload, Send } from "lucide-react";
+import { Button } from "./ui/button";
+import { supabase } from "@/integrations/supabase/client";
+import { BUSINESS, LABEL_TYPES, minimumFor, TYPE_NAMES, type LabelType } from "@/lib/business-facts";
+import { prepareLogoUpload, submitQuote } from "@/lib/quote.functions";
+import { quoteSchema } from "@/lib/quote-schema";
+import { trackConversion } from "@/lib/conversions";
+const field = "mt-1 w-full rounded-md border border-input bg-background px-3 py-2";
+const steps = ["Tip etichetă", "Dimensiune", "Cantitate", "Personalizare", "Logo", "Termen și contact"];
+export function QuoteWizard({ initialType, initialLabel }: { initialType?: LabelType; initialLabel?: string }) {
+  const send = useServerFn(submitQuote); const prepare = useServerFn(prepareLogoUpload);
+  const [step,setStep] = useState(0); const [busy,setBusy] = useState(false); const [error,setError] = useState(""); const [done,setDone] = useState(""); const [file,setFile] = useState<File | null>(null);
+  const [form,setForm] = useState({ type: initialType ?? "satin" as LabelType, width: 15, height: 50, quantity: 100, colors: "", finish: "Tăiat", application: "cusut" as "cusut" | "termo" | "adeziv", deadline: "", name: "", company: "", phone: "", email: "", labelData: initialLabel ?? "", website: "", consent: false });
+  useEffect(() => { if(initialType) setForm(f=>({...f,type:initialType})); },[initialType]);
+  const set = (key: keyof typeof form, value: string | number | boolean) => setForm(f => ({...f,[key]: value}));
+  const minimum = minimumFor(form.type);
+  const next = () => { setError(""); if(step===1 && (form.width<5 || form.height<5 || form.width>300 || form.height>300)) {setError("Dimensiunea trebuie să fie între 5 și 300 mm.");return;} if(step===2 && (!Number.isInteger(form.quantity) || form.quantity<1)) {setError("Introdu o cantitate validă.");return;} setStep(s=>Math.min(5,s+1)); };
+  const submit = async (e: React.FormEvent) => {
+    e.preventDefault(); setError(""); const id=crypto.randomUUID();
+    const parsed=quoteSchema.safeParse({...form,id,logoPath:null}); if(!parsed.success) {setError("Verifică numele, telefonul, emailul și acordul pentru prelucrarea cererii.");return;}
+    setBusy(true);
+    try {
+      let logoPath: string | null=null;
+      if(file) { const extension=file.name.split('.').pop()?.toLowerCase(); if(!['pdf','ai','svg','png'].includes(extension ?? '') || file.size>10*1024*1024) throw new Error('Alege PDF, AI, SVG sau PNG de maximum 10 MB.');
+        const ext=extension as 'pdf'|'ai'|'svg'|'png'; const signed=await prepare({data:{extension:ext,size:file.size}});
+        const {error:uploadError}=await supabase.storage.from('quote-logos').uploadToSignedUrl(signed.path,signed.token,file); if(uploadError) throw new Error('Logoul nu a putut fi încărcat. Reîncearcă.'); logoPath=signed.path;
+      }
+      const result=await send({data:{...parsed.data,logoPath}}); setDone(result.reference); trackConversion('generate_lead',{form:'quote',label_type:form.type});
+    } catch(err) {setError(err instanceof Error ? err.message : 'Cererea nu a putut fi trimisă.');} finally {setBusy(false);}
+  };
+  if(done) return <div role="status" className="py-16 text-center"><CheckCircle2 className="mx-auto h-12 w-12 text-primary"/><h2 className="mt-4 text-2xl font-bold">Mulțumim! Cererea ta a fost înregistrată.</h2><p className="mt-3 text-muted-foreground">Referință: {done}. Te contactăm pentru ofertă și simularea grafică.</p><p className="mt-2 text-sm">{BUSINESS.production}. {BUSINESS.urgent}.</p></div>;
+  return <form onSubmit={submit} className="mx-auto max-w-3xl py-12">
+    <ol className="mb-8 grid grid-cols-3 gap-2 sm:grid-cols-6" aria-label="Pașii cererii">{steps.map((name,i)=><li key={name} aria-current={i===step?'step':undefined} className={`border-t-4 py-2 text-xs ${i<=step?'border-primary text-foreground':'border-border text-muted-foreground'}`}>{i+1}. {name}</li>)}</ol>
+    <h2 className="mb-6 text-2xl font-bold">{step+1}. {steps[step]}</h2>
+    {step===0 && <div className="grid gap-3 sm:grid-cols-3">{LABEL_TYPES.map(type=><Button key={type} type="button" variant={form.type===type?'default':'outline'} className="h-14 whitespace-normal" onClick={()=>set('type',type)}>{TYPE_NAMES[type]}</Button>)}</div>}
+    {step===1 && <div className="space-y-6"><div className="flex flex-wrap gap-3">{[[10,50],[15,50],[20,60],[25,70]].map(([w,h])=><Button key={w} type="button" variant={form.width===w&&form.height===h?'default':'outline'} onClick={()=>setForm(f=>({...f,width:w,height:h}))}>{w} × {h} mm</Button>)}</div><p className="text-sm font-semibold">Dimensiune personalizată</p><div className="grid grid-cols-2 gap-4"><label>Lățime (mm)<input className={field} type="number" min="5" max="300" value={form.width} onChange={e=>set('width',+e.target.value)}/></label><label>Înălțime (mm)<input className={field} type="number" min="5" max="300" value={form.height} onChange={e=>set('height',+e.target.value)}/></label></div></div>}
+    {step===2 && <div className="space-y-5"><div className="flex flex-wrap gap-3">{[100,500,1000,2000,5000].map(q=><Button key={q} type="button" variant={form.quantity===q?'default':'outline'} onClick={()=>set('quantity',q)}>{q===5000?'5000+':q}</Button>)}</div><label className="block">Cantitate exactă<input type="number" min="1" max="1000000" className={field} value={form.quantity} onChange={e=>set('quantity',+e.target.value)}/></label></div>}
+    {step===3 && <div className="grid gap-5 sm:grid-cols-2"><label>Culori / referințe Pantone<input className={field} maxLength={300} value={form.colors} onChange={e=>set('colors',e.target.value)}/></label><label>Finisaj<select className={field} value={form.finish} onChange={e=>set('finish',e.target.value)}>{['Tăiat','Pliat la mijloc','Pliat la capete','În rolă','La cerere'].map(x=><option key={x}>{x}</option>)}</select></label><fieldset className="sm:col-span-2"><legend>Mod de aplicare</legend><div className="mt-3 flex gap-3">{(['cusut','termo','adeziv'] as const).map(a=><Button key={a} type="button" variant={a===form.application?'default':'outline'} onClick={()=>set('application',a)}>{a}</Button>)}</div></fieldset></div>}
+    {step===4 && <div className="space-y-4"><label className="flex cursor-pointer flex-col items-center gap-3 rounded-md border border-dashed border-input p-8"><Upload className="h-8 w-8 text-primary"/><span>Logo PDF, AI, SVG sau PNG · maximum 10 MB</span><input aria-label="Upload logo" type="file" accept=".pdf,.ai,.svg,.png" onChange={e=>{const f=e.target.files?.[0]??null;if(f&&f.size>10*1024*1024){setError('Fișierul depășește 10 MB.');setFile(null);}else{setFile(f);setError('');}}}/></label><p className="text-sm text-muted-foreground">{file?.name ?? 'Poți trimite cererea și fără logo.'} Fișierele nu sunt publice.</p></div>}
+    {step===5 && <div className="space-y-5"><div className="grid gap-4 sm:grid-cols-2"><label>Termen dorit<input type="date" className={field} value={form.deadline} onChange={e=>set('deadline',e.target.value)}/></label><label>Nume *<input required minLength={2} maxLength={100} className={field} value={form.name} onChange={e=>set('name',e.target.value)}/></label><label>Firmă<input maxLength={150} className={field} value={form.company} onChange={e=>set('company',e.target.value)}/></label><label>Telefon *<input required type="tel" minLength={7} maxLength={30} className={field} value={form.phone} onChange={e=>set('phone',e.target.value)}/></label><label>Email *<input required type="email" maxLength={200} className={field} value={form.email} onChange={e=>set('email',e.target.value)}/></label></div><div className="border-y border-border py-4 text-sm">{TYPE_NAMES[form.type]} · {form.width} × {form.height} mm · {form.quantity} buc · {form.application}{form.labelData&&<p className="mt-2">Datele etichetei de compoziție sunt atașate cererii.</p>}</div><label className="flex items-start gap-2 text-sm"><input required type="checkbox" checked={form.consent} onChange={e=>set('consent',e.target.checked)}/>Sunt de acord cu prelucrarea datelor pentru răspunsul la această cerere.</label><input className="hidden" tabIndex={-1} aria-hidden value={form.website} onChange={e=>set('website',e.target.value)}/></div>}
+    <p className="mt-6 text-sm text-muted-foreground">{minimum ? `Minim ${minimum} buc${form.type==='tesute'?'/model':form.type==='copii'?'/nume':''}.` : 'Tirajul minim se confirmă în ofertă.'} {BUSINESS.price}.<br/>{BUSINESS.production}. {BUSINESS.urgent}.</p>
+    {minimum!==null && form.quantity<minimum && <p role="alert" className="mt-3 text-sm text-destructive">Cantitatea este sub minimul de {minimum} buc. Cererea va necesita confirmarea echipei.</p>}
+    {error && <p role="alert" className="mt-4 text-destructive">{error}</p>}
+    <div className="mt-8 flex justify-between gap-4"><Button type="button" variant="outline" disabled={step===0||busy} onClick={()=>setStep(s=>s-1)}><ArrowLeft/>Înapoi</Button>{step<5?<Button type="button" onClick={next}>Continuă<ArrowRight/></Button>:<Button type="submit" disabled={busy}><Send/>{busy?'Se trimite…':'Trimite cererea'}</Button>}</div>
+  </form>;
+}

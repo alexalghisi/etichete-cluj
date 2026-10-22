@@ -22,6 +22,7 @@ export const MINIMUM_SUMMARY = `Imprimate (satin, nylon, bumbac): ${BUSINESS.min
 export function factualText(text: string): string {
   return text.split(BUSINESS.production).map(part => part.replace(/(?:de la|~|aproximativ)?\s*0[,.]\d+\s*(?:RON|lei)(?:\s*\/\s*(?:buc(?:ată)?\.?))?/gi, BUSINESS.price)
     .replace(/(?:\d+[––-]\d+|\d+)\s*(?:zile lucrătoare|zile|săptămâni)\s*(?:de la (?:aprobarea bunului de tipar|confirmarea designului))?/gi, BUSINESS.production)
+    .replace(/(?:de la|minimum|minim|cantitate minimă[:\s]*)\s*\d+\s*(?:buc(?:ăți|ati)?\.?|de bucăți)(?=\s*(?:pentru )?etichete țesute)/gi, `Minim ${BUSINESS.minimum.woven} buc/model pentru `)
     .replace(/(?:regim accelerat|urgențe)\s*\([^)]*\)/gi, BUSINESS.urgent)).join(BUSINESS.production);
 }
 export function factualFaq(q: string, a: string, path: string): string {

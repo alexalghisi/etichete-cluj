@@ -15,14 +15,17 @@ import { Route as BlogRouteImport } from './routes/blog'
 import { Route as CereOfertaRouteImport } from './routes/cere-oferta'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as DespreNoiRouteImport } from './routes/despre-noi'
+import { Route as EmblemeTesuteRouteImport } from './routes/embleme-tesute'
 import { Route as EticheteAutoadeziveRouteImport } from './routes/etichete-autoadezive'
 import { Route as EticheteAutocolanteRouteImport } from './routes/etichete-autocolante'
+import { Route as EticheteBumbacRouteImport } from './routes/etichete-bumbac'
 import { Route as EticheteCartonRouteImport } from './routes/etichete-carton'
 import { Route as EticheteClujRouteImport } from './routes/etichete-cluj'
 import { Route as EticheteClujNapocaRouteImport } from './routes/etichete-cluj-napoca'
 import { Route as EticheteCompozitieRouteImport } from './routes/etichete-compozitie'
 import { Route as EticheteHaineRouteImport } from './routes/etichete-haine'
 import { Route as EticheteHaineCopiiRouteImport } from './routes/etichete-haine-copii'
+import { Route as EticheteMarimeRouteImport } from './routes/etichete-marime'
 import { Route as EticheteNylonRouteImport } from './routes/etichete-nylon'
 import { Route as EtichetePersonalizateRouteImport } from './routes/etichete-personalizate'
 import { Route as EticheteSatenRouteImport } from './routes/etichete-saten'
@@ -32,6 +35,7 @@ import { Route as EticheteTesuteRouteImport } from './routes/etichete-tesute'
 import { Route as EticheteTextileRouteImport } from './routes/etichete-textile'
 import { Route as GalerieRouteImport } from './routes/galerie'
 import { Route as GeneratorEtichetaCompozitieRouteImport } from './routes/generator-eticheta-compozitie'
+import { Route as ProducatorEticheteRouteImport } from './routes/producator-etichete'
 import { Route as ProduseRouteImport } from './routes/produse'
 import { Route as SimboluriEticheteHaineRouteImport } from './routes/simboluri-etichete-haine'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
@@ -70,6 +74,11 @@ const DespreNoiRoute = DespreNoiRouteImport.update({
   path: '/despre-noi',
   getParentRoute: () => rootRouteImport,
 } as any)
+const EmblemeTesuteRoute = EmblemeTesuteRouteImport.update({
+  id: '/embleme-tesute',
+  path: '/embleme-tesute',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const EticheteAutoadeziveRoute = EticheteAutoadeziveRouteImport.update({
   id: '/etichete-autoadezive',
   path: '/etichete-autoadezive',
@@ -78,6 +87,11 @@ const EticheteAutoadeziveRoute = EticheteAutoadeziveRouteImport.update({
 const EticheteAutocolanteRoute = EticheteAutocolanteRouteImport.update({
   id: '/etichete-autocolante',
   path: '/etichete-autocolante',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EticheteBumbacRoute = EticheteBumbacRouteImport.update({
+  id: '/etichete-bumbac',
+  path: '/etichete-bumbac',
   getParentRoute: () => rootRouteImport,
 } as any)
 const EticheteCartonRoute = EticheteCartonRouteImport.update({
@@ -108,6 +122,11 @@ const EticheteHaineRoute = EticheteHaineRouteImport.update({
 const EticheteHaineCopiiRoute = EticheteHaineCopiiRouteImport.update({
   id: '/etichete-haine-copii',
   path: '/etichete-haine-copii',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EticheteMarimeRoute = EticheteMarimeRouteImport.update({
+  id: '/etichete-marime',
+  path: '/etichete-marime',
   getParentRoute: () => rootRouteImport,
 } as any)
 const EticheteNylonRoute = EticheteNylonRouteImport.update({
@@ -156,6 +175,11 @@ const GeneratorEtichetaCompozitieRoute =
     path: '/generator-eticheta-compozitie',
     getParentRoute: () => rootRouteImport,
   } as any)
+const ProducatorEticheteRoute = ProducatorEticheteRouteImport.update({
+  id: '/producator-etichete',
+  path: '/producator-etichete',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ProduseRoute = ProduseRouteImport.update({
   id: '/produse',
   path: '/produse',
@@ -199,14 +223,17 @@ export interface FileRoutesByFullPath {
   '/cere-oferta': typeof CereOfertaRoute
   '/contact': typeof ContactRoute
   '/despre-noi': typeof DespreNoiRoute
+  '/embleme-tesute': typeof EmblemeTesuteRoute
   '/etichete-autoadezive': typeof EticheteAutoadeziveRoute
   '/etichete-autocolante': typeof EticheteAutocolanteRoute
+  '/etichete-bumbac': typeof EticheteBumbacRoute
   '/etichete-carton': typeof EticheteCartonRoute
   '/etichete-cluj': typeof EticheteClujRoute
   '/etichete-cluj-napoca': typeof EticheteClujNapocaRoute
   '/etichete-compozitie': typeof EticheteCompozitieRoute
   '/etichete-haine': typeof EticheteHaineRoute
   '/etichete-haine-copii': typeof EticheteHaineCopiiRoute
+  '/etichete-marime': typeof EticheteMarimeRoute
   '/etichete-nylon': typeof EticheteNylonRoute
   '/etichete-personalizate': typeof EtichetePersonalizateRoute
   '/etichete-saten': typeof EticheteSatenRoute
@@ -216,6 +243,7 @@ export interface FileRoutesByFullPath {
   '/etichete-textile': typeof EticheteTextileRoute
   '/galerie': typeof GalerieRoute
   '/generator-eticheta-compozitie': typeof GeneratorEtichetaCompozitieRoute
+  '/producator-etichete': typeof ProducatorEticheteRoute
   '/produse': typeof ProduseRoute
   '/simboluri-etichete-haine': typeof SimboluriEticheteHaineRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
@@ -230,14 +258,17 @@ export interface FileRoutesByTo {
   '/cere-oferta': typeof CereOfertaRoute
   '/contact': typeof ContactRoute
   '/despre-noi': typeof DespreNoiRoute
+  '/embleme-tesute': typeof EmblemeTesuteRoute
   '/etichete-autoadezive': typeof EticheteAutoadeziveRoute
   '/etichete-autocolante': typeof EticheteAutocolanteRoute
+  '/etichete-bumbac': typeof EticheteBumbacRoute
   '/etichete-carton': typeof EticheteCartonRoute
   '/etichete-cluj': typeof EticheteClujRoute
   '/etichete-cluj-napoca': typeof EticheteClujNapocaRoute
   '/etichete-compozitie': typeof EticheteCompozitieRoute
   '/etichete-haine': typeof EticheteHaineRoute
   '/etichete-haine-copii': typeof EticheteHaineCopiiRoute
+  '/etichete-marime': typeof EticheteMarimeRoute
   '/etichete-nylon': typeof EticheteNylonRoute
   '/etichete-personalizate': typeof EtichetePersonalizateRoute
   '/etichete-saten': typeof EticheteSatenRoute
@@ -247,6 +278,7 @@ export interface FileRoutesByTo {
   '/etichete-textile': typeof EticheteTextileRoute
   '/galerie': typeof GalerieRoute
   '/generator-eticheta-compozitie': typeof GeneratorEtichetaCompozitieRoute
+  '/producator-etichete': typeof ProducatorEticheteRoute
   '/produse': typeof ProduseRoute
   '/simboluri-etichete-haine': typeof SimboluriEticheteHaineRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
@@ -263,14 +295,17 @@ export interface FileRoutesById {
   '/cere-oferta': typeof CereOfertaRoute
   '/contact': typeof ContactRoute
   '/despre-noi': typeof DespreNoiRoute
+  '/embleme-tesute': typeof EmblemeTesuteRoute
   '/etichete-autoadezive': typeof EticheteAutoadeziveRoute
   '/etichete-autocolante': typeof EticheteAutocolanteRoute
+  '/etichete-bumbac': typeof EticheteBumbacRoute
   '/etichete-carton': typeof EticheteCartonRoute
   '/etichete-cluj': typeof EticheteClujRoute
   '/etichete-cluj-napoca': typeof EticheteClujNapocaRoute
   '/etichete-compozitie': typeof EticheteCompozitieRoute
   '/etichete-haine': typeof EticheteHaineRoute
   '/etichete-haine-copii': typeof EticheteHaineCopiiRoute
+  '/etichete-marime': typeof EticheteMarimeRoute
   '/etichete-nylon': typeof EticheteNylonRoute
   '/etichete-personalizate': typeof EtichetePersonalizateRoute
   '/etichete-saten': typeof EticheteSatenRoute
@@ -280,6 +315,7 @@ export interface FileRoutesById {
   '/etichete-textile': typeof EticheteTextileRoute
   '/galerie': typeof GalerieRoute
   '/generator-eticheta-compozitie': typeof GeneratorEtichetaCompozitieRoute
+  '/producator-etichete': typeof ProducatorEticheteRoute
   '/produse': typeof ProduseRoute
   '/simboluri-etichete-haine': typeof SimboluriEticheteHaineRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
@@ -297,14 +333,17 @@ export interface FileRouteTypes {
     | '/cere-oferta'
     | '/contact'
     | '/despre-noi'
+    | '/embleme-tesute'
     | '/etichete-autoadezive'
     | '/etichete-autocolante'
+    | '/etichete-bumbac'
     | '/etichete-carton'
     | '/etichete-cluj'
     | '/etichete-cluj-napoca'
     | '/etichete-compozitie'
     | '/etichete-haine'
     | '/etichete-haine-copii'
+    | '/etichete-marime'
     | '/etichete-nylon'
     | '/etichete-personalizate'
     | '/etichete-saten'
@@ -314,6 +353,7 @@ export interface FileRouteTypes {
     | '/etichete-textile'
     | '/galerie'
     | '/generator-eticheta-compozitie'
+    | '/producator-etichete'
     | '/produse'
     | '/simboluri-etichete-haine'
     | '/sitemap.xml'
@@ -328,14 +368,17 @@ export interface FileRouteTypes {
     | '/cere-oferta'
     | '/contact'
     | '/despre-noi'
+    | '/embleme-tesute'
     | '/etichete-autoadezive'
     | '/etichete-autocolante'
+    | '/etichete-bumbac'
     | '/etichete-carton'
     | '/etichete-cluj'
     | '/etichete-cluj-napoca'
     | '/etichete-compozitie'
     | '/etichete-haine'
     | '/etichete-haine-copii'
+    | '/etichete-marime'
     | '/etichete-nylon'
     | '/etichete-personalizate'
     | '/etichete-saten'
@@ -345,6 +388,7 @@ export interface FileRouteTypes {
     | '/etichete-textile'
     | '/galerie'
     | '/generator-eticheta-compozitie'
+    | '/producator-etichete'
     | '/produse'
     | '/simboluri-etichete-haine'
     | '/sitemap.xml'
@@ -360,14 +404,17 @@ export interface FileRouteTypes {
     | '/cere-oferta'
     | '/contact'
     | '/despre-noi'
+    | '/embleme-tesute'
     | '/etichete-autoadezive'
     | '/etichete-autocolante'
+    | '/etichete-bumbac'
     | '/etichete-carton'
     | '/etichete-cluj'
     | '/etichete-cluj-napoca'
     | '/etichete-compozitie'
     | '/etichete-haine'
     | '/etichete-haine-copii'
+    | '/etichete-marime'
     | '/etichete-nylon'
     | '/etichete-personalizate'
     | '/etichete-saten'
@@ -377,6 +424,7 @@ export interface FileRouteTypes {
     | '/etichete-textile'
     | '/galerie'
     | '/generator-eticheta-compozitie'
+    | '/producator-etichete'
     | '/produse'
     | '/simboluri-etichete-haine'
     | '/sitemap.xml'
@@ -393,14 +441,17 @@ export interface RootRouteChildren {
   CereOfertaRoute: typeof CereOfertaRoute
   ContactRoute: typeof ContactRoute
   DespreNoiRoute: typeof DespreNoiRoute
+  EmblemeTesuteRoute: typeof EmblemeTesuteRoute
   EticheteAutoadeziveRoute: typeof EticheteAutoadeziveRoute
   EticheteAutocolanteRoute: typeof EticheteAutocolanteRoute
+  EticheteBumbacRoute: typeof EticheteBumbacRoute
   EticheteCartonRoute: typeof EticheteCartonRoute
   EticheteClujRoute: typeof EticheteClujRoute
   EticheteClujNapocaRoute: typeof EticheteClujNapocaRoute
   EticheteCompozitieRoute: typeof EticheteCompozitieRoute
   EticheteHaineRoute: typeof EticheteHaineRoute
   EticheteHaineCopiiRoute: typeof EticheteHaineCopiiRoute
+  EticheteMarimeRoute: typeof EticheteMarimeRoute
   EticheteNylonRoute: typeof EticheteNylonRoute
   EtichetePersonalizateRoute: typeof EtichetePersonalizateRoute
   EticheteSatenRoute: typeof EticheteSatenRoute
@@ -410,6 +461,7 @@ export interface RootRouteChildren {
   EticheteTextileRoute: typeof EticheteTextileRoute
   GalerieRoute: typeof GalerieRoute
   GeneratorEtichetaCompozitieRoute: typeof GeneratorEtichetaCompozitieRoute
+  ProducatorEticheteRoute: typeof ProducatorEticheteRoute
   ProduseRoute: typeof ProduseRoute
   SimboluriEticheteHaineRoute: typeof SimboluriEticheteHaineRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
@@ -461,6 +513,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DespreNoiRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/embleme-tesute': {
+      id: '/embleme-tesute'
+      path: '/embleme-tesute'
+      fullPath: '/embleme-tesute'
+      preLoaderRoute: typeof EmblemeTesuteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/etichete-autoadezive': {
       id: '/etichete-autoadezive'
       path: '/etichete-autoadezive'
@@ -473,6 +532,13 @@ declare module '@tanstack/react-router' {
       path: '/etichete-autocolante'
       fullPath: '/etichete-autocolante'
       preLoaderRoute: typeof EticheteAutocolanteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/etichete-bumbac': {
+      id: '/etichete-bumbac'
+      path: '/etichete-bumbac'
+      fullPath: '/etichete-bumbac'
+      preLoaderRoute: typeof EticheteBumbacRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/etichete-carton': {
@@ -515,6 +581,13 @@ declare module '@tanstack/react-router' {
       path: '/etichete-haine-copii'
       fullPath: '/etichete-haine-copii'
       preLoaderRoute: typeof EticheteHaineCopiiRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/etichete-marime': {
+      id: '/etichete-marime'
+      path: '/etichete-marime'
+      fullPath: '/etichete-marime'
+      preLoaderRoute: typeof EticheteMarimeRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/etichete-nylon': {
@@ -578,6 +651,13 @@ declare module '@tanstack/react-router' {
       path: '/generator-eticheta-compozitie'
       fullPath: '/generator-eticheta-compozitie'
       preLoaderRoute: typeof GeneratorEtichetaCompozitieRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/producator-etichete': {
+      id: '/producator-etichete'
+      path: '/producator-etichete'
+      fullPath: '/producator-etichete'
+      preLoaderRoute: typeof ProducatorEticheteRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/produse': {
@@ -651,14 +731,17 @@ const rootRouteChildren: RootRouteChildren = {
   CereOfertaRoute: CereOfertaRoute,
   ContactRoute: ContactRoute,
   DespreNoiRoute: DespreNoiRoute,
+  EmblemeTesuteRoute: EmblemeTesuteRoute,
   EticheteAutoadeziveRoute: EticheteAutoadeziveRoute,
   EticheteAutocolanteRoute: EticheteAutocolanteRoute,
+  EticheteBumbacRoute: EticheteBumbacRoute,
   EticheteCartonRoute: EticheteCartonRoute,
   EticheteClujRoute: EticheteClujRoute,
   EticheteClujNapocaRoute: EticheteClujNapocaRoute,
   EticheteCompozitieRoute: EticheteCompozitieRoute,
   EticheteHaineRoute: EticheteHaineRoute,
   EticheteHaineCopiiRoute: EticheteHaineCopiiRoute,
+  EticheteMarimeRoute: EticheteMarimeRoute,
   EticheteNylonRoute: EticheteNylonRoute,
   EtichetePersonalizateRoute: EtichetePersonalizateRoute,
   EticheteSatenRoute: EticheteSatenRoute,
@@ -668,6 +751,7 @@ const rootRouteChildren: RootRouteChildren = {
   EticheteTextileRoute: EticheteTextileRoute,
   GalerieRoute: GalerieRoute,
   GeneratorEtichetaCompozitieRoute: GeneratorEtichetaCompozitieRoute,
+  ProducatorEticheteRoute: ProducatorEticheteRoute,
   ProduseRoute: ProduseRoute,
   SimboluriEticheteHaineRoute: SimboluriEticheteHaineRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,

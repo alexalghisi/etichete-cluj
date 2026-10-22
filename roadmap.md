@@ -1,0 +1,6 @@
+- [ ] Repair blog SSR, per-article schema, related articles and product links.
+- [ ] Unify visible FAQ schema and replace Product with Service.
+- [ ] Fix genuine 404s and permanent URL consolidation.
+- [ ] Apply requested titles, H1, descriptions and contextual links.
+- [ ] Repair sitemap timestamps, pagination and robots directives.
+- [ ] Verify raw SSR HTML, redirects, sitemap and tests.

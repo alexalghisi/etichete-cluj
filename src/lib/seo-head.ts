@@ -14,7 +14,7 @@ export function applySeo<H extends Head>(head: H, loaderData: { seo: SeoOverride
   const storedDescription = seo?.description;
   const description = storedDescription && storedDescription.length >= 140 && storedDescription.length <= 155 && storedDescription.includes("Cere ofertă gratuită în 24h")
     ? storedDescription : head.meta?.find((m) => m.name === "description")?.content;
-  const meta = (head.meta ?? []).map((m: Meta) => {
+  const meta: Meta[] = (head.meta ?? []).map((m: Meta): Meta => {
     if ("title" in m) return { title };
     if (m.property === "og:title" || m.name === "twitter:title") return { ...m, content: title };
     if (m.name === "description" || m.property === "og:description" || m.name === "twitter:description") return { ...m, content: description };

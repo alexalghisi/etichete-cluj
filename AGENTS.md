@@ -7,3 +7,6 @@
 - Explicit editorial titles and homepage H1 are protected by seo-policy from existing overrides and daily automation; other SEO fields remain editable.
 - Public blog and sitemap reads use paginated publicContentClient queries and surface errors, never privileged reads or silent partial XML.
 - Sitemap lastmod uses recorded per-page significant edits and blog content_updated_at (tracked only on substantive edits), never the current build/generation time.
+- Business-facts is the authoritative source for commercial values; render-time FAQ and CMS normalization and daily SEO prompts must honor it to prevent conflicting claims.
+- Public quote submissions use validated server functions and private signed logo uploads; only admins can read quotes/files, and quote summaries also appear in the existing contact inbox.
+- Composition generator shares CareSymbol and typed fibre translations; exports must preserve physical SVG units and pass structured label data into the quote wizard.

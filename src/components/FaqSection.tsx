@@ -1,4 +1,5 @@
 import { useId } from "react";
+import { factualFaq } from '@/lib/business-facts';
 
 export interface FaqItem {
   q: string;
@@ -22,7 +23,7 @@ export function FaqSection({ title = "Întrebări frecvente despre etichete", it
             <summary className="cursor-pointer list-none text-base font-semibold text-foreground marker:hidden">
               {it.q}
             </summary>
-            <p className="mt-3 text-sm text-muted-foreground">{it.a}</p>
+            <p className="mt-3 text-sm text-muted-foreground">{factualFaq(it.q, it.a, new URL(pageUrl).pathname)}</p>
           </details>
         ))}
       </div>

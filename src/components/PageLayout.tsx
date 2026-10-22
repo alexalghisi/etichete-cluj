@@ -5,12 +5,14 @@ import { Link, useMatches } from "@tanstack/react-router";
 import { SiteHeader } from "./SiteHeader";
 import { SiteFooter } from "./SiteFooter";
 import type { SeoOverride } from "@/lib/seo-overrides.functions";
+import { factualFaq, factualText } from '@/lib/business-facts';
 
 function useSeoOverride(): SeoOverride | null {
   const matches = useMatches();
   const leaf = matches[matches.length - 1];
   const ld = leaf?.loaderData as { seo?: SeoOverride | null } | undefined;
-  return ld?.seo ?? null;
+  const seo = ld?.seo;
+  return seo ? {...seo, intro: seo.intro ? factualText(seo.intro) : null, faqs: seo.faqs.map(f=>({...f,a:factualFaq(f.q,f.a,seo.path)}))} : null;
 }
 
 export function useSeoOverrideForPage() { return useSeoOverride(); }
@@ -59,7 +61,7 @@ function collectFaqs(node: ReactNode): { q: string; a: string }[] {
   const found: { q: string; a: string }[] = [];
   Children.forEach(node, (child) => {
     if (!isValidElement<{ children?: ReactNode; items?: { q: string; a: string }[] }>(child)) return;
-    if (child.type === FaqSection) { found.push(...(child.props.items ?? [])); return; }
+    if (child.type === FaqSection) { const props=child.props as typeof child.props & {pageUrl:string}; found.push(...(props.items ?? []).map(f=>({...f,a:factualFaq(f.q,f.a,new URL(props.pageUrl).pathname)}))); return; }
     if (child.type === "details" || child.type === "div") {
       const parts = Children.toArray(child.props.children).filter(isValidElement<{ children?: ReactNode }>);
       const question = parts.find((p) => p.type === "summary" || p.type === "dt");

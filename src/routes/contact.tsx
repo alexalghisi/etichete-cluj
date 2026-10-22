@@ -1,3 +1,4 @@
+import { RouteError, RouteNotFound } from "@/components/RouteBoundary";
 import { getSeoOverride } from "@/lib/seo-overrides.functions";
 import { applySeo } from "@/lib/seo-head";
 import { createFileRoute } from "@tanstack/react-router";
@@ -6,6 +7,8 @@ import { MapPin, Phone, Mail, MessageCircle, Clock, CheckCircle2 } from "lucide-
 import { ContactForm } from "@/components/ContactForm";
 
 export const Route = createFileRoute("/contact")({
+  errorComponent: RouteError,
+  notFoundComponent: RouteNotFound,
   loader: () => getSeoOverride({ data: { path: "/contact" } }),
   component: Contact,
   head: ({ loaderData }) => applySeo({
@@ -72,15 +75,11 @@ export const Route = createFileRoute("/contact")({
             "@type": "OfferCatalog",
             name: "Etichete textile",
             itemListElement: [
-              { "@type": "Offer", itemOffered: { "@type": "Product", name: "Etichete țesute Cluj" } },
-              { "@type": "Offer", itemOffered: { "@type": "Product", name: "Etichete imprimate Cluj" } },
-              { "@type": "Offer", itemOffered: { "@type": "Product", name: "Etichete de compoziție" } },
-              { "@type": "Offer", itemOffered: { "@type": "Product", name: "Etichete personalizate pentru branduri" } },
+              { "@type": "Service", serviceType: "Producție etichete personalizate", provider: { "@id": "https://etichetetextile.ro/#business" }, areaServed: ["România", "Cluj-Napoca"], name: "Etichete țesute Cluj" },
+              { "@type": "Service", serviceType: "Producție etichete personalizate", provider: { "@id": "https://etichetetextile.ro/#business" }, areaServed: ["România", "Cluj-Napoca"], name: "Etichete imprimate Cluj" },
+              { "@type": "Service", serviceType: "Producție etichete personalizate", provider: { "@id": "https://etichetetextile.ro/#business" }, areaServed: ["România", "Cluj-Napoca"], name: "Etichete de compoziție" },
+              { "@type": "Service", serviceType: "Producție etichete personalizate", provider: { "@id": "https://etichetetextile.ro/#business" }, areaServed: ["România", "Cluj-Napoca"], name: "Etichete personalizate pentru branduri" },
             ],
-          },
-          aggregateRating: {
-            "@type": "AggregateRating",
-            ratingValue: "4.9", reviewCount: "87", bestRating: "5", worstRating: "1",
           },
         }),
       },

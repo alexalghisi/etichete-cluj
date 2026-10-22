@@ -1,3 +1,4 @@
+import { RouteError, RouteNotFound } from "@/components/RouteBoundary";
 import { getSeoOverride } from "@/lib/seo-overrides.functions";
 import { applySeo } from "@/lib/seo-head";
 import { createFileRoute, Link } from "@tanstack/react-router";
@@ -6,14 +7,16 @@ import { FaqSection } from "@/components/FaqSection";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 
 export const Route = createFileRoute("/etichete-nylon")({
+  errorComponent: RouteError,
+  notFoundComponent: RouteNotFound,
   loader: () => getSeoOverride({ data: { path: "/etichete-nylon" } }),
   component: EticheteNylon,
   head: ({ loaderData }) => applySeo({
     meta: [
-      { title: "Etichete nylon — subțiri, rezistente pentru haine sport | ETICHETT" },
+      { title: "Etichete nylon — subțiri, rezistente pentru haine sport | Etichett Prod" },
       { name: "description", content: "Etichete nylon (taffeta) — subțiri, ușoare și rezistente. Perfecte pentru îmbrăcăminte sport, tehnică, outdoor și lenjerie. Producător Cluj-Napoca." },
       { name: "keywords", content: "etichete nylon, etichete nylon haine, etichete taffeta, etichete nylon sport, etichete nylon personalizate, etichete nylon cluj, etichete tehnice" },
-      { property: "og:title", content: "Etichete nylon — subțiri, rezistente pentru haine sport | ETICHETT" },
+      { property: "og:title", content: "Etichete nylon — subțiri, rezistente pentru haine sport | Etichett Prod" },
       { property: "og:description", content: "Etichete din nylon (taffeta) — subțiri, rezistente la spălare intensivă și transpirație. Ideale pentru sport și outdoor." },
       { property: "og:url", content: "https://etichetetextile.ro/etichete-nylon" },
       { property: "og:image", content: "https://etichetetextile.ro/images/hero-labels.webp" },

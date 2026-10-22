@@ -1,3 +1,4 @@
+import { RouteError, RouteNotFound } from "@/components/RouteBoundary";
 import { getSeoOverride } from "@/lib/seo-overrides.functions";
 import { applySeo } from "@/lib/seo-head";
 import { createFileRoute, Link } from "@tanstack/react-router";
@@ -7,6 +8,8 @@ import { ArrowRight } from "lucide-react";
 import { CareSymbol, type CareSymbolProps } from "@/components/CareSymbol";
 
 export const Route = createFileRoute("/simboluri-etichete-haine")({
+  errorComponent: RouteError,
+  notFoundComponent: RouteNotFound,
   loader: () => getSeoOverride({ data: { path: "/simboluri-etichete-haine" } }),
   component: SimboluriEticheteHaine,
   head: ({ loaderData }) => applySeo({

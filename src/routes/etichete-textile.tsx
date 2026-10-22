@@ -1,3 +1,4 @@
+import { RouteError, RouteNotFound } from "@/components/RouteBoundary";
 import { getSeoOverride } from "@/lib/seo-overrides.functions";
 import { applySeo } from "@/lib/seo-head";
 import { createFileRoute, Link } from "@tanstack/react-router";
@@ -7,14 +8,16 @@ import { FaqSection } from "@/components/FaqSection";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 
 export const Route = createFileRoute("/etichete-textile")({
+  errorComponent: RouteError,
+  notFoundComponent: RouteNotFound,
   loader: () => getSeoOverride({ data: { path: "/etichete-textile" } }),
   component: EticheteTextile,
   head: ({ loaderData }) => applySeo({
     meta: [
-      { title: "Etichete textile — țesute & imprimate Cluj | ETICHETT" },
+      { title: "Etichete textile — țesute & imprimate Cluj | Etichett Prod" },
       { name: "description", content: "Etichete textile Cluj-Napoca: țesute, imprimate, satin, nylon, carton, de compoziție. Atelier pe Str. Uzinei Electrice 9, Cluj-Napoca." },
       { name: "keywords", content: "etichete textile, etichete textile haine, etichete textile personalizate, etichete textile cluj, etichete textile tesute, etichete textile imprimate, etichete textile satin, etichete textile nylon" },
-      { property: "og:title", content: "Etichete textile — țesute & imprimate Cluj | ETICHETT" },
+      { property: "og:title", content: "Etichete textile — țesute & imprimate Cluj | Etichett Prod" },
       { property: "og:description", content: "Gamă completă de etichete textile pentru branduri, ateliere și producători de îmbrăcăminte din Cluj-Napoca și România." },
       { property: "og:url", content: "https://etichetetextile.ro/etichete-textile" },
       { property: "og:image", content: "https://etichetetextile.ro/images/hero-labels.webp" },

@@ -1,3 +1,5 @@
+import { LabelGuide } from "@/components/LabelGuide";
+import { BUSINESS, MINIMUM_SUMMARY, factualFaq } from "@/lib/business-facts";
 import { RouteError, RouteNotFound } from "@/components/RouteBoundary";
 import { getSeoOverride } from "@/lib/seo-overrides.functions";
 import { applySeo } from "@/lib/seo-head";
@@ -52,7 +54,7 @@ export const Route = createFileRoute("/etichete-personalizate")({
 
 const beneficii = [
   "Design inclus — trimiți schița, dezvoltăm grafica",
-  "Cantitate minimă mică (de la 100 buc)",
+  MINIMUM_SUMMARY,
   "Mai multe materiale: damasc, satin, nylon, bumbac",
   "Rezistente la spălare 60–90°C",
   "Livrare în toată România",
@@ -84,7 +86,7 @@ function EtichetePersonalizate() {
                 <li key={b} className="flex items-start gap-2"><CheckCircle2 className="mt-0.5 h-4 w-4 text-primary" /> {b}</li>
               ))}
             </ul>
-            <Link to="/contact" className="mt-7 inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground">
+            <Link to="/cere-oferta" className="mt-7 inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground">
               Cere ofertă personalizată <ArrowRight className="h-4 w-4" />
             </Link>
           </article>
@@ -109,14 +111,15 @@ function EtichetePersonalizate() {
       <FaqSection
         pageUrl="https://etichetetextile.ro/etichete-personalizate"
         items={[
-          { q: "Ce sunt etichetele personalizate?", a: "Etichetele personalizate sunt etichete realizate cu logo, text și design propriu — țesute, imprimate, din satin, carton sau autoadezive. Folosite de branduri pentru identitate vizuală, compoziție, mărime și informații legale." },
-          { q: "Care este cantitatea minimă pentru etichete personalizate?", a: "Producem etichete personalizate de la 100 de bucăți pentru majoritatea variantelor. Pentru etichete țesute pe damasc, comanda minimă recomandată este 500 buc." },
-          { q: "Cât costă etichetele personalizate?", a: "Prețul etichetelor personalizate depinde de tip (țesute, imprimate, satin, carton), cantitate, dimensiune și numărul de culori. Trimite-ne logoul și îți facem ofertă în 24h." },
-          { q: "În cât timp livrați etichete personalizate?", a: "Termenul standard este 5–10 zile lucrătoare de la aprobarea bunului de tipar. Pentru urgențe oferim regim accelerat (2–3 zile)." },
-          { q: "Etichetele personalizate rezistă la spălare?", a: "Da. Etichetele țesute și cele imprimate pe satin rezistă la spălare repetată la 60–90°C, fără decolorare sau deformare." },
+          { q: "Ce sunt etichetele personalizate?", a: factualFaq('Ce sunt etichetele personalizate?', 'Etichetele personalizate sunt etichete realizate cu logo, text și design propriu — țesute, imprimate, din satin, carton sau autoadezive. Folosite de branduri pentru identitate vizuală, compoziție, mărime și informații legale.', '/etichete-personalizate') },
+          { q: "Care este cantitatea minimă pentru etichete personalizate?", a: factualFaq('Care este cantitatea minimă pentru etichete personalizate?', 'Producem etichete personalizate de la 100 de bucăți pentru majoritatea variantelor. Pentru etichete țesute pe damasc, comanda minimă recomandată este 500 buc.', '/etichete-personalizate') },
+          { q: "Cât costă etichetele personalizate?", a: factualFaq('Cât costă etichetele personalizate?', 'Prețul etichetelor personalizate depinde de tip (țesute, imprimate, satin, carton), cantitate, dimensiune și numărul de culori. Trimite-ne logoul și îți facem ofertă în 24h.', '/etichete-personalizate') },
+          { q: "În cât timp livrați etichete personalizate?", a: factualFaq('În cât timp livrați etichete personalizate?', 'Termenul standard este 5–10 zile lucrătoare de la aprobarea bunului de tipar. Pentru urgențe oferim regim accelerat (2–3 zile).', '/etichete-personalizate') },
+          { q: "Etichetele personalizate rezistă la spălare?", a: factualFaq('Etichetele personalizate rezistă la spălare?', 'Da. Etichetele țesute și cele imprimate pe satin rezistă la spălare repetată la 60–90°C, fără decolorare sau deformare.', '/etichete-personalizate') },
         ]}
       />
       <LocalBusinessBlock keyword="Etichete personalizate Cluj-Napoca" />
+      <LabelGuide topic="haine și textile" />
     </PageLayout>
   );
 }

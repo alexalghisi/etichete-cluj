@@ -198,7 +198,7 @@ function Contact() {
           <article>
             <h2 className="text-2xl font-bold">Etichete Cluj-Napoca — producție locală</h2>
             <p className="mt-3 text-muted-foreground">
-              Atelierul nostru este în <strong>Cluj-Napoca</strong>, pe Str. Uzinei Electrice nr. 9, lângă zona industrială. Lucrăm cu branduri din <strong>Mănăștur</strong>, <strong>Mărăști</strong>, <strong>Gheorgheni</strong>, <strong>Zorilor</strong>, <strong>Centru</strong>, <strong>Bună Ziua</strong> și <strong>Iris</strong>. Ridici personal sau livrăm prin curier oriunde în oraș, în 24–48h pentru comenzile standard de <em>etichete țesute Cluj-Napoca</em> și <em>etichete imprimate Cluj-Napoca</em>.
+              Atelierul nostru este în <strong>Cluj-Napoca</strong>, pe Str. Uzinei Electrice nr. 9, lângă zona industrială. Lucrăm cu branduri din <strong>Mănăștur</strong>, <strong>Mărăști</strong>, <strong>Gheorgheni</strong>, <strong>Zorilor</strong>, <strong>Centru</strong>, <strong>Bună Ziua</strong> și <strong>Iris</strong>. Ridici personal sau livrăm prin curier oriunde în oraș, după finalizarea producției pentru comenzile de <em>etichete țesute Cluj-Napoca</em> și <em>etichete imprimate Cluj-Napoca</em>.
             </p>
           </article>
           <article>
@@ -210,7 +210,7 @@ function Contact() {
           <article>
             <h2 className="text-2xl font-bold">Etichete textile pentru haine — țesute, imprimate, compoziție</h2>
             <p className="mt-3 text-muted-foreground">
-              Acoperim tot ce înseamnă <strong>etichete pentru haine</strong>: <em>etichete țesute damasc</em>, <em>etichete satin imprimate</em>, <em>etichete nylon</em>, <em>etichete bumbac organic</em>, <em>etichete de compoziție conforme UE</em> în mai multe limbi, <em>etichete autoadezive</em> și <em>etichete carton</em> tip hangtag. Cantități de la 100 bucăți la zeci de mii.
+              Acoperim tot ce înseamnă <strong>etichete pentru haine</strong>: <em>etichete țesute damasc</em>, <em>etichete satin imprimate</em>, <em>etichete nylon</em>, <em>etichete bumbac organic</em>, <em>etichete de compoziție conforme UE</em> în mai multe limbi, <em>etichete autoadezive</em> și <em>etichete carton</em> tip hangtag. {MINIMUM_SUMMARY}
             </p>
           </article>
           <article>

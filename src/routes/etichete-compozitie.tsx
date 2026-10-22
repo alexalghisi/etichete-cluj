@@ -1,3 +1,4 @@
+import { BUSINESS, MINIMUM_SUMMARY, factualFaq } from "@/lib/business-facts";
 import { RouteError, RouteNotFound } from "@/components/RouteBoundary";
 import { getSeoOverride } from "@/lib/seo-overrides.functions";
 import { applySeo } from "@/lib/seo-head";
@@ -44,7 +45,7 @@ function EticheteCompozitie() {
       <PageHero
         eyebrow="Material · Satin / Nylon"
         title="Etichete de compoziție pentru haine — multilingve"
-        subtitle="Etichete de compoziție conforme cu Regulamentul UE 1007/2011: fibre în procente, țara de origine, simboluri de spălare ISO 3758 — în până la 5 limbi (RO/EN/DE/FR/IT)."
+        subtitle="Etichete de compoziție conforme cu Regulamentul UE 1007/2011: fibre în procente; opțional, origine și simboluri ISO 3758 după cerințele produsului — în până la 5 limbi (RO/EN/DE/FR/IT)."
       />
       <section className="mx-auto max-w-7xl px-4 py-16 md:px-6">
         <nav aria-label="Breadcrumb" className="mb-6 text-sm text-muted-foreground">
@@ -55,7 +56,7 @@ function EticheteCompozitie() {
           <article>
             <h2 className="text-2xl font-bold">Ce trebuie să conțină o etichetă de compoziție</h2>
             <p className="mt-3 text-muted-foreground">
-              <strong>Eticheta de compoziție</strong> este obligatorie pe orice produs textil vândut în UE. Aceasta trebuie să menționeze fibrele în ordine descrescătoare a procentelor, țara de origine, simbolurile de îngrijire și, opțional, instrucțiunile scrise.
+              <strong>Eticheta de compoziție</strong> indică fibrele și procentele conform Regulamentului UE 1007/2011, în domeniul său de aplicare. Simbolurile de întreținere și originea au cerințe distincte și nu sunt impuse în general de acest regulament.
             </p>
             <p className="mt-4 text-muted-foreground">Pentru identitatea brandului poți alege <Link to="/etichete-tesute" className="font-semibold text-primary hover:underline">etichete țesute</Link>; pentru aplicare fără cusături, <Link to="/etichete-termoadezive" className="font-semibold text-primary hover:underline">etichete termoadezive pentru haine</Link>. Consultă și ghidul <Link to="/simboluri-etichete-haine" className="font-semibold text-primary hover:underline">simboluri etichete haine</Link> pentru instrucțiunile de îngrijire.</p>
             <ul className="mt-5 grid gap-2 text-sm">
@@ -70,7 +71,7 @@ function EticheteCompozitie() {
                 <li key={b} className="flex items-start gap-2"><CheckCircle2 className="mt-0.5 h-4 w-4 text-primary" /> {b}</li>
               ))}
             </ul>
-            <Link to="/contact" className="mt-7 inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground">
+            <Link to="/cere-oferta" search={{tip:"compozitie"}} className="mt-7 inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground">
               Cere ofertă etichete compoziție <ArrowRight className="h-4 w-4" />
             </Link>
           </article>
@@ -90,13 +91,14 @@ function EticheteCompozitie() {
       <FaqSection
         pageUrl="https://etichetetextile.ro/etichete-compozitie"
         items={[
-          { q: "Sunt obligatorii etichetele de compoziție?", a: "Da. Regulamentul UE 1007/2011 impune ca orice articol textil vândut în UE să aibă etichetă cu compoziția fibrelor exprimată în procente." },
-          { q: "În câte limbi pot avea traducerea?", a: "Standard imprimăm în RO/EN/DE/FR/IT. La cerere adăugăm și alte limbi (HU, PL, ES, NL etc.) folosind imprimare față-verso." },
-          { q: "Ce simboluri de spălare folosiți?", a: "Simbolurile standard ISO 3758: spălare, înălbire, uscare, călcat, curățare chimică — cu variantele pentru fiecare temperatură și restricție." },
-          { q: "Etichetele de compoziție se pot combina cu logoul?", a: "Da. Recomandăm etichetă separată de brand (țesută) + etichetă de compoziție (imprimată pe satin) — cea mai comună combinație pentru branduri de fashion." },
-          { q: "Ce material recomandați pentru haine copii?", a: "Satin moale, imprimat cu cerneluri fără solvenți, cu opțiune termoadezivă pentru a evita cusăturile care irită pielea." },
+          { q: "Sunt obligatorii etichetele de compoziție?", a: factualFaq('Sunt obligatorii etichetele de compoziție?', 'Da. Regulamentul UE 1007/2011 impune ca orice articol textil vândut în UE să aibă etichetă cu compoziția fibrelor exprimată în procente.', '/etichete-compozitie') },
+          { q: "În câte limbi pot avea traducerea?", a: factualFaq('În câte limbi pot avea traducerea?', 'Standard imprimăm în RO/EN/DE/FR/IT. La cerere adăugăm și alte limbi (HU, PL, ES, NL etc.) folosind imprimare față-verso.', '/etichete-compozitie') },
+          { q: "Ce simboluri de spălare folosiți?", a: factualFaq('Ce simboluri de spălare folosiți?', 'Simbolurile standard ISO 3758: spălare, înălbire, uscare, călcat, curățare chimică — cu variantele pentru fiecare temperatură și restricție.', '/etichete-compozitie') },
+          { q: "Etichetele de compoziție se pot combina cu logoul?", a: factualFaq('Etichetele de compoziție se pot combina cu logoul?', 'Da. Recomandăm etichetă separată de brand (țesută) + etichetă de compoziție (imprimată pe satin) — cea mai comună combinație pentru branduri de fashion.', '/etichete-compozitie') },
+          { q: "Ce material recomandați pentru haine copii?", a: factualFaq('Ce material recomandați pentru haine copii?', 'Satin moale, imprimat cu cerneluri fără solvenți, cu opțiune termoadezivă pentru a evita cusăturile care irită pielea.', '/etichete-compozitie') },
         ]}
       />
+      <div className="mx-auto max-w-7xl px-4 py-8 md:px-6"><Link to="/generator-eticheta-compozitie" className="font-semibold text-primary underline">Generator gratuit de etichete de compoziție și întreținere</Link></div>
     </PageLayout>
   );
 }

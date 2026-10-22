@@ -190,32 +190,6 @@ function Index() {
           </div>
         </div>
       </section>
-      {/* SEO KEYWORDS CONTENT */}
-      <section className="mx-auto max-w-7xl px-4 pb-8 md:px-6">
-        <div className="grid gap-8 md:grid-cols-2">
-          <article>
-            <h2 className="text-2xl font-bold">Etichete haine personalizate — țesute, imprimate, termoadezive</h2>
-            <p className="mt-3 text-muted-foreground">
-              Producem <strong>etichete haine personalizate</strong> pentru branduri din România: <em>etichete pentru haine</em> țesute pe damasc, <em>etichete satin</em> imprimate HD, <em>etichete nylon</em> pentru sport, <em>etichete carton</em> (hangtag) și <em>etichete haine copii</em> moi, fără mâncărime. Lucrăm și cu <strong>etichete termoadezive pentru haine</strong> (transfer termic) aplicate cu presa.
-            </p>
-          </article>
-          <article>
-            <h2 className="text-2xl font-bold">Simboluri etichete haine & compoziție conformă</h2>
-            <p className="mt-3 text-muted-foreground">
-              Adăugăm pe etichetă toate <strong>simbolurile pentru etichete haine</strong> conform ISO 3758 — spălare, uscare, călcat, înălbit, curățare chimică. Plus <em>etichete de compoziție</em> în RO/EN/DE/FR/IT cu procentele exacte ale fibrelor și țara de origine, conform reglementărilor UE.
-            </p>
-          </article>
-          <article>
-            <h2 className="text-2xl font-bold">Etichete autoadezive & autocolante personalizate</h2>
-            <p className="mt-3 text-muted-foreground">
-              <strong>Etichete autoadezive</strong> și <strong>etichete autocolante personalizate</strong> pe role, pentru ambalaje, produse, borcane, cosmetice și textile. Imprimare HD color, forme decupate la cerere, adeziv puternic sau detașabil. Alternativă la <em>imprimanta de etichete autoadezive</em> — noi le tipărim în serie, la calitate de tipografie.
-            </p>
-          </article>
-
-        </div>
-      </section>
-
-
       <OrderSteps />
       {/* CTA */}
       <section className="mx-auto max-w-7xl px-4 pb-20 md:px-6">

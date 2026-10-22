@@ -109,21 +109,6 @@ function EticheteTextile() {
           </p>
         </div>
 
-        <div className="mt-12 grid gap-8 md:grid-cols-2">
-          <article>
-            <h2 className="text-2xl font-bold">Ce înseamnă „etichete textile”?</h2>
-            <p className="mt-3 text-muted-foreground">
-              <strong>Etichetele textile</strong> sunt etichete realizate din material textil (țesut sau imprimat) aplicate pe haine, încălțăminte, marochinărie, mobilier sau articole tehnice. Conțin <em>brandul, mărimea, compoziția, simbolurile de spălare și țara de origine</em> — informații cu roluri distincte; cerințele legale de compoziție se verifică pentru produsul respectiv.
-            </p>
-          </article>
-          <article>
-            <h2 className="text-2xl font-bold">Cum alegi tipul potrivit</h2>
-            <p className="mt-3 text-muted-foreground">
-              Pentru logo cu finisaj premium → <strong>etichete țesute pe damasc/satin</strong>. Pentru compoziție multilingvă → <strong>etichete imprimate pe satin sau nylon</strong>. Pentru haine fără cusături sau colecții capsule → <strong>etichete termoadezive</strong>. Pentru hangtag-uri și prețuri → <strong>etichete carton</strong>.
-            </p>
-          </article>
-        </div>
-
         <div className="mt-10">
           <Link to="/cere-oferta" className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground">Cere ofertă pentru etichete textile <ArrowRight className="h-4 w-4" /></Link>
         </div>

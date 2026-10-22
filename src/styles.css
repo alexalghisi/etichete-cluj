@@ -30,12 +30,16 @@
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
+  --color-label-paper: var(--label-paper);
+  --color-label-ink: var(--label-ink);
   --font-sans: "Inter", system-ui, -apple-system, sans-serif;
   --font-display: "Plus Jakarta Sans", "Inter", sans-serif;
 }
 
 :root {
   --radius: 0.75rem;
+  --label-paper: #ffffff;
+  --label-ink: #000000;
   --background: oklch(0.99 0.005 220);
   --foreground: oklch(0.18 0.03 235);
   --card: oklch(1 0 0);
@@ -82,3 +86,8 @@
     box-shadow: 0 10px 40px -10px color-mix(in oklab, var(--primary) 30%, transparent);
   }
 }
+
+.label-art { color: var(--foreground); max-width: none; }
+.label-art > g > g, .label-art svg { color: var(--label-ink); }
+.label-art svg { width: 48px; height: 48px; }
+@media (max-width: 767px) { body { padding-bottom: 64px; } }

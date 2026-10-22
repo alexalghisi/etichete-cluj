@@ -1,3 +1,4 @@
+import { BUSINESS, MINIMUM_SUMMARY, factualFaq } from "@/lib/business-facts";
 import { RouteError, RouteNotFound } from "@/components/RouteBoundary";
 import { getSeoOverride } from "@/lib/seo-overrides.functions";
 import { applySeo } from "@/lib/seo-head";
@@ -78,10 +79,10 @@ function EticheteCluj() {
             <h3 className="text-2xl font-bold mt-10">Etichete textile — întrebări frecvente (Cluj-Napoca)</h3>
             <div className="space-y-4">
               {[
-                { q: "Cât durează producția unei comenzi de etichete textile?", a: "În funcție de complexitate și cantitate, livrarea variază între câteva zile și 2-3 săptămâni. Clienții din Cluj pot ridica direct de la atelier." },
-                { q: "Care este cantitatea minimă pentru etichete personalizate?", a: "Lucrăm și cu cantități mici, adaptate pentru branduri în creștere. Contactează-ne pentru o ofertă personalizată." },
-                { q: "Etichetele sunt rezistente la spălare?", a: "Da. Folosim coloranți speciali și imprimare la temperaturi înalte, astfel încât etichetele rezistă la spălare, frecare și călcat." },
-                { q: "Livrați și în afara Clujului?", a: "Da, livrăm prin curier în toată România." },
+                { q: "Cât durează producția unei comenzi de etichete textile?", a: factualFaq('Cât durează producția unei comenzi de etichete textile?', BUSINESS.price, '/etichete-cluj') },
+                { q: "Care este cantitatea minimă pentru etichete personalizate?", a: factualFaq('Care este cantitatea minimă pentru etichete personalizate?', 'Lucrăm și cu cantități mici, adaptate pentru branduri în creștere. Contactează-ne pentru o ofertă personalizată.', '/etichete-cluj') },
+                { q: "Etichetele sunt rezistente la spălare?", a: factualFaq('Etichetele sunt rezistente la spălare?', 'Da. Folosim coloranți speciali și imprimare la temperaturi înalte, astfel încât etichetele rezistă la spălare, frecare și călcat.', '/etichete-cluj') },
+                { q: "Livrați și în afara Clujului?", a: factualFaq('Livrați și în afara Clujului?', 'Da, livrăm prin curier în toată România.', '/etichete-cluj') },
               ].map((f) => (
                 <details key={f.q} className="group rounded-xl border border-border bg-card p-5">
                   <summary className="cursor-pointer list-none font-semibold text-foreground flex items-center justify-between">
@@ -100,7 +101,7 @@ function EticheteCluj() {
               <p className="mt-3 flex items-start gap-2 text-sm text-muted-foreground"><MapPin className="mt-0.5 h-4 w-4 text-primary" /> Str. Uzinei Electrice Nr. 9, Cluj-Napoca, jud. Cluj</p>
               <p className="mt-2 flex items-center gap-2 text-sm"><Phone className="h-4 w-4 text-primary" /> <a href="tel:+40747264832" className="hover:text-primary">0747 264 832</a></p>
               <p className="mt-2 flex items-center gap-2 text-sm"><Phone className="h-4 w-4 text-primary" /> <a href="tel:0264599966" className="hover:text-primary">0264 599 966</a></p>
-              <Link to="/contact" className="mt-5 inline-flex items-center gap-2 rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground">Cere ofertă <ArrowRight className="h-4 w-4" /></Link>
+              <Link to="/cere-oferta" className="mt-5 inline-flex items-center gap-2 rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground">Cere ofertă <ArrowRight className="h-4 w-4" /></Link>
             </div>
             <div className="overflow-hidden rounded-2xl border border-border">
               <iframe

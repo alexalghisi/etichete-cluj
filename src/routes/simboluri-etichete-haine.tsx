@@ -1,3 +1,4 @@
+import { BUSINESS, MINIMUM_SUMMARY, factualFaq } from "@/lib/business-facts";
 import { RouteError, RouteNotFound } from "@/components/RouteBoundary";
 import { getSeoOverride } from "@/lib/seo-overrides.functions";
 import { applySeo } from "@/lib/seo-head";
@@ -102,7 +103,7 @@ function SimboluriEticheteHaine() {
           <Link to="/" className="hover:text-primary">Acasă</Link> <span className="mx-2">/</span> <span className="text-foreground">Simboluri etichete haine</span>
         </nav>
         <p className="text-muted-foreground">
-          Toate <strong>simbolurile de pe etichetele hainelor</strong> urmează standardul internațional ISO 3758 și sunt obligatorii pe produsele textile vândute în UE. Mai jos găsești cele 5 grupuri de simboluri și ce înseamnă fiecare.
+          Toate <strong>simbolurile de pe etichetele hainelor</strong> urmează standardul internațional ISO 3758 și descriu întreținerea produselor textile. Mai jos găsești cele 5 grupuri de simboluri și ce înseamnă fiecare.
         </p>
         <div className="mt-10 space-y-10">
           {grupuri.map((g) => (
@@ -126,7 +127,7 @@ function SimboluriEticheteHaine() {
           <p className="mt-2 text-sm text-muted-foreground">
             Producem <Link to="/etichete-textile" className="text-primary underline">etichete textile de compoziție</Link> și <Link to="/etichete-haine" className="text-primary underline">etichete pentru haine</Link> cu simboluri ISO 3758 incluse — în multiple limbi.
           </p>
-          <Link to="/contact" className="mt-5 inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground">
+          <Link to="/cere-oferta" className="mt-5 inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground">
             Cere ofertă <ArrowRight className="h-4 w-4" />
           </Link>
         </div>
@@ -134,13 +135,14 @@ function SimboluriEticheteHaine() {
       <FaqSection
         pageUrl="https://etichetetextile.ro/simboluri-etichete-haine"
         items={[
-          { q: "Sunt obligatorii simbolurile pe eticheta hainelor?", a: "Da. Regulamentul UE 1007/2011 impune obligativitatea etichetei de compoziție, iar standardul ISO 3758 reglementează simbolurile de îngrijire (spălare, uscare, călcare)." },
-          { q: "Ce înseamnă un lighean tăiat cu X?", a: "Înseamnă că produsul NU se spală nici manual, nici în mașină. Trebuie curățat chimic la o curățătorie profesională." },
-          { q: "Ce înseamnă cifra din interiorul ligheanului?", a: "Temperatura maximă recomandată pentru spălare, în grade Celsius. Cele mai frecvente: 30°C (delicate), 40°C (uzual), 60°C (bumbac alb), 90°C (sterilizare)." },
-          { q: "Pot tipări etichete cu simboluri ISO 3758?", a: "Da. Producem etichete textile cu toate simbolurile ISO 3758 incluse, în textul în română, engleză sau alte limbi — pentru export." },
-          { q: "Câte simboluri trebuie să apară pe o etichetă?", a: "Minim 5: spălare, înălbire, uscare, călcare, curățare chimică. Plus compoziția materialului și mărimea." },
+          { q: "Sunt obligatorii simbolurile pe eticheta hainelor?", a: factualFaq('Sunt obligatorii simbolurile pe eticheta hainelor?', 'Da. Regulamentul UE 1007/2011 impune obligativitatea etichetei de compoziție, iar standardul ISO 3758 reglementează simbolurile de îngrijire (spălare, uscare, călcare).', '/simboluri-etichete-haine') },
+          { q: "Ce înseamnă un lighean tăiat cu X?", a: factualFaq('Ce înseamnă un lighean tăiat cu X?', 'Înseamnă că produsul NU se spală nici manual, nici în mașină. Trebuie curățat chimic la o curățătorie profesională.', '/simboluri-etichete-haine') },
+          { q: "Ce înseamnă cifra din interiorul ligheanului?", a: factualFaq('Ce înseamnă cifra din interiorul ligheanului?', 'Temperatura maximă recomandată pentru spălare, în grade Celsius. Cele mai frecvente: 30°C (delicate), 40°C (uzual), 60°C (bumbac alb), 90°C (sterilizare).', '/simboluri-etichete-haine') },
+          { q: "Pot tipări etichete cu simboluri ISO 3758?", a: factualFaq('Pot tipări etichete cu simboluri ISO 3758?', 'Da. Producem etichete textile cu toate simbolurile ISO 3758 incluse, în textul în română, engleză sau alte limbi — pentru export.', '/simboluri-etichete-haine') },
+          { q: "Câte simboluri trebuie să apară pe o etichetă?", a: factualFaq('Câte simboluri trebuie să apară pe o etichetă?', 'Minim 5: spălare, înălbire, uscare, călcare, curățare chimică. Plus compoziția materialului și mărimea.', '/simboluri-etichete-haine') },
         ]}
       />
+      <div className="mx-auto max-w-7xl px-4 py-8 md:px-6"><Link to="/generator-eticheta-compozitie" className="font-semibold text-primary underline">Generator gratuit de etichete de compoziție și întreținere</Link></div>
     </PageLayout>
   );
 }

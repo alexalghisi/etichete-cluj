@@ -1,3 +1,4 @@
+import { BUSINESS, MINIMUM_SUMMARY, factualFaq } from "@/lib/business-facts";
 import { RouteError, RouteNotFound } from "@/components/RouteBoundary";
 import { getSeoOverride } from "@/lib/seo-overrides.functions";
 import { applySeo } from "@/lib/seo-head";
@@ -95,7 +96,7 @@ function EticheteAutoadezive() {
               <div><dt className="font-semibold">Finisaj</dt><dd className="text-muted-foreground">Mat, lucios, lac selectiv, folio aur/argint</dd></div>
               <div><dt className="font-semibold">Format</dt><dd className="text-muted-foreground">Role sau coli, formă rotundă/pătrată/decupată</dd></div>
             </dl>
-            <Link to="/contact" className="mt-6 inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground">
+            <Link to="/cere-oferta" search={{tip:"autocolante"}} className="mt-6 inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground">
               Cere ofertă autoadezive <ArrowRight className="h-4 w-4" />
             </Link>
           </article>
@@ -104,11 +105,11 @@ function EticheteAutoadezive() {
       <FaqSection
         pageUrl="https://etichetetextile.ro/etichete-autoadezive"
         items={[
-          { q: "Ce sunt etichetele adezive?", a: "Etichetele adezive (autoadezive sau autocolante) sunt etichete imprimate pe hârtie sau folie cu adeziv pe spate, livrate pe role sau coli. Folosite pentru produse, ambalaje, cosmetice, vinuri, borcane." },
-          { q: "Pe ce materiale se aplică etichetele autoadezive?", a: "Pe sticlă, plastic, carton, metal, hârtie și majoritatea suprafețelor curate. Oferim adezivi specializați pentru congelare, anvelope sau aplicații umede." },
-          { q: "Pot avea etichete autoadezive transparente?", a: "Da. Producem etichete autoadezive pe folie transparentă (efect „no-label look”), folie albă, metalizată aur/argint sau hârtie kraft." },
-          { q: "Care e diferența între etichete adezive și etichete textile?", a: "Etichetele autoadezive se lipesc pe ambalaje și produse, fiind imprimate pe hârtie/folie. Etichetele textile se cos sau se aplică termic pe haine, fiind realizate din material textil." },
-          { q: "Faceți etichete adezive în Cluj?", a: "Da. Suntem producător de etichete adezive și autoadezive în Cluj-Napoca cu peste 30 de ani experiență — livrăm în toată România." },
+          { q: "Ce sunt etichetele adezive?", a: factualFaq('Ce sunt etichetele adezive?', 'Etichetele adezive (autoadezive sau autocolante) sunt etichete imprimate pe hârtie sau folie cu adeziv pe spate, livrate pe role sau coli. Folosite pentru produse, ambalaje, cosmetice, vinuri, borcane.', '/etichete-autoadezive') },
+          { q: "Pe ce materiale se aplică etichetele autoadezive?", a: factualFaq('Pe ce materiale se aplică etichetele autoadezive?', 'Pe sticlă, plastic, carton, metal, hârtie și majoritatea suprafețelor curate. Oferim adezivi specializați pentru congelare, anvelope sau aplicații umede.', '/etichete-autoadezive') },
+          { q: "Pot avea etichete autoadezive transparente?", a: factualFaq('Pot avea etichete autoadezive transparente?', 'Da. Producem etichete autoadezive pe folie transparentă (efect „no-label look”), folie albă, metalizată aur/argint sau hârtie kraft.', '/etichete-autoadezive') },
+          { q: "Care e diferența între etichete adezive și etichete textile?", a: factualFaq('Care e diferența între etichete adezive și etichete textile?', 'Etichetele autoadezive se lipesc pe ambalaje și produse, fiind imprimate pe hârtie/folie. Etichetele textile se cos sau se aplică termic pe haine, fiind realizate din material textil.', '/etichete-autoadezive') },
+          { q: "Faceți etichete adezive în Cluj?", a: factualFaq('Faceți etichete adezive în Cluj?', 'Da. Suntem producător de etichete adezive și autoadezive în Cluj-Napoca cu peste 30 de ani experiență — livrăm în toată România.', '/etichete-autoadezive') },
         ]}
       />
     </PageLayout>

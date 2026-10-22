@@ -4,3 +4,12 @@
 - [x] Apply requested titles, H1, descriptions and contextual links.
 - [x] Repair sitemap timestamps, pagination and robots directives.
 - [x] Verify raw SSR HTML, redirects, sitemap and tests.
+- [x] Centralize business facts and remove conflicting quantities, deadlines and prices.
+- [x] Build quote wizard with private logo storage and saved requests.
+- [ ] Email notification: waiting for sender-domain configuration.
+- [ ] Verify private admin quote read/download: waiting for an authenticated admin preview.
+- [x] Build multilingual composition generator, exports and quote handoff.
+- [x] Add conversion controls and order steps; Google Maps business lookup added.
+- [ ] Direct Google review link: verified profile review URL not available.
+- [x] Expand six pages and add four unique content pages.
+- [x] Update internal links, sitemap and image/font performance; verify flows and tests.

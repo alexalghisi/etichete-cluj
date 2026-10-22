@@ -1,3 +1,4 @@
+import { BUSINESS, MINIMUM_SUMMARY, factualFaq } from "@/lib/business-facts";
 import { RouteError, RouteNotFound } from "@/components/RouteBoundary";
 import { getSeoOverride } from "@/lib/seo-overrides.functions";
 import { applySeo } from "@/lib/seo-head";
@@ -70,7 +71,7 @@ function EticheteNylon() {
                 <li key={b} className="flex items-start gap-2"><CheckCircle2 className="mt-0.5 h-4 w-4 text-primary" /> {b}</li>
               ))}
             </ul>
-            <Link to="/contact" className="mt-7 inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground">
+            <Link to="/cere-oferta" search={{tip:"nylon"}} className="mt-7 inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground">
               Cere ofertă etichete nylon <ArrowRight className="h-4 w-4" />
             </Link>
           </article>
@@ -90,11 +91,11 @@ function EticheteNylon() {
       <FaqSection
         pageUrl="https://etichetetextile.ro/etichete-nylon"
         items={[
-          { q: "Ce sunt etichetele nylon?", a: "Etichetele nylon (taffeta) sunt etichete imprimate pe material poliamidic subțire, foarte rezistent la spălare, transpirație și frecare — folosite mai ales pentru haine sport." },
-          { q: "Rezistă la spălare la 90°C?", a: "Da. Etichetele nylon rezistă la spălări repetate la 60–90°C fără decolorare, atâta vreme cât cernelurile sunt cele indicate pentru textile." },
-          { q: "Nylon sau satin pentru compoziție?", a: "Ambele sunt bune. Nylon = mai economic și mai subțire; satin = mai premium și mai plăcut pe piele. Pentru fashion recomandăm satin, pentru sport nylon." },
-          { q: "Etichetele nylon pot fi termoadezive?", a: "Da. Aplicăm nylonul cu adeziv pe spate, care se activează cu presa termică — util la echipamentele fără cusături." },
-          { q: "Care este cantitatea minimă?", a: "Pornim de la 200 buc. pentru etichete nylon imprimate. Sub această cantitate recomandăm satinul." },
+          { q: "Ce sunt etichetele nylon?", a: factualFaq('Ce sunt etichetele nylon?', 'Etichetele nylon (taffeta) sunt etichete imprimate pe material poliamidic subțire, foarte rezistent la spălare, transpirație și frecare — folosite mai ales pentru haine sport.', '/etichete-nylon') },
+          { q: "Rezistă la spălare la 90°C?", a: factualFaq('Rezistă la spălare la 90°C?', 'Da. Etichetele nylon rezistă la spălări repetate la 60–90°C fără decolorare, atâta vreme cât cernelurile sunt cele indicate pentru textile.', '/etichete-nylon') },
+          { q: "Nylon sau satin pentru compoziție?", a: factualFaq('Nylon sau satin pentru compoziție?', 'Ambele sunt bune. Nylon = mai economic și mai subțire; satin = mai premium și mai plăcut pe piele. Pentru fashion recomandăm satin, pentru sport nylon.', '/etichete-nylon') },
+          { q: "Etichetele nylon pot fi termoadezive?", a: factualFaq('Etichetele nylon pot fi termoadezive?', 'Da. Aplicăm nylonul cu adeziv pe spate, care se activează cu presa termică — util la echipamentele fără cusături.', '/etichete-nylon') },
+          { q: "Care este cantitatea minimă?", a: factualFaq('Care este cantitatea minimă?', BUSINESS.price, '/etichete-nylon') },
         ]}
       />
     </PageLayout>

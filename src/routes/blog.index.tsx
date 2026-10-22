@@ -58,6 +58,7 @@ function BlogPage() {
           </div>
         )}
       </section>
+      <div className="mx-auto max-w-7xl px-4 py-8 md:px-6"><Link to="/generator-eticheta-compozitie" className="font-semibold text-primary underline">Generator gratuit de etichete de compoziție și întreținere</Link></div>
     </PageLayout>
   );
 }

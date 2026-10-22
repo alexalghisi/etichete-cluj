@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Button } from './ui/button';
 
 const STORAGE_KEY = "etichett-cookie-consent";
 
@@ -30,7 +31,7 @@ export function CookieConsent() {
       role="dialog"
       aria-live="polite"
       aria-label="Notificare cookie-uri GDPR"
-      className="fixed inset-x-0 bottom-0 z-50 px-4 pb-4 sm:px-6 sm:pb-6"
+      className="fixed inset-x-0 bottom-16 z-50 max-h-[75dvh] overflow-auto px-4 pb-4 sm:px-6 sm:pb-6 md:bottom-0"
     >
       <div className="mx-auto max-w-4xl rounded-2xl border border-border bg-background/95 p-5 shadow-2xl backdrop-blur supports-[backdrop-filter]:bg-background/80 sm:p-6">
         <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
@@ -41,20 +42,20 @@ export function CookieConsent() {
             </p>
           </div>
           <div className="flex flex-shrink-0 flex-col gap-2 sm:flex-row">
-            <button
+            <Button
               type="button"
               onClick={() => decide("rejected")}
               className="rounded-md border border-input bg-background px-4 py-2 text-sm font-medium text-foreground hover:bg-accent"
             >
               Refuz
-            </button>
-            <button
+            </Button>
+            <Button
               type="button"
               onClick={() => decide("accepted")}
               className="rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground hover:opacity-90"
             >
               Accept
-            </button>
+            </Button>
           </div>
         </div>
       </div>

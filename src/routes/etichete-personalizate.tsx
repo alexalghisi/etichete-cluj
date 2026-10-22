@@ -1,3 +1,4 @@
+import { RouteError, RouteNotFound } from "@/components/RouteBoundary";
 import { getSeoOverride } from "@/lib/seo-overrides.functions";
 import { applySeo } from "@/lib/seo-head";
 import { createFileRoute, Link } from "@tanstack/react-router";
@@ -7,14 +8,16 @@ import { FaqSection } from "@/components/FaqSection";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 
 export const Route = createFileRoute("/etichete-personalizate")({
+  errorComponent: RouteError,
+  notFoundComponent: RouteNotFound,
   loader: () => getSeoOverride({ data: { path: "/etichete-personalizate" } }),
   component: EtichetePersonalizate,
   head: ({ loaderData }) => applySeo({
     meta: [
-      { title: "Etichete personalizate — pentru haine & branduri | ETICHETT" },
-      { name: "description", content: "Etichete personalizate Cluj-Napoca cu logo: țesute, imprimate, satin, carton, autoadezive. Atelier local din 1993, livrare în toată România." },
+      { title: "Etichete personalizate — pentru haine & branduri | Etichett Prod" },
+      { name: "description", content: "Etichete personalizate cu logo pentru haine și branduri: textile, țesute, satin și carton. Producție în Cluj-Napoca. Cere ofertă gratuită în 24h." },
       { name: "keywords", content: "etichete personalizate, etichete personalizate haine, etichete cu logo, etichete brand, etichete personalizate cluj, etichete personalizate textile, etichete personalizate online, etichete personalizate pret" },
-      { property: "og:title", content: "Etichete personalizate — pentru haine & branduri | ETICHETT" },
+      { property: "og:title", content: "Etichete personalizate — pentru haine & branduri | Etichett Prod" },
       { property: "og:description", content: "Etichete personalizate cu logo, compoziție și mărime. Producător propriu în Cluj-Napoca." },
       { property: "og:url", content: "https://etichetetextile.ro/etichete-personalizate" },
       { property: "og:image", content: "https://etichetetextile.ro/images/hero-labels.webp" },
@@ -36,13 +39,11 @@ export const Route = createFileRoute("/etichete-personalizate")({
         type: "application/ld+json",
         children: JSON.stringify({
           "@context": "https://schema.org",
-          "@type": "Product",
+          "@type": "Service",
           name: "Etichete personalizate",
           description: "Etichete personalizate cu logo, text, compoziție și mărime — țesute, imprimate, satin, carton, autoadezive.",
-          brand: { "@type": "Brand", name: "Etichett Prod" },
+          serviceType: "Producție etichete personalizate", provider: { "@id": "https://etichetetextile.ro/#business" }, areaServed: [{ "@type": "Country", name: "România" }, { "@type": "City", name: "Cluj-Napoca" }],
           image: "https://etichetetextile.ro/images/hero-labels.webp",
-          offers: { "@type": "AggregateOffer", priceCurrency: "RON", lowPrice: "0.10", highPrice: "2.00", offerCount: "8", availability: "https://schema.org/InStock" },
-          aggregateRating: { "@type": "AggregateRating", ratingValue: "4.9", reviewCount: "87" },
         }),
       },
     ],
@@ -77,6 +78,7 @@ function EtichetePersonalizate() {
             <p className="mt-3 text-muted-foreground">
               Producem <strong>etichete personalizate</strong> de peste 30 de ani pentru sute de branduri românești. Indiferent dacă ai nevoie de <em>etichete personalizate pentru haine</em>, cosmetice, vinuri, mobilier sau articole handmade, le realizăm exact pe forma, materialul și culorile dorite.
             </p>
+            <p className="mt-4 text-muted-foreground">Pentru identitatea brandului poți alege <Link to="/etichete-tesute" className="font-semibold text-primary hover:underline">etichete țesute</Link>; pentru aplicare fără cusături, <Link to="/etichete-termoadezive" className="font-semibold text-primary hover:underline">etichete termoadezive pentru haine</Link>. Consultă și ghidul <Link to="/simboluri-etichete-haine" className="font-semibold text-primary hover:underline">simboluri etichete haine</Link> pentru instrucțiunile de îngrijire.</p>
             <ul className="mt-5 grid gap-2 text-sm">
               {beneficii.map((b) => (
                 <li key={b} className="flex items-start gap-2"><CheckCircle2 className="mt-0.5 h-4 w-4 text-primary" /> {b}</li>

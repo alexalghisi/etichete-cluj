@@ -36,7 +36,7 @@ export function SiteFooter() {
             <li><Link to="/etichete-carton" className="hover:text-primary">Etichete carton</Link></li>
             <li><Link to="/etichete-haine-copii" className="hover:text-primary">Etichete haine copii</Link></li>
             <li><Link to="/simboluri-etichete-haine" className="hover:text-primary">Simboluri etichete haine</Link></li>
-            <li><Link to="/etichete-cluj-napoca" className="hover:text-primary">Etichete Cluj-Napoca</Link></li>
+            <li><Link to="/etichete-cluj" className="hover:text-primary">Etichete Cluj-Napoca</Link></li>
           </ul>
         </div>
         <div>

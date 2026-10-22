@@ -1,3 +1,4 @@
+import { RouteError, RouteNotFound } from "@/components/RouteBoundary";
 import { getSeoOverride } from "@/lib/seo-overrides.functions";
 import { applySeo } from "@/lib/seo-head";
 import { createFileRoute, Link } from "@tanstack/react-router";
@@ -6,14 +7,16 @@ import { FaqSection } from "@/components/FaqSection";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 
 export const Route = createFileRoute("/etichete-tesute")({
+  errorComponent: RouteError,
+  notFoundComponent: RouteNotFound,
   loader: () => getSeoOverride({ data: { path: "/etichete-tesute" } }),
   component: EticheteTesute,
   head: ({ loaderData }) => applySeo({
     meta: [
-      { title: "Etichete țesute pe damasc & satin — Cluj | ETICHETT" },
-      { name: "description", content: "Etichete țesute personalizate pe damasc, satin sau taffeta — în role, tăiate sau pliate. Finisaj premium pentru branduri de haine. Producător Cluj-Napoca." },
+      { title: "Etichete țesute pe damasc & satin — Cluj | Etichett Prod" },
+      { name: "description", content: "Etichete țesute personalizate pe damasc, satin și taffeta, în role, tăiate sau pliate. Logo și culori pentru brandurile de. Cere ofertă gratuită în 24h." },
       { name: "keywords", content: "etichete tesute, etichete tesute personalizate, etichete tesute haine, etichete tesute damasc, etichete tesute satin, etichete tesute cluj, etichete textile tesute" },
-      { property: "og:title", content: "Etichete țesute pe damasc & satin — Cluj | ETICHETT" },
+      { property: "og:title", content: "Etichete țesute pe damasc & satin — Cluj | Etichett Prod" },
       { property: "og:description", content: "Etichete țesute premium pentru îmbrăcăminte — damasc, satin, taffeta, în multiple culori." },
       { property: "og:url", content: "https://etichetetextile.ro/etichete-tesute" },
       { property: "og:image", content: "https://etichetetextile.ro/images/products/etichete-tesute.jpg" },
@@ -35,12 +38,11 @@ export const Route = createFileRoute("/etichete-tesute")({
         type: "application/ld+json",
         children: JSON.stringify({
           "@context": "https://schema.org",
-          "@type": "Product",
+          "@type": "Service",
           name: "Etichete țesute personalizate",
           description: "Etichete țesute pe damasc, satin sau taffeta — finisaj premium pentru îmbrăcăminte și accesorii.",
-          brand: { "@type": "Brand", name: "Etichett Prod" },
+          serviceType: "Producție etichete personalizate", provider: { "@id": "https://etichetetextile.ro/#business" }, areaServed: [{ "@type": "Country", name: "România" }, { "@type": "City", name: "Cluj-Napoca" }],
           image: "https://etichetetextile.ro/images/products/etichete-tesute.jpg",
-          offers: { "@type": "AggregateOffer", priceCurrency: "RON", lowPrice: "0.20", highPrice: "1.20", offerCount: "6", availability: "https://schema.org/InStock" },
         }),
       },
     ],
@@ -66,6 +68,7 @@ function EticheteTesute() {
             <p className="mt-3 text-muted-foreground">
               <strong>Etichetele țesute</strong> sunt cele mai apreciate etichete textile pentru branduri premium. Logoul este țesut direct în material, nu imprimat — rezultă o textură și o durabilitate net superioare. Producem <em>etichete țesute personalizate</em> pe damasc (cel mai folosit), satin (lucios) sau taffeta (subțire).
             </p>
+            <p className="mt-4 text-muted-foreground">Pentru identitatea brandului poți alege etichete țesute; pentru aplicare fără cusături, <Link to="/etichete-termoadezive" className="font-semibold text-primary hover:underline">etichete termoadezive pentru haine</Link>. Consultă și ghidul <Link to="/simboluri-etichete-haine" className="font-semibold text-primary hover:underline">simboluri etichete haine</Link> pentru instrucțiunile de îngrijire.</p>
             <h3 className="mt-6 text-lg font-bold">Variante de livrare</h3>
             <ul className="mt-3 grid gap-2 text-sm">
               {[

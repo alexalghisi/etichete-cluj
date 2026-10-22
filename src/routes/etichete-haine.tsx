@@ -1,3 +1,5 @@
+import { LabelGuide } from "@/components/LabelGuide";
+import { BUSINESS, MINIMUM_SUMMARY, factualFaq } from "@/lib/business-facts";
 import { RouteError, RouteNotFound } from "@/components/RouteBoundary";
 import { getSeoOverride } from "@/lib/seo-overrides.functions";
 import { applySeo } from "@/lib/seo-head";
@@ -77,12 +79,12 @@ function EticheteHaine() {
                 "Etichete termoadezive — fără cusături",
                 "Etichete haine copii cu nume (rezistente la spălat)",
                 "Rezistență la spălare 60–90°C",
-                "Cantitate minimă mică — de la 100 buc",
+                MINIMUM_SUMMARY,
               ].map((b) => (
                 <li key={b} className="flex items-start gap-2"><CheckCircle2 className="mt-0.5 h-4 w-4 text-primary" /> {b}</li>
               ))}
             </ul>
-            <Link to="/contact" className="mt-7 inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground">
+            <Link to="/cere-oferta" className="mt-7 inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground">
               Cere ofertă etichete haine <ArrowRight className="h-4 w-4" />
             </Link>
           </article>
@@ -123,13 +125,14 @@ function EticheteHaine() {
       <FaqSection
         pageUrl="https://etichetetextile.ro/etichete-haine"
         items={[
-          { q: "Ce etichete trebuie să aibă o haină?", a: "Conform legislației UE, orice produs textil trebuie să aibă etichetă de compoziție (procente materiale) și etichetă cu simboluri de îngrijire (spălare, călcare, uscare). Brandurile adaugă și o etichetă cu logo și mărime." },
-          { q: "Care este diferența între etichete cusute și termoadezive?", a: "Etichetele cusute se atașează prin coasere și sunt clasice pentru fashion. Etichetele termoadezive se aplică la prese termice (130–160°C) și sunt ideale pentru tricouri, lenjerie și produse fără cusături." },
-          { q: "Pot face etichete pentru haine copii cu nume?", a: "Da. Producem etichete textile cu nume pentru hainele copiilor, rezistente la spălare repetată. Comanda minimă este 50 de bucăți cu același nume." },
-          { q: "Etichetele cu logo pentru haine rezistă la spălare?", a: "Da. Etichetele țesute pe damasc și cele din satin imprimat rezistă peste 50 de spălări la 60–90°C, fără decolorare." },
-          { q: "Cât costă etichetele pentru haine?", a: "De la 0,10 RON/bucată pentru etichete imprimate pe satin. Etichetele țesute pe damasc pornesc de la 0,15 RON/buc la 1000 buc." },
+          { q: "Ce etichete trebuie să aibă o haină?", a: factualFaq('Ce etichete trebuie să aibă o haină?', 'Regulamentul UE 1007/2011 privește compoziția fibrelor pentru produsele din domeniul său de aplicare. Simbolurile ISO 3758 descriu întreținerea; logo-ul și mărimea au funcții distincte.', '/etichete-haine') },
+          { q: "Care este diferența între etichete cusute și termoadezive?", a: factualFaq('Care este diferența între etichete cusute și termoadezive?', 'Etichetele cusute se atașează prin coasere și sunt clasice pentru fashion. Etichetele termoadezive se aplică la prese termice (130–160°C) și sunt ideale pentru tricouri, lenjerie și produse fără cusături.', '/etichete-haine') },
+          { q: "Pot face etichete pentru haine copii cu nume?", a: factualFaq('Pot face etichete pentru haine copii cu nume?', 'Da. Producem etichete textile cu nume pentru hainele copiilor, rezistente la spălare repetată. Comanda minimă este 50 de bucăți cu același nume.', '/etichete-haine') },
+          { q: "Etichetele cu logo pentru haine rezistă la spălare?", a: factualFaq('Etichetele cu logo pentru haine rezistă la spălare?', 'Da. Etichetele țesute pe damasc și cele din satin imprimat rezistă peste 50 de spălări la 60–90°C, fără decolorare.', '/etichete-haine') },
+          { q: "Cât costă etichetele pentru haine?", a: factualFaq('Cât costă etichetele pentru haine?', 'De la 0,10 RON/bucată pentru etichete imprimate pe satin. Etichetele țesute pe damasc pornesc de la 0,15 RON/buc la 1000 buc.', '/etichete-haine') },
         ]}
       />
+      <LabelGuide topic="haine și textile" />
     </PageLayout>
   );
 }

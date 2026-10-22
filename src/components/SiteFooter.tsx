@@ -1,3 +1,4 @@
+import { BUSINESS } from "@/lib/business-facts";
 import { Link } from "@tanstack/react-router";
 import { Mail, MapPin, Phone } from "lucide-react";
 
@@ -19,13 +20,18 @@ export function SiteFooter() {
             <li><Link to="/etichete-cluj" className="hover:text-primary">Etichete Cluj</Link></li>
             <li><Link to="/galerie" className="hover:text-primary">Galerie</Link></li>
             <li><Link to="/blog" className="hover:text-primary">Blog</Link></li>
+            <li><Link to="/cere-oferta" className="hover:text-primary">Cere ofertă</Link></li>
             <li><Link to="/contact" className="hover:text-primary">Contact</Link></li>
           </ul>
         </div>
         <div>
           <h3 className="text-sm font-semibold text-foreground">Produse</h3>
           <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
-            <li><Link to="/etichete-textile" className="hover:text-primary">Etichete textile</Link></li>
+            <li><Link to="/etichete-bumbac" className="hover:text-primary">Etichete bumbac</Link></li>
+<li><Link to="/embleme-tesute" className="hover:text-primary">Embleme țesute</Link></li>
+<li><Link to="/etichete-marime" className="hover:text-primary">Etichete de mărime</Link></li>
+<li><Link to="/producator-etichete" className="hover:text-primary">Producător etichete</Link></li>
+<li><Link to="/etichete-textile" className="hover:text-primary">Etichete textile</Link></li>
             <li><Link to="/etichete-personalizate" className="hover:text-primary">Etichete personalizate</Link></li>
             <li><Link to="/etichete-haine" className="hover:text-primary">Etichete pentru haine</Link></li>
             <li><Link to="/etichete-autocolante" className="hover:text-primary">Etichete autocolante</Link></li>
@@ -42,10 +48,10 @@ export function SiteFooter() {
         <div>
           <h3 className="text-sm font-semibold text-foreground">Contact</h3>
           <ul className="mt-4 space-y-3 text-sm text-muted-foreground">
-            <li className="flex items-start gap-2"><MapPin className="mt-0.5 h-4 w-4 text-primary" /> Str. Uzinei Electrice Nr. 9, Cluj-Napoca</li>
-            <li className="flex items-center gap-2"><Phone className="h-4 w-4 text-primary" /> <a href="tel:+40747264832" className="hover:text-primary">0747 264 832</a></li>
-            <li className="flex items-center gap-2"><Phone className="h-4 w-4 text-primary" /> <a href="tel:0264599966" className="hover:text-primary">0264 599 966</a></li>
-            <li className="flex items-center gap-2"><Mail className="h-4 w-4 text-primary" /> <a href="mailto:etichettprod@yahoo.com" className="hover:text-primary">etichettprod@yahoo.com</a></li>
+            <li className="flex items-start gap-2"><MapPin className="mt-0.5 h-4 w-4 text-primary" /> {BUSINESS.address}</li>
+            <li className="flex items-center gap-2"><Phone className="h-4 w-4 text-primary" /> <a href={BUSINESS.phoneHref} className="hover:text-primary">{BUSINESS.phone}</a></li>
+            <li className="flex items-center gap-2"><Phone className="h-4 w-4 text-primary" /> <a href={BUSINESS.landlineHref} className="hover:text-primary">{BUSINESS.landline}</a></li>
+            <li className="flex items-center gap-2"><Mail className="h-4 w-4 text-primary" /> <a href={`mailto:${BUSINESS.email}`} className="hover:text-primary">{BUSINESS.email}</a></li>
           </ul>
         </div>
       </div>

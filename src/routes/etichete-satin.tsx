@@ -1,3 +1,4 @@
+import { BUSINESS, MINIMUM_SUMMARY, factualFaq } from "@/lib/business-facts";
 import { RouteError, RouteNotFound } from "@/components/RouteBoundary";
 import { getSeoOverride } from "@/lib/seo-overrides.functions";
 import { applySeo } from "@/lib/seo-head";
@@ -71,7 +72,7 @@ function EticheteSatin() {
                 <li key={b} className="flex items-start gap-2"><CheckCircle2 className="mt-0.5 h-4 w-4 text-primary" /> {b}</li>
               ))}
             </ul>
-            <Link to="/contact" className="mt-7 inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground">
+            <Link to="/cere-oferta" search={{tip:"satin"}} className="mt-7 inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground">
               Cere ofertă etichete satin <ArrowRight className="h-4 w-4" />
             </Link>
           </article>
@@ -81,12 +82,12 @@ function EticheteSatin() {
       <FaqSection
         pageUrl="https://etichetetextile.ro/etichete-satin"
         items={[
-          { q: "Care e diferența între saten și satin?", a: "Saten și satin denumesc același material cu țesătură lucioasă; în catalog folosim ambele forme." },
-          { q: "Ce sunt etichetele satin?", a: "Etichetele satin (sau satina) sunt etichete textile imprimate pe material satin — moi, lucioase, cu aspect perlat premium. Sunt cele mai folosite etichete pentru îmbrăcăminte." },
-          { q: "Etichetele satin se cos sau se aplică termic?", a: "Ambele variante sunt posibile. Etichetele satin clasice se cos pe ceafă sau lateral, iar versiunea termoadezivă se aplică cu presa termică, fără cusături." },
-          { q: "Pe etichetele satin pot pune compoziția în mai multe limbi?", a: "Da. Imprimăm față-verso, ceea ce permite compoziție multilingvă (RO/EN/DE/FR/IT) și simboluri ISO 3758 pentru spălare." },
-          { q: "Etichetele satin zgârie pielea?", a: "Nu. Satinul este un material moale, plăcut pe piele — folosit inclusiv pentru lenjerie, haine de copii și tricouri." },
-          { q: "Cât costă etichetele satin personalizate?", a: "Prețul pornește de la ~0,15 lei/buc și depinde de dimensiune, cantitate și complexitatea imprimării. Trimite-ne logoul pentru ofertă." },
+          { q: "Care e diferența între saten și satin?", a: factualFaq('Care e diferența între saten și satin?', 'Saten și satin denumesc același material cu țesătură lucioasă; în catalog folosim ambele forme.', '/etichete-satin') },
+          { q: "Ce sunt etichetele satin?", a: factualFaq('Ce sunt etichetele satin?', 'Etichetele satin (sau satina) sunt etichete textile imprimate pe material satin — moi, lucioase, cu aspect perlat premium. Sunt cele mai folosite etichete pentru îmbrăcăminte.', '/etichete-satin') },
+          { q: "Etichetele satin se cos sau se aplică termic?", a: factualFaq('Etichetele satin se cos sau se aplică termic?', 'Ambele variante sunt posibile. Etichetele satin clasice se cos pe ceafă sau lateral, iar versiunea termoadezivă se aplică cu presa termică, fără cusături.', '/etichete-satin') },
+          { q: "Pe etichetele satin pot pune compoziția în mai multe limbi?", a: factualFaq('Pe etichetele satin pot pune compoziția în mai multe limbi?', 'Da. Imprimăm față-verso, ceea ce permite compoziție multilingvă (RO/EN/DE/FR/IT) și simboluri ISO 3758 pentru spălare.', '/etichete-satin') },
+          { q: "Etichetele satin zgârie pielea?", a: factualFaq('Etichetele satin zgârie pielea?', 'Nu. Satinul este un material moale, plăcut pe piele — folosit inclusiv pentru lenjerie, haine de copii și tricouri.', '/etichete-satin') },
+          { q: "Cât costă etichetele satin personalizate?", a: factualFaq('Cât costă etichetele satin personalizate?', 'Prețul pornește de la ~0,15 lei/buc și depinde de dimensiune, cantitate și complexitatea imprimării. Trimite-ne logoul pentru ofertă.', '/etichete-satin') },
         ]}
       />
     </PageLayout>

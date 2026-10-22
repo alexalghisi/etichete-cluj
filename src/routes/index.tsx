@@ -1,3 +1,5 @@
+import { OrderSteps, ORDER_STEPS } from "@/components/OrderSteps";
+import { LabelGuide } from "@/components/LabelGuide";
 import { RouteError, RouteNotFound } from "@/components/RouteBoundary";
 import { getSeoOverride } from "@/lib/seo-overrides.functions";
 import { applySeo } from "@/lib/seo-head";
@@ -24,7 +26,7 @@ export const Route = createFileRoute("/")({
       { rel: "canonical", href: "https://etichetetextile.ro/" },
       { rel: "preload", as: "image", href: "/images/hero-collage.jpg", fetchpriority: "high" },
     ],
-    scripts: [
+    scripts: [{ type: "application/ld+json", children: JSON.stringify({"@context":"https://schema.org","@type":"HowTo",name:"Cum comanzi etichete în 4 pași",step:ORDER_STEPS.map(s=>({"@type":"HowToStep",...s}))}) },
       {
         type: "application/ld+json",
         children: JSON.stringify({
@@ -56,11 +58,7 @@ function Index() {
     <PageLayout>
       {/* HERO */}
       <section className="relative overflow-hidden text-white">
-        <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: "url('/images/hero-collage.jpg')" }}
-          aria-hidden="true"
-        />
+        <img src="/images/hero-collage.jpg" width="1600" height="900" fetchPriority="high" alt="Etichete textile realizate în atelierul Etichett Prod" className="absolute inset-0 h-full w-full object-cover object-center"/>
         <div className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/55 to-black/25" aria-hidden="true" />
         <div className="relative mx-auto max-w-7xl px-4 py-24 md:px-6 md:py-36 lg:py-44">
           <div className="max-w-2xl">
@@ -74,7 +72,7 @@ function Index() {
               Etichete țesute, imprimate și embosate pentru haine, încălțăminte, marochinărie, mobilier și articole tehnice — fabricate în Cluj-Napoca, livrate în toată România.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
-              <Link to="/contact" className="inline-flex items-center gap-2 rounded-full bg-primary px-7 py-3.5 text-sm font-semibold text-primary-foreground shadow-elegant transition hover:scale-[1.02]">
+              <Link to="/cere-oferta" className="inline-flex items-center gap-2 rounded-full bg-primary px-7 py-3.5 text-sm font-semibold text-primary-foreground shadow-elegant transition hover:scale-[1.02]">
                 Cere o ofertă <ArrowRight className="h-4 w-4" />
               </Link>
               <a href="tel:+40747264832" className="inline-flex items-center gap-2 rounded-full border border-white/40 bg-white/5 px-7 py-3.5 text-sm font-semibold text-white backdrop-blur hover:bg-white/15">
@@ -223,17 +221,19 @@ function Index() {
       </section>
 
 
+      <OrderSteps />
       {/* CTA */}
       <section className="mx-auto max-w-7xl px-4 pb-20 md:px-6">
         <div className="gradient-hero overflow-hidden rounded-3xl px-8 py-14 text-center text-primary-foreground shadow-elegant md:px-14 md:py-20">
           <h2 className="mx-auto max-w-2xl text-3xl font-bold md:text-4xl">Cere o ofertă personalizată pentru etichetele tale</h2>
           <p className="mx-auto mt-4 max-w-xl text-primary-foreground">Trimite-ne grafica sau dezvoltăm una împreună. Stabilim toate detaliile și livrăm rapid.</p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
-            <Link to="/contact" className="rounded-full bg-white px-7 py-3 text-sm font-semibold text-primary-deep hover:scale-[1.02] transition">Cere ofertă</Link>
+            <Link to="/cere-oferta" className="rounded-full bg-white px-7 py-3 text-sm font-semibold text-primary-deep hover:scale-[1.02] transition">Cere ofertă</Link>
             <a href="mailto:etichettprod@yahoo.com" className="rounded-full border border-white/40 px-7 py-3 text-sm font-semibold hover:bg-white/10">etichettprod@yahoo.com</a>
           </div>
         </div>
       </section>
+      <LabelGuide topic="produsele tale" compact/>
     </PageLayout>
   );
 }

@@ -79,7 +79,7 @@ function EticheteCluj() {
             <h3 className="text-2xl font-bold mt-10">Etichete textile — întrebări frecvente (Cluj-Napoca)</h3>
             <div className="space-y-4">
               {[
-                { q: "Cât durează producția unei comenzi de etichete textile?", a: factualFaq('Cât durează producția unei comenzi de etichete textile?', 'În funcție de complexitate și cantitate, livrarea variază între câteva zile și 2-3 săptămâni. Clienții din Cluj pot ridica direct de la atelier.', '/etichete-cluj') },
+                { q: "Cât durează producția unei comenzi de etichete textile?", a: factualFaq('Cât durează producția unei comenzi de etichete textile?', BUSINESS.price, '/etichete-cluj') },
                 { q: "Care este cantitatea minimă pentru etichete personalizate?", a: factualFaq('Care este cantitatea minimă pentru etichete personalizate?', 'Lucrăm și cu cantități mici, adaptate pentru branduri în creștere. Contactează-ne pentru o ofertă personalizată.', '/etichete-cluj') },
                 { q: "Etichetele sunt rezistente la spălare?", a: factualFaq('Etichetele sunt rezistente la spălare?', 'Da. Folosim coloranți speciali și imprimare la temperaturi înalte, astfel încât etichetele rezistă la spălare, frecare și călcat.', '/etichete-cluj') },
                 { q: "Livrați și în afara Clujului?", a: factualFaq('Livrați și în afara Clujului?', 'Da, livrăm prin curier în toată România.', '/etichete-cluj') },

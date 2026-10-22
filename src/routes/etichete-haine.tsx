@@ -129,7 +129,7 @@ function EticheteHaine() {
           { q: "Care este diferența între etichete cusute și termoadezive?", a: factualFaq('Care este diferența între etichete cusute și termoadezive?', 'Etichetele cusute se atașează prin coasere și sunt clasice pentru fashion. Etichetele termoadezive se aplică la prese termice (130–160°C) și sunt ideale pentru tricouri, lenjerie și produse fără cusături.', '/etichete-haine') },
           { q: "Pot face etichete pentru haine copii cu nume?", a: factualFaq('Pot face etichete pentru haine copii cu nume?', 'Da. Producem etichete textile cu nume pentru hainele copiilor, rezistente la spălare repetată. Comanda minimă este 50 de bucăți cu același nume.', '/etichete-haine') },
           { q: "Etichetele cu logo pentru haine rezistă la spălare?", a: factualFaq('Etichetele cu logo pentru haine rezistă la spălare?', 'Da. Etichetele țesute pe damasc și cele din satin imprimat rezistă peste 50 de spălări la 60–90°C, fără decolorare.', '/etichete-haine') },
-          { q: "Cât costă etichetele pentru haine?", a: factualFaq('Cât costă etichetele pentru haine?', 'De la 0,10 RON/bucată pentru etichete imprimate pe satin. Etichetele țesute pe damasc pornesc de la 0,15 RON/buc la 1000 buc.', '/etichete-haine') },
+          { q: "Cât costă etichetele pentru haine?", a: factualFaq('Cât costă etichetele pentru haine?', BUSINESS.price, '/etichete-haine') },
         ]}
       />
       <LabelGuide topic="haine și textile" />

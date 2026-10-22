@@ -211,12 +211,7 @@ function Index() {
               <strong>Etichete autoadezive</strong> și <strong>etichete autocolante personalizate</strong> pe role, pentru ambalaje, produse, borcane, cosmetice și textile. Imprimare HD color, forme decupate la cerere, adeziv puternic sau detașabil. Alternativă la <em>imprimanta de etichete autoadezive</em> — noi le tipărim în serie, la calitate de tipografie.
             </p>
           </article>
-          <article>
-            <h2 className="text-2xl font-bold">Etichete Cluj & Cluj-Napoca — primul producător local</h2>
-            <p className="mt-3 text-muted-foreground">
-              Când cauți <strong>etichete Cluj</strong> sau <strong>etichete Cluj-Napoca</strong>, Etichett Prod este alegerea naturală — atelier propriu pe Str. Uzinei Electrice nr. 9, peste 30 de ani de experiență, ridicare personală sau livrare prin curier în <em>Florești, Apahida, Baciu, Gilău, Turda, Dej, Gherla, Huedin</em> și toată România (București, Timișoara, Oradea, Sibiu, Brașov, Iași).
-            </p>
-          </article>
+
         </div>
       </section>
 

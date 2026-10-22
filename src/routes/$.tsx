@@ -1,4 +1,4 @@
-import { createFileRoute, redirect, Link } from "@tanstack/react-router";
+import { createFileRoute, redirect, Link, notFound } from "@tanstack/react-router";
 
 // Map of legacy (WordPress) paths → current canonical paths.
 // Kept exhaustive based on Google Search Console historic data so we recover
@@ -86,7 +86,9 @@ export const Route = createFileRoute("/$")({
     if (target) {
       throw redirect({ href: target, statusCode: 301 });
     }
+    throw notFound();
   },
+  notFoundComponent: NotFoundPage,
   head: () => ({
     meta: [
       { title: "Pagina nu a fost găsită — Etichett Prod" },

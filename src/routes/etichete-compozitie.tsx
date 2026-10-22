@@ -1,3 +1,4 @@
+import { RouteError, RouteNotFound } from "@/components/RouteBoundary";
 import { getSeoOverride } from "@/lib/seo-overrides.functions";
 import { applySeo } from "@/lib/seo-head";
 import { createFileRoute, Link } from "@tanstack/react-router";
@@ -6,14 +7,16 @@ import { FaqSection } from "@/components/FaqSection";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 
 export const Route = createFileRoute("/etichete-compozitie")({
+  errorComponent: RouteError,
+  notFoundComponent: RouteNotFound,
   loader: () => getSeoOverride({ data: { path: "/etichete-compozitie" } }),
   component: EticheteCompozitie,
   head: ({ loaderData }) => applySeo({
     meta: [
-      { title: "Etichete de compoziție multilingve — RO/EN/DE/FR/IT | ETICHETT" },
+      { title: "Etichete de compoziție multilingve — RO/EN/DE/FR/IT | Etichett Prod" },
       { name: "description", content: "Etichete de compoziție pentru haine — multilingve (RO/EN/DE/FR/IT), simboluri de spălare ISO 3758, conforme Reg. UE 1007/2011. Producător Cluj." },
       { name: "keywords", content: "etichete compozitie, etichete de compozitie, etichete compozitie haine, etichete compozitie multilingve, etichete spalare, etichete iso 3758, etichete cluj" },
-      { property: "og:title", content: "Etichete de compoziție multilingve — RO/EN/DE/FR/IT | ETICHETT" },
+      { property: "og:title", content: "Etichete de compoziție multilingve — RO/EN/DE/FR/IT | Etichett Prod" },
       { property: "og:description", content: "Etichete de compoziție conforme UE, cu simboluri de spălare și fibre în mai multe limbi." },
       { property: "og:url", content: "https://etichetetextile.ro/etichete-compozitie" },
       { property: "og:image", content: "https://etichetetextile.ro/images/hero-labels.webp" },

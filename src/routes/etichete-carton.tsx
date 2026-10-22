@@ -1,3 +1,4 @@
+import { RouteError, RouteNotFound } from "@/components/RouteBoundary";
 import { getSeoOverride } from "@/lib/seo-overrides.functions";
 import { applySeo } from "@/lib/seo-head";
 import { createFileRoute, Link } from "@tanstack/react-router";
@@ -6,14 +7,16 @@ import { FaqSection } from "@/components/FaqSection";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 
 export const Route = createFileRoute("/etichete-carton")({
+  errorComponent: RouteError,
+  notFoundComponent: RouteNotFound,
   loader: () => getSeoOverride({ data: { path: "/etichete-carton" } }),
   component: EticheteCarton,
   head: ({ loaderData }) => applySeo({
     meta: [
-      { title: "Etichete carton — hangtag personalizat haine | ETICHETT" },
+      { title: "Etichete carton — hangtag personalizat haine | Etichett Prod" },
       { name: "description", content: "Etichete carton (hangtag) personalizate pentru haine: brand, preț, cod de bare, țara de origine. Carton premium, finisaje variate. Producător Cluj." },
       { name: "keywords", content: "etichete carton, etichete carton personalizate, hangtag, hangtag personalizat, etichete carton haine, etichete carton cluj, etichete hartie carton" },
-      { property: "og:title", content: "Etichete carton — hangtag personalizat haine | ETICHETT" },
+      { property: "og:title", content: "Etichete carton — hangtag personalizat haine | Etichett Prod" },
       { property: "og:description", content: "Hangtag-uri din carton premium pentru brandul tău — diverse forme, finisaje și grosimi." },
       { property: "og:url", content: "https://etichetetextile.ro/etichete-carton" },
       { property: "og:image", content: "https://etichetetextile.ro/images/materials/carton.png" },

@@ -1,3 +1,4 @@
+import { RouteError, RouteNotFound } from "@/components/RouteBoundary";
 import { getSeoOverride } from "@/lib/seo-overrides.functions";
 import { applySeo } from "@/lib/seo-head";
 import { createFileRoute, Link } from "@tanstack/react-router";
@@ -7,14 +8,16 @@ import { ProductGallery } from "@/components/ProductGallery";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 
 export const Route = createFileRoute("/etichete-haine")({
+  errorComponent: RouteError,
+  notFoundComponent: RouteNotFound,
   loader: () => getSeoOverride({ data: { path: "/etichete-haine" } }),
   component: EticheteHaine,
   head: ({ loaderData }) => applySeo({
     meta: [
-      { title: "Etichete haine personalizate cu logo — de la 100 buc | ETICHETT" },
+      { title: "Etichete haine personalizate cu logo — de la 100 buc | Etichett Prod" },
       { name: "description", content: "Etichete haine personalizate cu logo: țesute, satin, termoadezive, compoziție și mărime. Vezi galeria cu exemple reale. Producător Cluj-Napoca, 30+ ani." },
       { name: "keywords", content: "etichete haine, etichete pentru haine, etichete personalizate haine, etichete haine personalizate, etichete haine cu logo, etichete brand haine, etichete haine copii, etichete textile haine" },
-      { property: "og:title", content: "Etichete pentru haine personalizate | ETICHETT" },
+      { property: "og:title", content: "Etichete pentru haine personalizate | Etichett Prod" },
       { property: "og:description", content: "Etichete pentru haine cu logo, compoziție și mărime — țesute, satin, termoadezive. Producător Cluj." },
       { property: "og:url", content: "https://etichetetextile.ro/etichete-haine" },
       { property: "og:image", content: "https://etichetetextile.ro/images/hero-labels.webp" },
@@ -36,13 +39,11 @@ export const Route = createFileRoute("/etichete-haine")({
         type: "application/ld+json",
         children: JSON.stringify({
           "@context": "https://schema.org",
-          "@type": "Product",
+          "@type": "Service",
           name: "Etichete pentru haine personalizate",
           description: "Etichete pentru haine cu logo: țesute, satin, termoadezive, de compoziție și mărime.",
-          brand: { "@type": "Brand", name: "Etichett Prod" },
+          serviceType: "Producție etichete personalizate", provider: { "@id": "https://etichetetextile.ro/#business" }, areaServed: [{ "@type": "Country", name: "România" }, { "@type": "City", name: "Cluj-Napoca" }],
           image: "https://etichetetextile.ro/images/hero-labels.webp",
-          offers: { "@type": "AggregateOffer", priceCurrency: "RON", lowPrice: "0.10", highPrice: "2.00", offerCount: "12", availability: "https://schema.org/InStock" },
-          aggregateRating: { "@type": "AggregateRating", ratingValue: "4.9", reviewCount: "143" },
         }),
       },
     ],

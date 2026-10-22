@@ -1,3 +1,4 @@
+import { RouteError, RouteNotFound } from "@/components/RouteBoundary";
 import { getSeoOverride } from "@/lib/seo-overrides.functions";
 import { applySeo } from "@/lib/seo-head";
 import { createFileRoute, Link } from "@tanstack/react-router";
@@ -6,14 +7,16 @@ import { FaqSection } from "@/components/FaqSection";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 
 export const Route = createFileRoute("/etichete-termoadezive")({
+  errorComponent: RouteError,
+  notFoundComponent: RouteNotFound,
   loader: () => getSeoOverride({ data: { path: "/etichete-termoadezive" } }),
   component: EticheteTermoadezive,
   head: ({ loaderData }) => applySeo({
     meta: [
-      { title: "Etichete termoadezive pentru haine — fără cusături | ETICHETT" },
+      { title: "Etichete termoadezive pentru haine — fără cusături | Etichett Prod" },
       { name: "description", content: "Etichete termoadezive pentru haine, tricouri și lenjerie — se aplică la presă termică, fără cusături. Rezistente la spălare 60°C. Producător Cluj." },
       { name: "keywords", content: "etichete termoadezive, etichete termoadezive haine, etichete termoadezive pentru haine, etichete termocolante, etichete termotransfer, etichete fara cusaturi" },
-      { property: "og:title", content: "Etichete termoadezive pentru haine | ETICHETT" },
+      { property: "og:title", content: "Etichete termoadezive pentru haine | Etichett Prod" },
       { property: "og:description", content: "Etichete termoadezive premium, aplicate la presă termică — fără cusături." },
       { property: "og:url", content: "https://etichetetextile.ro/etichete-termoadezive" },
       { property: "og:image", content: "https://etichetetextile.ro/images/hero-labels.webp" },
@@ -35,12 +38,11 @@ export const Route = createFileRoute("/etichete-termoadezive")({
         type: "application/ld+json",
         children: JSON.stringify({
           "@context": "https://schema.org",
-          "@type": "Product",
+          "@type": "Service",
           name: "Etichete termoadezive pentru haine",
           description: "Etichete termoadezive aplicate la presă termică, fără cusături, rezistente la spălare repetată.",
-          brand: { "@type": "Brand", name: "Etichett Prod" },
+          serviceType: "Producție etichete personalizate", provider: { "@id": "https://etichetetextile.ro/#business" }, areaServed: [{ "@type": "Country", name: "România" }, { "@type": "City", name: "Cluj-Napoca" }],
           image: "https://etichetetextile.ro/images/hero-labels.webp",
-          offers: { "@type": "AggregateOffer", priceCurrency: "RON", lowPrice: "0.12", highPrice: "1.50", offerCount: "8", availability: "https://schema.org/InStock" },
         }),
       },
     ],

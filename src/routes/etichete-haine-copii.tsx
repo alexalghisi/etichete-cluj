@@ -1,3 +1,4 @@
+import { RouteError, RouteNotFound } from "@/components/RouteBoundary";
 import { getSeoOverride } from "@/lib/seo-overrides.functions";
 import { applySeo } from "@/lib/seo-head";
 import { createFileRoute, Link } from "@tanstack/react-router";
@@ -7,14 +8,16 @@ import { ProductGallery } from "@/components/ProductGallery";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 
 export const Route = createFileRoute("/etichete-haine-copii")({
+  errorComponent: RouteError,
+  notFoundComponent: RouteNotFound,
   loader: () => getSeoOverride({ data: { path: "/etichete-haine-copii" } }),
   component: EticheteHaineCopii,
   head: ({ loaderData }) => applySeo({
     meta: [
-      { title: "Etichete pentru haine copii cu nume — grădiniță, școală | ETICHETT" },
+      { title: "Etichete pentru haine copii cu nume — grădiniță, școală | Etichett Prod" },
       { name: "description", content: "Etichete pentru haine copii cu nume — pentru grădiniță, școală, tabere. Termoadezive sau cusute, rezistente la spălare. Producător Cluj-Napoca." },
       { name: "keywords", content: "etichete haine copii, etichete cu nume copii, etichete gradinita, etichete scoala, etichete haine copii personalizate, etichete textile copii" },
-      { property: "og:title", content: "Etichete haine copii cu nume | ETICHETT" },
+      { property: "og:title", content: "Etichete haine copii cu nume | Etichett Prod" },
       { property: "og:description", content: "Etichete personalizate cu numele copilului — pentru grădiniță, școală, tabere." },
       { property: "og:url", content: "https://etichetetextile.ro/etichete-haine-copii" },
       { property: "og:image", content: "https://etichetetextile.ro/images/hero-labels.webp" },
@@ -36,11 +39,10 @@ export const Route = createFileRoute("/etichete-haine-copii")({
         type: "application/ld+json",
         children: JSON.stringify({
           "@context": "https://schema.org",
-          "@type": "Product",
+          "@type": "Service",
           name: "Etichete pentru haine copii cu nume",
           description: "Etichete textile cu numele copilului — termoadezive sau cusute, rezistente la spălare.",
-          brand: { "@type": "Brand", name: "Etichett Prod" },
-          offers: { "@type": "AggregateOffer", priceCurrency: "RON", lowPrice: "0.40", highPrice: "1.50", offerCount: "5", availability: "https://schema.org/InStock" },
+          serviceType: "Producție etichete personalizate", provider: { "@id": "https://etichetetextile.ro/#business" }, areaServed: [{ "@type": "Country", name: "România" }, { "@type": "City", name: "Cluj-Napoca" }],
         }),
       },
     ],

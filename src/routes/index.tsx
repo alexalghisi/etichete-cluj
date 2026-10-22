@@ -1,3 +1,4 @@
+import { RouteError, RouteNotFound } from "@/components/RouteBoundary";
 import { getSeoOverride } from "@/lib/seo-overrides.functions";
 import { applySeo } from "@/lib/seo-head";
 import { createFileRoute, Link } from "@tanstack/react-router";
@@ -5,6 +6,8 @@ import { PageLayout } from "@/components/PageLayout";
 import { CheckCircle2, Sparkles, Factory, Truck, Award, ArrowRight, Phone } from "lucide-react";
 
 export const Route = createFileRoute("/")({
+  errorComponent: RouteError,
+  notFoundComponent: RouteNotFound,
   loader: () => getSeoOverride({ data: { path: "/" } }),
   component: Index,
   head: ({ loaderData }) => applySeo({
@@ -65,7 +68,7 @@ function Index() {
               <Sparkles className="h-3.5 w-3.5" /> Cluj-Napoca · din 1993
             </span>
             <h1 className="mt-5 text-4xl font-bold leading-[1.05] md:text-6xl lg:text-7xl">
-              Producător etichete textile <span className="text-primary">personalizate</span>
+              Etichete textile <span className="text-primary">personalizate</span> — producător din Cluj-Napoca
             </h1>
             <p className="mt-6 max-w-xl text-lg text-white/90 md:text-xl">
               Etichete țesute, imprimate și embosate pentru haine, încălțăminte, marochinărie, mobilier și articole tehnice — fabricate în Cluj-Napoca, livrate în toată România.

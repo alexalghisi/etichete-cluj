@@ -1,3 +1,4 @@
+import { RouteError, RouteNotFound } from "@/components/RouteBoundary";
 import { getSeoOverride } from "@/lib/seo-overrides.functions";
 import { applySeo } from "@/lib/seo-head";
 import { createFileRoute, Link } from "@tanstack/react-router";
@@ -5,14 +6,16 @@ import { PageLayout, PageHero } from "@/components/PageLayout";
 import { MapPin, Phone, ArrowRight, CheckCircle2 } from "lucide-react";
 
 export const Route = createFileRoute("/etichete-cluj")({
+  errorComponent: RouteError,
+  notFoundComponent: RouteNotFound,
   loader: () => getSeoOverride({ data: { path: "/etichete-cluj" } }),
   component: EticheteCluj,
   head: ({ loaderData }) => applySeo({
     meta: [
-      { title: "Etichete Cluj — producător etichete textile | ETICHETT" },
+      { title: "Etichete Cluj — producător etichete textile | Etichett Prod" },
       { name: "description", content: "Etichete Cluj: producător local de etichete textile personalizate — țesute, imprimate, satin, nylon, carton. Atelier în Cluj-Napoca." },
       { name: "keywords", content: "etichete cluj, etichete textile cluj, producator etichete cluj, etichete haine cluj, etichete personalizate cluj, etichete tesute cluj, etichete imprimate cluj" },
-      { property: "og:title", content: "Etichete Cluj — producător etichete textile | ETICHETT" },
+      { property: "og:title", content: "Etichete Cluj — producător etichete textile | Etichett Prod" },
       { property: "og:description", content: "Producător de etichete textile în Cluj. Etichete personalizate, țesute, imprimate pentru branduri locale și naționale." },
       { property: "og:url", content: "https://etichetetextile.ro/etichete-cluj" },
       { property: "og:image", content: "https://etichetetextile.ro/images/hero-labels.webp" },
@@ -50,6 +53,9 @@ function EticheteCluj() {
             <p className="text-muted-foreground">Lucrăm direct cu producătorii și brandurile locale din Cluj-Napoca și din împrejurimi. Discutăm față în față, putem prelua și preda comenzi la atelier, iar timpul de producție este semnificativ redus comparativ cu un furnizor extern.</p>
             <p className="text-muted-foreground">Pentru branduri din toată țara, livrăm prin curier rapid în toată România.</p>
 
+            <h2 className="text-2xl font-bold mt-10">Etichete pentru branduri din Cluj-Napoca și zona metropolitană</h2>
+            <p className="text-muted-foreground">Lucrăm cu branduri de haine, ateliere de croitorie, marochinărie și încălțăminte din Mănăștur, Mărăști, Gheorgheni, Zorilor, Centru, Bună Ziua, Andrei Mureșanu, Grigorescu, Iris, Dâmbul Rotund, Sopor și Borhanci. Comenzile pot fi ridicate personal de la atelierul de pe Str. Uzinei Electrice nr. 9.</p>
+            <p className="text-muted-foreground">Livrăm și în Florești, Apahida, Baciu, Gilău, Chinteni, Feleacu și Sânnicoară, precum și în Turda, Câmpia Turzii, Dej, Gherla și Huedin.</p>
             <h3 className="text-2xl font-bold mt-10">Servicii pentru clienții din Cluj</h3>
             <ul className="grid gap-3 sm:grid-cols-2">
               {[

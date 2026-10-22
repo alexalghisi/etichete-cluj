@@ -1,3 +1,4 @@
+import { RouteError, RouteNotFound } from "@/components/RouteBoundary";
 import { getSeoOverride } from "@/lib/seo-overrides.functions";
 import { applySeo } from "@/lib/seo-head";
 import { createFileRoute, Link } from "@tanstack/react-router";
@@ -6,14 +7,16 @@ import { FaqSection } from "@/components/FaqSection";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 
 export const Route = createFileRoute("/etichete-autocolante")({
+  errorComponent: RouteError,
+  notFoundComponent: RouteNotFound,
   loader: () => getSeoOverride({ data: { path: "/etichete-autocolante" } }),
   component: EticheteAutocolante,
   head: ({ loaderData }) => applySeo({
     meta: [
-      { title: "Etichete autocolante personalizate pe role | ETICHETT" },
+      { title: "Etichete autocolante personalizate pe role | Etichett Prod" },
       { name: "description", content: "Etichete autocolante personalizate imprimate HD pe role — pentru produse, cosmetice, vinuri, borcane și ambalaje. Producător Cluj, livrare RO." },
       { name: "keywords", content: "etichete autocolante, etichete autocolante personalizate, etichete autocolante pe role, etichete autocolante cluj, etichete autocolante ieftine, etichete autocolante online, etichete autocolante imprimate, imprimanta etichete autocolante" },
-      { property: "og:title", content: "Etichete autocolante personalizate | ETICHETT" },
+      { property: "og:title", content: "Etichete autocolante personalizate | Etichett Prod" },
       { property: "og:description", content: "Etichete autocolante personalizate pe role, imprimate HD — producător Cluj-Napoca." },
       { property: "og:url", content: "https://etichetetextile.ro/etichete-autocolante" },
       { property: "og:image", content: "https://etichetetextile.ro/images/hero-labels.webp" },
@@ -35,13 +38,11 @@ export const Route = createFileRoute("/etichete-autocolante")({
         type: "application/ld+json",
         children: JSON.stringify({
           "@context": "https://schema.org",
-          "@type": "Product",
+          "@type": "Service",
           name: "Etichete autocolante personalizate",
           description: "Etichete autocolante imprimate HD pe role, cu adeziv permanent sau detașabil, decupate la formă.",
-          brand: { "@type": "Brand", name: "Etichett Prod" },
+          serviceType: "Producție etichete personalizate", provider: { "@id": "https://etichetetextile.ro/#business" }, areaServed: [{ "@type": "Country", name: "România" }, { "@type": "City", name: "Cluj-Napoca" }],
           image: "https://etichetetextile.ro/images/hero-labels.webp",
-          offers: { "@type": "AggregateOffer", priceCurrency: "RON", lowPrice: "0.05", highPrice: "0.80", offerCount: "10", availability: "https://schema.org/InStock" },
-          aggregateRating: { "@type": "AggregateRating", ratingValue: "4.9", reviewCount: "112" },
         }),
       },
     ],

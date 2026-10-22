@@ -1,3 +1,4 @@
+import { RouteError, RouteNotFound } from "@/components/RouteBoundary";
 import { getSeoOverride } from "@/lib/seo-overrides.functions";
 import { applySeo } from "@/lib/seo-head";
 import { createFileRoute, Link } from "@tanstack/react-router";
@@ -5,6 +6,8 @@ import { PageLayout, PageHero } from "@/components/PageLayout";
 import { Check } from "lucide-react";
 
 export const Route = createFileRoute("/produse")({
+  errorComponent: RouteError,
+  notFoundComponent: RouteNotFound,
   loader: () => getSeoOverride({ data: { path: "/produse" } }),
   component: Produse,
   head: ({ loaderData }) => applySeo({
@@ -25,11 +28,11 @@ export const Route = createFileRoute("/produse")({
           "@type": "ItemList",
           name: "Etichete textile — produse Etichett Prod",
           itemListElement: [
-            { "@type": "ListItem", position: 1, item: { "@type": "Product", name: "Etichete țesute", image: "https://etichetetextile.ro/images/products/etichete-tesute.jpg", brand: "Etichett Prod" } },
-            { "@type": "ListItem", position: 2, item: { "@type": "Product", name: "Etichete imprimate", image: "https://etichetetextile.ro/images/products/etichete-imprimate.jpg", brand: "Etichett Prod" } },
-            { "@type": "ListItem", position: 3, item: { "@type": "Product", name: "Etichete personalizate pentru branduri", image: "https://etichetetextile.ro/images/products/etichete-personalizate.jpg", brand: "Etichett Prod" } },
-            { "@type": "ListItem", position: 4, item: { "@type": "Product", name: "Etichete de compoziție", image: "https://etichetetextile.ro/images/products/etichete-compozitie.jpg", brand: "Etichett Prod" } },
-            { "@type": "ListItem", position: 5, item: { "@type": "Product", name: "Etichete autoadezive & autocolante", image: "https://etichetetextile.ro/images/products/etichete-branduri.jpg", brand: "Etichett Prod" } },
+            { "@type": "ListItem", position: 1, item: { "@type": "Service", serviceType: "Producție etichete personalizate", provider: { "@id": "https://etichetetextile.ro/#business" }, areaServed: ["România", "Cluj-Napoca"], name: "Etichete țesute", image: "https://etichetetextile.ro/images/products/etichete-tesute.jpg", serviceType: "Producție etichete personalizate", provider: { "@id": "https://etichetetextile.ro/#business" }, areaServed: ["România", "Cluj-Napoca"] } },
+            { "@type": "ListItem", position: 2, item: { "@type": "Service", serviceType: "Producție etichete personalizate", provider: { "@id": "https://etichetetextile.ro/#business" }, areaServed: ["România", "Cluj-Napoca"], name: "Etichete imprimate", image: "https://etichetetextile.ro/images/products/etichete-imprimate.jpg", serviceType: "Producție etichete personalizate", provider: { "@id": "https://etichetetextile.ro/#business" }, areaServed: ["România", "Cluj-Napoca"] } },
+            { "@type": "ListItem", position: 3, item: { "@type": "Service", serviceType: "Producție etichete personalizate", provider: { "@id": "https://etichetetextile.ro/#business" }, areaServed: ["România", "Cluj-Napoca"], name: "Etichete personalizate pentru branduri", image: "https://etichetetextile.ro/images/products/etichete-personalizate.jpg", serviceType: "Producție etichete personalizate", provider: { "@id": "https://etichetetextile.ro/#business" }, areaServed: ["România", "Cluj-Napoca"] } },
+            { "@type": "ListItem", position: 4, item: { "@type": "Service", serviceType: "Producție etichete personalizate", provider: { "@id": "https://etichetetextile.ro/#business" }, areaServed: ["România", "Cluj-Napoca"], name: "Etichete de compoziție", image: "https://etichetetextile.ro/images/products/etichete-compozitie.jpg", serviceType: "Producție etichete personalizate", provider: { "@id": "https://etichetetextile.ro/#business" }, areaServed: ["România", "Cluj-Napoca"] } },
+            { "@type": "ListItem", position: 5, item: { "@type": "Service", serviceType: "Producție etichete personalizate", provider: { "@id": "https://etichetetextile.ro/#business" }, areaServed: ["România", "Cluj-Napoca"], name: "Etichete autoadezive & autocolante", image: "https://etichetetextile.ro/images/products/etichete-branduri.jpg", serviceType: "Producție etichete personalizate", provider: { "@id": "https://etichetetextile.ro/#business" }, areaServed: ["România", "Cluj-Napoca"] } },
           ],
         }),
       },
@@ -105,7 +108,7 @@ function Produse() {
               ["Etichete satin", "/etichete-satin"],
               ["Etichete carton (hangtag)", "/etichete-carton"],
               ["Etichete adezive", "/etichete-autoadezive"],
-              ["Etichete Cluj-Napoca", "/etichete-cluj-napoca"],
+              ["Etichete Cluj-Napoca", "/etichete-cluj"],
             ].map(([label, href]) => (
               <Link key={href} to={href} className="rounded-full border border-border bg-card px-4 py-2 text-sm font-medium hover:border-primary hover:text-primary">
                 {label}

@@ -1,4 +1,5 @@
 import { BUSINESS, MINIMUM_SUMMARY, factualFaq } from "@/lib/business-facts";
+import { ProductGuide } from "@/components/ProductGuide";
 import { RouteError, RouteNotFound } from "@/components/RouteBoundary";
 import { getSeoOverride } from "@/lib/seo-overrides.functions";
 import { applySeo } from "@/lib/seo-head";
@@ -90,6 +91,7 @@ function EticheteTesute() {
           <img src="/images/products/etichete-tesute.jpg" alt="Etichete țesute personalizate damasc satin" className="aspect-square w-full rounded-2xl object-cover" loading="lazy" />
         </div>
       </section>
+      <ProductGuide slug="tesute" />
       <FaqSection
         pageUrl="https://etichetetextile.ro/etichete-tesute"
         items={[

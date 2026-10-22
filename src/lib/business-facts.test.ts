@@ -10,3 +10,5 @@ describe('Authoritative commercial rules', () => {
   it('stale FAQ price is removed', () => expect(factualFaq('Cât costă?', '0,15 RON/buc', '/etichete-satin')).not.toContain('0,15'));
 });
 it('normalization preserves authoritative delivery exactly',()=>expect(factualText(BUSINESS.production)).toBe(BUSINESS.production));
+
+it('legacy woven minimum is normalized',()=>expect(factualText('De la 100 buc etichete țesute')).toContain('500 buc/model'));

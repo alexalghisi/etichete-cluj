@@ -223,6 +223,7 @@ export async function runDailySeo(sb: Sb) {
       const page = await readPage(p);
       const o = ovMap.get(p);
       const prompt = `Ești expert SEO senior pentru firma Etichett Prod (producător de etichete textile, Cluj-Napoca, din 1993). Site: ${SITE}.
+Fapte comerciale obligatorii: ${MINIMUM_SUMMARY} ${BUSINESS.production}. ${BUSINESS.urgent}. ${BUSINESS.price}.
 Optimizează pagina ${p} pentru Google România. Scrie în română corectă, cu diacritice, util și factual. NU inventa prețuri, termene, certificări sau date noi; folosește doar informațiile din pagină. Fără keyword stuffing.
 
 Date Search Console 28 zile pentru pagină: ${s ? JSON.stringify(s) : "fără date"}

@@ -7,12 +7,13 @@ import { BUSINESS, LABEL_TYPES, minimumFor, TYPE_NAMES, type LabelType } from "@
 import { prepareLogoUpload, submitQuote } from "@/lib/quote.functions";
 import { quoteSchema } from "@/lib/quote-schema";
 import { trackConversion } from "@/lib/conversions";
+function labelDimensions(value?: string): { width:number; height:number } { try { const d=JSON.parse(value ?? '{}'); return {width: typeof d.width==='number'&&d.width>=5&&d.width<=300?d.width:15,height:typeof d.height==='number'&&d.height>=5&&d.height<=300?d.height:50}; } catch { return {width:15,height:50}; } }
 const field = "mt-1 w-full rounded-md border border-input bg-background px-3 py-2";
 const steps = ["Tip etichetă", "Dimensiune", "Cantitate", "Personalizare", "Logo", "Termen și contact"];
 export function QuoteWizard({ initialType, initialLabel }: { initialType?: LabelType; initialLabel?: string }) {
   const send = useServerFn(submitQuote); const prepare = useServerFn(prepareLogoUpload);
   const [step,setStep] = useState(0); const [busy,setBusy] = useState(false); const [error,setError] = useState(""); const [done,setDone] = useState(""); const [file,setFile] = useState<File | null>(null);
-  const [form,setForm] = useState({ type: initialType ?? "satin" as LabelType, width: 15, height: 50, quantity: 100, colors: "", finish: "Tăiat", application: "cusut" as "cusut" | "termo" | "adeziv", deadline: "", name: "", company: "", phone: "", email: "", labelData: initialLabel ?? "", website: "", consent: false });
+  const [form,setForm] = useState({ type: initialType ?? "satin" as LabelType, width: labelDimensions(initialLabel).width, height: labelDimensions(initialLabel).height, quantity: 100, colors: "", finish: "Tăiat", application: "cusut" as "cusut" | "termo" | "adeziv", deadline: "", name: "", company: "", phone: "", email: "", labelData: initialLabel ?? "", website: "", consent: false });
   useEffect(() => { if(initialType) setForm(f=>({...f,type:initialType})); },[initialType]);
   const set = (key: keyof typeof form, value: string | number | boolean) => setForm(f => ({...f,[key]: value}));
   const minimum = minimumFor(form.type);

@@ -1,23 +1,30 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { PageLayout } from "@/components/PageLayout";
+import { getSeoOverride } from "@/lib/seo-overrides.functions";
+import { applySeo } from "@/lib/seo-head";
+import { brandTitle } from "@/lib/seo-policy";
+import { relevantProducts, normalizeArticleLinks } from "@/lib/product-links";
+import { RouteError, RouteNotFound } from "@/components/RouteBoundary";
 import { getBlogPost } from "@/lib/blog.functions";
 import { AdNativeBanner } from "@/components/AdNativeBanner";
 
 const SITE = "https://etichetetextile.ro";
 
 export const Route = createFileRoute("/blog/$slug")({
+  errorComponent: RouteError,
+  notFoundComponent: RouteNotFound,
   loader: async ({ params }) => {
-    const { post } = await getBlogPost({ data: { slug: params.slug } });
+    const { post, related } = await getBlogPost({ data: { slug: params.slug } });
     if (!post) throw notFound();
-    return { post };
+    return { post, related, ...(await getSeoOverride({ data: { path: `/blog/${post.slug}` } })) };
   },
   head: ({ loaderData }) => {
     const post = loaderData?.post;
-    if (!post) return {};
+    if (!post) return { meta: [{ title: "Articol indisponibil | Etichett Prod" }, { name: "robots", content: "noindex, follow" }] };
     const url = `${SITE}/blog/${post.slug}`;
-    return {
+    return applySeo({
       meta: [
-        { title: `${post.title} | Etichett Prod` },
+        { title: `${brandTitle(post.title)} | Etichett Prod` },
         { name: "description", content: post.meta_description },
         ...(post.keyword ? [{ name: "keywords", content: `${post.keyword}, etichete, etichete textile, etichete cluj` }] : []),
         { property: "og:title", content: post.title },
@@ -32,46 +39,35 @@ export const Route = createFileRoute("/blog/$slug")({
           type: "application/ld+json",
           children: JSON.stringify({
             "@context": "https://schema.org",
-            "@type": "Article",
+            "@type": "BlogPosting",
             headline: post.title,
             description: post.meta_description,
             datePublished: post.published_at,
+            dateModified: post.content_updated_at ?? post.published_at,
+            image: (() => { const image = post.content.match(/<img[^>]+src=["'](https:\/\/[^"']+)["']/i)?.[1]; return image; })(),
             inLanguage: "ro",
             author: { "@type": "Organization", name: "Etichett Prod", url: SITE },
-            publisher: { "@type": "Organization", name: "Etichett Prod", url: SITE },
-            mainEntityOfPage: url,
+            publisher: { "@type": "Organization", name: "Etichett Prod", url: SITE, logo: { "@type": "ImageObject", url: `${SITE}/images/logo.png` } },
+            mainEntityOfPage: { "@type": "WebPage", "@id": url },
           }),
         },
+        { type: "application/ld+json", children: JSON.stringify({
+          "@context": "https://schema.org", "@type": "BreadcrumbList",
+          itemListElement: [
+            { "@type": "ListItem", position: 1, name: "Acasă", item: `${SITE}/` },
+            { "@type": "ListItem", position: 2, name: "Blog", item: `${SITE}/blog` },
+            { "@type": "ListItem", position: 3, name: post.title, item: url },
+          ],
+        }) },
       ],
-    };
+    }, loaderData);
   },
   component: BlogPostPage,
 });
 
-const PRODUCT_MAP: [RegExp, string, string][] = [
-  [/copii/i, "/etichete-haine-copii", "Etichete haine copii"],
-  [/simbol|intretinere|întreținere/i, "/simboluri-etichete-haine", "Simboluri etichete haine"],
-  [/compozi/i, "/etichete-compozitie", "Etichete de compoziție"],
-  [/termo/i, "/etichete-termoadezive", "Etichete termoadezive"],
-  [/autocolant/i, "/etichete-autocolante", "Etichete autocolante"],
-  [/adeziv/i, "/etichete-autoadezive", "Etichete adezive"],
-  [/carton|hangtag/i, "/etichete-carton", "Etichete carton"],
-  [/nylon/i, "/etichete-nylon", "Etichete nylon"],
-  [/satin|saten/i, "/etichete-satin", "Etichete satin"],
-  [/tesut|țesut/i, "/etichete-tesute", "Etichete țesute"],
-  [/haine/i, "/etichete-haine", "Etichete haine"],
-  [/personaliz|logo|brand/i, "/etichete-personalizate", "Etichete personalizate"],
-  [/cluj/i, "/etichete-cluj-napoca", "Etichete Cluj-Napoca"],
-];
-function productFor(p: { keyword: string | null; title: string; slug: string }) {
-  const hay = `${p.keyword ?? ""} ${p.title} ${p.slug}`;
-  const m = PRODUCT_MAP.find(([re]) => re.test(hay));
-  return m ? { to: m[1], label: m[2] } : { to: "/etichete-textile", label: "Etichete textile" };
-}
-
 function BlogPostPage() {
-  const { post } = Route.useLoaderData();
-  const prod = productFor(post);
+  const { post, related } = Route.useLoaderData();
+  const products = relevantProducts(`${post.keyword ?? ""} ${post.title} ${post.content}`);
   return (
     <PageLayout>
       <article className="mx-auto max-w-3xl px-4 py-12 md:px-6 md:py-16">
@@ -89,8 +85,10 @@ function BlogPostPage() {
         <p className="mt-4 text-lg leading-relaxed text-muted-foreground">{post.excerpt}</p>
         <div
           className="prose prose-neutral mt-8 max-w-none dark:prose-invert [&_h2]:mt-8 [&_h2]:text-2xl [&_h2]:font-bold [&_p]:mt-4 [&_p]:leading-relaxed [&_p]:text-muted-foreground"
-          dangerouslySetInnerHTML={{ __html: post.content }}
+          dangerouslySetInnerHTML={{ __html: normalizeArticleLinks(post.content) }}
         />
+        <p className="mt-6 text-muted-foreground">Pentru această aplicație, descoperă {products.map((prod, i) => <span key={prod.to}>{i > 0 && (i === products.length - 1 ? " și " : ", ")}<Link to={prod.to} className="font-semibold text-primary hover:underline">{prod.label}</Link></span>)}. Echipa Etichett Prod te ajută să alegi materialul și personalizarea potrivite.</p>
+        {related.length > 0 && <section className="mt-12"><h2 className="text-2xl font-bold">Articole similare</h2><ul className="mt-4 space-y-3">{related.map((p) => <li key={p.slug}><Link to="/blog/$slug" params={{ slug: p.slug }} className="font-semibold text-primary hover:underline">{p.title}</Link></li>)}</ul></section>}
         <aside className="mt-12 rounded-2xl border border-border bg-card p-6">
           <h2 className="text-lg font-bold">Ai nevoie de etichete pentru produsele tale?</h2>
           <p className="mt-2 text-sm text-muted-foreground">
@@ -100,9 +98,6 @@ function BlogPostPage() {
             <Link to="/contact" className="rounded-lg bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground hover:opacity-90">
               Cere ofertă
             </Link>
-            <a href={prod.to} className="rounded-lg border border-primary px-5 py-2.5 text-sm font-semibold text-primary hover:bg-accent">
-              Vezi {prod.label.toLowerCase()} →
-            </a>
             <Link to="/produse" className="rounded-lg border border-border px-5 py-2.5 text-sm font-semibold hover:bg-accent">
               Vezi produsele
             </Link>

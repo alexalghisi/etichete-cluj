@@ -1,4 +1,5 @@
 import { RouteError, RouteNotFound } from "@/components/RouteBoundary";
+import { ProductGuide } from "@/components/ProductGuide";
 import { getSeoOverride } from "@/lib/seo-overrides.functions";
 import { applySeo } from "@/lib/seo-head";
 import { createFileRoute, Link } from "@tanstack/react-router";
@@ -117,6 +118,7 @@ function Produse() {
           </div>
         </div>
       </section>
-    </PageLayout>
+    <ProductGuide slug="produse" />
+      </PageLayout>
   );
 }

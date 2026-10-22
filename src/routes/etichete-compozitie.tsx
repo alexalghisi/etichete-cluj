@@ -1,4 +1,5 @@
 import { BUSINESS, MINIMUM_SUMMARY, factualFaq } from "@/lib/business-facts";
+import { ProductGuide } from "@/components/ProductGuide";
 import { RouteError, RouteNotFound } from "@/components/RouteBoundary";
 import { getSeoOverride } from "@/lib/seo-overrides.functions";
 import { applySeo } from "@/lib/seo-head";
@@ -88,6 +89,7 @@ function EticheteCompozitie() {
         </div>
       </section>
 
+      <ProductGuide slug="compozitie" />
       <FaqSection
         pageUrl="https://etichetetextile.ro/etichete-compozitie"
         items={[

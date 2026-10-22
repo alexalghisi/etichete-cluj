@@ -89,6 +89,45 @@ export type Database = {
         }
         Relationships: []
       }
+      quote_requests: {
+        Row: {
+          company: string
+          configuration: Json
+          created_at: string
+          email: string
+          handled: boolean
+          id: string
+          logo_path: string | null
+          name: string
+          notification_status: string
+          phone: string
+        }
+        Insert: {
+          company?: string
+          configuration: Json
+          created_at?: string
+          email: string
+          handled?: boolean
+          id?: string
+          logo_path?: string | null
+          name: string
+          notification_status?: string
+          phone: string
+        }
+        Update: {
+          company?: string
+          configuration?: Json
+          created_at?: string
+          email?: string
+          handled?: boolean
+          id?: string
+          logo_path?: string | null
+          name?: string
+          notification_status?: string
+          phone?: string
+        }
+        Relationships: []
+      }
       seo_changes: {
         Row: {
           created_at: string

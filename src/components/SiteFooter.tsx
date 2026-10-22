@@ -31,6 +31,10 @@ export function SiteFooter() {
 <li><Link to="/embleme-tesute" className="hover:text-primary">Embleme țesute</Link></li>
 <li><Link to="/etichete-marime" className="hover:text-primary">Etichete de mărime</Link></li>
 <li><Link to="/producator-etichete" className="hover:text-primary">Producător etichete</Link></li>
+<li><Link to="/tricouri-personalizate-cluj" className="hover:text-primary">Tricouri personalizate Cluj</Link></li>
+<li><Link to="/imprimare-textile-cluj" className="hover:text-primary">Imprimare textile Cluj</Link></li>
+<li><Link to="/sepci-personalizate" className="hover:text-primary">Șepci personalizate</Link></li>
+<li><Link to="/broderie-cluj" className="hover:text-primary">Broderie Cluj</Link></li>
 <li><Link to="/etichete-textile" className="hover:text-primary">Etichete textile</Link></li>
             <li><Link to="/etichete-personalizate" className="hover:text-primary">Etichete personalizate</Link></li>
             <li><Link to="/etichete-haine" className="hover:text-primary">Etichete pentru haine</Link></li>

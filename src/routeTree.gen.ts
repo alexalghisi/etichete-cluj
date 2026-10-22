@@ -31,6 +31,7 @@ import { Route as EticheteTermoadeziveRouteImport } from './routes/etichete-term
 import { Route as EticheteTesuteRouteImport } from './routes/etichete-tesute'
 import { Route as EticheteTextileRouteImport } from './routes/etichete-textile'
 import { Route as GalerieRouteImport } from './routes/galerie'
+import { Route as GeneratorEtichetaCompozitieRouteImport } from './routes/generator-eticheta-compozitie'
 import { Route as ProduseRouteImport } from './routes/produse'
 import { Route as SimboluriEticheteHaineRouteImport } from './routes/simboluri-etichete-haine'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
@@ -149,6 +150,12 @@ const GalerieRoute = GalerieRouteImport.update({
   path: '/galerie',
   getParentRoute: () => rootRouteImport,
 } as any)
+const GeneratorEtichetaCompozitieRoute =
+  GeneratorEtichetaCompozitieRouteImport.update({
+    id: '/generator-eticheta-compozitie',
+    path: '/generator-eticheta-compozitie',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const ProduseRoute = ProduseRouteImport.update({
   id: '/produse',
   path: '/produse',
@@ -208,6 +215,7 @@ export interface FileRoutesByFullPath {
   '/etichete-tesute': typeof EticheteTesuteRoute
   '/etichete-textile': typeof EticheteTextileRoute
   '/galerie': typeof GalerieRoute
+  '/generator-eticheta-compozitie': typeof GeneratorEtichetaCompozitieRoute
   '/produse': typeof ProduseRoute
   '/simboluri-etichete-haine': typeof SimboluriEticheteHaineRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
@@ -238,6 +246,7 @@ export interface FileRoutesByTo {
   '/etichete-tesute': typeof EticheteTesuteRoute
   '/etichete-textile': typeof EticheteTextileRoute
   '/galerie': typeof GalerieRoute
+  '/generator-eticheta-compozitie': typeof GeneratorEtichetaCompozitieRoute
   '/produse': typeof ProduseRoute
   '/simboluri-etichete-haine': typeof SimboluriEticheteHaineRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
@@ -270,6 +279,7 @@ export interface FileRoutesById {
   '/etichete-tesute': typeof EticheteTesuteRoute
   '/etichete-textile': typeof EticheteTextileRoute
   '/galerie': typeof GalerieRoute
+  '/generator-eticheta-compozitie': typeof GeneratorEtichetaCompozitieRoute
   '/produse': typeof ProduseRoute
   '/simboluri-etichete-haine': typeof SimboluriEticheteHaineRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
@@ -303,6 +313,7 @@ export interface FileRouteTypes {
     | '/etichete-tesute'
     | '/etichete-textile'
     | '/galerie'
+    | '/generator-eticheta-compozitie'
     | '/produse'
     | '/simboluri-etichete-haine'
     | '/sitemap.xml'
@@ -333,6 +344,7 @@ export interface FileRouteTypes {
     | '/etichete-tesute'
     | '/etichete-textile'
     | '/galerie'
+    | '/generator-eticheta-compozitie'
     | '/produse'
     | '/simboluri-etichete-haine'
     | '/sitemap.xml'
@@ -364,6 +376,7 @@ export interface FileRouteTypes {
     | '/etichete-tesute'
     | '/etichete-textile'
     | '/galerie'
+    | '/generator-eticheta-compozitie'
     | '/produse'
     | '/simboluri-etichete-haine'
     | '/sitemap.xml'
@@ -396,6 +409,7 @@ export interface RootRouteChildren {
   EticheteTesuteRoute: typeof EticheteTesuteRoute
   EticheteTextileRoute: typeof EticheteTextileRoute
   GalerieRoute: typeof GalerieRoute
+  GeneratorEtichetaCompozitieRoute: typeof GeneratorEtichetaCompozitieRoute
   ProduseRoute: typeof ProduseRoute
   SimboluriEticheteHaineRoute: typeof SimboluriEticheteHaineRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
@@ -559,6 +573,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof GalerieRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/generator-eticheta-compozitie': {
+      id: '/generator-eticheta-compozitie'
+      path: '/generator-eticheta-compozitie'
+      fullPath: '/generator-eticheta-compozitie'
+      preLoaderRoute: typeof GeneratorEtichetaCompozitieRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/produse': {
       id: '/produse'
       path: '/produse'
@@ -646,6 +667,7 @@ const rootRouteChildren: RootRouteChildren = {
   EticheteTesuteRoute: EticheteTesuteRoute,
   EticheteTextileRoute: EticheteTextileRoute,
   GalerieRoute: GalerieRoute,
+  GeneratorEtichetaCompozitieRoute: GeneratorEtichetaCompozitieRoute,
   ProduseRoute: ProduseRoute,
   SimboluriEticheteHaineRoute: SimboluriEticheteHaineRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,

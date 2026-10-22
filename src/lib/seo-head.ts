@@ -1,5 +1,5 @@
 import type { SeoOverride } from "./seo-overrides.functions";
-import { AUDIT_TITLES, brandTitle, canonicalPath } from "./seo-policy";
+import { AUDIT_TITLES, brandTitle, canonicalPath, seoDescription } from "./seo-policy";
 
 type Meta = Record<string, unknown>;
 type Head = { meta?: any[]; links?: any[]; scripts?: any[] };
@@ -12,8 +12,8 @@ export function applySeo<H extends Head>(head: H, loaderData: { seo: SeoOverride
   const staticTitle = head.meta?.find((m) => "title" in m)?.title ?? "Etichett Prod";
   const title = brandTitle((path && AUDIT_TITLES[path]) || seo?.title || staticTitle);
   const storedDescription = seo?.description;
-  const description = storedDescription && storedDescription.length >= 140 && storedDescription.length <= 155 && storedDescription.includes("Cere ofertă gratuită în 24h")
-    ? storedDescription : head.meta?.find((m) => m.name === "description")?.content;
+  const description = seoDescription(storedDescription && storedDescription.length >= 140 && storedDescription.length <= 155 && storedDescription.includes("Cere ofertă gratuită în 24h")
+    ? storedDescription : head.meta?.find((m) => m.name === "description")?.content ?? "Etichete textile personalizate pentru haine și branduri, produse de Etichett Prod în Cluj-Napoca din 1993.");
   const meta: Meta[] = (head.meta ?? []).map((m: Meta): Meta => {
     if ("title" in m) return { title };
     if (m.property === "og:title" || m.name === "twitter:title") return { ...m, content: title };

@@ -1,4 +1,4 @@
-import { protectedSeoField } from "./seo-policy";
+import { protectedSeoField, seoDescription, brandTitle } from "./seo-policy";
 import { z } from "zod";
 
 const SITE = "https://etichetetextile.ro";
@@ -249,8 +249,8 @@ Returnează DOAR JSON valid (fără markdown) cu cheile:
       }
       const links = parsed.links.filter((l) => PAGES.includes(l.to) && l.to !== p);
       const next: Record<string, unknown> = {};
-      if (parsed.title && !protectedSeoField(p, "title")) next.title = parsed.title;
-      if (parsed.description) next.description = parsed.description;
+      if (parsed.title && !protectedSeoField(p, "title")) next.title = brandTitle(parsed.title);
+      if (parsed.description) next.description = seoDescription(parsed.description);
       if (parsed.h1 && !protectedSeoField(p, "h1")) next.h1 = parsed.h1;
       if (parsed.intro) next.intro = parsed.intro;
       if (parsed.faqs.length) next.faqs = [...(o?.faqs ?? []), ...parsed.faqs].slice(-6);
@@ -337,7 +337,7 @@ Returnează DOAR JSON valid (fără markdown) cu cheile:
   const { error } = await sb.from("blog_posts").insert({
     slug,
     title: parsed.title,
-    meta_description: parsed.meta_description,
+    meta_description: seoDescription(parsed.meta_description),
     excerpt: parsed.excerpt,
     content: parsed.content,
     keyword: parsed.keyword,

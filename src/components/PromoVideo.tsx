@@ -87,8 +87,8 @@ export function PromoVideo() {
           tabIndex={0}
           onVolumeChange={() => setShowSoundButton(videoRef.current?.muted ?? false)}
           className="aspect-video w-full rounded-2xl"
-          src="https://resource2.heygen.ai/video/transcode/583b2f41535d4e29ad599a4786eb3894/vea43af9721484f71af24199e77b5c9ee/1280x720_nocap.mp4"
-          poster="https://resource2.heygen.ai/video/transcode/583b2f41535d4e29ad599a4786eb3894/vea43af9721484f71af24199e77b5c9ee/1920x1080_caption.jpeg"
+          src="https://resource2.heygen.ai/video/transcode/1b6f8389d94c45019513b93a89f1d7e7/v88b5a97914fa4e0c9c92607357ac49cf/1280x720_nocap.mp4"
+          poster="https://resource2.heygen.ai/video/transcode/1b6f8389d94c45019513b93a89f1d7e7/v88b5a97914fa4e0c9c92607357ac49cf/1920x1080_caption.jpeg"
           aria-label="Video de prezentare Etichett Prod"
         />
         {showSoundButton && (

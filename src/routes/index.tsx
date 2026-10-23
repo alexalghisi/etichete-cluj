@@ -1,4 +1,5 @@
 import { OrderSteps, ORDER_STEPS } from "@/components/OrderSteps";
+import { PromoVideo } from "@/components/PromoVideo";
 import { LabelGuide } from "@/components/LabelGuide";
 import { RouteError, RouteNotFound } from "@/components/RouteBoundary";
 import { getSeoOverride } from "@/lib/seo-overrides.functions";
@@ -88,6 +89,8 @@ function Index() {
         </div>
       </section>
 
+
+      <PromoVideo />
 
       {/* TRUST STRIP */}
       <section className="border-y border-border bg-secondary/40">

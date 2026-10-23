@@ -13,13 +13,41 @@ export function PromoVideo() {
 
     let visible = false;
     let attempt = 0;
+    const gestureEvents = ["pointerdown", "keydown", "touchend", "click"] as const;
+
+    // Browsers allow sound as soon as the visitor has interacted once with the page
+    // (any click/tap/key anywhere). Unmute automatically on that first interaction.
+    const unmuteOnGesture = () => {
+      removeGestureListeners();
+      if (!video.muted) return;
+      video.muted = false;
+      setShowSoundButton(false);
+      if (visible) {
+        video.play().catch(() => {
+          video.muted = true;
+          setShowSoundButton(true);
+        });
+      }
+    };
+    const addGestureListeners = () => {
+      gestureEvents.forEach((e) => document.addEventListener(e, unmuteOnGesture, { capture: true, passive: true }));
+    };
+    function removeGestureListeners() {
+      gestureEvents.forEach((e) => document.removeEventListener(e, unmuteOnGesture, { capture: true }));
+    }
+
     const startPlayback = async (currentAttempt: number) => {
       try {
+        if (video.muted && (navigator as Navigator & { userActivation?: { hasBeenActive: boolean } }).userActivation?.hasBeenActive) {
+          video.muted = false;
+        }
         await video.play();
+        if (!video.muted) setShowSoundButton(false);
       } catch {
         if (!visible || currentAttempt !== attempt) return;
         video.muted = true;
         setShowSoundButton(true);
+        addGestureListeners();
         try {
           await video.play();
         } catch {
@@ -41,6 +69,7 @@ export function PromoVideo() {
       visible = false;
       attempt += 1;
       observer.disconnect();
+      removeGestureListeners();
       video.pause();
     };
   }, []);

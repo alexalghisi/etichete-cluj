@@ -11,23 +11,20 @@ export function PromoVideo() {
     const video = videoRef.current;
     if (!FEATURES.promoVideo || !video) return;
 
-    let visible = false;
-    let attempt = 0;
+    let active = true;
     const gestureEvents = ["pointerdown", "keydown", "touchend", "click"] as const;
 
     // Browsers allow sound as soon as the visitor has interacted once with the page
     // (any click/tap/key anywhere). Unmute automatically on that first interaction.
     const unmuteOnGesture = () => {
       removeGestureListeners();
-      if (!video.muted) return;
+      if (!active || !video.muted) return;
       video.muted = false;
       setShowSoundButton(false);
-      if (visible) {
-        video.play().catch(() => {
-          video.muted = true;
-          setShowSoundButton(true);
-        });
-      }
+      video.play().catch(() => {
+        video.muted = true;
+        setShowSoundButton(true);
+      });
     };
     const addGestureListeners = () => {
       gestureEvents.forEach((e) => document.addEventListener(e, unmuteOnGesture, { capture: true, passive: true }));
@@ -36,15 +33,15 @@ export function PromoVideo() {
       gestureEvents.forEach((e) => document.removeEventListener(e, unmuteOnGesture, { capture: true }));
     }
 
-    const startPlayback = async (currentAttempt: number) => {
+    // Start automatically as soon as the page loads: try with sound first,
+    // fall back to muted playback if the browser blocks audible autoplay.
+    const startPlayback = async () => {
       try {
-        if (video.muted && (navigator as Navigator & { userActivation?: { hasBeenActive: boolean } }).userActivation?.hasBeenActive) {
-          video.muted = false;
-        }
+        video.muted = false;
         await video.play();
-        if (!video.muted) setShowSoundButton(false);
+        setShowSoundButton(false);
       } catch {
-        if (!visible || currentAttempt !== attempt) return;
+        if (!active) return;
         video.muted = true;
         setShowSoundButton(true);
         addGestureListeners();
@@ -54,21 +51,11 @@ export function PromoVideo() {
           // Native controls remain available if playback is still blocked.
         }
       }
-      if (!visible) video.pause();
     };
 
-    const observer = new IntersectionObserver(([entry]) => {
-      visible = !!entry?.isIntersecting && entry.intersectionRatio >= 0.5;
-      attempt += 1;
-      if (visible) void startPlayback(attempt);
-      else video.pause();
-    }, { threshold: 0.5 });
-
-    observer.observe(video);
+    void startPlayback();
     return () => {
-      visible = false;
-      attempt += 1;
-      observer.disconnect();
+      active = false;
       removeGestureListeners();
       video.pause();
     };

@@ -12,3 +12,4 @@
 - Composition generator shares CareSymbol and typed fibre translations; exports must preserve physical SVG units and pass structured label data into the quote wizard.
 
 - QuoteAdmin uses admin-scoped browser reads and private blob downloads; original logo files are downloaded, never rendered as uploaded HTML or SVG.
+- Homepage promotional video visibility is controlled by FEATURES.promoVideo in a dedicated component so it can be disabled without changing the homepage layout.

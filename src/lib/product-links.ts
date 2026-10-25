@@ -1,6 +1,15 @@
 import { canonicalPath } from "./seo-policy";
 
 const PRODUCTS = [
+  { match:/panglic/i, to:"/panglici-personalizate", label:"panglică personalizată" },
+  { match:/caserol|aliment|expirar|catering/i, to:"/etichete-alimentare", label:"etichete pentru caserole și alimente" },
+  { match:/borcan|sticl|vin\b/i, to:"/etichete-borcane-sticle", label:"etichete pentru borcane și sticle" },
+  { match:/\bqr\b|cod(?:uri)? de bare/i, to:"/etichete-coduri-qr", label:"etichete cu cod QR" },
+  { match:/sticker/i, to:"/stickere-personalizate", label:"stickere personalizate" },
+  { match:/cărți de vizită|carti de vizita/i, to:"/carti-de-vizita-cluj", label:"cărți de vizită Cluj" },
+  { match:/flyer|pliant/i, to:"/flyere-cluj", label:"flyere Cluj" },
+  { match:/indicator|avertiz/i, to:"/indicatoare-avertizare", label:"indicatoare de avertizare" },
+  { match:/sacoș|sacos|șorț|sort|accesori/i, to:"/imprimare-accesorii-personalizate", label:"imprimare pe accesorii textile" },
   { match:/bumbac|cotton/i, to:"/etichete-bumbac",label:"etichete textile bumbac" },
   { match:/emblem|ecuson/i,to:"/embleme-tesute",label:"embleme țesute" },
   { match:/mărime|marime/i,to:"/etichete-marime",label:"etichete de mărime" },

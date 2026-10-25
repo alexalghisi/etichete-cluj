@@ -7,9 +7,9 @@ export const BUSINESS = {
   production: "5–10 zile lucrătoare de la aprobarea bunului de tipar", urgent: "Urgențe la cerere", price: "Preț la cerere",
   whatsapp: `https://wa.me/40747264832?text=${encodeURIComponent("Bună ziua, doresc o ofertă pentru etichete")}`,
 } as const;
-export const LABEL_TYPES = ["tesute", "satin", "nylon", "bumbac", "termoadezive", "carton", "autocolante", "compozitie", "copii"] as const;
+export const LABEL_TYPES = ["tesute", "satin", "nylon", "bumbac", "termoadezive", "carton", "autocolante", "compozitie", "copii", "panglici", "alimentare", "sticle", "qr", "stickere", "tipar", "indicatoare", "accesorii"] as const;
 export type LabelType = typeof LABEL_TYPES[number];
-export const TYPE_NAMES: Record<LabelType, string> = { tesute: "Țesute", satin: "Satin", nylon: "Nylon", bumbac: "Bumbac", termoadezive: "Termoadezive", carton: "Carton / hangtag", autocolante: "Autocolante", compozitie: "Compoziție", copii: "Cu nume pentru copii" };
+export const TYPE_NAMES: Record<LabelType, string> = { tesute: "Țesute", satin: "Satin", nylon: "Nylon", bumbac: "Bumbac", termoadezive: "Termoadezive", carton: "Carton / hangtag", autocolante: "Autocolante", compozitie: "Compoziție", copii: "Cu nume pentru copii", panglici: "Panglici personalizate", alimentare: "Alimentare / caserole", sticle: "Borcane și sticle", qr: "Cod QR / cod de bare", stickere: "Stickere", tipar: "Cărți de vizită / flyere", indicatoare: "Indicatoare avertizare", accesorii: "Imprimare accesorii" };
 export function minimumFor(type: string): number | null {
   if (type === "tesute") return BUSINESS.minimum.woven;
   if (type === "copii") return BUSINESS.minimum.children;

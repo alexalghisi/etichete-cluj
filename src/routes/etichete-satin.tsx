@@ -77,7 +77,7 @@ function EticheteSatin() {
               Cere ofertă etichete satin <ArrowRight className="h-4 w-4" />
             </Link>
           </article>
-          <img src="/images/materials/satin.png" alt="Etichete satin personalizate" className="mx-auto h-72 w-72 object-contain" loading="lazy" />
+          <img src="/images/materials/satin.webp" alt="Etichete satin personalizate" width="288" height="288" className="mx-auto h-72 w-72 object-contain" loading="lazy" decoding="async" />
         </div>
       </section>
       <ProductGuide slug="satin" />

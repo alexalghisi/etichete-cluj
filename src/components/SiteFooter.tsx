@@ -35,6 +35,16 @@ export function SiteFooter() {
 <li><Link to="/imprimare-textile-cluj" className="hover:text-primary">Imprimare textile Cluj</Link></li>
 <li><Link to="/sepci-personalizate" className="hover:text-primary">Șepci personalizate</Link></li>
 <li><Link to="/broderie-cluj" className="hover:text-primary">Broderie Cluj</Link></li>
+<li><Link to="/tipografie-cluj" className="hover:text-primary">Tipografie Cluj</Link></li>
+<li><Link to="/panglici-personalizate" className="hover:text-primary">Panglici personalizate</Link></li>
+<li><Link to="/etichete-alimentare" className="hover:text-primary">Etichete caserole și alimente</Link></li>
+<li><Link to="/etichete-borcane-sticle" className="hover:text-primary">Etichete borcane și sticle</Link></li>
+<li><Link to="/etichete-coduri-qr" className="hover:text-primary">Etichete cod QR</Link></li>
+<li><Link to="/stickere-personalizate" className="hover:text-primary">Stickere personalizate</Link></li>
+<li><Link to="/carti-de-vizita-cluj" className="hover:text-primary">Cărți de vizită Cluj</Link></li>
+<li><Link to="/flyere-cluj" className="hover:text-primary">Flyere Cluj</Link></li>
+<li><Link to="/indicatoare-avertizare" className="hover:text-primary">Indicatoare avertizare</Link></li>
+<li><Link to="/imprimare-accesorii-personalizate" className="hover:text-primary">Sacoșe și accesorii personalizate</Link></li>
 <li><Link to="/etichete-textile" className="hover:text-primary">Etichete textile</Link></li>
             <li><Link to="/etichete-personalizate" className="hover:text-primary">Etichete personalizate</Link></li>
             <li><Link to="/etichete-haine" className="hover:text-primary">Etichete pentru haine</Link></li>

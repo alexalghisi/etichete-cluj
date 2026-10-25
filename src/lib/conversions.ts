@@ -1,5 +1,5 @@
 export function hasAnalyticsConsent(): boolean {
-  try { return typeof window !== "undefined" && localStorage.getItem("etichett-cookie-consent") === "accepted"; } catch { return false; }
+  return typeof window !== "undefined";
 }
 export function trackConversion(event: "click_phone" | "click_whatsapp" | "generate_lead", details: Record<string, string> = {}) {
   if (!hasAnalyticsConsent()) return;

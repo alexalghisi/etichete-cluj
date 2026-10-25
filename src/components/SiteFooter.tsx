@@ -7,7 +7,7 @@ export function SiteFooter() {
     <footer className="mt-24 border-t border-border bg-secondary/50">
       <div className="mx-auto grid max-w-7xl gap-10 px-4 py-14 md:grid-cols-4 md:px-6">
         <div>
-          <img src="/images/logo.png" alt="Etichett Prod" className="h-9 w-auto" />
+          <img src="/images/logo.webp" alt="Etichett Prod" width="640" height="76" loading="lazy" decoding="async" className="h-9 w-auto" />
           <p className="mt-4 text-sm text-muted-foreground">
             Producător de etichete textile personalizate din Cluj-Napoca. Peste 30 ani de experiență în etichete țesute, imprimate și de compoziție.
           </p>

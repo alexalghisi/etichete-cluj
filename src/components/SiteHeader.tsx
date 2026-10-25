@@ -9,6 +9,7 @@ const nav = [
   { to: "/despre-noi", label: "Despre noi" },
   { to: "/produse", label: "Produse" },
   { to: "/etichete-cluj", label: "Etichete Cluj" },
+  { to: "/tipografie-cluj", label: "Tipografie" },
   { to: "/tricouri-personalizate-cluj", label: "Tricouri personalizate" },
   { to: "/galerie", label: "Galerie" },
   { to: "/blog", label: "Blog" },

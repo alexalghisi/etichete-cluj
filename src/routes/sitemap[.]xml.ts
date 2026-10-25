@@ -16,6 +16,7 @@ export const Route = createFileRoute("/sitemap.xml")({
       GET: async () => {
         const entries: SitemapEntry[] = [
           ...['/cere-oferta','/generator-eticheta-compozitie','/etichete-bumbac','/embleme-tesute','/etichete-marime','/producator-etichete','/tricouri-personalizate-cluj','/imprimare-textile-cluj','/sepci-personalizate','/broderie-cluj'].map(path=>({path,changefreq:'monthly' as const,priority:'0.8'})),
+          ...['/tipografie-cluj','/panglici-personalizate','/etichete-alimentare','/etichete-borcane-sticle','/etichete-coduri-qr','/stickere-personalizate','/carti-de-vizita-cluj','/flyere-cluj','/indicatoare-avertizare','/imprimare-accesorii-personalizate'].map(path=>({path,changefreq:'monthly' as const,priority:'0.85'})),
           { path: "/blog", changefreq: "weekly", priority: "0.8" },
           { path: "/", changefreq: "weekly", priority: "1.0" },
           { path: "/despre-noi", changefreq: "monthly", priority: "0.7" },

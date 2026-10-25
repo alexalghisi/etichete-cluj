@@ -88,7 +88,7 @@ function EticheteTesute() {
               Cere ofertă etichete țesute <ArrowRight className="h-4 w-4" />
             </Link>
           </article>
-          <img src="/images/products/etichete-tesute.jpg" alt="Etichete țesute personalizate damasc satin" className="aspect-square w-full rounded-2xl object-cover" loading="lazy" />
+          <img src="/images/products/etichete-tesute.webp" alt="Etichete țesute personalizate damasc satin" width="800" height="800" className="aspect-square w-full rounded-2xl object-cover" loading="lazy" decoding="async" />
         </div>
       </section>
       <ProductGuide slug="tesute" />

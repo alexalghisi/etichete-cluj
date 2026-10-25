@@ -1,7 +1,7 @@
 interface ProductGalleryProps {
   title: string;
   description?: string;
-  /** image numbers from /images/gallery/etichete-textile-{n}.jpg */
+  /** image numbers from /images/gallery/etichete-textile-{n}.webp (.jpg originals kept) */
   images: { n: number; alt: string }[];
 }
 
@@ -17,7 +17,7 @@ export function ProductGallery({ title, description, images }: ProductGalleryPro
             className="overflow-hidden rounded-2xl border border-border bg-card"
           >
             <img
-              src={`/images/gallery/etichete-textile-${img.n}.jpg`}
+              src={`/images/gallery/etichete-textile-${img.n}.webp`}
               alt={img.alt}
               loading="lazy"
               decoding="async"

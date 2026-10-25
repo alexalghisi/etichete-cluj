@@ -9,7 +9,6 @@ import {
 } from "@tanstack/react-router";
 
 import appCss from "../styles.css?url";
-import { CookieConsent } from "@/components/CookieConsent";
 import { ConversionControls } from '@/components/ConversionControls';
 import { BUSINESS } from '@/lib/business-facts';
 
@@ -73,7 +72,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "preload", as: "font", type: "font/woff2", crossOrigin: "anonymous", href: "/fonts/jakarta-ro.woff2" },
     ],
     scripts: [
-      { children: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}window.gtag=gtag;var c=null;try{c=localStorage.getItem("etichett-cookie-consent")}catch(e){}var g=c==="accepted"?"granted":"denied";gtag("consent","default",{ad_storage:g,analytics_storage:g,ad_user_data:g,ad_personalization:g,wait_for_update:500});gtag("js",new Date());gtag("config","G-JR62EM794J");window.addEventListener("cookie-consent",function(){var v="denied";try{v=localStorage.getItem("etichett-cookie-consent")==="accepted"?"granted":"denied"}catch(e){}gtag("consent","update",{ad_storage:v,analytics_storage:v,ad_user_data:v,ad_personalization:v});});(function(){var L=false;function lg(){if(L)return;L=true;var s=document.createElement("script");s.async=true;s.src="https://www.googletagmanager.com/gtag/js?id=G-JR62EM794J";document.head.appendChild(s);}function idle(){("requestIdleCallback" in window)?requestIdleCallback(lg,{timeout:3000}):setTimeout(lg,1500);}if(document.readyState==="complete")idle();else window.addEventListener("load",idle,{once:true});["pointerdown","keydown","touchstart","scroll"].forEach(function(e){window.addEventListener(e,lg,{once:true,passive:true});});})();` },
+      { children: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}window.gtag=gtag;var g="granted";gtag("consent","default",{ad_storage:g,analytics_storage:g,ad_user_data:g,ad_personalization:g,wait_for_update:500});gtag("js",new Date());gtag("config","G-JR62EM794J");(function(){var L=false;function lg(){if(L)return;L=true;var s=document.createElement("script");s.async=true;s.src="https://www.googletagmanager.com/gtag/js?id=G-JR62EM794J";document.head.appendChild(s);}function idle(){("requestIdleCallback" in window)?requestIdleCallback(lg,{timeout:3000}):setTimeout(lg,1500);}if(document.readyState==="complete")idle();else window.addEventListener("load",idle,{once:true});["pointerdown","keydown","touchstart","scroll"].forEach(function(e){window.addEventListener(e,lg,{once:true,passive:true});});})();` },
       {
         type: "application/ld+json",
         children: JSON.stringify({
@@ -146,7 +145,6 @@ function RootComponent() {
   return (
     <QueryClientProvider client={queryClient}>
       <Outlet />
-      <CookieConsent />
       <ConversionControls />
     </QueryClientProvider>
   );

@@ -13,16 +13,20 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as SplatRouteImport } from './routes/$'
 import { Route as BlogRouteImport } from './routes/blog'
 import { Route as BroderieClujRouteImport } from './routes/broderie-cluj'
+import { Route as CartiDeVizitaClujRouteImport } from './routes/carti-de-vizita-cluj'
 import { Route as CereOfertaRouteImport } from './routes/cere-oferta'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as DespreNoiRouteImport } from './routes/despre-noi'
 import { Route as EmblemeTesuteRouteImport } from './routes/embleme-tesute'
+import { Route as EticheteAlimentareRouteImport } from './routes/etichete-alimentare'
 import { Route as EticheteAutoadeziveRouteImport } from './routes/etichete-autoadezive'
 import { Route as EticheteAutocolanteRouteImport } from './routes/etichete-autocolante'
+import { Route as EticheteBorcaneSticleRouteImport } from './routes/etichete-borcane-sticle'
 import { Route as EticheteBumbacRouteImport } from './routes/etichete-bumbac'
 import { Route as EticheteCartonRouteImport } from './routes/etichete-carton'
 import { Route as EticheteClujRouteImport } from './routes/etichete-cluj'
 import { Route as EticheteClujNapocaRouteImport } from './routes/etichete-cluj-napoca'
+import { Route as EticheteCoduriQrRouteImport } from './routes/etichete-coduri-qr'
 import { Route as EticheteCompozitieRouteImport } from './routes/etichete-compozitie'
 import { Route as EticheteHaineRouteImport } from './routes/etichete-haine'
 import { Route as EticheteHaineCopiiRouteImport } from './routes/etichete-haine-copii'
@@ -34,14 +38,20 @@ import { Route as EticheteSatinRouteImport } from './routes/etichete-satin'
 import { Route as EticheteTermoadeziveRouteImport } from './routes/etichete-termoadezive'
 import { Route as EticheteTesuteRouteImport } from './routes/etichete-tesute'
 import { Route as EticheteTextileRouteImport } from './routes/etichete-textile'
+import { Route as FlyereClujRouteImport } from './routes/flyere-cluj'
 import { Route as GalerieRouteImport } from './routes/galerie'
 import { Route as GeneratorEtichetaCompozitieRouteImport } from './routes/generator-eticheta-compozitie'
+import { Route as ImprimareAccesoriiPersonalizateRouteImport } from './routes/imprimare-accesorii-personalizate'
 import { Route as ImprimareTextileClujRouteImport } from './routes/imprimare-textile-cluj'
+import { Route as IndicatoareAvertizareRouteImport } from './routes/indicatoare-avertizare'
+import { Route as PangliciPersonalizateRouteImport } from './routes/panglici-personalizate'
 import { Route as ProducatorEticheteRouteImport } from './routes/producator-etichete'
 import { Route as ProduseRouteImport } from './routes/produse'
 import { Route as SepciPersonalizateRouteImport } from './routes/sepci-personalizate'
 import { Route as SimboluriEticheteHaineRouteImport } from './routes/simboluri-etichete-haine'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
+import { Route as StickerePersonalizateRouteImport } from './routes/stickere-personalizate'
+import { Route as TipografieClujRouteImport } from './routes/tipografie-cluj'
 import { Route as TricouriPersonalizateClujRouteImport } from './routes/tricouri-personalizate-cluj'
 import { Route as AdminSeoRouteImport } from './routes/admin.seo'
 import { Route as BlogIndexRouteImport } from './routes/blog.index'
@@ -68,6 +78,11 @@ const BroderieClujRoute = BroderieClujRouteImport.update({
   path: '/broderie-cluj',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CartiDeVizitaClujRoute = CartiDeVizitaClujRouteImport.update({
+  id: '/carti-de-vizita-cluj',
+  path: '/carti-de-vizita-cluj',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const CereOfertaRoute = CereOfertaRouteImport.update({
   id: '/cere-oferta',
   path: '/cere-oferta',
@@ -88,6 +103,11 @@ const EmblemeTesuteRoute = EmblemeTesuteRouteImport.update({
   path: '/embleme-tesute',
   getParentRoute: () => rootRouteImport,
 } as any)
+const EticheteAlimentareRoute = EticheteAlimentareRouteImport.update({
+  id: '/etichete-alimentare',
+  path: '/etichete-alimentare',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const EticheteAutoadeziveRoute = EticheteAutoadeziveRouteImport.update({
   id: '/etichete-autoadezive',
   path: '/etichete-autoadezive',
@@ -96,6 +116,11 @@ const EticheteAutoadeziveRoute = EticheteAutoadeziveRouteImport.update({
 const EticheteAutocolanteRoute = EticheteAutocolanteRouteImport.update({
   id: '/etichete-autocolante',
   path: '/etichete-autocolante',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EticheteBorcaneSticleRoute = EticheteBorcaneSticleRouteImport.update({
+  id: '/etichete-borcane-sticle',
+  path: '/etichete-borcane-sticle',
   getParentRoute: () => rootRouteImport,
 } as any)
 const EticheteBumbacRoute = EticheteBumbacRouteImport.update({
@@ -116,6 +141,11 @@ const EticheteClujRoute = EticheteClujRouteImport.update({
 const EticheteClujNapocaRoute = EticheteClujNapocaRouteImport.update({
   id: '/etichete-cluj-napoca',
   path: '/etichete-cluj-napoca',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EticheteCoduriQrRoute = EticheteCoduriQrRouteImport.update({
+  id: '/etichete-coduri-qr',
+  path: '/etichete-coduri-qr',
   getParentRoute: () => rootRouteImport,
 } as any)
 const EticheteCompozitieRoute = EticheteCompozitieRouteImport.update({
@@ -173,6 +203,11 @@ const EticheteTextileRoute = EticheteTextileRouteImport.update({
   path: '/etichete-textile',
   getParentRoute: () => rootRouteImport,
 } as any)
+const FlyereClujRoute = FlyereClujRouteImport.update({
+  id: '/flyere-cluj',
+  path: '/flyere-cluj',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const GalerieRoute = GalerieRouteImport.update({
   id: '/galerie',
   path: '/galerie',
@@ -184,9 +219,25 @@ const GeneratorEtichetaCompozitieRoute =
     path: '/generator-eticheta-compozitie',
     getParentRoute: () => rootRouteImport,
   } as any)
+const ImprimareAccesoriiPersonalizateRoute =
+  ImprimareAccesoriiPersonalizateRouteImport.update({
+    id: '/imprimare-accesorii-personalizate',
+    path: '/imprimare-accesorii-personalizate',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const ImprimareTextileClujRoute = ImprimareTextileClujRouteImport.update({
   id: '/imprimare-textile-cluj',
   path: '/imprimare-textile-cluj',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const IndicatoareAvertizareRoute = IndicatoareAvertizareRouteImport.update({
+  id: '/indicatoare-avertizare',
+  path: '/indicatoare-avertizare',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PangliciPersonalizateRoute = PangliciPersonalizateRouteImport.update({
+  id: '/panglici-personalizate',
+  path: '/panglici-personalizate',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ProducatorEticheteRoute = ProducatorEticheteRouteImport.update({
@@ -212,6 +263,16 @@ const SimboluriEticheteHaineRoute = SimboluriEticheteHaineRouteImport.update({
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
   path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const StickerePersonalizateRoute = StickerePersonalizateRouteImport.update({
+  id: '/stickere-personalizate',
+  path: '/stickere-personalizate',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TipografieClujRoute = TipografieClujRouteImport.update({
+  id: '/tipografie-cluj',
+  path: '/tipografie-cluj',
   getParentRoute: () => rootRouteImport,
 } as any)
 const TricouriPersonalizateClujRoute =
@@ -246,16 +307,20 @@ export interface FileRoutesByFullPath {
   '/$': typeof SplatRoute
   '/blog': typeof BlogRouteWithChildren
   '/broderie-cluj': typeof BroderieClujRoute
+  '/carti-de-vizita-cluj': typeof CartiDeVizitaClujRoute
   '/cere-oferta': typeof CereOfertaRoute
   '/contact': typeof ContactRoute
   '/despre-noi': typeof DespreNoiRoute
   '/embleme-tesute': typeof EmblemeTesuteRoute
+  '/etichete-alimentare': typeof EticheteAlimentareRoute
   '/etichete-autoadezive': typeof EticheteAutoadeziveRoute
   '/etichete-autocolante': typeof EticheteAutocolanteRoute
+  '/etichete-borcane-sticle': typeof EticheteBorcaneSticleRoute
   '/etichete-bumbac': typeof EticheteBumbacRoute
   '/etichete-carton': typeof EticheteCartonRoute
   '/etichete-cluj': typeof EticheteClujRoute
   '/etichete-cluj-napoca': typeof EticheteClujNapocaRoute
+  '/etichete-coduri-qr': typeof EticheteCoduriQrRoute
   '/etichete-compozitie': typeof EticheteCompozitieRoute
   '/etichete-haine': typeof EticheteHaineRoute
   '/etichete-haine-copii': typeof EticheteHaineCopiiRoute
@@ -267,14 +332,20 @@ export interface FileRoutesByFullPath {
   '/etichete-termoadezive': typeof EticheteTermoadeziveRoute
   '/etichete-tesute': typeof EticheteTesuteRoute
   '/etichete-textile': typeof EticheteTextileRoute
+  '/flyere-cluj': typeof FlyereClujRoute
   '/galerie': typeof GalerieRoute
   '/generator-eticheta-compozitie': typeof GeneratorEtichetaCompozitieRoute
+  '/imprimare-accesorii-personalizate': typeof ImprimareAccesoriiPersonalizateRoute
   '/imprimare-textile-cluj': typeof ImprimareTextileClujRoute
+  '/indicatoare-avertizare': typeof IndicatoareAvertizareRoute
+  '/panglici-personalizate': typeof PangliciPersonalizateRoute
   '/producator-etichete': typeof ProducatorEticheteRoute
   '/produse': typeof ProduseRoute
   '/sepci-personalizate': typeof SepciPersonalizateRoute
   '/simboluri-etichete-haine': typeof SimboluriEticheteHaineRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/stickere-personalizate': typeof StickerePersonalizateRoute
+  '/tipografie-cluj': typeof TipografieClujRoute
   '/tricouri-personalizate-cluj': typeof TricouriPersonalizateClujRoute
   '/admin/seo': typeof AdminSeoRoute
   '/blog/$slug': typeof BlogSlugRoute
@@ -285,16 +356,20 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/$': typeof SplatRoute
   '/broderie-cluj': typeof BroderieClujRoute
+  '/carti-de-vizita-cluj': typeof CartiDeVizitaClujRoute
   '/cere-oferta': typeof CereOfertaRoute
   '/contact': typeof ContactRoute
   '/despre-noi': typeof DespreNoiRoute
   '/embleme-tesute': typeof EmblemeTesuteRoute
+  '/etichete-alimentare': typeof EticheteAlimentareRoute
   '/etichete-autoadezive': typeof EticheteAutoadeziveRoute
   '/etichete-autocolante': typeof EticheteAutocolanteRoute
+  '/etichete-borcane-sticle': typeof EticheteBorcaneSticleRoute
   '/etichete-bumbac': typeof EticheteBumbacRoute
   '/etichete-carton': typeof EticheteCartonRoute
   '/etichete-cluj': typeof EticheteClujRoute
   '/etichete-cluj-napoca': typeof EticheteClujNapocaRoute
+  '/etichete-coduri-qr': typeof EticheteCoduriQrRoute
   '/etichete-compozitie': typeof EticheteCompozitieRoute
   '/etichete-haine': typeof EticheteHaineRoute
   '/etichete-haine-copii': typeof EticheteHaineCopiiRoute
@@ -306,14 +381,20 @@ export interface FileRoutesByTo {
   '/etichete-termoadezive': typeof EticheteTermoadeziveRoute
   '/etichete-tesute': typeof EticheteTesuteRoute
   '/etichete-textile': typeof EticheteTextileRoute
+  '/flyere-cluj': typeof FlyereClujRoute
   '/galerie': typeof GalerieRoute
   '/generator-eticheta-compozitie': typeof GeneratorEtichetaCompozitieRoute
+  '/imprimare-accesorii-personalizate': typeof ImprimareAccesoriiPersonalizateRoute
   '/imprimare-textile-cluj': typeof ImprimareTextileClujRoute
+  '/indicatoare-avertizare': typeof IndicatoareAvertizareRoute
+  '/panglici-personalizate': typeof PangliciPersonalizateRoute
   '/producator-etichete': typeof ProducatorEticheteRoute
   '/produse': typeof ProduseRoute
   '/sepci-personalizate': typeof SepciPersonalizateRoute
   '/simboluri-etichete-haine': typeof SimboluriEticheteHaineRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/stickere-personalizate': typeof StickerePersonalizateRoute
+  '/tipografie-cluj': typeof TipografieClujRoute
   '/tricouri-personalizate-cluj': typeof TricouriPersonalizateClujRoute
   '/admin/seo': typeof AdminSeoRoute
   '/blog/$slug': typeof BlogSlugRoute
@@ -326,16 +407,20 @@ export interface FileRoutesById {
   '/$': typeof SplatRoute
   '/blog': typeof BlogRouteWithChildren
   '/broderie-cluj': typeof BroderieClujRoute
+  '/carti-de-vizita-cluj': typeof CartiDeVizitaClujRoute
   '/cere-oferta': typeof CereOfertaRoute
   '/contact': typeof ContactRoute
   '/despre-noi': typeof DespreNoiRoute
   '/embleme-tesute': typeof EmblemeTesuteRoute
+  '/etichete-alimentare': typeof EticheteAlimentareRoute
   '/etichete-autoadezive': typeof EticheteAutoadeziveRoute
   '/etichete-autocolante': typeof EticheteAutocolanteRoute
+  '/etichete-borcane-sticle': typeof EticheteBorcaneSticleRoute
   '/etichete-bumbac': typeof EticheteBumbacRoute
   '/etichete-carton': typeof EticheteCartonRoute
   '/etichete-cluj': typeof EticheteClujRoute
   '/etichete-cluj-napoca': typeof EticheteClujNapocaRoute
+  '/etichete-coduri-qr': typeof EticheteCoduriQrRoute
   '/etichete-compozitie': typeof EticheteCompozitieRoute
   '/etichete-haine': typeof EticheteHaineRoute
   '/etichete-haine-copii': typeof EticheteHaineCopiiRoute
@@ -347,14 +432,20 @@ export interface FileRoutesById {
   '/etichete-termoadezive': typeof EticheteTermoadeziveRoute
   '/etichete-tesute': typeof EticheteTesuteRoute
   '/etichete-textile': typeof EticheteTextileRoute
+  '/flyere-cluj': typeof FlyereClujRoute
   '/galerie': typeof GalerieRoute
   '/generator-eticheta-compozitie': typeof GeneratorEtichetaCompozitieRoute
+  '/imprimare-accesorii-personalizate': typeof ImprimareAccesoriiPersonalizateRoute
   '/imprimare-textile-cluj': typeof ImprimareTextileClujRoute
+  '/indicatoare-avertizare': typeof IndicatoareAvertizareRoute
+  '/panglici-personalizate': typeof PangliciPersonalizateRoute
   '/producator-etichete': typeof ProducatorEticheteRoute
   '/produse': typeof ProduseRoute
   '/sepci-personalizate': typeof SepciPersonalizateRoute
   '/simboluri-etichete-haine': typeof SimboluriEticheteHaineRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/stickere-personalizate': typeof StickerePersonalizateRoute
+  '/tipografie-cluj': typeof TipografieClujRoute
   '/tricouri-personalizate-cluj': typeof TricouriPersonalizateClujRoute
   '/admin/seo': typeof AdminSeoRoute
   '/blog/$slug': typeof BlogSlugRoute
@@ -368,16 +459,20 @@ export interface FileRouteTypes {
     | '/$'
     | '/blog'
     | '/broderie-cluj'
+    | '/carti-de-vizita-cluj'
     | '/cere-oferta'
     | '/contact'
     | '/despre-noi'
     | '/embleme-tesute'
+    | '/etichete-alimentare'
     | '/etichete-autoadezive'
     | '/etichete-autocolante'
+    | '/etichete-borcane-sticle'
     | '/etichete-bumbac'
     | '/etichete-carton'
     | '/etichete-cluj'
     | '/etichete-cluj-napoca'
+    | '/etichete-coduri-qr'
     | '/etichete-compozitie'
     | '/etichete-haine'
     | '/etichete-haine-copii'
@@ -389,14 +484,20 @@ export interface FileRouteTypes {
     | '/etichete-termoadezive'
     | '/etichete-tesute'
     | '/etichete-textile'
+    | '/flyere-cluj'
     | '/galerie'
     | '/generator-eticheta-compozitie'
+    | '/imprimare-accesorii-personalizate'
     | '/imprimare-textile-cluj'
+    | '/indicatoare-avertizare'
+    | '/panglici-personalizate'
     | '/producator-etichete'
     | '/produse'
     | '/sepci-personalizate'
     | '/simboluri-etichete-haine'
     | '/sitemap.xml'
+    | '/stickere-personalizate'
+    | '/tipografie-cluj'
     | '/tricouri-personalizate-cluj'
     | '/admin/seo'
     | '/blog/$slug'
@@ -407,16 +508,20 @@ export interface FileRouteTypes {
     | '/'
     | '/$'
     | '/broderie-cluj'
+    | '/carti-de-vizita-cluj'
     | '/cere-oferta'
     | '/contact'
     | '/despre-noi'
     | '/embleme-tesute'
+    | '/etichete-alimentare'
     | '/etichete-autoadezive'
     | '/etichete-autocolante'
+    | '/etichete-borcane-sticle'
     | '/etichete-bumbac'
     | '/etichete-carton'
     | '/etichete-cluj'
     | '/etichete-cluj-napoca'
+    | '/etichete-coduri-qr'
     | '/etichete-compozitie'
     | '/etichete-haine'
     | '/etichete-haine-copii'
@@ -428,14 +533,20 @@ export interface FileRouteTypes {
     | '/etichete-termoadezive'
     | '/etichete-tesute'
     | '/etichete-textile'
+    | '/flyere-cluj'
     | '/galerie'
     | '/generator-eticheta-compozitie'
+    | '/imprimare-accesorii-personalizate'
     | '/imprimare-textile-cluj'
+    | '/indicatoare-avertizare'
+    | '/panglici-personalizate'
     | '/producator-etichete'
     | '/produse'
     | '/sepci-personalizate'
     | '/simboluri-etichete-haine'
     | '/sitemap.xml'
+    | '/stickere-personalizate'
+    | '/tipografie-cluj'
     | '/tricouri-personalizate-cluj'
     | '/admin/seo'
     | '/blog/$slug'
@@ -447,16 +558,20 @@ export interface FileRouteTypes {
     | '/$'
     | '/blog'
     | '/broderie-cluj'
+    | '/carti-de-vizita-cluj'
     | '/cere-oferta'
     | '/contact'
     | '/despre-noi'
     | '/embleme-tesute'
+    | '/etichete-alimentare'
     | '/etichete-autoadezive'
     | '/etichete-autocolante'
+    | '/etichete-borcane-sticle'
     | '/etichete-bumbac'
     | '/etichete-carton'
     | '/etichete-cluj'
     | '/etichete-cluj-napoca'
+    | '/etichete-coduri-qr'
     | '/etichete-compozitie'
     | '/etichete-haine'
     | '/etichete-haine-copii'
@@ -468,14 +583,20 @@ export interface FileRouteTypes {
     | '/etichete-termoadezive'
     | '/etichete-tesute'
     | '/etichete-textile'
+    | '/flyere-cluj'
     | '/galerie'
     | '/generator-eticheta-compozitie'
+    | '/imprimare-accesorii-personalizate'
     | '/imprimare-textile-cluj'
+    | '/indicatoare-avertizare'
+    | '/panglici-personalizate'
     | '/producator-etichete'
     | '/produse'
     | '/sepci-personalizate'
     | '/simboluri-etichete-haine'
     | '/sitemap.xml'
+    | '/stickere-personalizate'
+    | '/tipografie-cluj'
     | '/tricouri-personalizate-cluj'
     | '/admin/seo'
     | '/blog/$slug'
@@ -488,16 +609,20 @@ export interface RootRouteChildren {
   SplatRoute: typeof SplatRoute
   BlogRoute: typeof BlogRouteWithChildren
   BroderieClujRoute: typeof BroderieClujRoute
+  CartiDeVizitaClujRoute: typeof CartiDeVizitaClujRoute
   CereOfertaRoute: typeof CereOfertaRoute
   ContactRoute: typeof ContactRoute
   DespreNoiRoute: typeof DespreNoiRoute
   EmblemeTesuteRoute: typeof EmblemeTesuteRoute
+  EticheteAlimentareRoute: typeof EticheteAlimentareRoute
   EticheteAutoadeziveRoute: typeof EticheteAutoadeziveRoute
   EticheteAutocolanteRoute: typeof EticheteAutocolanteRoute
+  EticheteBorcaneSticleRoute: typeof EticheteBorcaneSticleRoute
   EticheteBumbacRoute: typeof EticheteBumbacRoute
   EticheteCartonRoute: typeof EticheteCartonRoute
   EticheteClujRoute: typeof EticheteClujRoute
   EticheteClujNapocaRoute: typeof EticheteClujNapocaRoute
+  EticheteCoduriQrRoute: typeof EticheteCoduriQrRoute
   EticheteCompozitieRoute: typeof EticheteCompozitieRoute
   EticheteHaineRoute: typeof EticheteHaineRoute
   EticheteHaineCopiiRoute: typeof EticheteHaineCopiiRoute
@@ -509,14 +634,20 @@ export interface RootRouteChildren {
   EticheteTermoadeziveRoute: typeof EticheteTermoadeziveRoute
   EticheteTesuteRoute: typeof EticheteTesuteRoute
   EticheteTextileRoute: typeof EticheteTextileRoute
+  FlyereClujRoute: typeof FlyereClujRoute
   GalerieRoute: typeof GalerieRoute
   GeneratorEtichetaCompozitieRoute: typeof GeneratorEtichetaCompozitieRoute
+  ImprimareAccesoriiPersonalizateRoute: typeof ImprimareAccesoriiPersonalizateRoute
   ImprimareTextileClujRoute: typeof ImprimareTextileClujRoute
+  IndicatoareAvertizareRoute: typeof IndicatoareAvertizareRoute
+  PangliciPersonalizateRoute: typeof PangliciPersonalizateRoute
   ProducatorEticheteRoute: typeof ProducatorEticheteRoute
   ProduseRoute: typeof ProduseRoute
   SepciPersonalizateRoute: typeof SepciPersonalizateRoute
   SimboluriEticheteHaineRoute: typeof SimboluriEticheteHaineRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  StickerePersonalizateRoute: typeof StickerePersonalizateRoute
+  TipografieClujRoute: typeof TipografieClujRoute
   TricouriPersonalizateClujRoute: typeof TricouriPersonalizateClujRoute
   AdminSeoRoute: typeof AdminSeoRoute
   ApiPublicHooksSeoDailyRoute: typeof ApiPublicHooksSeoDailyRoute
@@ -552,6 +683,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BroderieClujRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/carti-de-vizita-cluj': {
+      id: '/carti-de-vizita-cluj'
+      path: '/carti-de-vizita-cluj'
+      fullPath: '/carti-de-vizita-cluj'
+      preLoaderRoute: typeof CartiDeVizitaClujRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/cere-oferta': {
       id: '/cere-oferta'
       path: '/cere-oferta'
@@ -580,6 +718,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof EmblemeTesuteRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/etichete-alimentare': {
+      id: '/etichete-alimentare'
+      path: '/etichete-alimentare'
+      fullPath: '/etichete-alimentare'
+      preLoaderRoute: typeof EticheteAlimentareRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/etichete-autoadezive': {
       id: '/etichete-autoadezive'
       path: '/etichete-autoadezive'
@@ -592,6 +737,13 @@ declare module '@tanstack/react-router' {
       path: '/etichete-autocolante'
       fullPath: '/etichete-autocolante'
       preLoaderRoute: typeof EticheteAutocolanteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/etichete-borcane-sticle': {
+      id: '/etichete-borcane-sticle'
+      path: '/etichete-borcane-sticle'
+      fullPath: '/etichete-borcane-sticle'
+      preLoaderRoute: typeof EticheteBorcaneSticleRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/etichete-bumbac': {
@@ -620,6 +772,13 @@ declare module '@tanstack/react-router' {
       path: '/etichete-cluj-napoca'
       fullPath: '/etichete-cluj-napoca'
       preLoaderRoute: typeof EticheteClujNapocaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/etichete-coduri-qr': {
+      id: '/etichete-coduri-qr'
+      path: '/etichete-coduri-qr'
+      fullPath: '/etichete-coduri-qr'
+      preLoaderRoute: typeof EticheteCoduriQrRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/etichete-compozitie': {
@@ -699,6 +858,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof EticheteTextileRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/flyere-cluj': {
+      id: '/flyere-cluj'
+      path: '/flyere-cluj'
+      fullPath: '/flyere-cluj'
+      preLoaderRoute: typeof FlyereClujRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/galerie': {
       id: '/galerie'
       path: '/galerie'
@@ -713,11 +879,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof GeneratorEtichetaCompozitieRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/imprimare-accesorii-personalizate': {
+      id: '/imprimare-accesorii-personalizate'
+      path: '/imprimare-accesorii-personalizate'
+      fullPath: '/imprimare-accesorii-personalizate'
+      preLoaderRoute: typeof ImprimareAccesoriiPersonalizateRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/imprimare-textile-cluj': {
       id: '/imprimare-textile-cluj'
       path: '/imprimare-textile-cluj'
       fullPath: '/imprimare-textile-cluj'
       preLoaderRoute: typeof ImprimareTextileClujRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/indicatoare-avertizare': {
+      id: '/indicatoare-avertizare'
+      path: '/indicatoare-avertizare'
+      fullPath: '/indicatoare-avertizare'
+      preLoaderRoute: typeof IndicatoareAvertizareRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/panglici-personalizate': {
+      id: '/panglici-personalizate'
+      path: '/panglici-personalizate'
+      fullPath: '/panglici-personalizate'
+      preLoaderRoute: typeof PangliciPersonalizateRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/producator-etichete': {
@@ -753,6 +940,20 @@ declare module '@tanstack/react-router' {
       path: '/sitemap.xml'
       fullPath: '/sitemap.xml'
       preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/stickere-personalizate': {
+      id: '/stickere-personalizate'
+      path: '/stickere-personalizate'
+      fullPath: '/stickere-personalizate'
+      preLoaderRoute: typeof StickerePersonalizateRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tipografie-cluj': {
+      id: '/tipografie-cluj'
+      path: '/tipografie-cluj'
+      fullPath: '/tipografie-cluj'
+      preLoaderRoute: typeof TipografieClujRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/tricouri-personalizate-cluj': {
@@ -810,16 +1011,20 @@ const rootRouteChildren: RootRouteChildren = {
   SplatRoute: SplatRoute,
   BlogRoute: BlogRouteWithChildren,
   BroderieClujRoute: BroderieClujRoute,
+  CartiDeVizitaClujRoute: CartiDeVizitaClujRoute,
   CereOfertaRoute: CereOfertaRoute,
   ContactRoute: ContactRoute,
   DespreNoiRoute: DespreNoiRoute,
   EmblemeTesuteRoute: EmblemeTesuteRoute,
+  EticheteAlimentareRoute: EticheteAlimentareRoute,
   EticheteAutoadeziveRoute: EticheteAutoadeziveRoute,
   EticheteAutocolanteRoute: EticheteAutocolanteRoute,
+  EticheteBorcaneSticleRoute: EticheteBorcaneSticleRoute,
   EticheteBumbacRoute: EticheteBumbacRoute,
   EticheteCartonRoute: EticheteCartonRoute,
   EticheteClujRoute: EticheteClujRoute,
   EticheteClujNapocaRoute: EticheteClujNapocaRoute,
+  EticheteCoduriQrRoute: EticheteCoduriQrRoute,
   EticheteCompozitieRoute: EticheteCompozitieRoute,
   EticheteHaineRoute: EticheteHaineRoute,
   EticheteHaineCopiiRoute: EticheteHaineCopiiRoute,
@@ -831,14 +1036,20 @@ const rootRouteChildren: RootRouteChildren = {
   EticheteTermoadeziveRoute: EticheteTermoadeziveRoute,
   EticheteTesuteRoute: EticheteTesuteRoute,
   EticheteTextileRoute: EticheteTextileRoute,
+  FlyereClujRoute: FlyereClujRoute,
   GalerieRoute: GalerieRoute,
   GeneratorEtichetaCompozitieRoute: GeneratorEtichetaCompozitieRoute,
+  ImprimareAccesoriiPersonalizateRoute: ImprimareAccesoriiPersonalizateRoute,
   ImprimareTextileClujRoute: ImprimareTextileClujRoute,
+  IndicatoareAvertizareRoute: IndicatoareAvertizareRoute,
+  PangliciPersonalizateRoute: PangliciPersonalizateRoute,
   ProducatorEticheteRoute: ProducatorEticheteRoute,
   ProduseRoute: ProduseRoute,
   SepciPersonalizateRoute: SepciPersonalizateRoute,
   SimboluriEticheteHaineRoute: SimboluriEticheteHaineRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
+  StickerePersonalizateRoute: StickerePersonalizateRoute,
+  TipografieClujRoute: TipografieClujRoute,
   TricouriPersonalizateClujRoute: TricouriPersonalizateClujRoute,
   AdminSeoRoute: AdminSeoRoute,
   ApiPublicHooksSeoDailyRoute: ApiPublicHooksSeoDailyRoute,

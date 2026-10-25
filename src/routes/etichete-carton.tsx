@@ -54,7 +54,7 @@ function EticheteCarton() {
         </nav>
 
         <div className="grid gap-8 md:grid-cols-2">
-          <img src="/images/materials/carton.png" alt="Etichete carton hangtag personalizat" className="mx-auto h-72 w-72 object-contain" loading="lazy" />
+          <img src="/images/materials/carton.webp" alt="Etichete carton hangtag personalizat" width="288" height="288" className="mx-auto h-72 w-72 object-contain" loading="lazy" decoding="async" />
           <article>
             <h2 className="text-2xl font-bold">Hangtag din carton — finisaj de brand</h2>
             <p className="mt-3 text-muted-foreground">

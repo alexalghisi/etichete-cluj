@@ -67,14 +67,13 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "icon", type: "image/png", sizes: "16x16", href: "/favicon-16x16.png?v=3" },
       { rel: "apple-touch-icon", sizes: "180x180", href: "/apple-touch-icon.png?v=3" },
       { rel: "manifest", href: "/site.webmanifest?v=3" },
-      { rel: "preload", as: "font", type: "font/ttf", crossOrigin: "anonymous", href: "https://fonts.gstatic.com/s/inter/v20/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuLyfMZg.ttf" },
-      { rel: "preconnect", href: "https://fonts.googleapis.com" },
-      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "" },
-      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" },
+      { rel: "preload", as: "font", type: "font/woff2", crossOrigin: "anonymous", href: "/fonts/inter-latin.woff2" },
+      { rel: "preload", as: "font", type: "font/woff2", crossOrigin: "anonymous", href: "/fonts/jakarta-latin.woff2" },
+      { rel: "preload", as: "font", type: "font/woff2", crossOrigin: "anonymous", href: "/fonts/inter-ro.woff2" },
+      { rel: "preload", as: "font", type: "font/woff2", crossOrigin: "anonymous", href: "/fonts/jakarta-ro.woff2" },
     ],
     scripts: [
-      { src: "https://www.googletagmanager.com/gtag/js?id=G-JR62EM794J", async: true },
-      { children: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}window.gtag=gtag;var c=null;try{c=localStorage.getItem("etichett-cookie-consent")}catch(e){}var g=c==="accepted"?"granted":"denied";gtag("consent","default",{ad_storage:g,analytics_storage:g,ad_user_data:g,ad_personalization:g,wait_for_update:500});gtag("js",new Date());gtag("config","G-JR62EM794J");window.addEventListener("cookie-consent",function(){var v="denied";try{v=localStorage.getItem("etichett-cookie-consent")==="accepted"?"granted":"denied"}catch(e){}gtag("consent","update",{ad_storage:v,analytics_storage:v,ad_user_data:v,ad_personalization:v});});` },
+      { children: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}window.gtag=gtag;var c=null;try{c=localStorage.getItem("etichett-cookie-consent")}catch(e){}var g=c==="accepted"?"granted":"denied";gtag("consent","default",{ad_storage:g,analytics_storage:g,ad_user_data:g,ad_personalization:g,wait_for_update:500});gtag("js",new Date());gtag("config","G-JR62EM794J");window.addEventListener("cookie-consent",function(){var v="denied";try{v=localStorage.getItem("etichett-cookie-consent")==="accepted"?"granted":"denied"}catch(e){}gtag("consent","update",{ad_storage:v,analytics_storage:v,ad_user_data:v,ad_personalization:v});});(function(){var L=false;function lg(){if(L)return;L=true;var s=document.createElement("script");s.async=true;s.src="https://www.googletagmanager.com/gtag/js?id=G-JR62EM794J";document.head.appendChild(s);}function idle(){("requestIdleCallback" in window)?requestIdleCallback(lg,{timeout:3000}):setTimeout(lg,1500);}if(document.readyState==="complete")idle();else window.addEventListener("load",idle,{once:true});["pointerdown","keydown","touchstart","scroll"].forEach(function(e){window.addEventListener(e,lg,{once:true,passive:true});});})();` },
       {
         type: "application/ld+json",
         children: JSON.stringify({

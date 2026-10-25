@@ -1,4 +1,5 @@
 import { RouteError, RouteNotFound } from "@/components/RouteBoundary";
+import { webp } from "@/lib/img";
 import { ProductGuide } from "@/components/ProductGuide";
 import { getSeoOverride } from "@/lib/seo-overrides.functions";
 import { applySeo } from "@/lib/seo-head";
@@ -78,7 +79,7 @@ function Produse() {
           {products.map((p, i) => (
             <article key={p.title} className={`grid gap-8 md:grid-cols-2 md:items-center ${i % 2 ? "md:[&>div:first-child]:order-2" : ""}`}>
               <div>
-                <img src={p.img} alt={p.title} className="aspect-[4/3] w-full rounded-2xl object-cover shadow-elegant" loading="lazy" />
+                <img src={webp(p.img)} alt={p.title} width="800" height="600" className="aspect-[4/3] w-full rounded-2xl object-cover shadow-elegant" loading="lazy" decoding="async" />
               </div>
               <div>
                 <h2 className="text-3xl font-bold md:text-4xl">{p.title}</h2>

@@ -1,4 +1,5 @@
 import { OrderSteps, ORDER_STEPS } from "@/components/OrderSteps";
+import { webp } from "@/lib/img";
 import { PromoVideo } from "@/components/PromoVideo";
 import { LabelGuide } from "@/components/LabelGuide";
 import { RouteError, RouteNotFound } from "@/components/RouteBoundary";
@@ -25,7 +26,7 @@ export const Route = createFileRoute("/")({
     ],
     links: [
       { rel: "canonical", href: "https://etichetetextile.ro/" },
-      { rel: "preload", as: "image", href: "/images/hero-collage.jpg", fetchpriority: "high" },
+      { rel: "preload", as: "image", href: "/images/hero-collage.webp", imageSrcSet: HERO_SRCSET, imageSizes: "100vw", fetchpriority: "high" },
     ],
     scripts: [{ type: "application/ld+json", children: JSON.stringify({"@context":"https://schema.org","@type":"HowTo",name:"Cum comanzi etichete în 4 pași",step:ORDER_STEPS.map(s=>({"@type":"HowToStep",...s}))}) },
       {
@@ -47,6 +48,8 @@ export const Route = createFileRoute("/")({
   }, loaderData),
 });
 
+const HERO_SRCSET = "/images/hero-collage-640.webp 640w, /images/hero-collage-1024.webp 1024w, /images/hero-collage.webp 1600w";
+
 const materials = [
   { name: "Bumbac", img: "/images/materials/bumbac.png", text: "Țesătură de bumbac, alegere excelentă pentru etichetele imprimate aplicate pe haine." },
   { name: "Satin", img: "/images/materials/satin.png", text: "Material moale cu aspect perlat, rezistent la spălare, aburi și temperaturi ridicate." },
@@ -59,7 +62,7 @@ function Index() {
     <PageLayout>
       {/* HERO */}
       <section className="relative overflow-hidden text-white">
-        <img src="/images/hero-collage.jpg" width="1600" height="900" fetchPriority="high" alt="Etichete textile realizate în atelierul Etichett Prod" className="absolute inset-0 h-full w-full object-cover object-center"/>
+        <img src="/images/hero-collage.webp" srcSet={HERO_SRCSET} sizes="100vw" width="1600" height="900" fetchPriority="high" alt="Etichete textile realizate în atelierul Etichett Prod" className="absolute inset-0 h-full w-full object-cover object-center"/>
         <div className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/55 to-black/25" aria-hidden="true" />
         <div className="relative mx-auto max-w-7xl px-4 py-24 md:px-6 md:py-36 lg:py-44">
           <div className="max-w-2xl">
@@ -134,10 +137,10 @@ function Index() {
             </Link>
           </div>
           <div className="grid grid-cols-2 gap-3">
-            <img src="/images/products/etichete-tesute.jpg" alt="Etichete textile țesute personalizate" className="aspect-square rounded-2xl object-cover" loading="lazy" />
-            <img src="/images/products/etichete-imprimate.jpg" alt="Etichete textile imprimate pentru haine" className="mt-8 aspect-square rounded-2xl object-cover" loading="lazy" />
-            <img src="/images/products/etichete-compozitie.jpg" alt="Etichete de compoziție pentru îmbrăcăminte" className="aspect-square rounded-2xl object-cover" loading="lazy" />
-            <img src="/images/products/etichete-branduri.jpg" alt="Etichete personalizate pentru branduri" className="mt-8 aspect-square rounded-2xl object-cover" loading="lazy" />
+            <img src="/images/products/etichete-tesute.webp" width="400" height="400" decoding="async" alt="Etichete textile țesute personalizate" className="aspect-square rounded-2xl object-cover" loading="lazy" />
+            <img src="/images/products/etichete-imprimate.webp" width="400" height="400" decoding="async" alt="Etichete textile imprimate pentru haine" className="mt-8 aspect-square rounded-2xl object-cover" loading="lazy" />
+            <img src="/images/products/etichete-compozitie.webp" width="400" height="400" decoding="async" alt="Etichete de compoziție pentru îmbrăcăminte" className="aspect-square rounded-2xl object-cover" loading="lazy" />
+            <img src="/images/products/etichete-branduri.webp" width="400" height="400" decoding="async" alt="Etichete personalizate pentru branduri" className="mt-8 aspect-square rounded-2xl object-cover" loading="lazy" />
           </div>
         </div>
       </section>
@@ -153,7 +156,7 @@ function Index() {
           <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {materials.map((m) => (
               <article key={m.name} className="group rounded-2xl border border-border bg-card p-6 transition hover:shadow-elegant">
-                <img src={m.img} alt={`Etichete textile din ${m.name}`} className="mx-auto h-24 w-24 object-contain transition-transform group-hover:scale-110" loading="lazy" />
+                <img src={webp(m.img)} width="96" height="96" decoding="async" alt={`Etichete textile din ${m.name}`} className="mx-auto h-24 w-24 object-contain transition-transform group-hover:scale-110" loading="lazy" />
                 <h3 className="mt-4 text-center text-lg font-bold">{m.name}</h3>
                 <p className="mt-2 text-center text-sm text-muted-foreground">{m.text}</p>
               </article>

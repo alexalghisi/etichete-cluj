@@ -6,7 +6,6 @@ export function PromoVideo() {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [showSoundButton, setShowSoundButton] = useState(false);
   const [showControls, setShowControls] = useState(false);
-  const [near, setNear] = useState(false);
 
   useEffect(() => {
     const video = videoRef.current;
@@ -54,23 +53,20 @@ export function PromoVideo() {
       }
     };
 
-    // Only fetch and start the video once it scrolls into the viewport, then
-    // pause/resume it automatically as it scrolls out of / back into view.
-    let started = false;
+    // Start as soon as the page opens (not on scroll), then pause/resume
+    // automatically as the video scrolls out of / back into view.
+    void startPlayback();
     let autoPaused = false;
     const observer = new IntersectionObserver(
       (entries) => {
         const entry = entries[entries.length - 1];
         if (!entry) return;
         if (entry.isIntersecting) {
-          if (!started) {
-            started = true;
-            void startPlayback();
-          } else if (autoPaused) {
+          if (autoPaused) {
             autoPaused = false;
             video.play().catch(() => {});
           }
-        } else if (started && !video.paused) {
+        } else if (!video.paused) {
           autoPaused = true;
           video.pause();
         }
@@ -78,22 +74,10 @@ export function PromoVideo() {
       { rootMargin: "0px", threshold: 0.1 },
     );
     observer.observe(video);
-    // Fetch the poster image a little earlier, just before the video scrolls in.
-    const posterObserver = new IntersectionObserver(
-      (entries) => {
-        if (entries.some((e) => e.isIntersecting)) {
-          setNear(true);
-          posterObserver.disconnect();
-        }
-      },
-      { rootMargin: "300px 0px" },
-    );
-    posterObserver.observe(video);
 
     return () => {
       active = false;
       observer.disconnect();
-      posterObserver.disconnect();
       removeGestureListeners();
       video.pause();
     };
@@ -120,13 +104,13 @@ export function PromoVideo() {
           ref={videoRef}
           controls={showControls}
           playsInline
-          preload="none"
+          preload="metadata"
           loop
           tabIndex={0}
           onVolumeChange={() => setShowSoundButton(videoRef.current?.muted ?? false)}
           className="aspect-video w-full rounded-2xl"
           src="https://resource2.heygen.ai/video/transcode/1b6f8389d94c45019513b93a89f1d7e7/v88b5a97914fa4e0c9c92607357ac49cf/1280x720_nocap.mp4"
-          poster={near ? "https://resource2.heygen.ai/video/transcode/1b6f8389d94c45019513b93a89f1d7e7/v88b5a97914fa4e0c9c92607357ac49cf/1920x1080_caption.jpeg" : undefined}
+          poster="https://resource2.heygen.ai/video/transcode/1b6f8389d94c45019513b93a89f1d7e7/v88b5a97914fa4e0c9c92607357ac49cf/1920x1080_caption.jpeg"
           aria-label="Video de prezentare Etichett Prod"
         />
         {showSoundButton && (

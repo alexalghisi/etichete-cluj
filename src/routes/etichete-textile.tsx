@@ -16,10 +16,10 @@ export const Route = createFileRoute("/etichete-textile")({
   component: EticheteTextile,
   head: ({ loaderData }) => applySeo({
     meta: [
-      { title: "Etichete textile — țesute & imprimate Cluj | Etichett Prod" },
+      { title: "Etichete textile pentru haine — țesute, imprimate, bumbac | Etichett Prod" },
       { name: "description", content: "Etichete textile țesute și imprimate pentru haine și branduri, din satin, nylon sau bumbac. Producător din Cluj-Napoca din. Cere ofertă gratuită în 24h." },
       { name: "keywords", content: "etichete textile, etichete textile haine, etichete textile personalizate, etichete textile cluj, etichete textile tesute, etichete textile imprimate, etichete textile satin, etichete textile nylon" },
-      { property: "og:title", content: "Etichete textile — țesute & imprimate Cluj | Etichett Prod" },
+      { property: "og:title", content: "Etichete textile pentru haine — țesute, imprimate, bumbac | Etichett Prod" },
       { property: "og:description", content: "Gamă completă de etichete textile pentru branduri, ateliere și producători de îmbrăcăminte din Cluj-Napoca și România." },
       { property: "og:url", content: "https://etichetetextile.ro/etichete-textile" },
       { property: "og:image", content: "https://etichetetextile.ro/images/hero-labels.webp" },
@@ -75,7 +75,7 @@ function EticheteTextile() {
     <PageLayout>
       <PageHero
         eyebrow="Categorie · Etichete textile"
-        title="Etichete textile pentru haine, încălțăminte & branduri"
+        title="Etichete textile pentru haine: țesute, imprimate și personalizate"
         subtitle="Toată gama de etichete textile produsă la Etichett Prod — țesute, imprimate, satin, nylon, carton, termoadezive, autoadezive și de compoziție."
       />
       <section className="mx-auto max-w-7xl px-4 py-16 md:px-6">

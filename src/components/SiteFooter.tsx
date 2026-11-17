@@ -46,6 +46,11 @@ export function SiteFooter() {
 <li><Link to="/indicatoare-avertizare" className="hover:text-primary">Indicatoare avertizare</Link></li>
 <li><Link to="/imprimare-accesorii-personalizate" className="hover:text-primary">Sacoșe și accesorii personalizate</Link></li>
 <li><Link to="/etichete-textile" className="hover:text-primary">Etichete textile</Link></li>
+<li><Link to="/etichete-imprimate" className="hover:text-primary">Etichete imprimate</Link></li>
+<li><Link to="/etichete-brodate" className="hover:text-primary">Etichete brodate</Link></li>
+<li><Link to="/sigle-textile" className="hover:text-primary">Sigle textile</Link></li>
+<li><Link to="/etichete-impermeabile" className="hover:text-primary">Etichete impermeabile</Link></li>
+<li><Link to="/etichete-industriale" className="hover:text-primary">Etichete industriale</Link></li>
             <li><Link to="/etichete-personalizate" className="hover:text-primary">Etichete personalizate</Link></li>
             <li><Link to="/etichete-haine" className="hover:text-primary">Etichete pentru haine</Link></li>
             <li><Link to="/etichete-autocolante" className="hover:text-primary">Etichete autocolante</Link></li>

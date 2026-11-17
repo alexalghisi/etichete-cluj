@@ -22,6 +22,7 @@ import { Route as EticheteAlimentareRouteImport } from './routes/etichete-alimen
 import { Route as EticheteAutoadeziveRouteImport } from './routes/etichete-autoadezive'
 import { Route as EticheteAutocolanteRouteImport } from './routes/etichete-autocolante'
 import { Route as EticheteBorcaneSticleRouteImport } from './routes/etichete-borcane-sticle'
+import { Route as EticheteBrodateRouteImport } from './routes/etichete-brodate'
 import { Route as EticheteBumbacRouteImport } from './routes/etichete-bumbac'
 import { Route as EticheteCartonRouteImport } from './routes/etichete-carton'
 import { Route as EticheteClujRouteImport } from './routes/etichete-cluj'
@@ -30,6 +31,9 @@ import { Route as EticheteCoduriQrRouteImport } from './routes/etichete-coduri-q
 import { Route as EticheteCompozitieRouteImport } from './routes/etichete-compozitie'
 import { Route as EticheteHaineRouteImport } from './routes/etichete-haine'
 import { Route as EticheteHaineCopiiRouteImport } from './routes/etichete-haine-copii'
+import { Route as EticheteImpermeabileRouteImport } from './routes/etichete-impermeabile'
+import { Route as EticheteImprimateRouteImport } from './routes/etichete-imprimate'
+import { Route as EticheteIndustrialeRouteImport } from './routes/etichete-industriale'
 import { Route as EticheteMarimeRouteImport } from './routes/etichete-marime'
 import { Route as EticheteNylonRouteImport } from './routes/etichete-nylon'
 import { Route as EtichetePersonalizateRouteImport } from './routes/etichete-personalizate'
@@ -48,6 +52,7 @@ import { Route as PangliciPersonalizateRouteImport } from './routes/panglici-per
 import { Route as ProducatorEticheteRouteImport } from './routes/producator-etichete'
 import { Route as ProduseRouteImport } from './routes/produse'
 import { Route as SepciPersonalizateRouteImport } from './routes/sepci-personalizate'
+import { Route as SigleTextileRouteImport } from './routes/sigle-textile'
 import { Route as SimboluriEticheteHaineRouteImport } from './routes/simboluri-etichete-haine'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as StickerePersonalizateRouteImport } from './routes/stickere-personalizate'
@@ -123,6 +128,11 @@ const EticheteBorcaneSticleRoute = EticheteBorcaneSticleRouteImport.update({
   path: '/etichete-borcane-sticle',
   getParentRoute: () => rootRouteImport,
 } as any)
+const EticheteBrodateRoute = EticheteBrodateRouteImport.update({
+  id: '/etichete-brodate',
+  path: '/etichete-brodate',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const EticheteBumbacRoute = EticheteBumbacRouteImport.update({
   id: '/etichete-bumbac',
   path: '/etichete-bumbac',
@@ -161,6 +171,21 @@ const EticheteHaineRoute = EticheteHaineRouteImport.update({
 const EticheteHaineCopiiRoute = EticheteHaineCopiiRouteImport.update({
   id: '/etichete-haine-copii',
   path: '/etichete-haine-copii',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EticheteImpermeabileRoute = EticheteImpermeabileRouteImport.update({
+  id: '/etichete-impermeabile',
+  path: '/etichete-impermeabile',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EticheteImprimateRoute = EticheteImprimateRouteImport.update({
+  id: '/etichete-imprimate',
+  path: '/etichete-imprimate',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EticheteIndustrialeRoute = EticheteIndustrialeRouteImport.update({
+  id: '/etichete-industriale',
+  path: '/etichete-industriale',
   getParentRoute: () => rootRouteImport,
 } as any)
 const EticheteMarimeRoute = EticheteMarimeRouteImport.update({
@@ -255,6 +280,11 @@ const SepciPersonalizateRoute = SepciPersonalizateRouteImport.update({
   path: '/sepci-personalizate',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SigleTextileRoute = SigleTextileRouteImport.update({
+  id: '/sigle-textile',
+  path: '/sigle-textile',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SimboluriEticheteHaineRoute = SimboluriEticheteHaineRouteImport.update({
   id: '/simboluri-etichete-haine',
   path: '/simboluri-etichete-haine',
@@ -316,6 +346,7 @@ export interface FileRoutesByFullPath {
   '/etichete-autoadezive': typeof EticheteAutoadeziveRoute
   '/etichete-autocolante': typeof EticheteAutocolanteRoute
   '/etichete-borcane-sticle': typeof EticheteBorcaneSticleRoute
+  '/etichete-brodate': typeof EticheteBrodateRoute
   '/etichete-bumbac': typeof EticheteBumbacRoute
   '/etichete-carton': typeof EticheteCartonRoute
   '/etichete-cluj': typeof EticheteClujRoute
@@ -324,6 +355,9 @@ export interface FileRoutesByFullPath {
   '/etichete-compozitie': typeof EticheteCompozitieRoute
   '/etichete-haine': typeof EticheteHaineRoute
   '/etichete-haine-copii': typeof EticheteHaineCopiiRoute
+  '/etichete-impermeabile': typeof EticheteImpermeabileRoute
+  '/etichete-imprimate': typeof EticheteImprimateRoute
+  '/etichete-industriale': typeof EticheteIndustrialeRoute
   '/etichete-marime': typeof EticheteMarimeRoute
   '/etichete-nylon': typeof EticheteNylonRoute
   '/etichete-personalizate': typeof EtichetePersonalizateRoute
@@ -342,6 +376,7 @@ export interface FileRoutesByFullPath {
   '/producator-etichete': typeof ProducatorEticheteRoute
   '/produse': typeof ProduseRoute
   '/sepci-personalizate': typeof SepciPersonalizateRoute
+  '/sigle-textile': typeof SigleTextileRoute
   '/simboluri-etichete-haine': typeof SimboluriEticheteHaineRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/stickere-personalizate': typeof StickerePersonalizateRoute
@@ -365,6 +400,7 @@ export interface FileRoutesByTo {
   '/etichete-autoadezive': typeof EticheteAutoadeziveRoute
   '/etichete-autocolante': typeof EticheteAutocolanteRoute
   '/etichete-borcane-sticle': typeof EticheteBorcaneSticleRoute
+  '/etichete-brodate': typeof EticheteBrodateRoute
   '/etichete-bumbac': typeof EticheteBumbacRoute
   '/etichete-carton': typeof EticheteCartonRoute
   '/etichete-cluj': typeof EticheteClujRoute
@@ -373,6 +409,9 @@ export interface FileRoutesByTo {
   '/etichete-compozitie': typeof EticheteCompozitieRoute
   '/etichete-haine': typeof EticheteHaineRoute
   '/etichete-haine-copii': typeof EticheteHaineCopiiRoute
+  '/etichete-impermeabile': typeof EticheteImpermeabileRoute
+  '/etichete-imprimate': typeof EticheteImprimateRoute
+  '/etichete-industriale': typeof EticheteIndustrialeRoute
   '/etichete-marime': typeof EticheteMarimeRoute
   '/etichete-nylon': typeof EticheteNylonRoute
   '/etichete-personalizate': typeof EtichetePersonalizateRoute
@@ -391,6 +430,7 @@ export interface FileRoutesByTo {
   '/producator-etichete': typeof ProducatorEticheteRoute
   '/produse': typeof ProduseRoute
   '/sepci-personalizate': typeof SepciPersonalizateRoute
+  '/sigle-textile': typeof SigleTextileRoute
   '/simboluri-etichete-haine': typeof SimboluriEticheteHaineRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/stickere-personalizate': typeof StickerePersonalizateRoute
@@ -416,6 +456,7 @@ export interface FileRoutesById {
   '/etichete-autoadezive': typeof EticheteAutoadeziveRoute
   '/etichete-autocolante': typeof EticheteAutocolanteRoute
   '/etichete-borcane-sticle': typeof EticheteBorcaneSticleRoute
+  '/etichete-brodate': typeof EticheteBrodateRoute
   '/etichete-bumbac': typeof EticheteBumbacRoute
   '/etichete-carton': typeof EticheteCartonRoute
   '/etichete-cluj': typeof EticheteClujRoute
@@ -424,6 +465,9 @@ export interface FileRoutesById {
   '/etichete-compozitie': typeof EticheteCompozitieRoute
   '/etichete-haine': typeof EticheteHaineRoute
   '/etichete-haine-copii': typeof EticheteHaineCopiiRoute
+  '/etichete-impermeabile': typeof EticheteImpermeabileRoute
+  '/etichete-imprimate': typeof EticheteImprimateRoute
+  '/etichete-industriale': typeof EticheteIndustrialeRoute
   '/etichete-marime': typeof EticheteMarimeRoute
   '/etichete-nylon': typeof EticheteNylonRoute
   '/etichete-personalizate': typeof EtichetePersonalizateRoute
@@ -442,6 +486,7 @@ export interface FileRoutesById {
   '/producator-etichete': typeof ProducatorEticheteRoute
   '/produse': typeof ProduseRoute
   '/sepci-personalizate': typeof SepciPersonalizateRoute
+  '/sigle-textile': typeof SigleTextileRoute
   '/simboluri-etichete-haine': typeof SimboluriEticheteHaineRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/stickere-personalizate': typeof StickerePersonalizateRoute
@@ -468,6 +513,7 @@ export interface FileRouteTypes {
     | '/etichete-autoadezive'
     | '/etichete-autocolante'
     | '/etichete-borcane-sticle'
+    | '/etichete-brodate'
     | '/etichete-bumbac'
     | '/etichete-carton'
     | '/etichete-cluj'
@@ -476,6 +522,9 @@ export interface FileRouteTypes {
     | '/etichete-compozitie'
     | '/etichete-haine'
     | '/etichete-haine-copii'
+    | '/etichete-impermeabile'
+    | '/etichete-imprimate'
+    | '/etichete-industriale'
     | '/etichete-marime'
     | '/etichete-nylon'
     | '/etichete-personalizate'
@@ -494,6 +543,7 @@ export interface FileRouteTypes {
     | '/producator-etichete'
     | '/produse'
     | '/sepci-personalizate'
+    | '/sigle-textile'
     | '/simboluri-etichete-haine'
     | '/sitemap.xml'
     | '/stickere-personalizate'
@@ -517,6 +567,7 @@ export interface FileRouteTypes {
     | '/etichete-autoadezive'
     | '/etichete-autocolante'
     | '/etichete-borcane-sticle'
+    | '/etichete-brodate'
     | '/etichete-bumbac'
     | '/etichete-carton'
     | '/etichete-cluj'
@@ -525,6 +576,9 @@ export interface FileRouteTypes {
     | '/etichete-compozitie'
     | '/etichete-haine'
     | '/etichete-haine-copii'
+    | '/etichete-impermeabile'
+    | '/etichete-imprimate'
+    | '/etichete-industriale'
     | '/etichete-marime'
     | '/etichete-nylon'
     | '/etichete-personalizate'
@@ -543,6 +597,7 @@ export interface FileRouteTypes {
     | '/producator-etichete'
     | '/produse'
     | '/sepci-personalizate'
+    | '/sigle-textile'
     | '/simboluri-etichete-haine'
     | '/sitemap.xml'
     | '/stickere-personalizate'
@@ -567,6 +622,7 @@ export interface FileRouteTypes {
     | '/etichete-autoadezive'
     | '/etichete-autocolante'
     | '/etichete-borcane-sticle'
+    | '/etichete-brodate'
     | '/etichete-bumbac'
     | '/etichete-carton'
     | '/etichete-cluj'
@@ -575,6 +631,9 @@ export interface FileRouteTypes {
     | '/etichete-compozitie'
     | '/etichete-haine'
     | '/etichete-haine-copii'
+    | '/etichete-impermeabile'
+    | '/etichete-imprimate'
+    | '/etichete-industriale'
     | '/etichete-marime'
     | '/etichete-nylon'
     | '/etichete-personalizate'
@@ -593,6 +652,7 @@ export interface FileRouteTypes {
     | '/producator-etichete'
     | '/produse'
     | '/sepci-personalizate'
+    | '/sigle-textile'
     | '/simboluri-etichete-haine'
     | '/sitemap.xml'
     | '/stickere-personalizate'
@@ -618,6 +678,7 @@ export interface RootRouteChildren {
   EticheteAutoadeziveRoute: typeof EticheteAutoadeziveRoute
   EticheteAutocolanteRoute: typeof EticheteAutocolanteRoute
   EticheteBorcaneSticleRoute: typeof EticheteBorcaneSticleRoute
+  EticheteBrodateRoute: typeof EticheteBrodateRoute
   EticheteBumbacRoute: typeof EticheteBumbacRoute
   EticheteCartonRoute: typeof EticheteCartonRoute
   EticheteClujRoute: typeof EticheteClujRoute
@@ -626,6 +687,9 @@ export interface RootRouteChildren {
   EticheteCompozitieRoute: typeof EticheteCompozitieRoute
   EticheteHaineRoute: typeof EticheteHaineRoute
   EticheteHaineCopiiRoute: typeof EticheteHaineCopiiRoute
+  EticheteImpermeabileRoute: typeof EticheteImpermeabileRoute
+  EticheteImprimateRoute: typeof EticheteImprimateRoute
+  EticheteIndustrialeRoute: typeof EticheteIndustrialeRoute
   EticheteMarimeRoute: typeof EticheteMarimeRoute
   EticheteNylonRoute: typeof EticheteNylonRoute
   EtichetePersonalizateRoute: typeof EtichetePersonalizateRoute
@@ -644,6 +708,7 @@ export interface RootRouteChildren {
   ProducatorEticheteRoute: typeof ProducatorEticheteRoute
   ProduseRoute: typeof ProduseRoute
   SepciPersonalizateRoute: typeof SepciPersonalizateRoute
+  SigleTextileRoute: typeof SigleTextileRoute
   SimboluriEticheteHaineRoute: typeof SimboluriEticheteHaineRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   StickerePersonalizateRoute: typeof StickerePersonalizateRoute
@@ -746,6 +811,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof EticheteBorcaneSticleRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/etichete-brodate': {
+      id: '/etichete-brodate'
+      path: '/etichete-brodate'
+      fullPath: '/etichete-brodate'
+      preLoaderRoute: typeof EticheteBrodateRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/etichete-bumbac': {
       id: '/etichete-bumbac'
       path: '/etichete-bumbac'
@@ -800,6 +872,27 @@ declare module '@tanstack/react-router' {
       path: '/etichete-haine-copii'
       fullPath: '/etichete-haine-copii'
       preLoaderRoute: typeof EticheteHaineCopiiRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/etichete-impermeabile': {
+      id: '/etichete-impermeabile'
+      path: '/etichete-impermeabile'
+      fullPath: '/etichete-impermeabile'
+      preLoaderRoute: typeof EticheteImpermeabileRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/etichete-imprimate': {
+      id: '/etichete-imprimate'
+      path: '/etichete-imprimate'
+      fullPath: '/etichete-imprimate'
+      preLoaderRoute: typeof EticheteImprimateRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/etichete-industriale': {
+      id: '/etichete-industriale'
+      path: '/etichete-industriale'
+      fullPath: '/etichete-industriale'
+      preLoaderRoute: typeof EticheteIndustrialeRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/etichete-marime': {
@@ -928,6 +1021,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SepciPersonalizateRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/sigle-textile': {
+      id: '/sigle-textile'
+      path: '/sigle-textile'
+      fullPath: '/sigle-textile'
+      preLoaderRoute: typeof SigleTextileRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/simboluri-etichete-haine': {
       id: '/simboluri-etichete-haine'
       path: '/simboluri-etichete-haine'
@@ -1020,6 +1120,7 @@ const rootRouteChildren: RootRouteChildren = {
   EticheteAutoadeziveRoute: EticheteAutoadeziveRoute,
   EticheteAutocolanteRoute: EticheteAutocolanteRoute,
   EticheteBorcaneSticleRoute: EticheteBorcaneSticleRoute,
+  EticheteBrodateRoute: EticheteBrodateRoute,
   EticheteBumbacRoute: EticheteBumbacRoute,
   EticheteCartonRoute: EticheteCartonRoute,
   EticheteClujRoute: EticheteClujRoute,
@@ -1028,6 +1129,9 @@ const rootRouteChildren: RootRouteChildren = {
   EticheteCompozitieRoute: EticheteCompozitieRoute,
   EticheteHaineRoute: EticheteHaineRoute,
   EticheteHaineCopiiRoute: EticheteHaineCopiiRoute,
+  EticheteImpermeabileRoute: EticheteImpermeabileRoute,
+  EticheteImprimateRoute: EticheteImprimateRoute,
+  EticheteIndustrialeRoute: EticheteIndustrialeRoute,
   EticheteMarimeRoute: EticheteMarimeRoute,
   EticheteNylonRoute: EticheteNylonRoute,
   EtichetePersonalizateRoute: EtichetePersonalizateRoute,
@@ -1046,6 +1150,7 @@ const rootRouteChildren: RootRouteChildren = {
   ProducatorEticheteRoute: ProducatorEticheteRoute,
   ProduseRoute: ProduseRoute,
   SepciPersonalizateRoute: SepciPersonalizateRoute,
+  SigleTextileRoute: SigleTextileRoute,
   SimboluriEticheteHaineRoute: SimboluriEticheteHaineRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   StickerePersonalizateRoute: StickerePersonalizateRoute,

@@ -15,10 +15,10 @@ export const Route = createFileRoute("/etichete-compozitie")({
   component: EticheteCompozitie,
   head: ({ loaderData }) => applySeo({
     meta: [
-      { title: "Etichete de compoziție multilingve — RO/EN/DE/FR/IT | Etichett Prod" },
+      { title: "Etichete compoziție haine multilingve — RO/EN/DE/FR/IT | Etichett Prod" },
       { name: "description", content: "Etichete de compoziție pentru haine, cu fibre și simboluri ISO 3758, în RO/EN/DE/FR/IT. Imprimare față-verso pe satin sau. Cere ofertă gratuită în 24h." },
       { name: "keywords", content: "etichete compozitie, etichete de compozitie, etichete compozitie haine, etichete compozitie multilingve, etichete spalare, etichete iso 3758, etichete cluj" },
-      { property: "og:title", content: "Etichete de compoziție multilingve — RO/EN/DE/FR/IT | Etichett Prod" },
+      { property: "og:title", content: "Etichete compoziție haine multilingve — RO/EN/DE/FR/IT | Etichett Prod" },
       { property: "og:description", content: "Etichete de compoziție conforme UE, cu simboluri de spălare și fibre în mai multe limbi." },
       { property: "og:url", content: "https://etichetetextile.ro/etichete-compozitie" },
       { property: "og:image", content: "https://etichetetextile.ro/images/hero-labels.webp" },

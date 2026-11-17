@@ -13,3 +13,4 @@
 
 - QuoteAdmin uses admin-scoped browser reads and private blob downloads; original logo files are downloaded, never rendered as uploaded HTML or SVG.
 - Homepage promotional video visibility is controlled by FEATURES.promoVideo in a dedicated component so it can be disabled without changing the homepage layout.
+- Keyword landing pages in NEW_LABEL_PAGES carry their own related links (exact-keyword anchors), a real-photo gallery (LabelGallery lightbox) and a TechniqueCompare default; every listed image must exist in public/images and alt text must describe the photo truthfully (no woven photo labelled as embroidered).

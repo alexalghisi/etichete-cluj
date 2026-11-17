@@ -57,7 +57,7 @@ function EticheteHaine() {
     <PageLayout>
       <PageHero
         eyebrow="Categorie · Haine"
-        title="Etichete pentru haine personalizate cu logo"
+        title="Etichete haine personalizate cu logo, pentru branduri și firme"
         subtitle="Etichete pentru haine de brand, copii, lucru sau handmade — țesute, satin, termoadezive, de compoziție și mărime. Producător Cluj-Napoca."
       />
       <section className="mx-auto max-w-7xl px-4 py-16 md:px-6">

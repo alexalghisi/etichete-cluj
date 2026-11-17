@@ -12,4 +12,4 @@
 - [x] Add conversion controls and order steps; Google Maps business lookup added.
 - [ ] Direct Google review link: verified profile review URL not available.
 - [x] Expand six pages and add four unique content pages.
-- [x] Update internal links, sitemap and image/font performance; verify flows and tests.
+- [x] Update internal links, sitemap and image/font performance; verify flows and tests.- [x] Add keyword pages: etichete imprimate, brodate, sigle textile, impermeabile, industriale; interactive gallery + technique comparison; e2e/browser verified.

@@ -6,7 +6,6 @@ import { createFileRoute, redirect, Link, notFound } from "@tanstack/react-route
 const REDIRECTS: Record<string, string> = {
   // Legacy product/category pages
   "etichete-uniforme": "/etichete-personalizate",
-  "etichete-impermeabile": "/etichete-satin",
   "etichete-imbracaminte": "/etichete-haine",
   "etichete-mobilier": "/etichete-personalizate",
   "etichete-produse": "/produse",
@@ -35,11 +34,20 @@ const REDIRECTS: Record<string, string> = {
   "etichete-nylon": "/etichete-satin",
   "etichete-satina": "/etichete-satin",
   "etichete-textile-personalizate": "/etichete-textile",
+  "imprimare-etichete-textile": "/etichete-imprimate",
+  "etichete-textile-imprimate": "/etichete-imprimate",
+  "etichete-impermeabile-haine": "/etichete-impermeabile",
+  "etichete-haine-firma": "/sigle-textile",
+  "sigle-haine": "/sigle-textile",
+  "sigle-brodate": "/etichete-brodate",
+  "etichete-textile-bumbac": "/etichete-bumbac",
+  "etichete-compozitie-haine": "/etichete-compozitie",
 };
 
 // Routes that exist in the app — used to detect trailing-slash hits we should
 // 301 to the canonical (no-slash) version.
 const KNOWN_ROUTES = new Set([
+  "etichete-imprimate", "etichete-brodate", "sigle-textile", "etichete-impermeabile", "etichete-industriale",
   "cere-oferta", "generator-eticheta-compozitie", "etichete-bumbac", "embleme-tesute", "etichete-marime", "producator-etichete", "etichete-compozitie", "etichete-nylon", "blog",
   "despre-noi",
   "produse",

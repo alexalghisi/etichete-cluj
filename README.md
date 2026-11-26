@@ -1,26 +1,31 @@
-# Etichett prod srl
+# Etichett Prod — etichete textile, Cluj-Napoca
 
-vreau sa portam la noi aici pe lovable siteul lui mama ( https://etichetetextile.ro/ ) si sa fie mult mai optimizat seo din toate punctele de vedere si pentru toate cautarile revlevanet acestsuia !! Cum ar fi "etichete cluj" "etichete cluj-napoca" "etichete textile" .. ti-am atasat o lista de keywords care sunt in trend la cautari relevante acestui site acum !! Vezi ca vreau sa contina exact aceleasi imagini de pe siteul facut de nu stiu cine cui i-a platit mama, sa fie mai corect si profesional !!!
+Site-ul de prezentare al producătorului de etichete textile Etichett Prod SRL: etichete țesute, imprimate și embosate, tipografie și tricouri personalizate, cu cerere de ofertă online.
 
-This project was built with [Lovable](https://lovable.dev).
+**Site live:** https://etichetetextile.ro
 
-**Live app**: https://etichete-cluj.lovable.app
+![Pagina principală etichetetextile.ro](docs/preview.jpg)
 
-## Build with Lovable
+## Ce conține
 
-Continue developing this project in the [Lovable editor](https://lovable.dev/projects/abf95c1b-a3cb-4eb6-a5bc-6b963df1a694).
+- **Pagini de produs** pentru fiecare tip de etichetă (țesute, imprimate, satin, bumbac, termoadezive, compoziție, mărime și altele).
+- **Generator de etichetă de compoziție** (`/generator-eticheta-compozitie`).
+- **Cerere de ofertă** (`/cere-oferta`), galerie de lucrări și blog.
+- **SEO tehnic**: canonical, Open Graph, JSON-LD și sitemap pe toate paginile.
 
-- **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: every change made in Lovable is committed straight to this repository.
-- **Full ownership**: this code is yours. Push to `main` on GitHub and your changes sync back into Lovable, ready for your next prompt.
+## Tehnologii
 
-## Development
+TanStack Start (React 19, SSR pe Cloudflare Workers) · Supabase · Tailwind CSS
 
-Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
+## Dezvoltare
+
+Ai nevoie de Node.js 22+ și [Bun](https://bun.sh).
 
 ```sh
-git clone <this-repository-url>
-cd <repository-name>
-npm i
-npm run dev
+git clone https://github.com/alexalghisi/etichete-cluj.git
+cd etichete-cluj
+bun install
+bun run dev
 ```
+
+`bun run build` construiește varianta de producție, `bun run lint` verifică codul.

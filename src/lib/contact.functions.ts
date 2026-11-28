@@ -12,10 +12,16 @@ const schema = z.object({
 export const sendContactMessage = createServerFn({ method: "POST" })
   .inputValidator((d) => schema.parse(d))
   .handler(async ({ data }) => {
-    const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
-    const { error } = await (supabaseAdmin as any).from("contact_messages").insert({
-      name: data.name, email: data.email, phone: data.phone || null, message: data.message, page: "/contact",
-    });
+    const { publicContentClient } = await import("./blog-data.server");
+    const { error } = await publicContentClient()
+      .from("contact_messages")
+      .insert({
+        name: data.name,
+        email: data.email,
+        phone: data.phone || null,
+        message: data.message,
+        page: "/contact",
+      });
     if (error) throw new Error("Mesajul nu a putut fi trimis. Încearcă din nou sau sună-ne.");
     return { ok: true };
   });

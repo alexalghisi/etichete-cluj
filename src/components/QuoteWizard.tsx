@@ -26,7 +26,7 @@ export function QuoteWizard({ initialType, initialLabel }: { initialType?: Label
       let logoPath: string | null=null;
       if(file) { const extension=file.name.split('.').pop()?.toLowerCase(); if(!['pdf','ai','svg','png'].includes(extension ?? '') || file.size>10*1024*1024) throw new Error('Alege PDF, AI, SVG sau PNG de maximum 10 MB.');
         const ext=extension as 'pdf'|'ai'|'svg'|'png'; const signed=await prepare({data:{extension:ext,size:file.size}});
-        const {error:uploadError}=await supabase.storage.from('quote-logos').uploadToSignedUrl(signed.path,signed.token,file); if(uploadError) throw new Error('Logoul nu a putut fi încărcat. Reîncearcă.'); logoPath=signed.path;
+        const {error:uploadError}=await supabase.storage.from('quote-logos').upload(signed.path,file); if(uploadError) throw new Error('Logoul nu a putut fi încărcat. Reîncearcă.'); logoPath=signed.path;
       }
       const result=await send({data:{...parsed.data,logoPath}}); setDone(result.reference); trackConversion('generate_lead',{form:'quote',label_type:form.type});
     } catch(err) {setError(err instanceof Error ? err.message : 'Cererea nu a putut fi trimisă.');} finally {setBusy(false);}

@@ -1,6 +1,7 @@
 import { createServerFn } from "@tanstack/react-start";
 import { createClient } from "@supabase/supabase-js";
 import { z } from "zod";
+import { DB_SCHEMA } from "@/integrations/supabase/schema";
 
 export type SeoFaq = { q: string; a: string };
 export type SeoLink = { to: string; label: string };
@@ -29,6 +30,7 @@ export const getSeoOverride = createServerFn({ method: "GET" })
       const key = process.env["SUPABASE_PUBLISHABLE_KEY"] ?? process.env["SUPABASE_ANON_KEY"];
       if (!url || !key) return { seo: null };
       const sb = createClient(url, key, {
+        db: { schema: DB_SCHEMA },
         auth: { persistSession: false },
         global: {
           fetch: (input, init) => {

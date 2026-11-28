@@ -1,10 +1,12 @@
 import { createClient } from "@supabase/supabase-js";
+import { DB_SCHEMA } from "@/integrations/supabase/schema";
 
 export function publicContentClient() {
   const url = process.env["SUPABASE_URL"];
   const key = process.env["SUPABASE_PUBLISHABLE_KEY"] ?? process.env["SUPABASE_ANON_KEY"];
   if (!url || !key) throw new Error("Public content is not configured");
   return createClient(url, key, {
+    db: { schema: DB_SCHEMA },
     auth: { persistSession: false },
     global: { fetch: (input, init) => {
       const headers = new Headers(init?.headers);
